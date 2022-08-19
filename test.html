@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Push Notification Plugin Demos</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<style>
+body { background-color:#333;}
+.container { margin:70px auto;}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="jquery-script-ads" style="margin:30px auto;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<h1>jQuery Push Notification Plugin Demos</h1>
+<button type="button" class="btn btn-primary" onclick="simpleNotify()">Basic</button>
+<button type="button" class="btn btn-primary" onclick="clickalertNotify()">Callback</button>
+<button type="button" class="btn btn-primary" onclick="clickredirectNotify()">Redirect</button>
+<button type="button" class="btn btn-primary" onclick="picNotify()">Custom Icon</button>
+<button type="button" class="btn btn-primary" onclick="titleNotify()">Custom Title</button>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="push_notification.js"></script>
+<script>
+function simpleNotify(){
+      $.notify("simple notify");
+    }
+    function clickalertNotify(){
+      $.notify("click alert notify").click(function(){
+        alert("clicked!");
+      });
+    }
+    function clickredirectNotify(){
+      $.notify("click redirect notify").click(function(){
+        location.href = "https://github.com/asmsuechan/jquery_push_notification";
+      });
+    }
+    function picNotify(){
+      $.notify("asdf", {
+        icon: "https://avatars3.githubusercontent.com/u/11307908?v=3&s=460"
+      });
+    }
+    function titleNotify(){
+      $.notify("set title option", {
+        title: "This is title!"
+      });
+    }
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
