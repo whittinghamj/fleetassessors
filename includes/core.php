@@ -54,7 +54,8 @@ $start = $time;
 
 // vars
 $globals['dev']			 		= true;
-$globals['basedir']         	= '/home/theflowernetwork/public_html/backend/';
+$globals['basedir']         	= '/home/genex/public_html/projects/fleet/';
+
 $globals['smtp_username']       = 'admin@mg.netmaker.io';
 $globals['smtp_password']       = '532f234ab9569f99c12000eda338b2ac-1d8af1f4-718713cf';
 $globals['smtp_domain']         = 'netmaker.io';
@@ -62,7 +63,7 @@ $globals['smtp_name']           = 'NetMaker';
 
 // load database
 $database['hostname']			= '173.248.140.254';
-$database['database'] 			= 'theflowernetwork';
+$database['database'] 			= 'fleetassessors_dashboard';
 $database['username'] 			= 'whittinghamj';
 $database['password'] 			= 'admin1372Dextor!#&@Mimi!#&@';
 
@@ -76,9 +77,9 @@ try{
 }
 
 // site static vars
-$globals['url']					= 'https://theflowernetwork.xyz/';
-$globals['domain']              = 'theflowernetwork.xyz';
-$globals['platform_name']		= 'FlowerNetworkTeam';
+$globals['url']					= 'https://fleetassessorsltd.com/';
+$globals['domain']              = 'fleetassessorsltd.com';
+$globals['platform_name']		= 'Fleet Assessors';
 $globals['platform_version']	= '1.0.0';
 $globals['copyright']			= 'Written by Jamie Whittingham.';
 

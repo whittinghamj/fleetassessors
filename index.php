@@ -10,7 +10,7 @@ include( dirname(__FILE__).'/includes/functions.php' );
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title><?php echo $globals['platform_name']; ?> - Flowers made simple</title>
+	<title><?php echo $globals['platform_name']; ?> - Dashboard</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -36,7 +36,7 @@ include( dirname(__FILE__).'/includes/functions.php' );
 						<span class="logo"><i class="ion-ios-cloud"></i></span> 
 					-->
 					<?php echo $globals['platform_name']; ?>
-					<small>Flowers made simple</small>
+					<small></small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>
@@ -61,9 +61,11 @@ include( dirname(__FILE__).'/includes/functions.php' );
 					<div class="login-buttons">
 						<button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
 					</div>
-					<div class="m-t-20">
-						Not a member yet? Click <a href="register.php">here</a> to register.
-					</div>
+					<!--
+						<div class="m-t-20">
+							Not a member yet? Click <a href="register.php">here</a> to register.
+						</div>
+					-->
 				</form>
 			</div>
 		</div>
