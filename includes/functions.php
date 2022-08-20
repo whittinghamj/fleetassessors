@@ -172,7 +172,7 @@ function total_jobs( $status = '' ) {
 			$sql = "
 				SELECT count(`id`) as total 
 		    	FROM `jobs` 
-		    	WHERE 'status' = `".$status."` 
+		    	WHERE `status` = '".$status."'' 
 			";
 		}
 	} else {
@@ -185,7 +185,7 @@ function total_jobs( $status = '' ) {
 			$sql = "
 				SELECT count(`id`) as total 
 		    	FROM `jobs` 
-		    	WHERE 'status' = `".$status."` 
+		    	WHERE `status` = '".$status."'' 
 			";
 		}
 	}
@@ -216,7 +216,7 @@ function total_users( $type = '' ) {
 	}
 	// get data
     $query      = $conn->query( $sql );
-    
+
     // sanity check
     $data    	= $query->fetch(PDO::FETCH_ASSOC);
 
