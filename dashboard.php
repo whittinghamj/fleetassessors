@@ -7618,30 +7618,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		</script>
 	<?php } ?>
 
-	<!-- tawk.to script -->
-	<?php if( $admin_check || $staff_check ) { ?>
-
-	<?php } else { ?>
-		<script type="text/javascript">
-		    var Tawk_API = Tawk_API || {},
-		        Tawk_LoadStart = new Date();
-		        Tawk_API.visitor = {
-					name : '<?php echo $account_details['full_name']; ?>',
-					company : '<?php echo $account_details['company_name']; ?>',
-					email : '<?php echo $account_details['email']; ?>'
-				};
-		    (function () {
-		        var s1 = document.createElement( "script" ),
-		            s0 = document.getElementsByTagName( "script" )[0];
-		        s1.async = true;
-		        s1.src = "https://embed.tawk.to/60ed2c94d6e7610a49aafb72/1faf7c92u";
-		        s1.charset = "UTF-8";
-		        s1.setAttribute( "crossorigin", "*" );
-		        s0.parentNode.insertBefore( s1, s0 );
-		    } )();
-		</script>
-	<?php } ?>
-
 	<!-- introjs functions -->
 	<script>
 		function tutorial_page_home(){
