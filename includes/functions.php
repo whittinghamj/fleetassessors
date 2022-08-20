@@ -164,7 +164,7 @@ function total_users( $type = '' ) {
     // get data
     if( empty( $type ) ) {
 		$sql = "
-			SELECT count(`id`) as total_users 
+			SELECT count(`id`) as total 
 	    	FROM `users` 
 		";
 	} else {
@@ -187,7 +187,7 @@ function total_customers( $type = '' ) {
     // get data
     if( empty( $type ) ) {
 		$sql = "
-			SELECT count(`id`) as total_users 
+			SELECT count(`id`) as total 
 	    	FROM `customers` 
 		";
 	} else {
