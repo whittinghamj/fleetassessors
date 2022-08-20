@@ -495,7 +495,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</li>
 					<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
 						<a href="dashboard.php?c=jobs">
-							<i class="fa fa-first-order bg-green"></i>
+							<i class="fa fa-automobile bg-green"></i>
 							<span>Jobs</span> 
 						</a>
 					</li>
@@ -516,22 +516,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				<?php if( $admin_check || $staff_check ) { ?>
 					<ul class="nav"><li class="nav-header">Admin Section</li>
 						<li class="has-sub 
-							<?php if( get( 'filter' ) == 'customer' || get( 'filter' ) == 'customers' ) { echo'active'; } ?>
-							<?php if( get( 'filter' ) == 'florist' || get( 'filter' ) == 'florists' ) { echo'active'; } ?>
-							<?php if( get( 'filter' ) == 'staff_member' || get( 'filter' ) == 'staff_members' ) { echo'active'; } ?>
-							<?php if( get( 'filter' ) == 'admin' || get( 'filter' ) == 'admins' ) { echo'active'; } ?>
-							<?php if( get( 'c' ) == 'user' ) { echo'active'; } ?>
+							<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
+							<?php if( get( 'tool' ) == 'vrn_lookup' ) { echo'active'; } ?>
 						">
 							<a href="javascript:;">
 								<b class="caret"></b>
-								<i class="fa fa-address-card"></i>
-								<span>Users</span>
+								<i class="fa fa-first-order"></i>
+								<span>Tools</span>
 							</a>
 							<ul class="sub-menu">
-								<li <?php if( get( 'c' ) == 'customer' || get( 'filter' ) == 'customers' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=customers">Customers</a></li>
-								<li <?php if( get( 'filter' ) == 'florist' || get( 'filter' ) == 'florists' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=florists">Florists</a></li>
-								<li <?php if( get( 'filter' ) == 'staff_member' || get( 'filter' ) == 'staff_members' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=staff_members">Staff Members</a></li>
-								<li <?php if( get( 'filter' ) == 'admin' || get( 'filter' ) == 'admins' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=admins">Admins</a></li>
+								<li <?php if( get( 'c' ) == 'tools' || get( 'tool' ) == 'vrn_lookup' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
 							</ul>
 						</li>
 						<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>

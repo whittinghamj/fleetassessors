@@ -14,7 +14,7 @@ function distance( $a, $b ) {
 }
 
 function calculate_network_fee( $user_id, $amount ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$user = account_details( $user_id );
@@ -27,7 +27,7 @@ function calculate_network_fee( $user_id, $amount ) {
 }
 
 function florist_delivery_address_to_florist( $delivery_address ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	
 
@@ -35,7 +35,7 @@ function florist_delivery_address_to_florist( $delivery_address ) {
 }
 
 function find_closest_florist( $deliver_id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get delivery details
 	$delivery_address = get_delivery_detail( $deliver_id );
@@ -70,7 +70,7 @@ function find_closest_florist( $deliver_id ) {
 }
 
 function forward_geocoding( $address ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// sanity check
 	$address = str_replace( ' ', '%20', $address );
@@ -83,7 +83,7 @@ function forward_geocoding( $address ) {
 }
 
 function get_global_addresses_by_country_old() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -101,7 +101,7 @@ function get_global_addresses_by_country_old() {
 }
 
 function get_global_countries() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -119,10 +119,7 @@ function get_global_countries() {
 }
 
 function total_orders( $order_status = '' ) {
-    global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
-
-    // map filters
-    if( empty( $order_status ) ) { $sql_order_status = ""; } else { $sql_order_status = "`status` = '".$order_status."' "; }
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
     // get data
     if( $admin_check || $staff_check ) {
@@ -162,7 +159,7 @@ function total_orders( $order_status = '' ) {
 }
 
 function total_users( $type = '' ) {
-    global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
     // get data
     if( empty( $type ) ) {
@@ -185,7 +182,7 @@ function total_users( $type = '' ) {
 }
 
 function total_profit( $start_time = '' ) {
-    global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
     // defaults
     $total 					= array();
@@ -373,7 +370,7 @@ function search_multi_array( $dataArray, $search_value, $key_to_search ) {
 }
 
 function get_message( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -394,7 +391,7 @@ function get_message( $id ) {
 }
 
 function get_messages( $filter ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create blank array
 	$messages = array();
@@ -428,7 +425,7 @@ function get_messages( $filter ) {
 }
 
 function get_user( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -457,7 +454,7 @@ function get_user( $id ) {
 }
 
 function get_users( $filter = '' ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$users = array();
@@ -500,7 +497,7 @@ function get_users( $filter = '' ) {
 }
 
 function get_product_categories() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$users = array();
@@ -520,7 +517,7 @@ function get_product_categories() {
 }
 
 function get_delivery_detail( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -537,7 +534,7 @@ function get_delivery_detail( $id ) {
 }
 
 function get_delivery_details() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$delivery_details = array();
@@ -570,7 +567,7 @@ function get_delivery_details() {
 }
 
 function get_users_summary( $filter = '' ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$users = array();
@@ -614,7 +611,7 @@ function get_users_summary( $filter = '' ) {
 }
 
 function get_subscription_plan( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -631,7 +628,7 @@ function get_subscription_plan( $id ) {
 }
 
 function get_subscription_users( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$users = array();
@@ -663,7 +660,7 @@ function get_subscription_users( $id ) {
 }
 
 function get_subscription_plans() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -679,7 +676,7 @@ function get_subscription_plans() {
 }
 
 function get_order( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// admin check
 	if( $admin_check || $staff_check ) {
@@ -721,7 +718,7 @@ function get_order( $id ) {
 }
 
 function get_payment( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -738,7 +735,7 @@ function get_payment( $id ) {
 }
 
 function get_order_item( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -755,7 +752,7 @@ function get_order_item( $id ) {
 }
 
 function get_order_items( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -772,7 +769,7 @@ function get_order_items( $id ) {
 }
 
 function get_orders() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$orders = array();
@@ -810,7 +807,7 @@ function get_orders() {
 }
 
 function get_orders_for_coverage_area() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get coverage area
 	$coverage_area = explode( ',', $account_details['coverage_area'] );
@@ -862,7 +859,7 @@ function get_orders_for_coverage_area() {
 }
 
 function get_orders_for_me() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// sanity check
 	$coverage_area = str_replace( ',', "','", $account_details['coverage_area'] );
@@ -904,7 +901,7 @@ function get_orders_for_me() {
 }
 
 function get_orders_for_fallback() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// sanity check
 	$coverage_area = str_replace( ',', "','", $account_details['secondary_coverage_area'] );
@@ -949,7 +946,7 @@ function get_orders_for_fallback() {
 }
 
 function get_product( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -970,7 +967,7 @@ function get_product( $id ) {
 }
 
 function get_products() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$products = array();
@@ -1003,7 +1000,7 @@ function get_products() {
 }
 
 function get_products_to_order() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
 	$products = array();
@@ -1037,7 +1034,7 @@ function get_products_to_order() {
 }
 
 function get_product_image( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -1054,7 +1051,7 @@ function get_product_image( $id ) {
 }
 
 function get_product_images( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -1071,7 +1068,7 @@ function get_product_images( $id ) {
 }
 
 function get_florist_payouts( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -1088,7 +1085,7 @@ function get_florist_payouts( $id ) {
 }
 
 function get_departments() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// get data
 	$query = $conn->query( "
@@ -2219,7 +2216,7 @@ function get_data( $url ) {
 }
 
 function calculate_percentage_change( $base_bumber, $percentage ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $forist_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	$difference = ( $base_bumber / 100 ) * $percentage;
 
