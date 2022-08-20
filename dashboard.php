@@ -517,7 +517,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					<ul class="nav"><li class="nav-header">Admin Section</li>
 						<li class="has-sub 
 							<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
-							<?php if( get( 'tool' ) == 'vrn_lookup' ) { echo'active'; } ?>
+							<?php if( get( 'c' ) == 'vrn_lookup' ) { echo'active'; } ?>
 						">
 							<a href="javascript:;">
 								<b class="caret"></b>
@@ -525,7 +525,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<span>Tools</span>
 							</a>
 							<ul class="sub-menu">
-								<li <?php if( get( 'c' ) == 'tools' || get( 'tool' ) == 'vrn_lookup' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+								<li <?php if( get( 'c' ) == 'tools' || get( 'c' ) == 'vrn_lookup' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
 							</ul>
 						</li>
 						<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>
