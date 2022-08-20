@@ -489,7 +489,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</li>
 					<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
 						<a href="dashboard.php?c=customers">
-							<i class="fa fa-users bg-purple"></i>
+							<i class="fa fa-users bg-orange"></i>
 							<span>Customers</span> 
 						</a>
 					</li>
