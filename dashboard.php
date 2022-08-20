@@ -994,7 +994,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						-->
 						<div class="col-xl-3 col-xs-6">
 							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
+								<div class="stats-icon stats-icon-square bg-gradient-orange text-white"><i class="fa fa-car"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Pending Jobs
@@ -1010,7 +1010,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="col-xl-3 col-xs-6">
 							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
+								<div class="stats-icon stats-icon-square bg-gradient-orange text-white"><i class="fa fa-car"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Total Jobs
