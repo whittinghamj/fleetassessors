@@ -676,19 +676,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<div class="panel panel-inverse">
 					<div class="panel-heading">
-						<h2 class="panel-title">Playground</h2>
-						<div class="panel-heading-btn">
-
-						</div>
-					</div>
-					<div class="panel-body">
-						<button onclick="playsound( 'audio_files/new-notification-female-voice.mp3' );">Play</button>
-						<button type="button" class="btn btn-xs btn-primary" onclick="simpleNotify()">Basic</button>
-					</div>
-				</div>
-
-				<div class="panel panel-inverse">
-					<div class="panel-heading">
 						<h2 class="panel-title">Account Details</h2>
 						<div class="panel-heading-btn">
 
