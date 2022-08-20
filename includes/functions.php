@@ -13,151 +13,7 @@ function distance( $a, $b ) {
 	return $miles;
 }
 
-function calculate_network_fee( $user_id, $amount ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$user = account_details( $user_id );
-
-	$network_fee = ( $user['subscription']['network_percentage'] / 100 ) * $amount;
-
-	$network_fee = number_format( $network_fee, 2 );
-
-	return $network_fee;
-}
-
-function florist_delivery_address_to_florist( $delivery_address ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	
-
-	return $orders;
-}
-
-function find_closest_florist( $deliver_id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get delivery details
-	$delivery_address = get_delivery_detail( $deliver_id );
-
-	// prepare data for searching
-	$delivery_latlng = array( $delivery_address['address_lat'], $delivery_address['address_lng'] );
-
-	// get all florists
-	$florists = get_users( 'florist' );
-
-	// manipulate data
-	$items = array();
-	$count = 0;
-	foreach( $florists as $florist ) {
-		$items[$count][] = $florist['id'];
-		$items[$count][] = $florist['company_name'];
-		$items[$count][] = $florist['address_lat'];
-		$items[$count][] = $florist['address_lng'];
-
-		$count++;
-	}
-
-	// find nearest florist
-	$distances = array_map( function( $item ) use( $delivery_latlng ) {
-		$a = array_slice( $item, -2 );
-		return distance( $a, $delivery_latlng );
-	}, $items );
-
-	// echo 'Closest item is: ', var_dump( $items[key( $distances )] );
-
-	return $items[key( $distances )];
-}
-
-function forward_geocoding( $address ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// sanity check
-	$address = str_replace( ' ', '%20', $address );
-
-	// get external data
-	$data = file_get_contents( 'https://api.mapbox.com/geocoding/v5/mapbox.places/'.$address.'.json?access_token='.$globals['mapbox_api_key'] );
-	$data = json_decode( $data, true );
-
-	return $data;
-}
-
-function get_global_addresses_by_country_old() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT `id`,`user_id`,`city`,`state`,`zip_code` 
-		FROM `global_addresses` 
-		WHERE `country` = '".$account_details['address_country']."' 
-		ORDER BY city, state, zip_code, country ASC 
-	" );
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
-function get_global_countries() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT `id`,`country` 
-		FROM `global_addresses` 
-		GROUP BY `country` 
-		ORDER BY `country` ASC 
-	" );
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
-function total_orders( $order_status = '' ) {
-    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-    // get data
-    if( $admin_check || $staff_check ) {
-		if( empty( $order_status ) ) {
-			$sql = "
-				SELECT count(`id`) as total_orders 
-		    	FROM `orders` 
-			";
-		} else {
-			$sql = "
-				SELECT count(`id`) as total_orders 
-		    	FROM `orders` 
-		    	WHERE $sql_order_status 
-			";
-		}
-	} else {
-		if( empty( $order_status ) ) {
-			$sql = "
-				SELECT count(`id`) as total_orders 
-		    	FROM `orders` 
-		    	WHERE `destination_florist_id` = '".$account_details['id']."' 
-			";
-		} else {
-			$sql = "
-				SELECT count(`id`) as total_orders 
-		    	FROM `orders` 
-		    	WHERE `destination_florist_id` = '".$account_details['id']."' 
-		    	AND $sql_order_status 
-			";
-		}
-	}
-	// get data
-    $query      = $conn->query( $sql );
-    $data    	= $query->fetch(PDO::FETCH_ASSOC);
-
-    return $data['total_orders'];
-}
-
+// count jobs with status filter
 function total_jobs( $status = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -198,6 +54,26 @@ function total_jobs( $status = '' ) {
     return $data['total'];
 }
 
+// count jobs per customer
+function total_jobs_per_customer( $customer_id = '' ) {
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+    // get data
+    $sql = "
+		SELECT count(`id`) as total 
+    	FROM `jobs` 
+    	WHERE `customer_id` = '".$customer_id."'
+	";
+	// get data
+    $query      = $conn->query( $sql );
+
+    // sanity check
+    $data    	= $query->fetch(PDO::FETCH_ASSOC);
+
+    return $data['total'];
+}
+
+// count providers with status filter
 function total_providers( $status = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -238,6 +114,7 @@ function total_providers( $status = '' ) {
     return $data['total'];
 }
 
+// count users with type filter
 function total_users( $type = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -263,6 +140,7 @@ function total_users( $type = '' ) {
     return $data['total'];
 }
 
+// count customers with type filter
 function total_customers( $type = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -281,11 +159,14 @@ function total_customers( $type = '' ) {
 	}
 	// get data
     $query      = $conn->query( $sql );
+
+    // sanity check
     $data    	= $query->fetch(PDO::FETCH_ASSOC);
 
     return $data['total'];
 }
 
+// calculate total profit
 function total_profit( $start_time = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -347,6 +228,7 @@ function total_profit( $start_time = '' ) {
     return $total;
 }
 
+// shorten string of text to X character long with trailing ...
 function truncate( $string, $length, $dots = "..." ) {
 	$string = trim( $string );
 
@@ -356,9 +238,10 @@ function truncate( $string, $length, $dots = "..." ) {
 			$string = $string[0] . $dots;
 	}
 
-return $string;
+	return $string;
 }
 
+// get the first letter of each word in string of text
 function get_first_letters( $string ) {
 	$expr = '/(?<=\s|^)[a-z]/i';
 	preg_match_all( $expr, $string, $matches );
@@ -370,6 +253,7 @@ function get_first_letters( $string ) {
 	return $result;
 }
 
+// encrypt email address
 function obfuscate_email( $email ) {
 	$em	= explode( "@",$email );
 	$name = implode( '@', array_slice( $em, 0, count( $em )-1 ) );
@@ -493,40 +377,6 @@ function get_message( $id ) {
 	$data = stripslashes_deep( $data );
 
 	return $data;
-}
-
-function get_messages( $filter ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// create blank array
-	$messages = array();
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `messages` 
-		WHERE `filter` = '".$filter."' 
-		AND `to_id` = '".$account_details['id']."' 
-		ORDER BY `id` DESC 
-	" );
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	$count = 0;
-
-	// loop over data to add additional details about each messages
-	foreach( $data as $bit ) {
-		// add existing data
-		$messages[$count] = $bit;
-
-		// find sender details
-		$messages[$count]['sender'] 				= get_user( $bit['from_id'] );
-
-		$count++;
-	}
-
-	$messages = stripslashes_deep( $messages );
-
-	return $messages;
 }
 
 function get_user( $id ) {
@@ -873,16 +723,16 @@ function get_order_items( $id ) {
 	return $data;
 }
 
-function get_orders() {
+function get_customers() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create black array
-	$orders = array();
+	$customers = array();
 
 	// get data
 	$query = $conn->query( "
 		SELECT * 
-		FROM `orders` 
+		FROM `customers` 
 	" );
 
 	$data = $query->fetchAll( PDO::FETCH_ASSOC );
@@ -892,7 +742,7 @@ function get_orders() {
 	// loop over data to add additional details about each order
 	foreach( $data as $bit ) {
 		// add existing data
-		$orders[$count] = $bit;
+		$customers[$count] = $bit;
 
 		// add additional data
 		// $orders[$count]['customer'] 					= get_user( $bit['customer_id'] );
@@ -906,9 +756,47 @@ function get_orders() {
 	}
 
 	// sanity check
-	$orders = stripslashes_deep( $orders );
+	$customers = stripslashes_deep( $customers );
 
-	return $orders;
+	return $customers;
+}
+
+function get_jobs() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$jobs = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `jobs` 
+	" );
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each order
+	foreach( $data as $bit ) {
+		// add existing data
+		$jobs[$count] = $bit;
+
+		// add additional data
+		// $orders[$count]['customer'] 					= get_user( $bit['customer_id'] );
+		// $orders[$count]['ordering_florist'] 			= get_user( $bit['ordering_florist_id'] );
+		// $orders[$count]['destination_florist'] 			= get_user( $bit['destination_florist_id'] );
+		// $orders[$count]['delivery_details'] 			= get_delivery_detail( $bit['delivery_id'] );
+		// $orders[$count]['order_items']					= get_order_items( $bit['id'] );
+		// $orders[$count]['payment_details']				= get_payment( $bit['payment_id'] );
+
+		$count++;
+	}
+
+	// sanity check
+	$jobs = stripslashes_deep( $jobs );
+
+	return $jobs;
 }
 
 function get_orders_for_coverage_area() {

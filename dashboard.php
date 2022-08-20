@@ -682,6 +682,18 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<div class="panel panel-inverse">
 					<div class="panel-heading">
+						<h2 class="panel-title">Encrypt Email</h2>
+						<div class="panel-heading-btn">
+
+						</div>
+					</div>
+					<div class="panel-body">
+						<?php echo obfuscate_email( 'jamie.whittingham@gmail.com' ); ?>
+					</div>
+				</div>
+
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
 						<h2 class="panel-title">PHP Session Details</h2>
 						<div class="panel-heading-btn">
 
@@ -1086,6 +1098,649 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			   	</div>
 			</div>
 		<?php } ?>
+
+		<?php function customers() { ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+
+			<?php
+				// get data
+				$customers 	= get_customers();
+				$jobs 		= get_jobs();
+				$users 		= get_users( 'customer' )();
+			?>
+
+			<div id="content" class="content">
+				<ol class="breadcrumb float-xl-right">
+					<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+					<li class="breadcrumb-item active">Customers</li>
+				</ol>
+				
+				<h1 class="page-header">Customers</h1>
+
+				<div class="row">
+					<div class="col-xl-12">
+						<div id="status_message"></div><div id="kyc_status_message"></div>
+					</div>
+				</div>
+
+				<?php if( $dev_check ) { ?>
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="panel">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-xl-8 col-xs-12">
+										</div>
+										<div class="col-xl-4 col-xs-12 text-right">
+											<div class="btn-group">
+												<a class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+
+				<?php if( !isset( $customers[0]['id'] ) ) { ?>
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<h2 class="panel-title">Customers</h2>
+							<div class="panel-heading-btn">
+								<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add</button>
+							</div>
+						</div>
+						<div class="panel-body">
+							<center>
+								<h3>
+									No customers found.
+								</h2>
+							</center>
+						</div>
+					</div>
+				<?php } ?>
+
+				<!-- orders -->
+				<?php if( $admin_check || $staff_check || isset( $customers[0]['id'] ) ) { ?>
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<h2 class="panel-title">Customers</h2>
+							<div class="panel-heading-btn">
+								<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add</button>
+							</div>
+						</div>
+						<div class="panel-body">
+							<table id="table_customers" class="table table-striped table-bordered table-td-valign-middle">
+								<thead>
+									<tr>
+										<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
+										<th class="text-nowrap" data-orderable="false" width="1px"><strong>Company</strong></th>
+										<th class="text-nowrap" data-orderable="false" width="1px"><strong>Primary Contact</strong></th>
+										<th class="text-nowrap" data-orderable="false" width=""><strong>Jobs</strong></th>
+										<th class="text-nowrap" data-orderable="false" width="1px"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										// build table
+										foreach( $customers as $customer ) {
+											// status
+											$customer['status_raw'] = $customer['status'];
+											if( $customer['status'] == 'pending' ) {
+												$customer['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+											} elseif( $customer['status'] == 'active' ) {
+												$customer['status'] = '<button class="btn btn-xs btn-success btn-block">Active</button>';
+											} elseif( $customer['status'] == 'suspended' ) {
+												$customer['status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
+											} elseif( $customer['status'] == 'terminated' ) {
+												$customer['status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
+											}
+
+											// total jobs for this customer
+											$total_jobs = total_jobs_per_customer( $customer['id'] );						
+
+											// output
+											echo '
+												<tr>
+													<td class="text-nowrap">
+														<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
+													</td>
+													<td class="text-nowrap">
+														'.$customer['company_name'].'
+													</td>
+													<td class="text-nowrap">
+														'.$customer['full_name'].' <br>
+														'.$customer['address_city'].', '.$customer['address_state'].', '.$customer['address_country'].'
+													</td>
+													<td class="text-nowrap">
+														'.( $order['delivery_id'] != '' ? 
+															$delivery_detail['full_name'].'<br>'.$delivery_detail['address_city'].', '.$delivery_detail['address_state'].', '.$delivery_detail['address_country'] : 
+														'Not Set' ).'
+													</td>
+													<td class="text-nowrap">
+														'.$order['payment_status'].'
+													</td>
+													<td class="text-nowrap">
+														'.$order['status'].'
+													</td>
+													<td class="text-nowrap">
+														<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+														<div class="dropdown-menu dropdown-menu-right" role="menu">
+															<!-- <a href="#order_summary_'.$order['id'].'" data-toggle="modal" data-target="#order_summary_'.$order['id'].'" class="dropdown-item">Order Summary</a> -->
+															<a href="?c=order&id='.$order['id'].'" class="dropdown-item">View Full Order</a>
+															'.( $admin_check || $staff_check || $order['status'] == 'pending' && $order['ordering_florist_id'] == $account_details['id'] ? '<a href="#" onclick="order_delete( '.$order['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
+														</div>
+													</td>
+												</tr>
+											';
+										}
+									?>
+								</tbody>
+							</table>
+							<div class="row">
+								<div class="col-xl-12">
+									<p><font color="red"><strong>*</strong></font> Orders that are flashing red have been pending for at least 3 hours. Please accept orders if you can fulfill them.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+
+			<!-- create order summary modals -->
+
+			<?php 
+				/*
+				foreach( $orders as $order) {
+					// find customer
+					foreach( $customers as $customer ) {
+						if( $customer['id'] == $order['customer_id'] ) {
+							break;
+						}
+					}
+
+					// find delivery details
+					foreach( $delivery_details as $delivery_detail ) {
+						if( $delivery_detail['id'] == $order['delivery_id'] ) {
+							break;
+						}
+					}
+
+					// get ordered products
+					$order['order_items'] = get_order_items( $order['id'] );
+					$items = '';
+					foreach( $order['order_items'] as $order_item ) {
+						// match item to product
+						foreach( $products as $product ) {
+							if( $product['id'] == $order_item['product_id'] ) {
+								$items .= $order_item['qty'].' x '.$product['title'].'<br>';
+							}
+						}
+					}
+
+					// calculate network fee
+					$network_fee = calculate_network_fee( $order['destination_florist_id'], $order['total_price'] );
+					$florist_profit = ( $order['total_price'] - $network_fee );
+
+					// order summary
+					echo '
+						<div class="modal fade" id="order_summary_'.$order['id'].'" tabindex="-1" role="dialog" aria-labelledby="order_summary_'.$order['id'].'" aria-hidden="true">
+						   	<div class="modal-dialog modal-xl">
+							  	<div class="modal-content">
+								 	<div class="modal-header">
+										<h5 class="modal-title" id="order_summary_'.$order['id'].'">Order Summary</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											x
+										</button>
+								 	</div>
+								 	<div class="modal-body">
+								 		<div class="row">
+											<div class="col-xl-4 col-sm-12">
+												<p class="lead">
+													Sender Details
+												</p>
+												'.$customer['full_name'].' <br>
+												'.$customer['address_1'].' <br>
+												'.( !empty( $customer['address_2'] ) ? $customer['address_2'].' <br>' : '' ).'
+												'.$customer['address_city'].', '.$customer['address_state'].' <br>
+												'.$customer['address_zip'].', '.code_to_country( $customer['address_country'] ).' <br>
+												'.( !empty( $customer['tel_landline'] ) ? 'Phone: '.$customer['tel_landline'].' <br>' : '' ).'
+												'.( !empty( $customer['tel_cell'] ) ? 'Cell: '.$customer['tel_cell'].' <br>' : '' ).'
+											</div>
+											<div class="col-xl-4 col-sm-12">
+												<p class="lead">
+													Receiver Details
+												</p>
+												'.$delivery_detail['full_name'].' <br>
+												'.$delivery_detail['address_1'].' <br>
+												'.( !empty( $delivery_detail['address_2'] ) ? $delivery_detail['address_2'].' <br>' : '' ).'
+												'.$delivery_detail['address_city'].', '.$delivery_detail['address_state'].' <br>
+												'.$delivery_detail['address_zip'].', '.code_to_country( $delivery_detail['address_country'] ).' <br>
+												'.( !empty( $delivery_detail['tel_landline'] ) ? 'Phone: '.$delivery_detail['tel_landline'].' <br>' : '' ).'
+												'.( !empty( $delivery_detail['tel_cell'] ) ? 'Cell: '.$delivery_detail['tel_cell'].' <br>' : '' ).'
+											</div>
+											<div class="col-xl-4 col-sm-12">
+												<p class="lead">
+													Order Details
+												</p>
+												<strong>Order Date:</strong> '.date( "Y-m-d", $order['added'] ).' <br>
+												<strong>Deliver Date:</strong> '.$order['delivery_date'].' <br>
+												<strong>Order Total:</strong> $'.number_format( $order['total_price'], 2 ).' <br>
+												<!--
+													<strong>Network Fee:</strong> $'.$network_fee.' ('.$account_details['subscription']['network_percentage'].'%)<br>
+													<strong>Florist Gets:</strong> $'.$florist_profit.'
+												-->
+											</div>
+										</div>
+										<br><br>
+										<div class="row">
+											<div class="col-xl-12 col-sm-12">
+												<p class="lead">
+													Items
+												</p>
+												'.$items.'
+											</div>
+										</div>
+								 	</div>
+								 	<div class="modal-footer">
+								 		<div class="btn-group">
+											<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
+											'.( $order['status'] == 'new_order' ? '<a href="#" onclick="order_accept( '.$order['id'].' )" class="btn btn-xs btn-lime">Accept Order</a>' : '' ).'
+											<a href="?c=order&id='.$order['id'].'" class="btn btn-xs btn-primary">View Order</a>
+										</div>
+									</div>
+							  	</div>
+						   	</div>
+						</div>
+					';
+				}
+				*/
+			?>
+
+			<!-- add order modal -->
+			<form class="form" method="post" action="actions.php?a=order_add">
+				<div class="modal fade" id="order_add" tabindex="-1" role="dialog" aria-labelledby="order_add" aria-hidden="true">
+				   	<div class="modal-dialog modal-notice">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Add Order</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Customer</strong></label>
+											<select name="customer_id" class="form-control select2" onchange="new_customer( this.value )">
+												<option value="new_customer">New Customer</option>
+												<option disabled="disabled">----- or -----</option>
+												<?php foreach( $customers as $customer ) { ?>
+													<?php if( $customer['type'] == 'customer' ) { ?>
+														<option value="<?php echo $customer['id']; ?>"><?php echo $customer['full_name'].' ( '.$customer['email'].' )'; ?></option>
+													<?php } ?>
+												<?php } ?>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div id="new_customer" class="row">
+									<div class="col-xl-12 col-sm-12">
+										<hr>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>First Name</strong></label>
+											<input type="text" id="first_name" name="first_name" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Last Name</strong></label>
+											<input type="text" id="last_name" name="last_name" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Email</strong></label>
+											<input type="email" id="email" name="email" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Password</strong></label>
+											<input type="text" id="password" name="password" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Address 1</strong></label>
+											<input type="text" id="address_1" name="address_1" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Address 2</strong></label>
+											<input type="text" id="address_2" name="address_2" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>City</strong></label>
+											<input type="text" id="address_city" name="address_city" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>State / County</strong></label>
+											<input type="text" id="address_state" name="address_state" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Country</strong></label>
+											<select name="address_country" class="form-control select2">
+												<option value="AF">Afghanistan</option>
+												<option value="AX">Åland Islands</option>
+												<option value="AL">Albania</option>
+												<option value="DZ">Algeria</option>
+												<option value="AS">American Samoa</option>
+												<option value="AD">Andorra</option>
+												<option value="AO">Angola</option>
+												<option value="AI">Anguilla</option>
+												<option value="AQ">Antarctica</option>
+												<option value="AG">Antigua and Barbuda</option>
+												<option value="AR">Argentina</option>
+												<option value="AM">Armenia</option>
+												<option value="AW">Aruba</option>
+												<option value="AU">Australia</option>
+												<option value="AT">Austria</option>
+												<option value="AZ">Azerbaijan</option>
+												<option value="BS">Bahamas</option>
+												<option value="BH">Bahrain</option>
+												<option value="BD">Bangladesh</option>
+												<option value="BB">Barbados</option>
+												<option value="BY">Belarus</option>
+												<option value="BE">Belgium</option>
+												<option value="BZ">Belize</option>
+												<option value="BJ">Benin</option>
+												<option value="BM">Bermuda</option>
+												<option value="BT">Bhutan</option>
+												<option value="BO">Bolivia, Plurinational State of</option>
+												<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+												<option value="BA">Bosnia and Herzegovina</option>
+												<option value="BW">Botswana</option>
+												<option value="BV">Bouvet Island</option>
+												<option value="BR">Brazil</option>
+												<option value="IO">British Indian Ocean Territory</option>
+												<option value="BN">Brunei Darussalam</option>
+												<option value="BG">Bulgaria</option>
+												<option value="BF">Burkina Faso</option>
+												<option value="BI">Burundi</option>
+												<option value="KH">Cambodia</option>
+												<option value="CM">Cameroon</option>
+												<option value="CA">Canada</option>
+												<option value="CV">Cape Verde</option>
+												<option value="KY">Cayman Islands</option>
+												<option value="CF">Central African Republic</option>
+												<option value="TD">Chad</option>
+												<option value="CL">Chile</option>
+												<option value="CN">China</option>
+												<option value="CX">Christmas Island</option>
+												<option value="CC">Cocos (Keeling) Islands</option>
+												<option value="CO">Colombia</option>
+												<option value="KM">Comoros</option>
+												<option value="CG">Congo</option>
+												<option value="CD">Congo, the Democratic Republic of the</option>
+												<option value="CK">Cook Islands</option>
+												<option value="CR">Costa Rica</option>
+												<option value="CI">Côte d'Ivoire</option>
+												<option value="HR">Croatia</option>
+												<option value="CU">Cuba</option>
+												<option value="CW">Curaçao</option>
+												<option value="CY">Cyprus</option>
+												<option value="CZ">Czech Republic</option>
+												<option value="DK">Denmark</option>
+												<option value="DJ">Djibouti</option>
+												<option value="DM">Dominica</option>
+												<option value="DO">Dominican Republic</option>
+												<option value="EC">Ecuador</option>
+												<option value="EG">Egypt</option>
+												<option value="SV">El Salvador</option>
+												<option value="GQ">Equatorial Guinea</option>
+												<option value="ER">Eritrea</option>
+												<option value="EE">Estonia</option>
+												<option value="ET">Ethiopia</option>
+												<option value="FK">Falkland Islands (Malvinas)</option>
+												<option value="FO">Faroe Islands</option>
+												<option value="FJ">Fiji</option>
+												<option value="FI">Finland</option>
+												<option value="FR">France</option>
+												<option value="GF">French Guiana</option>
+												<option value="PF">French Polynesia</option>
+												<option value="TF">French Southern Territories</option>
+												<option value="GA">Gabon</option>
+												<option value="GM">Gambia</option>
+												<option value="GE">Georgia</option>
+												<option value="DE">Germany</option>
+												<option value="GH">Ghana</option>
+												<option value="GI">Gibraltar</option>
+												<option value="GR">Greece</option>
+												<option value="GL">Greenland</option>
+												<option value="GD">Grenada</option>
+												<option value="GP">Guadeloupe</option>
+												<option value="GU">Guam</option>
+												<option value="GT">Guatemala</option>
+												<option value="GG">Guernsey</option>
+												<option value="GN">Guinea</option>
+												<option value="GW">Guinea-Bissau</option>
+												<option value="GY">Guyana</option>
+												<option value="HT">Haiti</option>
+												<option value="HM">Heard Island and McDonald Islands</option>
+												<option value="VA">Holy See (Vatican City State)</option>
+												<option value="HN">Honduras</option>
+												<option value="HK">Hong Kong</option>
+												<option value="HU">Hungary</option>
+												<option value="IS">Iceland</option>
+												<option value="IN">India</option>
+												<option value="ID">Indonesia</option>
+												<option value="IR">Iran, Islamic Republic of</option>
+												<option value="IQ">Iraq</option>
+												<option value="IE">Ireland</option>
+												<option value="IM">Isle of Man</option>
+												<option value="IL">Israel</option>
+												<option value="IT">Italy</option>
+												<option value="JM">Jamaica</option>
+												<option value="JP">Japan</option>
+												<option value="JE">Jersey</option>
+												<option value="JO">Jordan</option>
+												<option value="KZ">Kazakhstan</option>
+												<option value="KE">Kenya</option>
+												<option value="KI">Kiribati</option>
+												<option value="KP">Korea, Democratic People's Republic of</option>
+												<option value="KR">Korea, Republic of</option>
+												<option value="KW">Kuwait</option>
+												<option value="KG">Kyrgyzstan</option>
+												<option value="LA">Lao People's Democratic Republic</option>
+												<option value="LV">Latvia</option>
+												<option value="LB">Lebanon</option>
+												<option value="LS">Lesotho</option>
+												<option value="LR">Liberia</option>
+												<option value="LY">Libya</option>
+												<option value="LI">Liechtenstein</option>
+												<option value="LT">Lithuania</option>
+												<option value="LU">Luxembourg</option>
+												<option value="MO">Macao</option>
+												<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+												<option value="MG">Madagascar</option>
+												<option value="MW">Malawi</option>
+												<option value="MY">Malaysia</option>
+												<option value="MV">Maldives</option>
+												<option value="ML">Mali</option>
+												<option value="MT">Malta</option>
+												<option value="MH">Marshall Islands</option>
+												<option value="MQ">Martinique</option>
+												<option value="MR">Mauritania</option>
+												<option value="MU">Mauritius</option>
+												<option value="YT">Mayotte</option>
+												<option value="MX">Mexico</option>
+												<option value="FM">Micronesia, Federated States of</option>
+												<option value="MD">Moldova, Republic of</option>
+												<option value="MC">Monaco</option>
+												<option value="MN">Mongolia</option>
+												<option value="ME">Montenegro</option>
+												<option value="MS">Montserrat</option>
+												<option value="MA">Morocco</option>
+												<option value="MZ">Mozambique</option>
+												<option value="MM">Myanmar</option>
+												<option value="NA">Namibia</option>
+												<option value="NR">Nauru</option>
+												<option value="NP">Nepal</option>
+												<option value="NL">Netherlands</option>
+												<option value="NC">New Caledonia</option>
+												<option value="NZ">New Zealand</option>
+												<option value="NI">Nicaragua</option>
+												<option value="NE">Niger</option>
+												<option value="NG">Nigeria</option>
+												<option value="NU">Niue</option>
+												<option value="NF">Norfolk Island</option>
+												<option value="MP">Northern Mariana Islands</option>
+												<option value="NO">Norway</option>
+												<option value="OM">Oman</option>
+												<option value="PK">Pakistan</option>
+												<option value="PW">Palau</option>
+												<option value="PS">Palestinian Territory, Occupied</option>
+												<option value="PA">Panama</option>
+												<option value="PG">Papua New Guinea</option>
+												<option value="PY">Paraguay</option>
+												<option value="PE">Peru</option>
+												<option value="PH">Philippines</option>
+												<option value="PN">Pitcairn</option>
+												<option value="PL">Poland</option>
+												<option value="PT">Portugal</option>
+												<option value="PR">Puerto Rico</option>
+												<option value="QA">Qatar</option>
+												<option value="RE">Réunion</option>
+												<option value="RO">Romania</option>
+												<option value="RU">Russian Federation</option>
+												<option value="RW">Rwanda</option>
+												<option value="BL">Saint Barthélemy</option>
+												<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+												<option value="KN">Saint Kitts and Nevis</option>
+												<option value="LC">Saint Lucia</option>
+												<option value="MF">Saint Martin (French part)</option>
+												<option value="PM">Saint Pierre and Miquelon</option>
+												<option value="VC">Saint Vincent and the Grenadines</option>
+												<option value="WS">Samoa</option>
+												<option value="SM">San Marino</option>
+												<option value="ST">Sao Tome and Principe</option>
+												<option value="SA">Saudi Arabia</option>
+												<option value="SN">Senegal</option>
+												<option value="RS">Serbia</option>
+												<option value="SC">Seychelles</option>
+												<option value="SL">Sierra Leone</option>
+												<option value="SG">Singapore</option>
+												<option value="SX">Sint Maarten (Dutch part)</option>
+												<option value="SK">Slovakia</option>
+												<option value="SI">Slovenia</option>
+												<option value="SB">Solomon Islands</option>
+												<option value="SO">Somalia</option>
+												<option value="ZA">South Africa</option>
+												<option value="GS">South Georgia and the South Sandwich Islands</option>
+												<option value="SS">South Sudan</option>
+												<option value="ES">Spain</option>
+												<option value="LK">Sri Lanka</option>
+												<option value="SD">Sudan</option>
+												<option value="SR">Suriname</option>
+												<option value="SJ">Svalbard and Jan Mayen</option>
+												<option value="SZ">Swaziland</option>
+												<option value="SE">Sweden</option>
+												<option value="CH">Switzerland</option>
+												<option value="SY">Syrian Arab Republic</option>
+												<option value="TW">Taiwan, Province of China</option>
+												<option value="TJ">Tajikistan</option>
+												<option value="TZ">Tanzania, United Republic of</option>
+												<option value="TH">Thailand</option>
+												<option value="TL">Timor-Leste</option>
+												<option value="TG">Togo</option>
+												<option value="TK">Tokelau</option>
+												<option value="TO">Tonga</option>
+												<option value="TT">Trinidad and Tobago</option>
+												<option value="TN">Tunisia</option>
+												<option value="TR">Turkey</option>
+												<option value="TM">Turkmenistan</option>
+												<option value="TC">Turks and Caicos Islands</option>
+												<option value="TV">Tuvalu</option>
+												<option value="UG">Uganda</option>
+												<option value="UA">Ukraine</option>
+												<option value="AE">United Arab Emirates</option>
+												<option value="GB">United Kingdom</option>
+												<option value="US">United States</option>
+												<option value="UM">United States Minor Outlying Islands</option>
+												<option value="UY">Uruguay</option>
+												<option value="UZ">Uzbekistan</option>
+												<option value="VU">Vanuatu</option>
+												<option value="VE">Venezuela, Bolivarian Republic of</option>
+												<option value="VN">Viet Nam</option>
+												<option value="VG">Virgin Islands, British</option>
+												<option value="VI">Virgin Islands, U.S.</option>
+												<option value="WF">Wallis and Futuna</option>
+												<option value="EH">Western Sahara</option>
+												<option value="YE">Yemen</option>
+												<option value="ZM">Zambia</option>
+												<option value="ZW">Zimbabwe</option>
+											</select>
+										</div>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
+									<button type="submit" onclick="processing();" class="btn btn-xs btn-primary">Continue</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			</form>
+
+			<!-- dev modal -->
+			<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+			   	<div class="modal-dialog modal-xl">
+				  	<div class="modal-content">
+					 	<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">Dev</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								x
+							</button>
+					 	</div>
+					 	<div class="modal-body">
+					 		<div class="row">
+					 			<div class="col-xl-12 col-sm-12">
+									<?php debug( $orders ); ?>
+								</div>
+							</div>
+					 	</div>
+					 	<div class="modal-footer">
+					 		<div class="btn-group">
+								<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+				  	</div>
+			   	</div>
+			</div>
+		<?php } ?>
+
+
+
+
+
+
+
+
 
 		<?php function invoice() { ?>
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
