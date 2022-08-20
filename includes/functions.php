@@ -198,6 +198,46 @@ function total_jobs( $status = '' ) {
     return $data['total'];
 }
 
+function total_providers( $status = '' ) {
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+    // get data
+    if( $admin_check || $staff_check ) {
+		if( empty( $status ) ) {
+			$sql = "
+				SELECT count(`id`) as total 
+		    	FROM `providers` 
+			";
+		} else {
+			$sql = "
+				SELECT count(`id`) as total 
+		    	FROM `providers` 
+		    	WHERE `status` = '".$status."'
+			";
+		}
+	} else {
+		if( empty( $status ) ) {
+			$sql = "
+				SELECT count(`id`) as total 
+		    	FROM `providers` 
+			";
+		} else {
+			$sql = "
+				SELECT count(`id`) as total 
+		    	FROM `providers` 
+		    	WHERE `status` = '".$status."' 
+			";
+		}
+	}
+	// get data
+    $query      = $conn->query( $sql );
+
+    // sanity check
+    $data    	= $query->fetch(PDO::FETCH_ASSOC);
+
+    return $data['total'];
+}
+
 function total_users( $type = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 

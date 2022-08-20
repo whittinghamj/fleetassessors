@@ -936,6 +936,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php $stats['total_customers'] 	= total_customers(); ?>
 			<?php $stats['total_jobs'] 			= total_jobs(); ?>
 			<?php $stats['pending_jobs'] 		= total_jobs( 'pending' ); ?>
+			<?php $stats['total_providers'] 	= total_providers(); ?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -1029,9 +1030,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Total Customers
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Profit" data-placement="top" data-content="All orders that have been market complete. Does not include refunds or returns."></i></span>
+										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
 									</div>
-									<div class="stats-number">$<?php echo $stats['total_customers']; ?></div>
+									<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
@@ -1043,12 +1044,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="widget widget-stats bg-white text-inverse">
 								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="fa fa-users"></i></div>
 								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">Total Customers</div>
-									<div class="stats-number"><?php echo '123'; ?></div>
+									<div class="stats-title text-inverse-lighter">Total Providers</div>
+									<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
+									<div class="stats-desc text-inverse-lighter"><a href="?c=providers">Find out more ...</a></div>
 								</div>
 							</div>
 						</div>
