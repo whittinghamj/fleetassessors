@@ -569,7 +569,7 @@ function get_customers() {
 
 		// add additional data
 		$customers[$count]['total_jobs']					= total_jobs_for_customer( $bit['id'] );
-		// $orders[$count]['customer'] 					= get_user( $bit['customer_id'] );
+		$customers[$count]['primary_contact']				= get_user( $bit['primary_contact_id'] );
 		// $orders[$count]['ordering_florist'] 			= get_user( $bit['ordering_florist_id'] );
 		// $orders[$count]['destination_florist'] 			= get_user( $bit['destination_florist_id'] );
 		// $orders[$count]['delivery_details'] 			= get_delivery_detail( $bit['delivery_id'] );
