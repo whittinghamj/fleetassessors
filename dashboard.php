@@ -1010,7 +1010,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Total Jobs
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Orders" data-placement="top" data-content="Includes orders from all sales channels."></i></span>
+										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes jobs from all customers."></i></span>
 									</div>
 									<div class="stats-number"><?php echo '123'; ?></div>
 									<div class="stats-progress progress">
