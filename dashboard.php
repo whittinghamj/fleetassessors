@@ -1014,7 +1014,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Total Jobs
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes jobs from all customers."></i></span>
+										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
 									</div>
 									<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
 									<div class="stats-progress progress">
@@ -1044,7 +1044,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="widget widget-stats bg-white text-inverse">
 								<div class="stats-icon stats-icon-square bg-gradient-purple text-white"><i class="fa fa-address-card"></i></div>
 								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">Total Providers</div>
+									<div class="stats-title text-inverse-lighter">
+										Total Providers
+										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
+									</div>
 									<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
