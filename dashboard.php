@@ -1105,8 +1105,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php
 				// get data
 				$customers 	= get_customers();
-				$jobs 		= get_jobs();
-				$users 		= get_users( 'customer' )();
 			?>
 
 			<div id="content" class="content">
@@ -1195,10 +1193,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												$customer['status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
 											} elseif( $customer['status'] == 'terminated' ) {
 												$customer['status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
-											}
-
-											// total jobs for this customer
-											$total_jobs = total_jobs_per_customer( $customer['id'] );						
+											}					
 
 											// output
 											echo '
@@ -1210,26 +1205,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														'.$customer['company_name'].'
 													</td>
 													<td class="text-nowrap">
-														'.$customer['full_name'].' <br>
-														'.$customer['address_city'].', '.$customer['address_state'].', '.$customer['address_country'].'
+														'.$customer['primary_contact']['full_name'].'
 													</td>
 													<td class="text-nowrap">
-														'.( $order['delivery_id'] != '' ? 
-															$delivery_detail['full_name'].'<br>'.$delivery_detail['address_city'].', '.$delivery_detail['address_state'].', '.$delivery_detail['address_country'] : 
-														'Not Set' ).'
+														'.$customer['total_jobs'].'
 													</td>
-													<td class="text-nowrap">
-														'.$order['payment_status'].'
-													</td>
-													<td class="text-nowrap">
-														'.$order['status'].'
-													</td>
+													
 													<td class="text-nowrap">
 														<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 														<div class="dropdown-menu dropdown-menu-right" role="menu">
-															<!-- <a href="#order_summary_'.$order['id'].'" data-toggle="modal" data-target="#order_summary_'.$order['id'].'" class="dropdown-item">Order Summary</a> -->
-															<a href="?c=order&id='.$order['id'].'" class="dropdown-item">View Full Order</a>
-															'.( $admin_check || $staff_check || $order['status'] == 'pending' && $order['ordering_florist_id'] == $account_details['id'] ? '<a href="#" onclick="order_delete( '.$order['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
+															<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">Edit</a>
+															<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
 														</div>
 													</td>
 												</tr>
