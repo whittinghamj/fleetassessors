@@ -479,7 +479,6 @@ function get_job( $id ) {
 		FROM `jobs` 
 		WHERE `id` = '".$id."' 
 	" );
-	}
 	$data = $query->fetch( PDO::FETCH_ASSOC );
 
 	// sanity check
