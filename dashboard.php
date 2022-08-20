@@ -15,66 +15,6 @@ if( !isset( $_SESSION['logged_in'] ) || $_SESSION['logged_in'] != true ) {
 	$account_details = account_details( $_SESSION['account']['id'] );
 }
 
-// check $account_details to confirm completed profile
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['address_1'] ) ) {
-	// set status message
-	status_message( "warning", "Please enter your street address." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['address_city'] ) ) {
-	// set status message
-	status_message( "warning", "Please enter your city." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['address_state'] ) ) {
-	// set status message
-	status_message( "warning", "Please enter your state / county." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['address_zip'] ) ) {
-	// set status message
-	status_message( "warning", "Please enter your zip / postcode." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['address_country'] ) ) {
-	// set status message
-	status_message( "warning", "Please select your country." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['company_name'] ) ) {
-	// set status message
-	status_message( "warning", "Please enter your company name." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-
-// check coverage area
-if( get( 'c' ) != 'user' && $account_details['type'] == 'florist' && empty( $account_details['coverage_area'] ) ) {
-	// set status message
-	status_message( "danger", "Please enter the coverage areas you wish to service." );
-
-	// redirect
-	go( 'dashboard.php?c=user' );
-}
-
-// admin check
-if( $account_details['type'] == 'admin' ) {
-	$admin_check = true;
-} else {
-	$admin_check = false;
-}
-
 // dev check
 if( $account_details['email'] == 'jamie.whittingham@gmail.com' ) {
 	$dev_check = true;
@@ -82,18 +22,32 @@ if( $account_details['email'] == 'jamie.whittingham@gmail.com' ) {
 	$dev_check = false;
 }
 
-// florist check
-if( $account_details['type'] == 'florist' ) {
-	$florist_check = true;
+// admin check
+if( $account_details['account_type'] == 'admin' ) {
+	$admin_check = true;
 } else {
-	$florist_check = false;
+	$admin_check = false;
 }
 
 // staff check
-if( $account_details['type'] == 'staff' ) {
+if( $account_details['account_type'] == 'staff' ) {
 	$staff_check = true;
 } else {
 	$staff_check = false;
+}
+
+// engineer check
+if( $account_details['account_type'] == 'engineer' ) {
+	$engineer_check = true;
+} else {
+	$engineer_check = false;
+}
+
+// customer check
+if( $account_details['account_type'] == 'customer' ) {
+	$customer_check = true;
+} else {
+	$customer_check = false;
 }
 
 // build 404 panel
@@ -122,7 +76,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $globals['platform_name']; ?> - Flowers made simple</title>
+	<title><?php echo $globals['platform_name']; ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -533,22 +487,22 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<span>Home</span> 
 						</a>
 					</li>
-					<li <?php if( get( 'c' ) == 'message' || get( 'c' ) == 'message_new' || get( 'c' ) == 'messages' ) { echo'class="active"'; } ?>>
-						<a href="dashboard.php?c=messages">
-							<i class="fa fa-comments bg-green"></i>
-							<span>Messages</span> 
+					<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
+						<a href="dashboard.php?c=customers">
+							<i class="fa fa-users bg-purple"></i>
+							<span>Customers</span> 
 						</a>
 					</li>
-					<li <?php if( get( 'c' ) == 'order' || get( 'c' ) == 'orders' ) { echo'class="active"'; } ?>>
-						<a href="dashboard.php?c=orders">
-							<i class="fa fa-shopping-cart bg-aqua"></i>
-							<span>Orders</span> 
+					<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
+						<a href="dashboard.php?c=jobs">
+							<i class="fa fa-first-order bg-green"></i>
+							<span>Jobs</span> 
 						</a>
 					</li>
-					<li <?php if( get( 'c' ) == 'product' || get( 'c' ) == 'products' ) { echo'class="active"'; } ?>>
-						<a href="dashboard.php?c=products">
-							<i class="fa fa-book bg-purple"></i>
-							<span>Products</span> 
+					<li <?php if( get( 'c' ) == 'provider' || get( 'c' ) == 'providers' ) { echo'class="active"'; } ?>>
+						<a href="dashboard.php?c=providers">
+							<i class="fa fa-address-card bg-purple"></i>
+							<span>Providers</span> 
 						</a>
 					</li>
 					<li>
@@ -574,16 +528,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<span>Users</span>
 							</a>
 							<ul class="sub-menu">
-								<li <?php if( get( 'filter' ) == 'customer' || get( 'filter' ) == 'customers' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=customers">Customers</a></li>
+								<li <?php if( get( 'c' ) == 'customer' || get( 'filter' ) == 'customers' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=customers">Customers</a></li>
 								<li <?php if( get( 'filter' ) == 'florist' || get( 'filter' ) == 'florists' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=florists">Florists</a></li>
 								<li <?php if( get( 'filter' ) == 'staff_member' || get( 'filter' ) == 'staff_members' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=staff_members">Staff Members</a></li>
 								<li <?php if( get( 'filter' ) == 'admin' || get( 'filter' ) == 'admins' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=users&filter=admins">Admins</a></li>
 							</ul>
 						</li>
-						<li <?php if( get( 'c' ) == 'subscription' || get( 'c' ) == 'subscriptions' ) { echo'class="active"'; } ?>>
-							<a href="dashboard.php?c=subscriptions">
-								<i class="fa fa-link"></i>
-								<span>Subscriptions</span> 
+						<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>
+							<a href="dashboard.php?c=users">
+								<i class="fa fa-user"></i>
+								<span>Users</span> 
 							</a>
 						</li>
 						<li <?php if( get( 'c' ) == 'system_settings' ) { echo'class="active"'; } ?>>
@@ -997,10 +951,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php function home() { ?>
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
 
-			<?php 
-				// get data
-				$total_profit = total_profit();
-			?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -1061,14 +1011,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
-										NEW ORDERS
+										Pending Jobs
 										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="New Orders" data-placement="top" data-content="All orders that have not been accepted yet."></i></span>
 									</div>
-									<div class="stats-number"><?php echo total_orders( 'new_order' ); ?></div>
+									<div class="stats-number">000</div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
+									<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
 								</div>
 							</div>
 						</div>
@@ -1077,14 +1027,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
-										TOTAL ORDERS
+										Total Jobs
 										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Orders" data-placement="top" data-content="Includes orders from all sales channels."></i></span>
 									</div>
-									<div class="stats-number"><?php echo total_orders(); ?></div>
+									<div class="stats-number"><?php echo '123'; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
+									<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
 								</div>
 							</div>
 						</div>
@@ -1096,7 +1046,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										TOTAL PROFIT
 										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Profit" data-placement="top" data-content="All orders that have been market complete. Does not include refunds or returns."></i></span>
 									</div>
-									<div class="stats-number">$<?php echo $total_profit['net']; ?></div>
+									<div class="stats-number">$<?php echo '123'; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
@@ -1108,130 +1058,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="widget widget-stats bg-white text-inverse">
 								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="fa fa-users"></i></div>
 								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">TOTAL FLORISTS</div>
-									<div class="stats-number"><?php echo total_users( 'florist' ); ?></div>
+									<div class="stats-title text-inverse-lighter">Total Customers</div>
+									<div class="stats-number"><?php echo '123'; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=users&filter=florists">Find out more ...</a></div>
+									<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				<?php } ?>
-
-				<!-- florist dashboard tiles -->
-				<?php if( $account_details['type'] == 'florist' ) { ?>
-					<div class="row">
-						<!--
-							<div class="col-xl-3 col-xl-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-analytics"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">TODAY'S VISITS</div>
-										<div class="stats-number">7,842,900</div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 70.1%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter">Better than last week (70.1%)</div>
-									</div>
-								</div>
-							</div>
-						-->
-						<div class="col-xl-4 col-xs-6" data-title="Welcome!" data-intro="Hello World! 👋">
-							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
-								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">
-										NEW ORDERS
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="New Orders" data-placement="top" data-content="All orders that have not been completed yet."></i></span>
-									</div>
-									<div class="stats-number"><?php echo total_orders( 'building' ); ?></div>
-									<div class="stats-progress progress">
-										<div class="progress-bar" style="width: 0%;"></div>
-									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-4 col-xs-6">
-							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
-								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">
-										TOTAL ORDERS
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Orders" data-placement="top" data-content="All completed orders."></i></span>
-									</div>
-									<div class="stats-number"><?php echo total_orders(); ?></div>
-									<div class="stats-progress progress">
-										<div class="progress-bar" style="width: 0%;"></div>
-									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-4 col-xs-6">
-							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-pricetags"></i></div>
-								<div class="stats-content">
-									<div class="stats-title text-inverse-lighter">
-										TOTAL PROFIT
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Profit" data-placement="top" data-content="All orders that have been market complete. Does not include refunds or returns."></i></span>
-									</div>
-									<div class="stats-number">$<?php echo $total_profit['gross']; ?></div>
-									<div class="stats-progress progress">
-										<div class="progress-bar" style="width: 0%;"></div>
-									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php } ?>
-
-				<!-- user referral link & news -->
-				<div class="row">
-					<div class="col-xl-6 col-xs-12">
-						<span class="tutorial_referral_url">
-							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title">Referral URL</h2>
-									<div class="panel-heading-btn">
-										
-									</div>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-xl-12 col-sm-12">
-											
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xl-12 col-sm-12">
-											<div class="form-group">
-												<input type="text" name="referral_url" class="form-control" value="<?php echo $globals['url']; ?>/referrer.php?id=<?php echo $account_details['id']; ?>" readonly onClick="this.select();">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</span>
-					</div>
-
-					<div class="col-xl-6 col-xs-12">
-						<div class="panel panel-inverse tutorial_news">
-							<div class="panel-heading">
-								<h2 class="panel-title">News &amp; Updates</h2>
-								<div class="panel-heading-btn">
-									
-								</div>
-							</div>
-							<div class="panel-body">
-								Initial release v1.0.0.
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<!-- dev modal -->
@@ -1247,7 +1084,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					 	<div class="modal-body">
 					 		<div class="row">
 					 			<div class="col-xl-12 col-sm-12">
-									<?php debug( $total_profit ); ?>
+
 								</div>
 							</div>
 					 	</div>

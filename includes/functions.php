@@ -1820,11 +1820,6 @@ function account_details( $id ) {
 	// create initials
 	$data['initials']		= get_first_letters( $data['full_name'] );
 
-	// subscription plan
-	if( isset( $data['subscription_id'] ) ) {
-		$data['subscription']	= get_subscription_plan( $data['subscription_id'] );
-	}
-
 	// sanitize data
 	$data = stripslashes_deep( $data );
 
