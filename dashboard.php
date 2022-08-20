@@ -1026,7 +1026,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="col-xl-3 col-xs-6">
 							<div class="widget widget-stats bg-white text-inverse">
-								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-pricetags"></i></div>
+								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="fa fa-users"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Total Customers
