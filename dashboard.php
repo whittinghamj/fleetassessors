@@ -1346,37 +1346,24 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				*/
 			?>
 
-			<!-- add order modal -->
-			<form class="form" method="post" action="actions.php?a=order_add">
-				<div class="modal fade" id="order_add" tabindex="-1" role="dialog" aria-labelledby="order_add" aria-hidden="true">
+			<!-- add customer modal -->
+			<form class="form" method="post" action="actions.php?a=customer_add">
+				<div class="modal fade" id="customer_add" tabindex="-1" role="dialog" aria-labelledby="customer_add" aria-hidden="true">
 				   	<div class="modal-dialog modal-notice">
 					  	<div class="modal-content">
 						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Add Order</h5>
+								<h5 class="modal-title" id="myModalLabel">Add Customer</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									x
 								</button>
 						 	</div>
 						 	<div class="modal-body">
 						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
+									<div class="col-xl-6 col-sm-12">
 										<div class="form-group">
-											<label class="bmd-label-floating"><strong>Customer</strong></label>
-											<select name="customer_id" class="form-control select2" onchange="new_customer( this.value )">
-												<option value="new_customer">New Customer</option>
-												<option disabled="disabled">----- or -----</option>
-												<?php foreach( $customers as $customer ) { ?>
-													<?php if( $customer['type'] == 'customer' ) { ?>
-														<option value="<?php echo $customer['id']; ?>"><?php echo $customer['full_name'].' ( '.$customer['email'].' )'; ?></option>
-													<?php } ?>
-												<?php } ?>
-											</select>
+											<label class="bmd-label-floating"><strong>Company Name</strong></label>
+											<input type="text" id="company_name" name="company_name" class="form-control" required>
 										</div>
-									</div>
-								</div>
-								<div id="new_customer" class="row">
-									<div class="col-xl-12 col-sm-12">
-										<hr>
 									</div>
 									<div class="col-xl-6 col-sm-12">
 										<div class="form-group">
@@ -1424,6 +1411,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="form-group">
 											<label class="bmd-label-floating"><strong>State / County</strong></label>
 											<input type="text" id="address_state" name="address_state" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-xl-6 col-sm-12">
+										<div class="form-group">
+											<label class="bmd-label-floating"><strong>Zip / Postcode</strong></label>
+											<input type="text" id="address_zip" name="address_zip" class="form-control" required>
 										</div>
 									</div>
 									<div class="col-xl-6 col-sm-12">
