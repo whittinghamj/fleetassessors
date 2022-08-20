@@ -23,28 +23,28 @@ if( $account_details['email'] == 'jamie.whittingham@gmail.com' ) {
 }
 
 // admin check
-if( $account_details['account_type'] == 'admin' ) {
+if( $account_details['type'] == 'admin' ) {
 	$admin_check = true;
 } else {
 	$admin_check = false;
 }
 
 // staff check
-if( $account_details['account_type'] == 'staff' ) {
+if( $account_details['type'] == 'staff' ) {
 	$staff_check = true;
 } else {
 	$staff_check = false;
 }
 
 // engineer check
-if( $account_details['account_type'] == 'engineer' ) {
+if( $account_details['type'] == 'engineer' ) {
 	$engineer_check = true;
 } else {
 	$engineer_check = false;
 }
 
 // customer check
-if( $account_details['account_type'] == 'customer' ) {
+if( $account_details['type'] == 'customer' ) {
 	$customer_check = true;
 } else {
 	$customer_check = false;
