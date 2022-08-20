@@ -6837,30 +6837,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 	<?php } ?>
 
-	<?php if( get( 'c' ) == 'message' ) { ?>
-		<?php 
-			$id = get( 'id' );
-			$message = get_message( $id );
-
-			if( isset( $message['id'] ) ) {
-				?>
-					<script>
-						$.ajax({
-			                async: false,
-			                type: "GET",
-			                global: false,
-			                dataType: "json",
-			                url: "actions.php?a=message_mark_read&id=<?php echo $id; ?>",
-			                success: function (data) {
-			                    console.log( 'message id: <?php echo $id; ?> marked as read' );
-			                },
-			            } );
-			        </script>
-				<?
-			}
-		?>
-	<?php } ?>
-
 	<?php if( get( 'c' ) == 'message_new' || get( 'c' ) == 'message_reply' ) { ?>
 		<script src="assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
 		<script src="assets/plugins/tag-it/js/tag-it.min.js"></script>
