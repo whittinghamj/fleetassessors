@@ -932,7 +932,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php function home() { ?>
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
 
-			<?php $stats['total_customers'] = total_customers(); ?>
+			<?php $stats['total_users'] 		= total_users(); ?>
+			<?php $stats['total_customers'] 	= total_customers(); ?>
+			<?php $stats['total_jobs'] 			= total_jobs(); ?>
+			<?php $stats['pending_jobs'] 		= total_jobs( 'pending' ); ?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -994,9 +997,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
 										Pending Jobs
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="New Orders" data-placement="top" data-content="All orders that have not been accepted yet."></i></span>
+										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
 									</div>
-									<div class="stats-number">000</div>
+									<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
@@ -1012,7 +1015,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										Total Jobs
 										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes jobs from all customers."></i></span>
 									</div>
-									<div class="stats-number"><?php echo '123'; ?></div>
+									<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
