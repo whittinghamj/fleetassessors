@@ -495,7 +495,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</li>
 					<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
 						<a href="dashboard.php?c=jobs">
-							<i class="fa fa-automobile bg-green"></i>
+							<i class="fa fa-car bg-green"></i>
 							<span>Jobs</span> 
 						</a>
 					</li>
