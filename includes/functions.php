@@ -185,7 +185,7 @@ function total_jobs( $status = '' ) {
 			$sql = "
 				SELECT count(`id`) as total 
 		    	FROM `jobs` 
-		    	WHERE `status` = '".$status."'' 
+		    	WHERE `status` = '".$status."' 
 			";
 		}
 	}
