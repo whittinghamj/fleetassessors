@@ -181,6 +181,29 @@ function total_users( $type = '' ) {
     return $data['total'];
 }
 
+function total_customers( $type = '' ) {
+    global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+    // get data
+    if( empty( $type ) ) {
+		$sql = "
+			SELECT count(`id`) as total_users 
+	    	FROM `customers` 
+		";
+	} else {
+		$sql = "
+			SELECT count(`id`) as total 
+	    	FROM `customers` 
+	    	WHERE `type` = '".$type."'  
+		";
+	}
+	// get data
+    $query      = $conn->query( $sql );
+    $data    	= $query->fetch(PDO::FETCH_ASSOC);
+
+    return $data['total'];
+}
+
 function total_profit( $start_time = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 

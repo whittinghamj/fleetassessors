@@ -932,6 +932,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php function home() { ?>
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
 
+			<?php $stats['total_customers'] = total_customers(); ?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -1024,14 +1025,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-pricetags"></i></div>
 								<div class="stats-content">
 									<div class="stats-title text-inverse-lighter">
-										TOTAL PROFIT
+										Total Customers
 										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Profit" data-placement="top" data-content="All orders that have been market complete. Does not include refunds or returns."></i></span>
 									</div>
-									<div class="stats-number">$<?php echo '123'; ?></div>
+									<div class="stats-number">$<?php echo $stats['total_customers']; ?></div>
 									<div class="stats-progress progress">
 										<div class="progress-bar" style="width: 0%;"></div>
 									</div>
-									<div class="stats-desc text-inverse-lighter"><a href="?c=orders">Find out more ...</a></div>
+									<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
 								</div>
 							</div>
 						</div>
