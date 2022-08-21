@@ -1222,8 +1222,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<input type="text" id="last_name" name="last_name" class="form-control" required>
 											</div>
 										</div>
-									</div>
-									<div class="rows">
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Phone</strong></label>
