@@ -1163,7 +1163,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<td class="text-nowrap" vertical-align="top">
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
 														</td>
-														<td class="text-nowrap" vertical-align="top">
+														<td class="text-nowrap" vertical-align="super">
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
 														</td>
 														<td class="text-nowrap" vertical-align="top">
