@@ -469,6 +469,35 @@ function get_users( $type = '' ) {
 	return $users;
 }
 
+// get jobs
+function get_jobs( $customer = '' ) {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$jobs = array();
+
+	// process filter
+	if( empty( $customer ) ) {
+		$query = $conn->query( "
+			SELECT * 
+			FROM `jobs` 
+		" );
+	} else {
+		$query = $conn->query( "
+			SELECT * 
+			FROM `jobs` 
+			WHERE `customer_id` = '".$customer."' 
+		" );
+	}
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	// sanity check
+	$data = stripslashes_deep( $data );
+
+	return $data;
+}
+
 // get job details
 function get_job( $id ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
