@@ -1196,11 +1196,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										?>
 									</tbody>
 								</table>
-								<div class="row">
-									<div class="col-xl-12">
-										<p><font color="red"><strong>*</strong></font> Orders that are flashing red have been pending for at least 3 hours. Please accept orders if you can fulfill them.</p>
+								
+								<!--
+									<div class="row">
+										<div class="col-xl-12">
+											<p><font color="red"><strong>*</strong></font> Orders that are flashing red have been pending for at least 3 hours. Please accept orders if you can fulfill them.</p>
+										</div>
 									</div>
-								</div>
+								-->
 							</div>
 						</div>
 					<?php } ?>
