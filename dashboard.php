@@ -337,7 +337,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</style>
 </head>
 
-<body class="hold-transition skin-blue layout-boxed sidebar-mini">  
+<body class="hold-transition skin-blue layout-boxed">  
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-content-full-height">
 		<div id="header" class="header navbar-inverse hidden-print">
 			<div class="navbar-header">
