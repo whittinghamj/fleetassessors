@@ -2215,31 +2215,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 
-								<!-- customer notes -->
-								<div class="col-xl-6 col-sm-12">
-									<!-- notes -->
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Notes</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Notes</strong></label>
-														<textarea name="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
 								<!-- contacts -->
 								<div class="col-xl-6 col-sm-12">
 									<!-- contact details -->
@@ -2271,6 +2246,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																<option value="<?php $user['id']; ?>" <?php if( $user['id'] == $customer['secondary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> <?php echo $user['phone']; ?></option>
 															<?php } ?>
 														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- customer notes -->
+								<div class="col-xl-6 col-sm-12">
+									<!-- notes -->
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Notes</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Notes</strong></label>
+														<textarea name="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
