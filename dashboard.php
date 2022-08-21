@@ -1092,6 +1092,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					</div>
 
+					<!-- dev options -->
 					<?php if( $dev_check ) { ?>
 						<div class="row">
 							<div class="col-xl-12">
@@ -1135,6 +1136,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Company</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Primary Contact</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Jobs</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
 											<th class="text-nowrap" data-orderable="false" width=""></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"></th>
 										</tr>
@@ -1165,10 +1167,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
-															'.$customer['primary_contact']['full_name'].'
+															'.$customer['primary_contact']['full_name'].' <small>'.$customer['primary_contact']['phone'].'</small>
 														</td>
 														<td class="text-nowrap">
 															'.$customer['total_jobs'].'
+														</td>
+														<td class="text-nowrap">
+															'.$customer['status'].'
 														</td>
 														<td class="text-nowrap">
 														</td>
