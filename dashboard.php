@@ -97,7 +97,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	
 	<!-- core css -->
 	<link href="https://fonts.googleapiss.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="assets/css/facebook/app.min.css" rel="stylesheet">
+	<link href="assets/css/apple/app.min.css" rel="stylesheet">
 	<link href="assets/css/apple/theme/blue.min.css" rel="stylesheet">
 	<link href="assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
 
@@ -320,7 +320,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</style>
 </head>
 
-<body class="">  
+<body class='boxed-layout'>
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-content-full-height">
 		<div id="header" class="header navbar-inverse hidden-print">
 			<div class="navbar-header">
