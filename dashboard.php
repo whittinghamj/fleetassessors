@@ -3535,7 +3535,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<form action="" method="POST" name="search">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Enter keyword" />
-									<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+									<button type="submit" class="btn btn-success">Search</button>
 								</div>
 							</form>
 						</div>
