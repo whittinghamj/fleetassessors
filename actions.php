@@ -260,24 +260,20 @@ function vrn_lookup() {
 	$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 	$remote_data = json_decode( $remote_data, true );
 
-	debug( $_POST );
-	debug( $remote_data );
-
 	// check if we found something
-	if( isset( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
-		echo 'found record';
+	if( isset( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] ) ) {
 		// does vrn already exist
 		$query = $conn->query( "
 		        SELECT `id` 
 		        FROM `vrn_database` 
 		        WHERE `vrn` = '".$vrn."' 
 		    " );
-		$vrn = $query->fetch( PDO::FETCH_ASSOC );
+		$data = $query->fetch( PDO::FETCH_ASSOC );
 
 		// sanity check
-		if( isset( $vrn['id'] ) ) {
+		if( isset( $data['id'] ) ) {
 			// update data
-			$vrn_id = $vrn['id'];
+			$vrn_id = $data['id'];
 		} else {
 			// save data
 			$insert = $conn->exec( "INSERT INTO `vrn_database` 
@@ -315,7 +311,6 @@ function vrn_lookup() {
 		// redirect
 		// go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
 	} else {
-		echo 'no found record';
 		// redirect
 		// go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
 	}
