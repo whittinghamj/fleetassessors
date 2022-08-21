@@ -2075,7 +2075,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															} elseif( $job['status'] == 'active' ) {
 																$job['status'] = '<button class="btn btn-xs btn-info btn-block">Active</button>';
 															} elseif( $job['status'] == 'suspended' ) {
-																$job['status'] = '<button class="btn btn-xs btn-warning btn-block">Cancelled</button>';
+																$job['status'] = '<button class="btn btn-xs btn-danger btn-block">Cancelled</button>';
 															} elseif( $job['status'] == 'complete' ) {
 																$job['status'] = '<button class="btn btn-xs btn-success btn-block">Complete</button>';
 															}				
@@ -2087,7 +2087,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
 																	</td>
 																	<td class="text-nowrap">
-																		date added
+																		'.date( "M dS Y", $job['added'] ).'
 																	</td>
 																	<td class="text-nowrap">
 																		'.$job['vrn'].' <br>
