@@ -309,10 +309,10 @@ function vrn_lookup() {
 		$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
 
 		// redirect
-		// go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
+		go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
 	} else {
 		// redirect
-		// go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
+		go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
 	}
 }
 
