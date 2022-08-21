@@ -901,22 +901,21 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
 
 			<div id="content" class="content">
-				<ol class="breadcrumb float-xl-right">
-					<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-					<li class="breadcrumb-item active">Access Denied</li>
-				</ol>
-				
-				<h1 class="page-header">Access Denied</h1>
-
 				<div class="panel panel-inverse">
 					<div class="panel-heading">
-						<h2 class="panel-title">Access Denied</h2>
+						<h2 class="panel-title"><font color="red">Access Denied</font></h2>
 						<div class="panel-heading-btn">
 
 						</div>
 					</div>
 					<div class="panel-body">
-						You do not have permission to access this page. Please contact an administrator.
+						<h3>
+							<strong>
+								<center>
+									You do not have permission to access this page. Please contact an administrator.
+								</center>
+							</strong>
+						</h3>
 					</div>
 				</div>
 			</div>
