@@ -3511,7 +3511,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				</div>
 			<?php } ?>
 
-			<?php function vrm_lookup() { ?>
+			<?php function vrn_lookup() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 				<div id="content" class="content">
