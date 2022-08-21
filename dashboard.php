@@ -517,7 +517,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							">
 								<a href="javascript:;">
 									<b class="caret"></b>
-									<i class="fa fa-first-order"></i>
+									<i class="fa fa-code-fork"></i>
 									<span>Tools</span>
 								</a>
 								<ul class="sub-menu">
