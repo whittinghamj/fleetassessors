@@ -1136,8 +1136,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Company</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Primary Contact</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Jobs</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
 											<th class="text-nowrap" data-orderable="false" width=""></th>
+											<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
 											<th class="text-nowrap" data-orderable="false" width="1px"></th>
 										</tr>
 									</thead>
@@ -1174,9 +1174,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															'.$customer['total_jobs'].'
 														</td>
 														<td class="text-nowrap">
-															'.$customer['status'].'
 														</td>
 														<td class="text-nowrap">
+															'.$customer['status'].'
 														</td>
 														<td class="text-nowrap">
 															<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
