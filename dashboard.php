@@ -1993,6 +1993,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Primary</strong></label>
 														<select name="primary_contact_id" id="primary_contact_id" class="form-control select2">
+															<option value="" <?php if( empty( $customer['primary_contact_id'] ) ) { echo 'selected'; } ?> >None</option>
 															<?php foreach( $users as $user ) { ?>
 																<option value="<?php $user['id']; ?>" <?php if( $user['id'] == $customer['primary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> <?php echo $user['phone']; ?></option>
 															<?php } ?>
