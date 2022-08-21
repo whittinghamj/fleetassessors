@@ -1941,34 +1941,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 								<div class="col-xl-6 col-sm-12">
 									<!-- notes -->
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Notes</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Notes</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
 												</div>
 											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Notes</strong></label>
-															<textarea name="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
-														</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Notes</strong></label>
+														<textarea name="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
 										</div>
-									<?php } ?>
+									</div>
 								</div>
 							</div>
 						</form>
 					<?php } ?>
 				</div>
-
-
 
 				<!-- dev modal -->
 				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
