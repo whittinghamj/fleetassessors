@@ -3533,7 +3533,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<div class="panel-body">
 							Enter a UK license plate number
 							<form action="" method="POST" name="search">
-								<div class="form-group">
+								<div class="form-group input-group-append">
 									<input type="text" class="form-control" placeholder="Enter keyword" />
 									<button type="submit" class="btn btn-success">Search</button>
 								</div>
