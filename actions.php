@@ -231,6 +231,7 @@ function customer_edit() {
 	$update = $conn->exec( "UPDATE `customers` SET `address_country` = '".$address_country."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `primary_contact_id` = '".$primary_contact_id."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `secondary_contact_id` = '".$secondary_contact_id."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `notes` = '".$notes."' WHERE `id` = '".$customer_id."' " );
 
 	// set status message
 	status_message( "success", "Customer has been updated." );
