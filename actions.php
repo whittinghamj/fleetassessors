@@ -254,6 +254,11 @@ function vrn_lookup() {
 	debug( $_POST );
 	die();
 
+	// map fields
+	$vrn 					= post( 'vrn' );
+	$vrn 					= str_replace( ' ', $vrn );
+	$vrn 					= strtoupper( $vrn );
+
 	
 }
 
