@@ -253,7 +253,7 @@ function vrn_lookup() {
 
 	// map fields
 	$vrn 					= post( 'vrn' );
-	$vrn 					= str_replace( ' ', $vrn );
+	$vrn 					= str_replace( ' ', '', $vrn );
 	$vrn 					= strtoupper( $vrn );
 
 	// api lookup
@@ -263,7 +263,7 @@ function vrn_lookup() {
 	debug( $_POST );
 	debug( $remote_data );
 	die();
-	
+
 	// check if we found something
 	if( isset( $remote_data['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
 		// does vrn already exist
