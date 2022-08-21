@@ -249,6 +249,8 @@ function vrn_lookup() {
 
 	// map fields
 	$vrn 					= post( 'vrn' );
+	$vrn 					= str_replace( ' ', $vrn );
+	$vrn 					= strtoupper( $vrn );
 
 	// api lookup
 	$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
