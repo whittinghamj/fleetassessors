@@ -97,8 +97,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	
 	<!-- core css -->
 	<link href="https://fonts.googleapiss.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="assets/css/apple/app.min.css" rel="stylesheet">
-	<link href="assets/css/apple/theme/blue.min.css" rel="stylesheet">
+	<link href="assets/css/default/app.min.css" rel="stylesheet">
+
+	<!-- theme -->
+	<link href="assets/css/default/theme/blue.min.css" rel="stylesheet">
 	<link href="assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
 
 	<!-- datatables -->
