@@ -112,8 +112,6 @@ function get_vrn( $id ) {
 	return $data;
 }
 
-}
-
 // count jobs for customer
 function total_jobs_for_customer( $customer_id = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
