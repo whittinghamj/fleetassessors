@@ -3579,7 +3579,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</center>
 								</h3>
 							<?php } else { ?>
-								record found.
+								<?php print_r( $vrn ); ?>
 							<?php } ?>
 						</div>
 					</div>
