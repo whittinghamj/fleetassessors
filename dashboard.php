@@ -1119,7 +1119,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="panel-heading">
 								<h2 class="panel-title">Customers</h2>
 								<div class="panel-heading-btn">
-									<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add</button>
+									<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add Customer</button>
 								</div>
 							</div>
 							<div class="panel-body">
