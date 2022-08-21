@@ -260,10 +260,6 @@ function vrn_lookup() {
 	$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 	$remote_data = json_decode( $remote_data, true );
 
-	debug( $_POST );
-	debug( $remote_data );
-	die();
-
 	// check if we found something
 	if( isset( $remote_data['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
 		// does vrn already exist
