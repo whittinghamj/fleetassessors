@@ -3534,7 +3534,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							Enter a UK license plate number
 							<form action="actions.php?a=vrn_lookup" method="POST" name="search">
 								<div class="form-group input-group-append">
-									<input type="text" class="form-control" placeholder="eg: ND08 NVK" />
+									<input type="text" name="vrn" id="vrn" class="form-control" placeholder="eg: ND08 NVK" />
 									<button type="submit" class="btn btn-success">Search</button>
 								</div>
 							</form>
