@@ -114,6 +114,14 @@ function total_jobs_for_customer( $customer_id = '' ) {
     return $data['total'];
 }
 
+function obfuscate_email( $email ) {
+	$em	= explode( "@",$email );
+	$name = implode( '@', array_slice( $em, 0, count( $em )-1 ) );
+	$len= floor( strlen( $name) / 2 );
+
+	return substr( $name, 0, $len ) . str_repeat( '*', $len ) . "@" . end( $em );	
+}
+
 // count providers with status filter
 function total_providers( $status = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
