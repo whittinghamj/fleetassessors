@@ -902,8 +902,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<div id="content" class="content">
 				<div class="panel panel-inverse">
-					<div class="panel-heading">
-						<h2 class="panel-title" style="background-color: red;"><font color="white">Access Denied</font></h2>
+					<div class="panel-heading danger">
+						<h2 class="panel-title"><font color="white">Access Denied</font></h2>
 						<div class="panel-heading-btn">
 
 						</div>
