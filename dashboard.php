@@ -320,7 +320,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</style>
 </head>
 
-<body class=''>
+<body class='boxed-layout'>
 	<div id="loader" class="app-loader">
 		<span class="spinner"></span>
 	</div>
