@@ -247,6 +247,9 @@ function customer_edit() {
 function vrn_lookup() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
+	debug( $_POST );
+	die();
+	
 	// map fields
 	$vrn 					= post( 'vrn' );
 	$vrn 					= str_replace( ' ', $vrn );
