@@ -2030,8 +2030,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Notes</strong></label>
-														<textarea name="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
+														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
