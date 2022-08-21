@@ -149,7 +149,7 @@ function customer_add() {
 	// sanity check
 	if( isset( $user['id'] ) ) {
 		// set status message
-		status_message( "danger", "A customer / user with the email address ".$email." already exists." );
+		status_message( "danger", "A customer / user with the email address <strong>".$email."</strong> already exists." );
 
 		// redirect
 		go( 'dashboard.php?c=customers' );
