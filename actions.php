@@ -203,6 +203,41 @@ function customer_add() {
 	go( 'dashboard.php?c=customer&id='.$customer_id );
 }
 
+function customer_edit() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// map fields
+	$customer_id 					= post( 'customer_id' );
+	$company_name 					= post( 'company_name' );
+	$status 						= post( 'status' );
+	$address_1 						= post( 'address_1' );
+	$address_2 						= post( 'address_2' );
+	$address_city 					= post( 'address_city' );
+	$address_state 					= post( 'address_state' );
+	$address_zip 					= post( 'address_zip' );
+	$address_country 				= post( 'address_country' );
+	$notes 							= post( 'notes' );
+	$primary_contact_id 			= post( 'primary_contact_id' );
+	$secondary_contact_id 			= post( 'secondary_contact_id' );
+
+	// save data
+	$update = $conn->exec( "UPDATE `customers` SET `company_name` = '".$company_name."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_1` = '".$address_1."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_2` = '".$address_2."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_city` = '".$address_city."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_state` = '".$address_state."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_zip` = '".$address_zip."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `address_country` = '".$address_country."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `primary_contact_id` = '".$primary_contact_id."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `secondary_contact_id` = '".$secondary_contact_id."' WHERE `id` = '".$customer_id."' " );
+
+	// set status message
+	status_message( "success", "Customer has been updated." );
+
+	// redirect
+	go( $_SERVER['HTTP_REFERER'] );
+}
+
 
 
 
