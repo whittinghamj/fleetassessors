@@ -221,6 +221,7 @@ function customer_edit() {
 	$secondary_contact_id 			= post( 'secondary_contact_id' );
 
 	// save data
+	$update = $conn->exec( "UPDATE `customers` SET `status` = '".$status."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `company_name` = '".$company_name."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `address_1` = '".$address_1."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `address_2` = '".$address_2."' WHERE `id` = '".$customer_id."' " );
