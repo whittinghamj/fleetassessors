@@ -508,7 +508,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<ul class="nav"><li class="nav-header">Admin Section</li>
 							<li class="has-sub 
 								<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
-								<?php if( get( 'c' ) == 'vrn_lookup' ) { echo'active'; } ?>
+								<?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'active'; } ?>
 							">
 								<a href="javascript:;">
 									<b class="caret"></b>
@@ -516,7 +516,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<span>Tools</span>
 								</a>
 								<ul class="sub-menu">
-									<li <?php if( get( 'c' ) == 'vrn_lookup' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
 								</ul>
 							</li>
 							<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>
@@ -595,6 +595,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						} else {
 							access_denied();
 						}
+						break;
+
+					case "vrn_lookup":
+						vrn_lookup();
+						break;
+
+					case "vrn_lookup_results":
+						vrn_lookup_results();
 						break;
 
 					default:
@@ -3500,6 +3508,38 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 					  	</div>
 				   	</div>
+				</div>
+			<?php } ?>
+
+			<?php function vrm_lookup() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+
+				<div id="content" class="content">
+					<ol class="breadcrumb float-xl-right">
+						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php">Tools</a></li>
+						<li class="breadcrumb-item active">VRN Lookup</li>
+					</ol>
+					
+					<h1 class="page-header">VRN Lookup</h1>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<h2 class="panel-title">VRN Lookup</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							Enter a UK license plate number
+							<form action="" method="POST" name="search">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Enter keyword" />
+									<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
