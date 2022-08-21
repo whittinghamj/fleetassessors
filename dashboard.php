@@ -517,7 +517,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							">
 								<a href="javascript:;">
 									<b class="caret"></b>
-									<i class="fa fa-code-fork"></i>
+									<i class="fa fa-flask"></i>
 									<span>Tools</span>
 								</a>
 								<ul class="sub-menu">
@@ -526,7 +526,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</li>
 							<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=users">
-									<i class="fa fa-user"></i>
+									<i class="fa fa-users"></i>
 									<span>Users</span> 
 								</a>
 							</li>
