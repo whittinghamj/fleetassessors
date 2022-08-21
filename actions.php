@@ -265,6 +265,7 @@ function vrn_lookup() {
 
 	// check if we found something
 	if( isset( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
+		echo 'found record';
 		// does vrn already exist
 		$query = $conn->query( "
 		        SELECT `id` 
@@ -314,6 +315,7 @@ function vrn_lookup() {
 		// redirect
 		// go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
 	} else {
+		echo 'no found record';
 		// redirect
 		// go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
 	}
