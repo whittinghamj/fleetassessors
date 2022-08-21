@@ -4079,7 +4079,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			// data tables > table_customers
 			$(function () {
 				$( '#table_customers' ).DataTable({
-					"order": [[ 0, "desc" ]],
+					"order": [[ 1, "asc" ]],
 					"responsive": true,
 					"columnDefs": [{
 						"targets"  : 'no-sort',
