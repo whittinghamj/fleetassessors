@@ -1977,7 +1977,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 								<!-- contacts -->
 								<div class="col-xl-6 col-sm-12">
-									<!-- contact details -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Contact Details</h2>
@@ -1995,7 +1994,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<select name="primary_contact_id" id="primary_contact_id" class="form-control select2">
 															<option value="" <?php if( empty( $customer['primary_contact_id'] ) ) { echo 'selected'; } ?> >None</option>
 															<?php foreach( $users as $user ) { ?>
-																<option value="<?php echo $user['id']; ?>" <?php if( $user['id'] == $customer['primary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> <?php echo $user['phone']; ?></option>
+																<option value="<?php echo $user['id']; ?>" <?php if( $user['id'] == $customer['primary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> - <?php echo $user['phone']; ?></option>
 															<?php } ?>
 														</select>
 													</div>
@@ -2004,7 +2003,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<select name="secondary_contact_id" id="secondary_contact_id" class="form-control select2">
 															<option value="" <?php if( empty( $customer['secondary_contact_id'] ) ) { echo 'selected'; } ?> >None</option>
 															<?php foreach( $users as $user ) { ?>
-																<option value="<?php echo $user['id']; ?>" <?php if( $user['id'] == $customer['secondary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> <?php echo $user['phone']; ?></option>
+																<option value="<?php echo $user['id']; ?>" <?php if( $user['id'] == $customer['secondary_contact_id'] ) { echo 'selected'; } ?> ><?php echo $user['full_name']; ?> - <?php echo $user['phone']; ?></option>
 															<?php } ?>
 														</select>
 													</div>
