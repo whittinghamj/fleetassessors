@@ -1238,7 +1238,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Address 2</strong></label>
-												<input type="text" id="address_2" name="address_2" class="form-control" required>
+												<input type="text" id="address_2" name="address_2" class="form-control">
 											</div>
 										</div>
 										<div class="col-xl-6 col-sm-12">
@@ -1249,13 +1249,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
-												<label class="bmd-label-floating"><strong>State / County</strong></label>
+												<label class="bmd-label-floating"><strong>County</strong></label>
 												<input type="text" id="address_state" name="address_state" class="form-control" required>
 											</div>
 										</div>
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Zip / Postcode</strong></label>
+												<label class="bmd-label-floating"><strong>Postcode</strong></label>
 												<input type="text" id="address_zip" name="address_zip" class="form-control" required>
 											</div>
 										</div>
