@@ -1222,6 +1222,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<input type="text" id="last_name" name="last_name" class="form-control" required>
 											</div>
 										</div>
+									</div>
+									<div class="rows">
+										<div class="col-xl-6 col-sm-12">
+											<div class="form-group">
+												<label class="bmd-label-floating"><strong>Phone</strong></label>
+												<input type="email" id="phone" name="phone" class="form-control" required>
+											</div>
+										</div>
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Email</strong></label>
@@ -1525,7 +1533,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							 	<div class="modal-footer">
 							 		<div class="btn-group">
 										<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" onclick="processing();" class="btn btn-xs btn-primary">Continue</button>
+										<button type="submit" class="btn btn-xs btn-primary">Continue</button>
 									</div>
 								</div>
 						  	</div>
