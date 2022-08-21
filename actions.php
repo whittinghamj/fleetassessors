@@ -138,6 +138,23 @@ function customer_add() {
 	$address_zip 					= post( 'address_zip' );
 	$address_country 				= post( 'address_country' );
 
+	// does user already exist
+	$query = $conn->query( "
+	        SELECT `id` 
+	        FROM `users` 
+	        WHERE `email` = '".$email."' 
+	    " );
+	$user = $query->fetch( PDO::FETCH_ASSOC );
+
+	// sanity check
+	if( isset( $user['id'] ) ) {
+		// set status message
+		status_message( "danger", "A customer / user with the email address ".$email." already exists." );
+
+		// redirect
+		go( 'dashboard.php?c=customers' );
+	}
+
 	// save data - user
 	$insert = $conn->exec( "INSERT IGNORE INTO `users` 
 		(`added`,`status`,`type`,`email`,`password`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`added_by`)
@@ -165,6 +182,7 @@ function customer_add() {
 		('".time()."', 
 		'active', 
 		'".$company_name."',
+		'".$user_id."',
 		'".$address_1."',
 		'".$address_2."',
 		'".$address_city."',
