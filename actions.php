@@ -264,7 +264,7 @@ function vrn_lookup() {
 	debug( $remote_data );
 
 	// check if we found something
-	if( isset( $remote_data['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
+	if( isset( $remote_data['Result']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
 		// does vrn already exist
 		$query = $conn->query( "
 		        SELECT `id` 
@@ -312,10 +312,10 @@ function vrn_lookup() {
 		$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
 
 		// redirect
-		go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
+		// go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
 	} else {
 		// redirect
-		go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
+		// go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
 	}
 }
 
