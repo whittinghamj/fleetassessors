@@ -1162,7 +1162,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
 														</td>
 														<td class="text-nowrap">
-															'.$customer['company_name'].'
+															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
 															'.$customer['primary_contact']['full_name'].'
@@ -1175,7 +1175,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<td class="text-nowrap">
 															<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">Edit</a>
+																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">View / Edit</a>
 																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
 															</div>
 														</td>
