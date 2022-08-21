@@ -138,23 +138,49 @@ function customer_add() {
 	$address_zip 					= post( 'address_zip' );
 	$address_country 				= post( 'address_country' );
 
-	// save data
+	// save data - user
 	$insert = $conn->exec( "INSERT IGNORE INTO `users` 
-		(`added`,`status`,`type`,`email`,`password`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`)
+		(`added`,`status`,`type`,`email`,`password`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`added_by`)
 		VALUE
 		('".time()."', 
 		'active', 
 		'customer',
+		'".$email."',
+		'".$password."',
+		'".$address_1."',
+		'".$address_2."',
+		'".$address_city."',
+		'".$address_state."',
+		'".$address_zip."',
+		'".$address_country."',
 		'".$account_details['id']."'
 	)" );
 
-	$order_id = $conn->lastInsertId();
+	$user_id = $conn->lastInsertId();
 	
+	// save data - customer
+	$insert = $conn->exec( "INSERT IGNORE INTO `customers` 
+		(`added`,`status`,`company_name`,`primary_contact_id`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`added_by`)
+		VALUE
+		('".time()."', 
+		'active', 
+		'".$company_name."',
+		'".$address_1."',
+		'".$address_2."',
+		'".$address_city."',
+		'".$address_state."',
+		'".$address_zip."',
+		'".$address_country."',
+		'".$account_details['id']."'
+	)" );
+
+	$customer_id = $conn->lastInsertId();
+
 	// set status message
-	status_message( "success", "Order has been created." );
+	status_message( "success", "Customer has been added." );
 
 	// redirect
-	go( 'dashboard.php?c=order&id='.$order_id );
+	go( 'dashboard.php?c=customer&id='.$customer_id );
 }
 
 function order_add_item() {
