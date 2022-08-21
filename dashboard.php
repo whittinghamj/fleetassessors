@@ -2097,10 +2097,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		'.$job['estimator'].'
 																	</td>
 																	<td class="text-nowrap">
-																		'.$job['initial_estimate'].'
+																		£'.number_format( $job['initial_estimate'] ).'
 																	</td>
 																	<td class="text-nowrap">
-																		'.$job['revised_estimate'].'
+																		£'.number_format( $job['revised_estimate'] ).'
 																	</td>
 																	<td class="text-nowrap">
 																	</td>
