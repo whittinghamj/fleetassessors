@@ -494,7 +494,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<span>Customers</span> 
 							</a>
 						</li>
-					<? } ?>
+					<?php } ?>
 					<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
 						<a href="dashboard.php?c=jobs">
 							<i class="fa fa-car bg-green"></i>
@@ -508,7 +508,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<span>Providers</span> 
 							</a>
 						</li>
-					<? } ?>
+					<?php } ?>
 					<li>
 						<a href="logout.php">
 							<i class="fa fa-sign-out-alt bg-red"></i>
