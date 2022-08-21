@@ -1585,7 +1585,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<li class="breadcrumb-item active">User: <?php echo $customer['company_name']; ?></li>
 						</ol>
 
-						<h1 class="page-header">User: <?php echo $customer['company_name']; ?></h1>
+						<h1 class="page-header">Customer: <?php echo $customer['company_name']; ?></h1>
 
 						<div class="row">
 							<div class="col-xl-12">
