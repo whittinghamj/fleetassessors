@@ -337,7 +337,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</style>
 </head>
 
-<body class="">
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">  
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-content-full-height">
 		<div id="header" class="header navbar-inverse hidden-print">
 			<div class="navbar-header">
@@ -618,7 +618,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 		<!-- dev section -->
 		<?php function dev() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -679,7 +679,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function staging() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<div id="content" class="content">
 				<ol class="breadcrumb float-xl-right">
@@ -902,7 +902,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 		<!-- production section -->
 		<?php function access_denied() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<div id="content" class="content">
 				<div class="panel panel-inverse">
@@ -926,7 +926,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function home() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php $stats['total_users'] 		= total_users(); ?>
 			<?php $stats['total_customers'] 	= total_customers(); ?>
@@ -1084,7 +1084,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function customers() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -1217,116 +1217,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</div>
 				<?php } ?>
 			</div>
-
-			<!-- create order summary modals -->
-
-			<?php 
-				/*
-				foreach( $orders as $order) {
-					// find customer
-					foreach( $customers as $customer ) {
-						if( $customer['id'] == $order['customer_id'] ) {
-							break;
-						}
-					}
-
-					// find delivery details
-					foreach( $delivery_details as $delivery_detail ) {
-						if( $delivery_detail['id'] == $order['delivery_id'] ) {
-							break;
-						}
-					}
-
-					// get ordered products
-					$order['order_items'] = get_order_items( $order['id'] );
-					$items = '';
-					foreach( $order['order_items'] as $order_item ) {
-						// match item to product
-						foreach( $products as $product ) {
-							if( $product['id'] == $order_item['product_id'] ) {
-								$items .= $order_item['qty'].' x '.$product['title'].'<br>';
-							}
-						}
-					}
-
-					// calculate network fee
-					$network_fee = calculate_network_fee( $order['destination_florist_id'], $order['total_price'] );
-					$florist_profit = ( $order['total_price'] - $network_fee );
-
-					// order summary
-					echo '
-						<div class="modal fade" id="order_summary_'.$order['id'].'" tabindex="-1" role="dialog" aria-labelledby="order_summary_'.$order['id'].'" aria-hidden="true">
-						   	<div class="modal-dialog modal-xl">
-							  	<div class="modal-content">
-								 	<div class="modal-header">
-										<h5 class="modal-title" id="order_summary_'.$order['id'].'">Order Summary</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-											x
-										</button>
-								 	</div>
-								 	<div class="modal-body">
-								 		<div class="row">
-											<div class="col-xl-4 col-sm-12">
-												<p class="lead">
-													Sender Details
-												</p>
-												'.$customer['full_name'].' <br>
-												'.$customer['address_1'].' <br>
-												'.( !empty( $customer['address_2'] ) ? $customer['address_2'].' <br>' : '' ).'
-												'.$customer['address_city'].', '.$customer['address_state'].' <br>
-												'.$customer['address_zip'].', '.code_to_country( $customer['address_country'] ).' <br>
-												'.( !empty( $customer['tel_landline'] ) ? 'Phone: '.$customer['tel_landline'].' <br>' : '' ).'
-												'.( !empty( $customer['tel_cell'] ) ? 'Cell: '.$customer['tel_cell'].' <br>' : '' ).'
-											</div>
-											<div class="col-xl-4 col-sm-12">
-												<p class="lead">
-													Receiver Details
-												</p>
-												'.$delivery_detail['full_name'].' <br>
-												'.$delivery_detail['address_1'].' <br>
-												'.( !empty( $delivery_detail['address_2'] ) ? $delivery_detail['address_2'].' <br>' : '' ).'
-												'.$delivery_detail['address_city'].', '.$delivery_detail['address_state'].' <br>
-												'.$delivery_detail['address_zip'].', '.code_to_country( $delivery_detail['address_country'] ).' <br>
-												'.( !empty( $delivery_detail['tel_landline'] ) ? 'Phone: '.$delivery_detail['tel_landline'].' <br>' : '' ).'
-												'.( !empty( $delivery_detail['tel_cell'] ) ? 'Cell: '.$delivery_detail['tel_cell'].' <br>' : '' ).'
-											</div>
-											<div class="col-xl-4 col-sm-12">
-												<p class="lead">
-													Order Details
-												</p>
-												<strong>Order Date:</strong> '.date( "Y-m-d", $order['added'] ).' <br>
-												<strong>Deliver Date:</strong> '.$order['delivery_date'].' <br>
-												<strong>Order Total:</strong> $'.number_format( $order['total_price'], 2 ).' <br>
-												<!--
-													<strong>Network Fee:</strong> $'.$network_fee.' ('.$account_details['subscription']['network_percentage'].'%)<br>
-													<strong>Florist Gets:</strong> $'.$florist_profit.'
-												-->
-											</div>
-										</div>
-										<br><br>
-										<div class="row">
-											<div class="col-xl-12 col-sm-12">
-												<p class="lead">
-													Items
-												</p>
-												'.$items.'
-											</div>
-										</div>
-								 	</div>
-								 	<div class="modal-footer">
-								 		<div class="btn-group">
-											<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
-											'.( $order['status'] == 'new_order' ? '<a href="#" onclick="order_accept( '.$order['id'].' )" class="btn btn-xs btn-lime">Accept Order</a>' : '' ).'
-											<a href="?c=order&id='.$order['id'].'" class="btn btn-xs btn-primary">View Order</a>
-										</div>
-									</div>
-							  	</div>
-						   	</div>
-						</div>
-					';
-				}
-				*/
-			?>
 
 			<!-- add customer modal -->
 			<form class="form" method="post" action="actions.php?a=customer_add">
@@ -1705,7 +1595,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 
 		<?php function invoice() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -1877,7 +1767,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function message() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -1988,7 +1878,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function message_new() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php $users = get_users(); ?>
 			
@@ -2079,7 +1969,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function message_reply() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php $message_id = get( 'id' ); ?>
 			<?php $message = get_message( $message_id ); ?>
@@ -2177,7 +2067,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function messages() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 			
 			<?php
 				// apply message filter
@@ -2338,7 +2228,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function order() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php 
 				// get data
@@ -3664,7 +3554,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function orders() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -4533,7 +4423,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function product() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php 
 				// get data
@@ -4917,7 +4807,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function products() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -5077,7 +4967,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function subscription() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php 
 				// get data
@@ -5355,7 +5245,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function subscriptions() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// get data
@@ -5519,7 +5409,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function user() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php 
 				// get data
@@ -6587,7 +6477,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<?php function users() { ?>
-			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 			<?php
 				// match filter

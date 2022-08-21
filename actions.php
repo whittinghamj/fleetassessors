@@ -56,132 +56,28 @@ switch( $a ) {
         accept_terms();
         break;
 
-    case "ajax_get_global_countries":
-        ajax_get_global_countries();
+    case "customer_add":
+        customer_add();
         break;
 
-    case "ajax_get_global_states":
-        ajax_get_global_states();
+    case "customer_edit":
+        customer_edit();
         break;
 
-    case "ajax_get_global_cities":
-        ajax_get_global_cities();
+    case "customer_delete":
+        customer_delete();
         break;
 
-    case "ajax_get_global_zipcodes":
-        ajax_get_global_zipcodes();
+    case "job_add":
+        job_add();
         break;
 
-    case "get_notifications":
-        get_notifications();
+    case "job_edit":
+        job_edit();
         break;
 
-    case "message_send":
-        message_send();
-        break;
-
-    case "message_mark_read":
-        message_mark_read();
-        break;
-
-    case "message_delete":
-        message_delete();
-        break;
-
-    case "messages_delete":
-        messages_delete();
-        break;
-
-    case "order_accept":
-        order_accept();
-        break;
-
-    case "order_add":
-        order_add();
-        break;
-
-    case "order_add_item":
-        order_add_item();
-        break;
-
-    case "order_assign_florist":
-        order_assign_florist();
-        break;
-
-    case "order_card_message":
-        order_card_message();
-        break;
-
-    case "order_edit":
-        order_edit();
-        break;
-
-    case "order_edit_delivery_details":
-        order_edit_delivery_details();
-        break;
-
-    case "order_edit_notes":
-        order_edit_notes();
-        break;
-
-    case "order_edit_status":
-        order_edit_status();
-        break;
-
-    case "order_delete":
-        order_delete();
-        break;
-
-    case "order_delete_item":
-        order_delete_item();
-        break;
-
-    case "order_update_status":
-        order_update_status();
-        break;
-
-    case "order_submit":
-        order_submit();
-        break;
-
-	case "product_add":
-        product_add();
-        break;
-
-    case "product_image_add":
-        product_image_add();
-        break;
-
-    case "product_image_delete":
-        product_image_delete();
-        break;
-
-    case "product_image_make_primary":
-        product_image_make_primary();
-        break;
-
-	case "product_edit":
-        product_edit();
-        break;
-
-	case "product_delete":
-        product_delete();
-        break;
-
-    case "subscription_add":
-        subscription_add();
-        break;
-
-    case "subscription_add_user":
-        subscription_add_user();
-        break;
-
-    case "subscription_edit":
-        subscription_edit();
-        break;
-
-    case "subscription_delete":
-        subscription_delete();
+    case "job_delete":
+        job_delete();
         break;
 
     case "system_settings":
@@ -196,22 +92,6 @@ switch( $a ) {
         user_edit();
         break;
 
-    case "user_edit_coverage_area":
-        user_edit_coverage_area();
-        break;
-
-    case "user_edit_secondary_coverage_area":
-        user_edit_secondary_coverage_area();
-        break;
-
-    case "user_edit_from_order":
-        user_edit_from_order();
-        break;
-
-    case "user_edit_remove_secondary_coverage_area":
-        user_edit_remove_secondary_coverage_area();
-        break;
-
     case "user_delete":
         user_delete();
         break;
@@ -221,124 +101,14 @@ switch( $a ) {
 		break;
 }
 
-function ajax_get_global_countries() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// get data
-    $query = $conn->query( "
-        SELECT `id`,`country` 
-        FROM `global_addresses` 
-        GROUP BY `country` 
-        ORDER BY `country` ASC 
-    " );
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-    // sanity check
-	$data = stripslashes_deep( $data );
-
-	json_output( $data );
-}
-
-function ajax_get_global_states() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$country 			= get( 'country' );
-
-	// get data
-    $query = $conn->query( "
-        SELECT `state` 
-        FROM `global_addresses` 
-        WHERE `country` = '".$country."' 
-        AND `state` != '' 
-        GROUP BY `state` 
-        ORDER BY `state` ASC 
-    " );
-	$states = $query->fetchAll( PDO::FETCH_ASSOC );
-
-    // sanity check
-	$states = stripslashes_deep( $states );
-
-	echo '<option value="" selected>Select a state</option>';
-	foreach( $states as $state ) {
-		echo '<option value="'.$state['state'].'">'.$state['state'].'</option>';
-	}
-}
-
-function ajax_get_global_cities() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$country 			= get( 'country' );
-	$state 				= get( 'state' );
-	$type 				= get( 'type' );
-
-	// get data
-    $query = $conn->query( "
-        SELECT `city` 
-        FROM `global_addresses` 
-        WHERE `country` = '".$country."' 
-        AND `state` = '".$state."' 
-        GROUP BY `city` 
-        ORDER BY `city` ASC 
-    " );
-	$cities = $query->fetchAll( PDO::FETCH_ASSOC );
-
-    // sanity check
-	$cities = stripslashes_deep( $cities );
-
-	echo '<option value="" selected>Select a city</option>';
-	foreach( $cities as $city ) {
-		echo '<option value="'.$city['city'].'">'.$city['city'].'</option>';
-	}
-}
-
-function ajax_get_global_zipcodes() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$country 			= get( 'country' );
-	$state 				= get( 'state' );
-	$city 				= get( 'city' );
-	$type 				= get( 'type' );
-
-	// get data
-    $query = $conn->query( "
-        SELECT `user_id`,`zip_code` 
-        FROM `global_addresses` 
-        WHERE `country` = '".$country."' 
-        AND `state` = '".$state."' 
-        AND `city` = '".$city."' 
-        GROUP BY `zip_code` 
-        ORDER BY `zip_code` ASC 
-    " );
-	$zipcodes = $query->fetchAll( PDO::FETCH_ASSOC );
-
-    // sanity check
-	$zipcodes = stripslashes_deep( $zipcodes );
-
-	// echo '<option value="" selected>Select a zip / postal code</option>';
-	foreach( $zipcodes as $zipcode ) {
-		if( $type == 'primary' ) {
-			echo '<option value="'.$zipcode['zip_code'].'">'.$zipcode['zip_code'].'</option>';
-		} else {
-			if( empty( $zipcode['user_id'] ) ) {
-				echo '<option value="'.$zipcode['zip_code'].'">'.$zipcode['zip_code'].'</option>';
-			} else {
-				echo '<option value="'.$zipcode['zip_code'].'" disabled>'.$zipcode['zip_code'].' - (already claimed)</option>';
-			}
-		}
-	}
-}
-
 function home() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	die( 'access denied to function name '.get( 'a' ) );
 }
 
 function accept_terms() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// save data
 	$update = $conn->exec( "UPDATE `users` SET `accept_terms` = 'yes' WHERE `id` = '".$account_details['id']."' " );
@@ -352,159 +122,8 @@ function accept_terms() {
 	go( 'dashboard.php' );
 }
 
-function get_notifications() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// set headers
-	header("Content-Type:application/json; charset=utf-8" );
-
-	// bank array
-	$data = array();
-
-	// get data
-	$query = $conn->query( "
-        SELECT * 
-        FROM `notifications` 
-        WHERE `user_id` = '".$account_details['id']."' 
-        AND `status` = 'pending' 
-    " );
-	$data = $query->fetch( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	// update data
-	// $update = $conn->exec( "UPDATE `notifications` SET `status` = 'read' WHERE `id` = '".$data['id']."' " );
-
-	json_output( $data );
-}
-
-function message_send() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$to_id 							= post( 'to_id' );
-	$subject 						= post( 'subject' );
-	$message 						= post( 'message' );
-
-	// save data
-	$insert = $conn->exec( "INSERT INTO `messages` 
-		(`added`,`status`,`filter`,`to_id`,`from_id`,`subject`,`message`)
-		VALUE
-		('".time()."', 
-		'unread', 
-		'florist',
-		'".$to_id."',
-		'".$account_details['id']."',
-		'".$subject."',
-		'".$message."'
-	)" );
-
-	$user_id = $conn->lastInsertId();
-
-	// set status message
-	status_message( "success", "Message has been sent." );
-
-	// redirect
-	go( 'dashboard.php?c=messages' );
-}
-
-function message_mark_read() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$id 						= get( 'id' );
-
-	// update data
-	$update = $conn->exec( "UPDATE `messages` SET `status` = 'read' WHERE `id` = '".$id."' " );
-}
-
-function message_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$id = get( 'id' );
-
-	// sanity check
-	$message = get_message( $id );
-	if( $message['to_id'] == $account_details['id'] || $message['from_id'] == $account_details['id'] || $account_details['type'] == 'admin' ) {
-		// pass
-
-		// delete data
-		$delete = $conn->exec( "DELETE FROM `messages` WHERE `id` = '".$id."' " );
-
-		// set status message
-		status_message( "success", "Message has been deleted." );
-	} else {
-		// fail
-
-		// set status message
-		status_message( "danger", "Permission Denied." );
-	}
-
-	// redirect
-	go( 'dashboard.php?c=messages' );
-}
-
-function messages_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	debug( $_POST );
-	die();
-
-	// map fields
-	$id = get( 'id' );
-
-	// sanity check
-	$message = get_message( $id );
-	if( $message['to_id'] == $account_details['id'] || $message['from_id'] == $account_details['id'] || $account_details['type'] == 'admin' ) {
-		// pass
-
-		// delete data
-		$delete = $conn->exec( "DELETE FROM `messages` WHERE `id` = '".$id."' " );
-
-		// set status message
-		status_message( "success", "Message has been deleted." );
-	} else {
-		// fail
-
-		// set status message
-		status_message( "danger", "Permission Denied." );
-	}
-
-	// redirect
-	go( 'dashboard.php?c=messages' );
-}
-
-function order_accept() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
-
-	// map fields
-	$order_id 						= get( 'id' );
-
-	// get data
-	$order 							= get_order( $order_id );
-
-	// has order already been accepted
-	if( $order['accepted'] == 'no' ) {
-		// save data
-		$update = $conn->exec( "UPDATE `orders` SET `status` = 'being_built' WHERE `id` = '".$order_id."' " );
-		$update = $conn->exec( "UPDATE `orders` SET `destination_florist_id` = '".$account_details['id']."' WHERE `id` = '".$order_id."' " );
-		$update = $conn->exec( "UPDATE `orders` SET `accepted` = 'yes' WHERE `id` = '".$order_id."' " );
-
-		// set status message
-		status_message( "success", "Order has been accepted." );
-	} else {
-		// set status message
-		status_message( "danger", "Unfortunately this order has already been accepted by another florist." );
-	}
-
-	// redirect
-	go( $_SERVER['HTTP_REFERER'] );
-}
-
-function order_add() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+function customer_add() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$customer_id 					= post( 'customer_id' );
@@ -551,7 +170,7 @@ function order_add() {
 }
 
 function order_add_item() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 							= post( 'order_id' );
@@ -589,7 +208,7 @@ function order_add_item() {
 }
 
 function order_assign_florist() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 						= post( 'order_id' );
@@ -617,7 +236,7 @@ function order_assign_florist() {
 }
 
 function order_card_message() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 						= post( 'order_id' );
@@ -634,7 +253,7 @@ function order_card_message() {
 }
 
 function order_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id 							= get( 'id' );
@@ -651,7 +270,7 @@ function order_delete() {
 }
 
 function order_delete_item() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id 				= get( 'id' );
@@ -681,7 +300,7 @@ function order_delete_item() {
 }
 
 function order_edit() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 				= post( 'order_id' );
@@ -694,7 +313,7 @@ function order_edit() {
 }
 
 function order_edit_delivery_details() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$delivery_id 					= post( 'delivery_id' );
@@ -793,7 +412,7 @@ function order_edit_delivery_details() {
 }
 
 function order_edit_notes() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 						= post( 'order_id' );
@@ -810,7 +429,7 @@ function order_edit_notes() {
 }
 
 function order_edit_status() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 						= post( 'order_id' );
@@ -832,7 +451,7 @@ function order_edit_status() {
 }
 
 function order_submit() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id 							= get( 'id' );
@@ -851,7 +470,7 @@ function order_submit() {
 }
 
 function order_update_status() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$order_id 						= get( 'id' );
@@ -901,7 +520,7 @@ function order_update_status() {
 }
 
 function product_add() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$title 					= post( 'title' );
@@ -936,7 +555,7 @@ function product_add() {
 }
 
 function product_edit() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$product_id 					= post( 'product_id' );
@@ -978,7 +597,7 @@ function product_edit() {
 }
 
 function product_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id 							= get( 'id' );
@@ -995,7 +614,7 @@ function product_delete() {
 }
 
 function product_image_add() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$product_id 				= post('product_id');
@@ -1039,7 +658,7 @@ function product_image_add() {
 }
 
 function product_image_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id = get( 'id' );
@@ -1067,7 +686,7 @@ function product_image_delete() {
 }
 
 function product_image_make_primary() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$id 	 						= get( 'id' );
@@ -1089,7 +708,7 @@ function product_image_make_primary() {
 }
 
 function subscription_add() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// security check
 	if( $admin_check || $staff_check ) {
@@ -1132,7 +751,7 @@ function subscription_add() {
 }
 
 function subscription_add_user() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// security check
 	if( $admin_check || $staff_check ) {
@@ -1152,7 +771,7 @@ function subscription_add_user() {
 }
 
 function subscription_edit() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$subscription_id 				= post( 'subscription_id' );
@@ -1183,7 +802,7 @@ function subscription_edit() {
 }
 
 function user_add() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// security check
 	if( $admin_check || $staff_check ) {
@@ -1237,7 +856,7 @@ function user_add() {
 }
 
 function user_edit() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$user_id 						= post( 'user_id' );
@@ -1331,7 +950,7 @@ function user_edit() {
 }
 
 function user_edit_from_order() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$user_id 						= post( 'user_id' );
@@ -1391,7 +1010,7 @@ function user_edit_from_order() {
 }
 
 function user_edit_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$user_id 						= post( 'user_id' );
@@ -1411,7 +1030,7 @@ function user_edit_coverage_area() {
 }
 
 function user_edit_secondary_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$user_id 						= post( 'user_id' );
@@ -1436,7 +1055,7 @@ function user_edit_secondary_coverage_area() {
 }
 
 function user_edit_remove_secondary_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
 	$user_id 						= post( 'user_id' );
@@ -1461,7 +1080,7 @@ function user_edit_remove_secondary_coverage_area() {
 }
 
 function user_delete() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// security check
 	if( $account_details['type'] == 'admin' ) {
@@ -1484,7 +1103,7 @@ function user_delete() {
 }
 
 function system_settings() {
-	global $conn, $globals, $account_details, $admin_check, $staff_check;
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// admin check
 	if( $account_details['type'] == 'admin' ) {
