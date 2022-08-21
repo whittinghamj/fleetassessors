@@ -3532,12 +3532,51 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="panel-body">
 							Enter a UK license plate number
-							<form action="" method="POST" name="search">
+							<form action="actions.php?a=vrn_lookup" method="POST" name="search">
 								<div class="form-group input-group-append">
-									<input type="text" class="form-control" placeholder="Enter keyword" />
+									<input type="text" class="form-control" placeholder="eg: ND08 NVK" />
 									<button type="submit" class="btn btn-success">Search</button>
 								</div>
 							</form>
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+
+			<?php function vrn_lookup_results() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+
+				<?php
+					$vrn_id = get( 'id' );
+					$vrn = get_vrn( $vrn_id );
+				?>
+				
+				<div id="content" class="content">
+					<ol class="breadcrumb float-xl-right">
+						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php">Tools</a></li>
+						<li class="breadcrumb-item active">VRN Lookup</li>
+					</ol>
+					
+					<h1 class="page-header">VRN Lookup</h1>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<h2 class="panel-title">VRN Lookup</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							<?php if( !isset( $vrn['id']) ) { ?>
+								<h3>
+									<center>
+										<strong>No record found.</strong>
+									</center>
+								</h3>
+							<?php } else { ?>
+								record found.
+							<?php } ?>
 						</div>
 					</div>
 				</div>
