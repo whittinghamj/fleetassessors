@@ -643,7 +643,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 						<div class="panel-body">
-							<?php echo obfuscate_email( 'jamie.whittingham@gmail.com' ); ?>
 						</div>
 					</div>
 
