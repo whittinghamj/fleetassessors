@@ -2041,84 +2041,86 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 							<div class="row">
 								<!-- jobs -->
-								<div class="panel panel-inverse">
-									<div class="panel-heading">
-										<h2 class="panel-title">Jobs</h2>
-										<div class="panel-heading-btn">
-											<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+								<div class="col-xl-12 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Jobs</h2>
+											<div class="panel-heading-btn">
+												<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+											</div>
 										</div>
-									</div>
-									<div class="panel-body">
-										<table id="table_jobs" class="table table-striped table-bordered table-td-valign-middle">
-											<thead>
-												<tr>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>Added</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>Int Estimate</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"><strong>Rev Estimate</strong></th>
-													<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
-													<th class="text-nowrap" data-orderable="false" width=""></th>
-													<th class="text-nowrap" data-orderable="false" width="1px"></th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php
-													// build table
-													foreach( $jobs as $job ) {
-														// status
-														$job['status_raw'] = $job['status'];
-														if( $job['status'] == 'pending' ) {
-															$job['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
-														} elseif( $job['status'] == 'active' ) {
-															$job['status'] = '<button class="btn btn-xs btn-info btn-block">Active</button>';
-														} elseif( $job['status'] == 'suspended' ) {
-															$job['status'] = '<button class="btn btn-xs btn-warning btn-block">Cancelled</button>';
-														} elseif( $job['status'] == 'complete' ) {
-															$job['status'] = '<button class="btn btn-xs btn-success btn-block">Complete</button>';
-														}				
+										<div class="panel-body">
+											<table id="table_jobs" class="table table-striped table-bordered table-td-valign-middle">
+												<thead>
+													<tr>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>Added</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>Int Estimate</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"><strong>Rev Estimate</strong></th>
+														<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
+														<th class="text-nowrap" data-orderable="false" width=""></th>
+														<th class="text-nowrap" data-orderable="false" width="1px"></th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php
+														// build table
+														foreach( $jobs as $job ) {
+															// status
+															$job['status_raw'] = $job['status'];
+															if( $job['status'] == 'pending' ) {
+																$job['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+															} elseif( $job['status'] == 'active' ) {
+																$job['status'] = '<button class="btn btn-xs btn-info btn-block">Active</button>';
+															} elseif( $job['status'] == 'suspended' ) {
+																$job['status'] = '<button class="btn btn-xs btn-warning btn-block">Cancelled</button>';
+															} elseif( $job['status'] == 'complete' ) {
+																$job['status'] = '<button class="btn btn-xs btn-success btn-block">Complete</button>';
+															}				
 
-														// output
-														echo '
-															<tr>
-																<td class="text-nowrap">
-																	<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
-																</td>
-																<td class="text-nowrap">
-																	date added
-																</td>
-																<td class="text-nowrap">
-																	'.$job['vrn'].' <br>
-																	<small>Make and model here</small>
-																</td>
-																<td class="text-nowrap">
-																	'.$job['estimator'].'
-																</td>
-																<td class="text-nowrap">
-																	'.$job['initial_estimate'].'
-																</td>
-																<td class="text-nowrap">
-																	'.$job['revised_estimate'].'
-																</td>
-																<td class="text-nowrap">
-																</td>
-																<td class="text-nowrap">
-																	'.$job['status'].'
-																</td>
-																<td class="text-nowrap">
-																	<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-																	<div class="dropdown-menu dropdown-menu-right" role="menu">
-																		<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																		<a href="#" onclick="customer_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
-																	</div>
-																</td>
-															</tr>
-														';
-													}
-												?>
-											</tbody>
-										</table>
+															// output
+															echo '
+																<tr>
+																	<td class="text-nowrap">
+																		<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
+																	</td>
+																	<td class="text-nowrap">
+																		date added
+																	</td>
+																	<td class="text-nowrap">
+																		'.$job['vrn'].' <br>
+																		<small>Make and model here</small>
+																	</td>
+																	<td class="text-nowrap">
+																		'.$job['estimator'].'
+																	</td>
+																	<td class="text-nowrap">
+																		'.$job['initial_estimate'].'
+																	</td>
+																	<td class="text-nowrap">
+																		'.$job['revised_estimate'].'
+																	</td>
+																	<td class="text-nowrap">
+																	</td>
+																	<td class="text-nowrap">
+																		'.$job['status'].'
+																	</td>
+																	<td class="text-nowrap">
+																		<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																		<div class="dropdown-menu dropdown-menu-right" role="menu">
+																			<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
+																			<a href="#" onclick="customer_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+																		</div>
+																	</td>
+																</tr>
+															';
+														}
+													?>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
