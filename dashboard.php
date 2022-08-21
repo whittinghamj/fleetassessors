@@ -566,6 +566,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					break;
 
 				// production section
+				case "access_denied":
+					access_denied();
+					break;
+
 				case "customer":
 					if( $admin_check || $staff_check ) {
 						customer();
