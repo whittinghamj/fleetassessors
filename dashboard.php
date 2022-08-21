@@ -1113,8 +1113,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					<?php } ?>
 
-					<!-- customers -->
-					<?php if( !isset( $customers[0]['id'] ) ) { ?>
+						<!-- customers -->
 						<div class="panel panel-inverse">
 							<div class="panel-heading">
 								<h2 class="panel-title">Customers</h2>
@@ -1123,90 +1122,74 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 							<div class="panel-body">
-								<center>
-									<h3>
-										No customers found.
-									</h3>
-								</center>
-							</div>
-						</div>
-					<?php } else { ?>
-						<div class="panel panel-inverse">
-							<div class="panel-heading">
-								<h2 class="panel-title">Customers</h2>
-								<div class="panel-heading-btn">
-									<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add</button>
-								</div>
-							</div>
-							<div class="panel-body">
-								<table id="table_customers" class="table table-striped table-bordered table-td-valign-middle">
-									<thead>
-										<tr>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Company</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Primary Contact</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Jobs</strong></th>
-											<th class="text-nowrap" data-orderable="false" width=""></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"></th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-											// build table
-											foreach( $customers as $customer ) {
-												// status
-												$customer['status_raw'] = $customer['status'];
-												if( $customer['status'] == 'pending' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
-												} elseif( $customer['status'] == 'active' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-success btn-block">Active</button>';
-												} elseif( $customer['status'] == 'suspended' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
-												} elseif( $customer['status'] == 'terminated' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
-												}					
+								<?php if( !isset( $customers[0]['id'] ) ) { ?>
+									<center>
+										<h3>
+											No customers found.
+										</h3>
+									</center>
+								<?php } else { ?>
+									<table id="table_customers" class="table table-striped table-bordered table-td-valign-middle">
+										<thead>
+											<tr>
+												<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
+												<th class="text-nowrap" data-orderable="false" width="1px"><strong>Company</strong></th>
+												<th class="text-nowrap" data-orderable="false" width="1px"><strong>Primary Contact</strong></th>
+												<th class="text-nowrap" data-orderable="false" width="1px"><strong>Jobs</strong></th>
+												<th class="text-nowrap" data-orderable="false" width=""></th>
+												<th class="text-nowrap" data-orderable="false" width="1px"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+												// build table
+												foreach( $customers as $customer ) {
+													// status
+													$customer['status_raw'] = $customer['status'];
+													if( $customer['status'] == 'pending' ) {
+														$customer['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+													} elseif( $customer['status'] == 'active' ) {
+														$customer['status'] = '<button class="btn btn-xs btn-success btn-block">Active</button>';
+													} elseif( $customer['status'] == 'suspended' ) {
+														$customer['status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
+													} elseif( $customer['status'] == 'terminated' ) {
+														$customer['status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
+													}					
 
-												// output
-												echo '
-													<tr>
-														<td class="text-nowrap">
-															<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
-														</td>
-														<td class="text-nowrap">
-															'.$customer['company_name'].'
-														</td>
-														<td class="text-nowrap">
-															'.$customer['primary_contact']['full_name'].'
-														</td>
-														<td class="text-nowrap">
-															'.$customer['total_jobs'].'
-														</td>
-														<td class="text-nowrap">
-														</td>
-														<td class="text-nowrap">
-															<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">Edit</a>
-																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
-															</div>
-														</td>
-													</tr>
-												';
-											}
-										?>
-									</tbody>
-								</table>
-								
-								<!--
-									<div class="row">
-										<div class="col-xl-12">
-											<p><font color="red"><strong>*</strong></font> Orders that are flashing red have been pending for at least 3 hours. Please accept orders if you can fulfill them.</p>
-										</div>
-									</div>
-								-->
+													// output
+													echo '
+														<tr>
+															<td class="text-nowrap">
+																<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
+															</td>
+															<td class="text-nowrap">
+																'.$customer['company_name'].'
+															</td>
+															<td class="text-nowrap">
+																'.$customer['primary_contact']['full_name'].'
+															</td>
+															<td class="text-nowrap">
+																'.$customer['total_jobs'].'
+															</td>
+															<td class="text-nowrap">
+															</td>
+															<td class="text-nowrap">
+																<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																<div class="dropdown-menu dropdown-menu-right" role="menu">
+																	<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">Edit</a>
+																	<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
+																</div>
+															</td>
+														</tr>
+													';
+												}
+											?>
+										</tbody>
+									</table>
+								<?php } ?>
 							</div>
 						</div>
-					<?php } ?>
+					</div>
 				</div>
 
 				<!-- add customer modal -->
