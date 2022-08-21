@@ -1131,7 +1131,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="col-xl-4 col-xs-12 text-right">
 											<div class="btn-group">
-												<a class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 											</div>
 										</div>
 									</div>
@@ -1714,7 +1714,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			   	</div>
 			</div>
 		<?php } ?>
-
 
 
 
