@@ -487,24 +487,28 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<span>Home</span> 
 						</a>
 					</li>
-					<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
-						<a href="dashboard.php?c=customers">
-							<i class="fa fa-users bg-orange"></i>
-							<span>Customers</span> 
-						</a>
-					</li>
+					<?php if( $admin_check || $staff_check ) { ?>
+						<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
+							<a href="dashboard.php?c=customers">
+								<i class="fa fa-users bg-orange"></i>
+								<span>Customers</span> 
+							</a>
+						</li>
+					<? } ?>
 					<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
 						<a href="dashboard.php?c=jobs">
 							<i class="fa fa-car bg-green"></i>
 							<span>Jobs</span> 
 						</a>
 					</li>
-					<li <?php if( get( 'c' ) == 'provider' || get( 'c' ) == 'providers' ) { echo'class="active"'; } ?>>
-						<a href="dashboard.php?c=providers">
-							<i class="fa fa-address-card bg-purple"></i>
-							<span>Providers</span> 
-						</a>
-					</li>
+					<?php if( $admin_check || $staff_check ) { ?>
+						<li <?php if( get( 'c' ) == 'provider' || get( 'c' ) == 'providers' ) { echo'class="active"'; } ?>>
+							<a href="dashboard.php?c=providers">
+								<i class="fa fa-address-card bg-purple"></i>
+								<span>Providers</span> 
+							</a>
+						</li>
+					<? } ?>
 					<li>
 						<a href="logout.php">
 							<i class="fa fa-sign-out-alt bg-red"></i>
