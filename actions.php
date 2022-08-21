@@ -206,10 +206,6 @@ function customer_add() {
 function customer_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-
-	debug( $_POST );
-	die();
-	
 	// map fields
 	$customer_id 					= post( 'customer_id' );
 	$company_name 					= post( 'company_name' );
