@@ -264,7 +264,7 @@ function vrn_lookup() {
 	$remote_data = json_decode( $remote_data, true );
 
 	// check if we found something
-	if( isset( $remote_data['HasError'] == 'false' ) ) {
+	if( isset( $remote_data['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']  ) ) {
 		// does vrn already exist
 		$query = $conn->query( "
 		        SELECT `id` 
