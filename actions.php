@@ -183,6 +183,11 @@ function customer_add() {
 	go( 'dashboard.php?c=customer&id='.$customer_id );
 }
 
+
+
+
+
+
 function order_add_item() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
