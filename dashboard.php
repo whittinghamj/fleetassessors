@@ -97,7 +97,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	
 	<!-- core css -->
 	<link href="https://fonts.googleapiss.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="assets/css/apple/app.min.css" rel="stylesheet">
+	<link href="assets/css/facebook/app.min.css" rel="stylesheet">
 	<link href="assets/css/apple/theme/blue.min.css" rel="stylesheet">
 	<link href="assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
 
@@ -121,23 +121,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	
 	<?php if( get( 'c' ) == 'invoice' ) { ?>
 		<link href="assets/css/default/invoice-print.min.css" rel="stylesheet" />
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'message_new' || get( 'c' ) == 'message_reply' ) { ?>
-		<link href="assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
-		<link href="assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'order' ) { ?>
-		<link href="assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
-		<link href="assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
-		<link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
-		<link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
-		<link href="assets/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'product' ) { ?>
-		<link href="assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
 	<?php } ?>
 
 	<?php if( get( 'c' ) == 'staging' ) { ?>
@@ -337,7 +320,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</style>
 </head>
 
-<body class="hold-transition skin-blue layout-boxed">  
+<body class="">  
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-content-full-height">
 		<div id="header" class="header navbar-inverse hidden-print">
 			<div class="navbar-header">
