@@ -24,6 +24,10 @@ if( isset( $user['id'] ) ) {
 		$_SESSION['account']['id']				= $user['id'];
 		$_SESSION['account']['type']			= $user['type'];		
 
+		// save data
+		$update = $conn->exec( "UPDATE `users` SET `last_login_timestamp` = '".time()."' WHERE `id` = '".$user['id']."' " );
+		$update = $conn->exec( "UPDATE `users` SET `last_login_ip` = '".$_SERVER['REMOTE_ADDR']."' WHERE `id` = '".$user['id']."' " );
+
 		// redirect
 		go( "dashboard.php" );
 	}else{
