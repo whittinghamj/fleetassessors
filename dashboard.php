@@ -1160,25 +1160,25 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												// output
 												echo '
 													<tr>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															'.$customer['primary_contact']['full_name'].' <br>
 															<small>'.$customer['primary_contact']['phone'].'</small>
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															'.$customer['total_jobs'].'
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															'.$customer['status'].'
 														</td>
-														<td class="text-nowrap">
+														<td class="text-nowrap" vertical-align="top">
 															<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">View / Edit</a>
