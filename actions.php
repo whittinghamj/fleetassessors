@@ -112,7 +112,7 @@ function accept_terms() {
 
 	// save data
 	$update = $conn->exec( "UPDATE `users` SET `accept_terms` = 'yes' WHERE `id` = '".$account_details['id']."' " );
-	$update = $conn->exec( "UPDATE `users` SET `accept_terms_date` = '".time()."' WHERE `id` = '".$account_details['id']."' " );
+	$update = $conn->exec( "UPDATE `users` SET `accept_terms_timestamp` = '".time()."' WHERE `id` = '".$account_details['id']."' " );
 	$update = $conn->exec( "UPDATE `users` SET `accept_terms_ip` = '".$_SERVER['REMOTE_ADDR']."' WHERE `id` = '".$account_details['id']."' " );
 
 	// set status message
@@ -126,37 +126,25 @@ function customer_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
-	$customer_id 					= post( 'customer_id' );
-	if( $customer_id == 'new_customer' ) {
-		$first_name 					= post( 'first_name' );
-		$last_name 						= post( 'last_name' );
-		$email 							= post( 'email' );
-		$password 						= post( 'password' );
-		$type 							= 'customer';
-
-		// save data
-		$insert = $conn->exec( "INSERT IGNORE INTO `users` 
-			(`added`,`type`,`email`,`password`,`first_name`,`last_name`,`status`)
-			VALUE
-			('".time()."', 
-			'".$type."', 
-			'".$email."',
-			'".$password."',
-			'".$first_name."',
-			'".$last_name."',
-			'active'
-		)" );
-
-		$customer_id = $conn->lastInsertId();
-	}
+	$company_name 					= post( 'company_name' );
+	$first_name 					= post( 'first_name' );
+	$last_name 						= post( 'last_name' );
+	$email 							= post( 'email' );
+	$password 						= post( 'password' );
+	$address_1 						= post( 'address_1' );
+	$address_2 						= post( 'address_2' );
+	$address_city 					= post( 'address_city' );
+	$address_state 					= post( 'address_state' );
+	$address_zip 					= post( 'address_zip' );
+	$address_country 				= post( 'address_country' );
 
 	// save data
-	$insert = $conn->exec( "INSERT IGNORE INTO `orders` 
-		(`added`,`status`,`customer_id`,`ordering_florist_id`)
+	$insert = $conn->exec( "INSERT IGNORE INTO `users` 
+		(`added`,`status`,`type`,`email`,`password`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`)
 		VALUE
 		('".time()."', 
-		'pending', 
-		'".$customer_id."',
+		'active', 
+		'customer',
 		'".$account_details['id']."'
 	)" );
 
