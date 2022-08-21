@@ -1657,7 +1657,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<option value="UG">Uganda</option>
 												<option value="UA">Ukraine</option>
 												<option value="AE">United Arab Emirates</option>
-												<option value="GB">United Kingdom</option>
+												<option value="GB" selected>United Kingdom</option>
 												<option value="US">United States</option>
 												<option value="UM">United States Minor Outlying Islands</option>
 												<option value="UY">Uruguay</option>
@@ -1701,7 +1701,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					 	<div class="modal-body">
 					 		<div class="row">
 					 			<div class="col-xl-12 col-sm-12">
-									<?php debug( $orders ); ?>
+									<?php debug( $customers ); ?>
 								</div>
 							</div>
 					 	</div>
