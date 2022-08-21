@@ -550,11 +550,19 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			switch( $c ) {
 				// dev section
 				case "dev":
-					dev();
+					if( $dev_check ) {
+						dev();
+					} else {
+						access_denied();
+					}
 					break;
 
 				case "staging":
-					staging();
+					if( $dev_check ) {
+						staging();
+					} else {
+						access_denied();
+					}
 					break;
 
 				// production section
@@ -562,7 +570,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					if( $admin_check || $staff_check ) {
 						customer();
 					} else {
-						home();
+						access_denied();
 					}
 					break;
 
@@ -570,71 +578,15 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					if( $admin_check || $staff_check ) {
 						customers();
 					} else {
-						home();
-					}
-					break;
-
-				case "invoice":
-					invoice();
-					break;
-
-				case "message":
-					message();
-					break;
-
-				case "message_new":
-					message_new();
-					break;
-
-				case "message_reply":
-					message_reply();
-					break;
-
-				case "messages":
-					messages();
-					break;
-
-				case "order":
-					order();
-					break;
-
-				case "orders":
-					orders();
-					break;
-
-				case "process_payment":
-					process_payment();
-					break;
-
-				case "product":
-					product();
-					break;
-
-				case "products":
-					products();
-					break;
-
-				case "subscription":
-					if( $admin_check || $staff_check ) {
-						subscription();
-					} else {
-						home();
-					}
-					break;
-
-				case "subscriptions":
-					if( $admin_check || $staff_check ) {
-						subscriptions();
-					} else {
-						home();
+						access_denied();
 					}
 					break;
 
 				case "system_settings":
-					if( $admin_check || $staff_check ) {
+					if( $admin_check ) {
 						system_settings();
 					} else {
-						home();
+						access_denied();
 					}
 					break;
 
@@ -643,10 +595,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					break;
 
 				case "users":
-					if( $admin_check || $staff_check ) {
+					if( $admin_check ) {
 						users();
 					} else {
-						home();
+						access_denied();
 					}
 					break;
 
@@ -941,6 +893,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<?php } ?>
 
 		<!-- production section -->
+		<?php function access_denied() { ?>
+			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
+
+			<div id="content" class="content">
+				<ol class="breadcrumb float-xl-right">
+					<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+					<li class="breadcrumb-item active">Access Denied</li>
+				</ol>
+				
+				<h1 class="page-header">Access Denied</h1>
+
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h2 class="panel-title">Access Denied</h2>
+						<div class="panel-heading-btn">
+
+						</div>
+					</div>
+					<div class="panel-body">
+						You do not have permission to access this page. Please contact an administrator.
+					</div>
+				</div>
+			</div>
+		<?php } ?>
+
 		<?php function home() { ?>
 			<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $florist_check, $staff_check, $not_found; ?>
 
@@ -1131,7 +1108,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="col-xl-4 col-xs-12 text-right">
 											<div class="btn-group">
-												<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
 											</div>
 										</div>
 									</div>
@@ -1141,6 +1118,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</div>
 				<?php } ?>
 
+				<!-- customers -->
 				<?php if( !isset( $customers[0]['id'] ) ) { ?>
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
@@ -1157,10 +1135,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</center>
 						</div>
 					</div>
-				<?php } ?>
-
-				<!-- orders -->
-				<?php if( $admin_check || $staff_check || isset( $customers[0]['id'] ) ) { ?>
+				<?php } else { ?>
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">Customers</h2>
