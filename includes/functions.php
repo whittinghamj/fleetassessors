@@ -398,24 +398,6 @@ function search_multi_array( $dataArray, $search_value, $key_to_search ) {
 	return $keys;
 }
 
-// get customer account
-function get_customer( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `customers` 
-		WHERE `id` = '".$id."' 
-	" );
-	$data = $query->fetch( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
 // get user account
 function get_user( $id ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
