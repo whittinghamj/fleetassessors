@@ -1225,7 +1225,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Phone</strong></label>
-												<input type="email" id="phone" name="phone" class="form-control" required>
+												<input type="text" id="phone" name="phone" class="form-control" required>
 											</div>
 										</div>
 										<div class="col-xl-6 col-sm-12">
