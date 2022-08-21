@@ -325,10 +325,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 </head>
 
 <body class=''>
-	<div id="loader" class="app-loader">
-		<span class="spinner"></span>
-	</div>
-
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 		<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-content-full-height">
 			<div id="header" class="header navbar-inverse hidden-print">
