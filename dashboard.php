@@ -2312,6 +2312,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
 										<?php debug( $customer ); ?>
+										<?php debug( $users ); ?>
 									</div>
 								</div>
 						 	</div>
