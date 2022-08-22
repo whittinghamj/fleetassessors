@@ -4263,75 +4263,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-
-								<?php echo strtoupper( $vrn['is_taxed'] ); ?>
-
-								<?php if( $vrn['is_taxed'] == 'Taxed' ) { ?>
-									<div class="offset-xl-3 col-xl-3 col-md-6">
-										<div class="widget widget-stats bg-green">
-											<div class="stats-icon"><i class="fa fa-check"></i></div>
-											<div class="stats-info">
-												<strong><p>TAX</p></strong>
-											</div>
-											<div class="stats-link">
-												<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
-											</div>
-										</div>
-									</div>
-								<?php } elseif( $vrn['is_taxed'] == 'SORN' ) { ?>
-									<div class="offset-xl-3 col-xl-3 col-md-6">
-										<div class="widget widget-stats bg-red">
-											<div class="stats-icon"><i class="fa fa-check"></i></div>
-											<div class="stats-info">
-												<strong><p>SORN</p></strong>
-											</div>
-											<div class="stats-link">
-												<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
-											</div>
-										</div>
-									</div>
-								<?php } else { ?>
-									<div class="offset-xl-3 col-xl-3 col-md-6">
-										<div class="widget widget-stats bg-red">
-											<div class="stats-icon"><i class="fa fa-check"></i></div>
-											<div class="stats-info">
-												<strong><p><?php echo strtoupper( $vrn['is_taxed'] ); ?></p></strong>
-											</div>
-											<div class="stats-link">
-												<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if( $vrn['is_mot_valid'] == 'valid' ) { ?>
-									<div class="col-xl-3 col-md-6">
-										<div class="widget widget-stats bg-green">
-											<div class="stats-icon"><i class="fa fa-check"></i></div>
-											<div class="stats-info">
-												<strong><p>MOT</p></strong>
-											</div>
-											<div class="stats-link">
-												<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
-											</div>
-										</div>
-									</div>
-								<?php } else { ?>
-									<div class="col-xl-3 col-md-6">
-										<div class="widget widget-stats bg-red">
-											<div class="stats-icon"><i class="fa fa-cross"></i></div>
-											<div class="stats-info">
-												<strong><p>MOT</p></strong>
-											</div>
-											<div class="stats-link">
-												<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-							</div>
-
 							<?php if( !isset( $vrn['id']) ) { ?>
 								<h3>
 									<center>
@@ -4339,6 +4270,87 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</center>
 								</h3>
 							<?php } else { ?>
+								<!-- tax and mot -->
+								<div class="row">
+									<?php if( $vrn['is_taxed'] == 'Taxed' ) { ?>
+										<div class="offset-xl-3 col-xl-3 col-md-6">
+											<div class="widget widget-stats bg-green">
+												<div class="stats-icon"><i class="fa fa-check"></i></div>
+												<div class="stats-info">
+													<strong><p>TAX</p></strong>
+												</div>
+												<div class="stats-link">
+													<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+												</div>
+											</div>
+										</div>
+									<?php } elseif( $vrn['is_taxed'] == 'SORN' ) { ?>
+										<div class="offset-xl-3 col-xl-3 col-md-6">
+											<div class="widget widget-stats bg-red">
+												<div class="stats-icon"><i class="fa fa-check"></i></div>
+												<div class="stats-info">
+													<strong><p>SORN</p></strong>
+												</div>
+												<div class="stats-link">
+													<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+												</div>
+											</div>
+										</div>
+									<?php } else { ?>
+										<div class="offset-xl-3 col-xl-3 col-md-6">
+											<div class="widget widget-stats bg-red">
+												<div class="stats-icon"><i class="fa fa-check"></i></div>
+												<div class="stats-info">
+													<strong><p><?php echo strtoupper( $vrn['is_taxed'] ); ?></p></strong>
+												</div>
+												<div class="stats-link">
+													<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+
+									<?php if( $vrn['is_mot_valid'] == 'valid' ) { ?>
+										<div class="col-xl-3 col-md-6">
+											<div class="widget widget-stats bg-green">
+												<div class="stats-icon"><i class="fa fa-check"></i></div>
+												<div class="stats-info">
+													<strong><p>MOT</p></strong>
+												</div>
+												<div class="stats-link">
+													<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
+												</div>
+											</div>
+										</div>
+									<?php } else { ?>
+										<div class="col-xl-3 col-md-6">
+											<div class="widget widget-stats bg-red">
+												<div class="stats-icon"><i class="fa fa-cross"></i></div>
+												<div class="stats-info">
+													<strong><p>MOT</p></strong>
+												</div>
+												<div class="stats-link">
+													<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+
+								<div class="row">
+									<div class="offset-xl-3 col-xl-3 col-md-6">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Email address</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" placeholder="Enter email" />
+												<small class="fs-12px text-gray-500-darker">We'll never share your email with anyone else.</small>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-3 col-md-6">
+
+									</div>
+								</div>
 								<?php debug( $vrn ); ?>
 							<?php } ?>
 						</div>
