@@ -581,6 +581,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						}
 						break;
 
+					case "jobs":
+						jobs();
+						break;
+
+					case "job":
+						job();
+						break;
+
 					case "system_settings":
 						if( $admin_check ) {
 							system_settings();
