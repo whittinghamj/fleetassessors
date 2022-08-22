@@ -295,6 +295,7 @@ function vrn_lookup() {
 
 			$mot_history = serialize( $remote_data['Results']['FullMotHistory'] );
 
+			echo '<pre>';
 			debug( $mot_history );
 			die();
 
