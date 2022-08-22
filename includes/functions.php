@@ -657,6 +657,9 @@ function get_customer( $id = '' ) {
 	// get secondary contact details
 	$data['secondary_contact'] = get_user( $data['secondary_contact_id'] );
 
+	// get jobs
+	$data['jobs'] = get_jobs( $id );
+
 	// sanity check
 	$data = stripslashes_deep( $data );
 

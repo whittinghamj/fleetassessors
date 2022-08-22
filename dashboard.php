@@ -1640,7 +1640,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					$customer_id 	= get( 'id' );
 					$customer 		= get_customer( $customer_id );
 					$users 			= get_users( 'customer' );
-					$jobs 			= get_jobs( $customer_id );
 				?>
 
 				<div id="content" class="content">
@@ -2124,7 +2123,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<tbody>
 													<?php
 														// build table
-														foreach( $jobs as $job ) {
+														foreach( $data['jobs'] as $job ) {
 															// status
 															$job['status_raw'] = $job['status'];
 															if( $job['status'] == 'pending' ) {
@@ -2217,7 +2216,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	<div class="modal-body">
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
+						 				<h2>$customers</h2>
 										<?php debug( $customer ); ?>
+
+										<h2>$users</h2>
 										<?php debug( $users ); ?>
 									</div>
 								</div>
