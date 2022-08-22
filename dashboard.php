@@ -4338,18 +4338,15 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 
 								<div class="row">
-									<div class="offset-xl-3 col-xl-3 col-md-6">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
 										<div class="row mb-15px">
-											<label class="form-label col-form-label col-md-3">Email address</label>
+											<label class="form-label col-form-label col-md-3">Make</label>
 											<div class="col-md-9">
-												<input type="email" class="form-control mb-5px" placeholder="Enter email" />
-												<small class="fs-12px text-gray-500-darker">We'll never share your email with anyone else.</small>
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['make']; ?>" readonly/>
 											</div>
 										</div>
 									</div>
-									<div class="col-xl-3 col-md-6">
-
-									</div>
+									
 								</div>
 								<?php debug( $vrn ); ?>
 							<?php } ?>
