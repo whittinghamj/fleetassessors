@@ -4268,7 +4268,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="widget widget-stats bg-green">
 										<div class="stats-icon"><i class="fa fa-tick"></i></div>
 										<div class="stats-info">
-											<h4>TAXED</h4>
+											<p>TAXED</p>
 										</div>
 										<div class="stats-link">
 											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
