@@ -4266,9 +4266,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="row">
 								<div class="offset-xl-3 col-xl-3 col-md-6">
 									<div class="widget widget-stats bg-green">
-										<div class="stats-icon"><i class="fa fa-tick"></i></div>
+										<div class="stats-icon"><i class="fa fa-check"></i></div>
 										<div class="stats-info">
-											<p>TAXED</p>
+											<strong><p>TAXED</p></strong>
 										</div>
 										<div class="stats-link">
 											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
@@ -4279,7 +4279,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="widget widget-stats bg-red">
 										<div class="stats-icon"><i class="fa fa-cross"></i></div>
 										<div class="stats-info">
-											<p>NO MOT</p>
+											<strong><p>NO MOT</p></strong>
 										</div>
 										<div class="stats-link">
 											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
