@@ -3718,7 +3718,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</td>
 														<td class="text-nowrap">
 															'.$job['vrn'].' <br>
-															'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].' '.$job['vrn_details']['model'].'
+															'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].', '.$job['vrn_details']['model'].'
 														</td>
 														<td class="text-nowrap">
 															'.$job['estimator'].'
