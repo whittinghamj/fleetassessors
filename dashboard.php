@@ -3655,6 +3655,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					</div>
 				</div>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+										<?php debug( $vrn ); ?>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
 			<?php } ?>
 
 			<?php function vrn_lookup_results() { ?>
@@ -3699,7 +3725,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 					<?php } ?>
-					
+
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">VRN Lookup</h2>
