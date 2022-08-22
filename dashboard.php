@@ -4305,7 +4305,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								<?php } ?>
 
-								<?php if( $vrn['is_not_valid'] == 'valid' ) { ?>
+								<?php if( $vrn['is_mot_valid'] == 'valid' ) { ?>
 									<div class="col-xl-3 col-md-6">
 										<div class="widget widget-stats bg-green">
 											<div class="stats-icon"><i class="fa fa-check"></i></div>
