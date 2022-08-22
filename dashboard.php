@@ -3669,7 +3669,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	<div class="modal-body">
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
-										<?php debug( $vrn ); ?>
+										Nothing to show.
 									</div>
 								</div>
 						 	</div>
