@@ -4264,8 +4264,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="panel-body">
 							<?php 
-								$timestamp = strtotime( $vrm['next_mot_date'] );
-								echo $vrm['next_mot_date'].' = '.$timestamp;
+								$timestamp = strtotime( $vrn['next_mot_date'] );
+								echo $vrn['next_mot_date'].' = '.$timestamp;
 							?>
 							<div class="row">
 								<div class="offset-xl-3 col-xl-3 col-md-6">
