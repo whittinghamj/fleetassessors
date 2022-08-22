@@ -586,6 +586,17 @@ function get_vrn( $vrn ) {
 	" );
 	$data = $query->fetch( PDO::FETCH_ASSOC );
 
+	// time left until next mot
+	$time_until_next_mot = strtotime( $data['next_mot_date'] );
+
+	// is mot valid
+	$time_diff = ( $time_until_next_mot - time() );
+	if( $time_diff < 1 ) {
+		$data['is_mot_valid'] = 'invalid';
+	} else {
+		$data['is_mot_valid'] = 'valid';
+	}
+
 	// sanity check
 	$data = stripslashes_deep( $data );
 
