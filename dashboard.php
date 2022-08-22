@@ -4342,7 +4342,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="row mb-15px">
 											<label class="form-label col-form-label col-md-3">Year</label>
 											<div class="col-md-9">
-												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['yead']; ?>" readonly/>
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['year']; ?>" readonly/>
 											</div>
 										</div>
 									</div>
@@ -4363,6 +4363,156 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<label class="form-label col-form-label col-md-3">Model</label>
 											<div class="col-md-9">
 												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['model']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Color</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['color']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Fuel Type</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['fuel']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Cylinder Capacity</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['cylinder_capacity']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Top Speed</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['fuel']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">BHP</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['bhp']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Vehicle Type</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['vehicle_type']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Body Style</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['body_style']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Insurance Group</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['insurance_group']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">First v5 Issued</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['first_v5_issued']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Latest V5 Issued</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['last_v5_issued']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Avg Miles per year</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['average_miles_per_year']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Total MOTs Issued</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['total_mots']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Last MOT Date</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['last_mot_date']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">MOT Due Date</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['next_mot_date']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">TAX Due Date</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['next_tax_date']; ?>" readonly/>
 											</div>
 										</div>
 									</div>
