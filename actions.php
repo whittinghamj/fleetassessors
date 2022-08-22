@@ -268,11 +268,17 @@ function vrn_lookup() {
 	if( isset( $data['id'] ) ) {
 		// update data
 		$vrn_id = $data['id'];
+
+		error_log( " " );
+		error_log( "Using local DVLA dataset" );
+		error_log( " " );
 	} else {
 		// api lookup
 		error_log( " " );
 		error_log( "Calling DLVA API" );
 		error_log( " " );
+
+		echo 'calling api 1';
 		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data, true );
 
