@@ -286,8 +286,8 @@ function vrn_lookup() {
 			$vrn_id = $conn->lastInsertId();
 
 			// update data
-			$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']."' WHERE `id` = '".$vrn_id."' " );
-			$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model'] )."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `color` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Colour']."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['YearOfManufacture']."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `fuel` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['FuelType']."' WHERE `id` = '".$vrn_id."' " );
@@ -323,8 +323,8 @@ function vrn_lookup() {
 		$remote_data = json_decode( $remote_data, true );
 
 		// update data
-		$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make']."' WHERE `id` = '".$vrn_id."' " );
-		$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model'] )."' WHERE `id` = '".$vrn_id."' " );
 		$update = $conn->exec( "UPDATE `vrn_database` SET `color` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Colour']."' WHERE `id` = '".$vrn_id."' " );
 		$update = $conn->exec( "UPDATE `vrn_database` SET `year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['YearOfManufacture']."' WHERE `id` = '".$vrn_id."' " );
 		$update = $conn->exec( "UPDATE `vrn_database` SET `fuel` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['FuelType']."' WHERE `id` = '".$vrn_id."' " );
