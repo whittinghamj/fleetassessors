@@ -1638,6 +1638,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				<?php 
 					// get data
 					$customer_id 	= get( 'id' );
+
+					// sanity check
+					if( empty( $customer_id ) ) {
+
+					}
 					$customer 		= get_customer( $customer_id );
 					$users 			= get_users( 'customer' );
 				?>
@@ -2123,8 +2128,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<tbody>
 													<?php
 														// build table
-														foreach( $data['jobs'] as $job ) {
-															// status
+														foreach( $customer['jobs'] as $job ) {
+															// status 
 															$job['status_raw'] = $job['status'];
 															if( $job['status'] == 'pending' ) {
 																$job['status'] = '<button class="btn btn-info btn-block">Pending</button>';
