@@ -318,7 +318,7 @@ function vrn_lookup() {
 			$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 		} else {
 			// redirect
-			go( 'dashboard.php?c=vrn_lookup_results&id=nothing_found' );
+			go( 'dashboard.php?c=vrn_lookup_results&vrn=nothing_found' );
 		}
 	}
 
@@ -359,7 +359,7 @@ function vrn_lookup() {
 	}
 
 	// redirect
-	go( 'dashboard.php?c=vrn_lookup_results&id='.$vrn_id );
+	go( 'dashboard.php?c=vrn_lookup_results&vrn='.$vrn );
 }
 
 

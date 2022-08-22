@@ -4223,10 +4223,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					<ol class="breadcrumb float-xl-right">
 						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
 						<li class="breadcrumb-item"><a href="dashboard.php">Tools</a></li>
-						<li class="breadcrumb-item active">VRN Lookup</li>
+						<li class="breadcrumb-item"><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+						<li class="breadcrumb-item active">VRN Results</li>
 					</ol>
 					
-					<h1 class="page-header">VRN Lookup</h1>
+					<h1 class="page-header">VRN Results</h1>
 
 					<div class="row">
 						<div class="col-xl-12">
@@ -4256,7 +4257,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h2 class="panel-title">VRN Lookup</h2>
+							<h2 class="panel-title">VRN Results</h2>
 							<div class="panel-heading-btn">
 
 							</div>
