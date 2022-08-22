@@ -4263,6 +4263,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 						<div class="panel-body">
+							<div class="row">
+								<div class="col-xl-3 col-md-6">
+									<div class="widget widget-stats bg-green">
+										<div class="stats-icon"><i class="fa fa-tick"></i></div>
+										<div class="stats-info">
+											<h4>TAXED</h4>
+										</div>
+										<div class="stats-link">
+											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-md-6">
+									<div class="widget widget-stats bg-blue">
+										<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+										<div class="stats-info">
+											<h4>TOTAL VISITORS</h4>
+											<p>3,291,922</p>	
+										</div>
+										<div class="stats-link">
+											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<?php if( !isset( $vrn['id']) ) { ?>
 								<h3>
 									<center>
