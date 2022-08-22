@@ -491,7 +491,20 @@ function get_jobs( $customer = '' ) {
 		WHERE `customer_id` = '".$customer."' 
 	" );
 
-	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each user
+	foreach( $data as $bit ) {
+		// add existing data
+		$jobs[$count] = $bit;
+
+		// vrn details
+		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
+
+		$count++;
+	}
 
 	// sanity check
 	$jobs = stripslashes_deep( $jobs );
@@ -522,10 +535,10 @@ function get_all_jobs() {
 		$jobs[$count] = $bit;
 
 		// customer
-		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );;
+		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );
 
-		// vrn
-		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );;
+		// vrn details
+		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
 
 		$count++;
 	}
