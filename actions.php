@@ -293,7 +293,7 @@ function vrn_lookup() {
 
 			$vrn_id = $conn->lastInsertId();
 
-			$mot_history = serialize( $remote_data['Results']['FullMotHistory'] );
+			$mot_history = json_encode( $remote_data['Results']['FullMotHistory'] );
 
 			echo '<pre>';
 			debug( $mot_history );
