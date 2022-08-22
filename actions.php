@@ -295,6 +295,9 @@ function vrn_lookup() {
 
 			$mot_history = serialize( $remote_data['Results']['FullMotHistory'] );
 
+			debug( $mot_history );
+			die()
+
 			// update data
 			$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model'] )."' WHERE `id` = '".$vrn_id."' " );
