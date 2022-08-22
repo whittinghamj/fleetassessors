@@ -4340,13 +4340,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="row">
 									<div class="offset-xl-4 col-xl-4 col-md-12">
 										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Year</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['yead']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
 											<label class="form-label col-form-label col-md-3">Make</label>
 											<div class="col-md-9">
 												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['make']; ?>" readonly/>
 											</div>
 										</div>
 									</div>
-									
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">Model</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['model']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
 								</div>
 								<?php debug( $vrn ); ?>
 							<?php } ?>
