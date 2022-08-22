@@ -4264,7 +4264,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-xl-3 col-md-6">
+								<div class="offset-xl-3 col-xl-3 col-md-6">
 									<div class="widget widget-stats bg-green">
 										<div class="stats-icon"><i class="fa fa-tick"></i></div>
 										<div class="stats-info">
@@ -4276,11 +4276,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 								<div class="col-xl-3 col-md-6">
-									<div class="widget widget-stats bg-blue">
-										<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+									<div class="widget widget-stats bg-red">
+										<div class="stats-icon"><i class="fa fa-cross"></i></div>
 										<div class="stats-info">
-											<h4>TOTAL VISITORS</h4>
-											<p>3,291,922</p>	
+											<p>NO MOT</p>
 										</div>
 										<div class="stats-link">
 											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
