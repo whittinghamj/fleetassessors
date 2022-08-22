@@ -1,4 +1,9 @@
 <?php
+// error reporting
+ini_set ('display_errors', 1);
+ini_set ('display_startup_errors', 1);
+error_reporting (E_ALL);
+
     include "simple_html_dom.php";
     $search_query = "2005 BMW 3 Series";
     $search_query = urlencode( $search_query );
