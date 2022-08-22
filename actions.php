@@ -270,6 +270,9 @@ function vrn_lookup() {
 		$vrn_id = $data['id'];
 	} else {
 		// api lookup
+		error_log( " " );
+		error_log( "Calling DLVA API" );
+		error_log( " " );
 		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data, true );
 
@@ -319,6 +322,9 @@ function vrn_lookup() {
 	$time_diff = ($last_checked - $added);
 	if( $time_diff > 7776000 ) {
 		// api lookup
+		error_log( " " );
+		error_log( "Calling DLVA API" );
+		error_log( " " );
 		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data, true );
 
