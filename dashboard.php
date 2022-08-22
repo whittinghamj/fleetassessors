@@ -4264,12 +4264,27 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<?php if( $vrn['is_taxed'] == 'Taxed' || $vrn['is_taxed'] == 'SORN' ) { ?>
+
+								<?php echo strtoupper( $vrn['is_taxed'] ); ?>
+
+								<?php if( $vrn['is_taxed'] == 'Taxed' ) { ?>
 									<div class="offset-xl-3 col-xl-3 col-md-6">
 										<div class="widget widget-stats bg-green">
 											<div class="stats-icon"><i class="fa fa-check"></i></div>
 											<div class="stats-info">
-												<strong><p><?php echo strtoupper( $vrn['is_taxed'] ); ?></p></strong>
+												<strong><p>TAX</p></strong>
+											</div>
+											<div class="stats-link">
+												<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+											</div>
+										</div>
+									</div>
+								<?php } elseif( $vrn['is_taxed'] == 'SORN' ) { ?>
+									<div class="offset-xl-3 col-xl-3 col-md-6">
+										<div class="widget widget-stats bg-red">
+											<div class="stats-icon"><i class="fa fa-check"></i></div>
+											<div class="stats-info">
+												<strong><p>SORN</p></strong>
 											</div>
 											<div class="stats-link">
 												<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
@@ -4289,18 +4304,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								<?php } ?>
-								
-								<div class="col-xl-3 col-md-6">
-									<div class="widget widget-stats bg-red">
-										<div class="stats-icon"><i class="fa fa-cross"></i></div>
-										<div class="stats-info">
-											<strong><p>NO MOT</p></strong>
-										</div>
-										<div class="stats-link">
-											<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+
+								<?php if( $vrn['is_not_valid'] == 'valid' ) { ?>
+									<div class="col-xl-3 col-md-6">
+										<div class="widget widget-stats bg-green">
+											<div class="stats-icon"><i class="fa fa-check"></i></div>
+											<div class="stats-info">
+												<strong><p>MOT</p></strong>
+											</div>
+											<div class="stats-link">
+												<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
+											</div>
 										</div>
 									</div>
-								</div>
+								<?php } else { ?>
+									<div class="col-xl-3 col-md-6">
+										<div class="widget widget-stats bg-red">
+											<div class="stats-icon"><i class="fa fa-cross"></i></div>
+											<div class="stats-info">
+												<strong><p>MOT</p></strong>
+											</div>
+											<div class="stats-link">
+												<a href="javascript:;"><?php echo strtoupper( $vrn['next_mot_date'] ); ?></a>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
 							</div>
 
 							<?php if( !isset( $vrn['id']) ) { ?>
