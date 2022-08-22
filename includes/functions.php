@@ -95,23 +95,6 @@ function total_jobs_( $customer_id = '' ) {
     return $data['total'];
 }
 
-function get_vrn( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `vrn_database` 
-		WHERE `id` = '".$id."' 
-	" );
-	$data = $query->fetch( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
 // count jobs for customer
 function total_jobs_for_customer( $customer_id = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
