@@ -4215,8 +4215,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 				<?php
-					$vrn_id = get( 'id' );
-					$vrn = get_vrn( $vrn_id );
+					$vrn = get( 'vrn' );
+					$vrn = get_vrn( $vrn );
 				?>
 				
 				<div id="content" class="content">
@@ -4289,7 +4289,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	<div class="modal-body">
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
-						 				ID: <?php echo $vrn_id; ?> <br>
 										<?php debug( $vrn ); ?>
 									</div>
 								</div>
