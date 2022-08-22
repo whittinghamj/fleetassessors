@@ -316,7 +316,7 @@ function vrn_lookup() {
 			$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
 
 			$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
-			$update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".json_encode( $remote_data['Results']['FullMotHistory'], ture )."' WHERE `id` = '".$vrn_id."' " );
+			// $update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".json_encode( $remote_data['Results']['FullMotHistory'], ture )."' WHERE `id` = '".$vrn_id."' " );
 
 			$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 		} else {
@@ -360,7 +360,7 @@ function vrn_lookup() {
 		$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
 		
 		$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
-		$update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".json_encode( $remote_data['Results']['FullMotHistory'], true )."' WHERE `id` = '".$vrn_id."' " );
+		// $update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".json_encode( $remote_data['Results']['FullMotHistory'], true )."' WHERE `id` = '".$vrn_id."' " );
 
 		$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 	}
