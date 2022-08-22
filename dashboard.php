@@ -3714,10 +3714,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															'.date( "M dS Y", $job['added'] ).'
 														</td>
 														<td class="text-nowrap">
-															<a href="?c=job&id='.$job['id'].'">'.$job['customer']['company_name'].'</a>
+															<a href="?c=customer&id='.$job['customer_id'].'">'.$job['customer']['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
-															'.$job['vrn'].'
+															'.$job['vrn'].' <br>
+															'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].' '.$job['vrn_details']['model'].'
 														</td>
 														<td class="text-nowrap">
 															'.$job['estimator'].'

@@ -541,6 +541,9 @@ function get_all_jobs() {
 		// customer
 		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );;
 
+		// vrn
+		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );;
+
 		$count++;
 	}
 
@@ -568,6 +571,24 @@ function get_job( $id ) {
 		$data['customer'] 					= get_customer( $data['customer_id'] );
 		$data['payment_details']			= get_payment( $data['payment_id'] );
 	}
+
+	// sanity check
+	$data = stripslashes_deep( $data );
+
+	return $data;
+}
+
+// get vrn details
+function get_vrn( $vrn ) {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `vrn_database` 
+		WHERE `vrn` = '".$vrn."' 
+	" );
+	$data = $query->fetch( PDO::FETCH_ASSOC );
 
 	// sanity check
 	$data = stripslashes_deep( $data );
