@@ -64,7 +64,7 @@ $not_found = '
 			The page you\'re looking for doesn\'t exist. <br />
 		</div>
 		<div>
-			<a href="javascript:history.back()" class="btn btn-xs btn-lime p-l-20 p-r-20">Go back</a>
+			<a href="javascript:history.back()" class="btn btn-lg btn-lime p-l-20 p-r-20">Go back</a>
 		</div>
 	</div>
 </div>
@@ -643,7 +643,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -730,7 +730,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -1008,7 +1008,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -1123,7 +1123,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -1164,7 +1164,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a class="btn btn-lg btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
 												</div>
 											</div>
 										</div>
@@ -1179,7 +1179,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<div class="panel-heading">
 							<h2 class="panel-title">Customers</h2>
 							<div class="panel-heading-btn">
-								<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#customer_add">Add Customer</button>
+								<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#customer_add">Add Customer</button>
 							</div>
 						</div>
 						<div class="panel-body">
@@ -1209,13 +1209,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												// status
 												$customer['status_raw'] = $customer['status'];
 												if( $customer['status'] == 'pending' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+													$customer['status'] = '<button class="btn btn-lg btn-info btn-block">Pending</button>';
 												} elseif( $customer['status'] == 'active' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-success btn-block">Active</button>';
+													$customer['status'] = '<button class="btn btn-lg btn-success btn-block">Active</button>';
 												} elseif( $customer['status'] == 'suspended' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
+													$customer['status'] = '<button class="btn btn-lg btn-warning btn-block">Suspended</button>';
 												} elseif( $customer['status'] == 'terminated' ) {
-													$customer['status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
+													$customer['status'] = '<button class="btn btn-lg btn-danger btn-block">Terminated</button>';
 												}					
 
 												// output
@@ -1240,7 +1240,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															'.$customer['status'].'
 														</td>
 														<td class="text-nowrap">
-															<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+															<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">View / Edit</a>
 																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
@@ -1596,8 +1596,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							 	</div>
 							 	<div class="modal-footer">
 							 		<div class="btn-group">
-										<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" class="btn btn-xs btn-primary">Continue</button>
+										<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-lg btn-primary">Continue</button>
 									</div>
 								</div>
 						  	</div>
@@ -1624,7 +1624,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -1671,7 +1671,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+														<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
 												</div>
 											</div>
@@ -2102,7 +2102,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="panel-heading">
 											<h2 class="panel-title">Jobs</h2>
 											<div class="panel-heading-btn">
-												<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+												<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
 											</div>
 										</div>
 										<div class="panel-body">
@@ -2127,13 +2127,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															// status
 															$job['status_raw'] = $job['status'];
 															if( $job['status'] == 'pending' ) {
-																$job['status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+																$job['status'] = '<button class="btn btn-lg btn-info btn-block">Pending</button>';
 															} elseif( $job['status'] == 'active' ) {
-																$job['status'] = '<button class="btn btn-xs btn-info btn-block">Active</button>';
+																$job['status'] = '<button class="btn btn-lg btn-info btn-block">Active</button>';
 															} elseif( $job['status'] == 'suspended' ) {
-																$job['status'] = '<button class="btn btn-xs btn-danger btn-block">Cancelled</button>';
+																$job['status'] = '<button class="btn btn-lg btn-danger btn-block">Cancelled</button>';
 															} elseif( $job['status'] == 'complete' ) {
-																$job['status'] = '<button class="btn btn-xs btn-success btn-block">Complete</button>';
+																$job['status'] = '<button class="btn btn-lg btn-success btn-block">Complete</button>';
 															}				
 
 															// output
@@ -2164,7 +2164,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		'.$job['status'].'
 																	</td>
 																	<td class="text-nowrap">
-																		<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																		<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																		<div class="dropdown-menu dropdown-menu-right" role="menu">
 																			<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
 																			<a href="#" onclick="customer_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
@@ -2191,7 +2191,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
 														<a href="?c=customers" type="button" class="btn btn-lg btn-white">Back</a>
-														<button type="submit" class="btn btn-lg btn-primary">Save</button>
+														<button type="submit" class="btn btn-lg btn-success">Save</button>
 													</div>
 												</div>
 											</div>
@@ -2226,7 +2226,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -2281,7 +2281,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+														<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
 												</div>
 											</div>
@@ -2303,12 +2303,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="?c=users" type="button" class="btn btn-xs btn-white">Back</a>
-														<button type="submit" onclick="processing();" class="btn btn-xs btn-primary">Save</button>
+														<a href="?c=users" type="button" class="btn btn-lg btn-white">Back</a>
+														<button type="submit" onclick="processing();" class="btn btn-lg btn-primary">Save</button>
 													</div>
 													<?php if( $dev_check ) { ?>
 														<div class="btn-group">
-															<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+															<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 														</div>
 													<?php } ?>
 												</div>
@@ -2873,7 +2873,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<h2 class="panel-title">Coverage Area</h2>
 												<div class="panel-heading-btn">
 													<div class="btn-group">
-														<a href="#" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#add_coverage_area_modal">Add</a>
+														<a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#add_coverage_area_modal">Add</a>
 													</div>
 												</div>
 											</div>
@@ -2898,7 +2898,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<h2 class="panel-title">Elite Florist / Secondary Coverage Area</h2>
 												<div class="panel-heading-btn">
 													<div class="btn-group">
-														<a href="#" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#add_secondary_coverage_area_modal">Add</a>
+														<a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#add_secondary_coverage_area_modal">Add</a>
 													</div>
 												</div>
 											</div>
@@ -2984,13 +2984,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																	$payout['status_html'] = '<button class="btn btn-info btn-block">Pending</button>';
 																	$payout['status_table_color'] = 'table-warning';
 																} elseif( $payout['status'] == 'paid' ) {
-																	$payout['status_html'] = '<button class="btn btn-xs btn-lime btn-block">Paid</button>';
+																	$payout['status_html'] = '<button class="btn btn-lg btn-lime btn-block">Paid</button>';
 																	$payout['status_table_color'] = 'table-success';
 																} elseif( $payout['status'] == 'rejected' ) {
-																	$payout['status_html'] = '<button class="btn btn-xs btn-danger btn-block">Rejected</button>';
+																	$payout['status_html'] = '<button class="btn btn-lg btn-danger btn-block">Rejected</button>';
 																	$payout['status_table_color'] = 'table-danger';
 																} elseif( $payout['status'] == 'error' ) {
-																	$payout['status_html'] = '<button class="btn btn-xs btn-danger btn-block">Error</button>';
+																	$payout['status_html'] = '<button class="btn btn-lg btn-danger btn-block">Error</button>';
 																	$payout['status_table_color'] = 'table-danger';
 																}
 
@@ -3024,7 +3024,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		</td>
 																		<td class="text-nowrap">
 																			'.( $admin_check || $staff_check ? '
-																				<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																				<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																				<div class="dropdown-menu dropdown-menu-right" role="menu">
 																					<!-- <a href="?c=payout&id='.$payout['id'].'" class="dropdown-item">View / Edit</a> -->
 																					<a href="#quick_details_'.$payout['id'].'" data-toggle="modal" data-target="#quick_details_'.$payout['id'].'" class="dropdown-item">View / Edit</a>
@@ -3119,7 +3119,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																					 	</div>
 																					 	<div class="modal-footer">
 																					 		<div class="btn-group">
-																								<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+																								<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 																							</div>
 																						</div>
 																				  	</div>
@@ -3211,8 +3211,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
-									<a href="#" onclick="ajax_submit_coverage_area();" class="btn btn-xs btn-primary">Add</a>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+									<a href="#" onclick="ajax_submit_coverage_area();" class="btn btn-lg btn-primary">Add</a>
 								</div>
 							</div>
 					  	</div>
@@ -3289,8 +3289,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
-									<a href="#" onclick="ajax_submit_secondary_coverage_area();" class="btn btn-xs btn-primary">Add</a>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+									<a href="#" onclick="ajax_submit_secondary_coverage_area();" class="btn btn-lg btn-primary">Add</a>
 								</div>
 							</div>
 					  	</div>
@@ -3316,7 +3316,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3371,7 +3371,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a class="btn btn-lg btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
 												</div>
 											</div>
 										</div>
@@ -3388,7 +3388,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<h2 class="panel-title"><?php echo $page_name; ?></h2>
 									<div class="panel-heading-btn">
 										<div class="btn-group">
-											<button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#user_add">Add</button>
+											<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#user_add">Add</button>
 										</div>
 									</div>
 								</div>
@@ -3419,31 +3419,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												foreach( $users as $user ) {
 													// user status
 													if( $user['status'] == 'active' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-lime btn-block">Active</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-lime btn-block">Active</button>';
 													} elseif( $user['status'] == 'suspended' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-warning btn-block">Suspended</button>';
 													} elseif( $user['status'] == 'terminated' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-danger btn-block">Terminated</button>';
 													} elseif( $user['status'] == 'expired' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-warning btn-block">Expired</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-warning btn-block">Expired</button>';
 													} elseif( $user['status'] == 'pending' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-warning btn-block">Pending</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-warning btn-block">Pending</button>';
 													} elseif( $user['status'] == 'invited' ) {
-														$user['account_status'] = '<button class="btn btn-xs btn-warning btn-block">Invited</button>';
+														$user['account_status'] = '<button class="btn btn-lg btn-warning btn-block">Invited</button>';
 													}
 
 													// subscription w status
 													if( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists') {
 														if( $user['subscription_status'] == 'active' ) {
-															$user['subscription_status'] = '<button class="btn btn-xs btn-lime btn-block">Active</button>';
+															$user['subscription_status'] = '<button class="btn btn-lg btn-lime btn-block">Active</button>';
 														} elseif( $user['subscription_status'] == 'suspended' ) {
-															$user['subscription_status'] = '<button class="btn btn-xs btn-warning btn-block">Suspended</button>';
+															$user['subscription_status'] = '<button class="btn btn-lg btn-warning btn-block">Suspended</button>';
 														} elseif( $user['subscription_status'] == 'terminated' ) {
-															$user['subscription_status'] = '<button class="btn btn-xs btn-danger btn-block">Terminated</button>';
+															$user['subscription_status'] = '<button class="btn btn-lg btn-danger btn-block">Terminated</button>';
 														} elseif( $user['subscription_status'] == 'expired' ) {
-															$user['subscription_status'] = '<button class="btn btn-xs btn-warning btn-block">Expired</button>';
+															$user['subscription_status'] = '<button class="btn btn-lg btn-warning btn-block">Expired</button>';
 														} elseif( $user['subscription_status'] == 'pending' ) {
-															$user['subscription_status'] = '<button class="btn btn-xs btn-info btn-block">Pending</button>';
+															$user['subscription_status'] = '<button class="btn btn-lg btn-info btn-block">Pending</button>';
 														}
 													}
 
@@ -3488,7 +3488,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																</td>
 															' : '' ).'
 															<td class="text-nowrap">
-																<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
 																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item">View / Edit</a>
 																	<a href="actions.php?a=user_delete&id='.$user['id'].'" class="dropdown-item" onclick="return confirm(\'Are you sure?\' )">Delete</a>
@@ -3565,8 +3565,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							 	</div>
 							 	<div class="modal-footer">
 							 		<div class="btn-group">
-										<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" onclick="processing();" class="btn btn-xs btn-primary">Continue</button>
+										<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+										<button type="submit" onclick="processing();" class="btn btn-lg btn-primary">Continue</button>
 									</div>
 								</div>
 						  	</div>
@@ -3593,7 +3593,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3629,7 +3629,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -3677,7 +3677,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3718,7 +3718,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-lg btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -3768,7 +3768,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3923,8 +3923,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	</div>
 						 	<div class="modal-footer justify-content-center">
 						 		<div class="btn-group">
-						 			<a href="logout.php" class="btn btn-xs btn-danger">I Don't Accept</a>
-						 			<a href="actions.php?a=accept_terms" class="btn btn-xs btn-lime">I Accept</a>
+						 			<a href="logout.php" class="btn btn-lg btn-danger">I Don't Accept</a>
+						 			<a href="actions.php?a=accept_terms" class="btn btn-lg btn-lime">I Accept</a>
 								</div>
 							</div>
 					  	</div>
@@ -4036,14 +4036,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
 							text: 'Primary',
 							value: true,
 							visible: true,
-							className: 'btn btn-xs btn-primary',
+							className: 'btn btn-lg btn-primary',
 							closeModal: true
 						}
 					}
@@ -4061,7 +4061,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
@@ -4086,14 +4086,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
 							text: 'Success',
 							value: true,
 							visible: true,
-							className: 'btn btn-xs btn-lime',
+							className: 'btn btn-lg btn-lime',
 							closeModal: true
 						}
 					}
@@ -4111,14 +4111,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
 							text: 'Warning',
 							value: true,
 							visible: true,
-							className: 'btn btn-xs btn-warning',
+							className: 'btn btn-lg btn-warning',
 							closeModal: true
 						}
 					}
@@ -4136,14 +4136,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
 							text: 'Warning',
 							value: true,
 							visible: true,
-							className: 'btn btn-xs btn-danger',
+							className: 'btn btn-lg btn-danger',
 							closeModal: true
 						}
 					}
@@ -4219,14 +4219,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						text: 'Cancel',
 						value: null,
 						visible: true,
-						className: 'btn btn-xs btn-default',
+						className: 'btn btn-lg btn-default',
 						closeModal: true,
 					},
 					confirm: {
 						text: 'Proceed',
 						value: true,
 						visible: true,
-						className: 'btn btn-xs btn-lime',
+						className: 'btn btn-lg btn-lime',
 						closeModal: true
 					}
 				}
@@ -4250,14 +4250,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						text: 'Cancel',
 						value: null,
 						visible: true,
-						className: 'btn btn-xs btn-default',
+						className: 'btn btn-lg btn-default',
 						closeModal: true,
 					},
 					confirm: {
 						text: 'Accept',
 						value: true,
 						visible: true,
-						className: 'btn btn-xs btn-lime',
+						className: 'btn btn-lg btn-lime',
 						closeModal: true
 					}
 				}
@@ -4281,14 +4281,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						text: 'Cancel',
 						value: null,
 						visible: true,
-						className: 'btn btn-xs btn-default',
+						className: 'btn btn-lg btn-default',
 						closeModal: true,
 					},
 					confirm: {
 						text: 'Delete',
 						value: true,
 						visible: true,
-						className: 'btn btn-xs btn-danger',
+						className: 'btn btn-lg btn-danger',
 						closeModal: true
 					}
 				}
@@ -4312,14 +4312,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						text: 'Cancel',
 						value: null,
 						visible: true,
-						className: 'btn btn-xs btn-default',
+						className: 'btn btn-lg btn-default',
 						closeModal: true,
 					},
 					confirm: {
 						text: 'Delete',
 						value: true,
 						visible: true,
-						className: 'btn btn-xs btn-danger',
+						className: 'btn btn-lg btn-danger',
 						closeModal: true
 					}
 				}
@@ -4403,14 +4403,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							text: 'Cancel',
 							value: null,
 							visible: true,
-							className: 'btn btn-xs btn-default',
+							className: 'btn btn-lg btn-default',
 							closeModal: true,
 						},
 						confirm: {
 							text: 'Delete',
 							value: true,
 							visible: true,
-							className: 'btn btn-xs btn-primary',
+							className: 'btn btn-lg btn-primary',
 							closeModal: true
 						}
 					}
