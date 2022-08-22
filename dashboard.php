@@ -627,6 +627,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					
 					<h1 class="page-header">Dev</h1>
 
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">Account Details</h2>
@@ -687,6 +713,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</ol>
 					
 					<h1 class="page-header">Staging</h1>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
@@ -946,28 +998,25 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xl-12">
-							<div class="panel">
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-xl-8 col-xs-12">
-										</div>
-										<div class="col-xl-4 col-xs-12 text-right">
-											<div class="btn-group">
-												<a href="#" class="btn btn-xs btn-primary" onclick="tutorial_page_home();">Tutorial</a>
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
 											</div>
-											<?php if( $dev_check ) { ?>
+											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-xs btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
-											<?php } ?>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<?php } ?>
 
 					<!-- admin dashboard tiles -->
 					<?php if( $admin_check || $staff_check ) { ?>
@@ -1613,9 +1662,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 
-						<form class="form" method="post" action="actions.php?a=customer_edit">
-							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
-
+						<?php if( $dev_check ) { ?>
 							<div class="row">
 								<div class="col-xl-12">
 									<div class="panel">
@@ -1625,20 +1672,18 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="?c=customers" type="button" class="btn btn-xs btn-white">Back</a>
-														<button type="submit" class="btn btn-xs btn-primary">Save</button>
+														<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
-													<?php if( $dev_check ) { ?>
-														<div class="btn-group">
-															<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
-														</div>
-													<?php } ?>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+						<?php } ?>
+
+						<form class="form" method="post" action="actions.php?a=customer_edit">
+							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
 
 							<div class="row">
 								<!-- customer status -->
@@ -2223,6 +2268,26 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div id="status_message"></div><div id="kyc_status_message"></div>
 							</div>
 						</div>
+
+						<?php if( $dev_check ) { ?>
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
 
 						<form class="form" method="post" action="actions.php?a=user_edit">
 							<input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
@@ -3546,6 +3611,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					
 					<h1 class="page-header">VRN Lookup</h1>
 
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">VRN Lookup</h2>
@@ -3583,6 +3674,32 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					
 					<h1 class="page-header">VRN Lookup</h1>
 
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a href="#" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+					
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">VRN Lookup</h2>
