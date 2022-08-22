@@ -314,8 +314,8 @@ function vrn_lookup() {
 
 	// check if we should update the data
 	$added = $data['added'];
-	$last_chdcked = $data['last_checked'];
-	$time_diff = $last_chdcked - $added;
+	$last_checked = $data['last_checked'];
+	$time_diff = ($last_checked - $added);
 	if( $time_diff > 7776000 ) {
 		// api lookup
 		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
