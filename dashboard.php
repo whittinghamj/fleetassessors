@@ -4440,6 +4440,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="row">
 									<div class="offset-xl-4 col-xl-4 col-md-12">
 										<div class="row mb-15px">
+											<label class="form-label col-form-label col-md-3">CO2 Emissions</label>
+											<div class="col-md-9">
+												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['co2_emissions']; ?>" readonly/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="offset-xl-4 col-xl-4 col-md-12">
+										<div class="row mb-15px">
 											<label class="form-label col-form-label col-md-3">Insurance Group</label>
 											<div class="col-md-9">
 												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['insurance_group']; ?>" readonly/>
