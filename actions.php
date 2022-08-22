@@ -254,6 +254,7 @@ function vrn_lookup() {
 	// map fields
 	$vrn 					= post( 'vrn' );
 	$vrn 					= str_replace( ' ', '', $vrn );
+	$vrn 					= trim( $vrn );
 	$vrn 					= strtoupper( $vrn );
 
 	// does vrn already exist
