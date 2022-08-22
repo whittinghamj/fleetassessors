@@ -501,26 +501,53 @@ function get_jobs( $customer = '' ) {
 	// create black array
 	$jobs = array();
 
-	// process filter
-	if( empty( $customer ) ) {
-		$query = $conn->query( "
-			SELECT * 
-			FROM `jobs` 
-		" );
-	} else {
-		$query = $conn->query( "
-			SELECT * 
-			FROM `jobs` 
-			WHERE `customer_id` = '".$customer."' 
-		" );
-	}
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `jobs` 
+		WHERE `customer_id` = '".$customer."' 
+	" );
+
+	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	// sanity check
+	$jobs = stripslashes_deep( $jobs );
+
+	return $jobs;
+}
+
+// get all jobs
+function get_all_jobs() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$jobs = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `jobs` 
+	" );
 
 	$data = $query->fetchAll( PDO::FETCH_ASSOC );
 
-	// sanity check
-	$data = stripslashes_deep( $data );
+	$count = 0;
 
-	return $data;
+	// loop over data to add additional details about each user
+	foreach( $data as $bit ) {
+		// add existing data
+		$jobs[$count] = $bit;
+
+		// customer
+		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );;
+
+		$count++;
+	}
+
+	// sanity check
+	$jobs = stripslashes_deep( $jobs );
+
+	return $jobs;
 }
 
 // get job details
