@@ -500,6 +500,19 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</a>
 							</li>
 						<?php } ?>
+						<li class="has-sub 
+								<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
+								<?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'active'; } ?>
+							">
+								<a href="javascript:;">
+									<b class="caret"></b>
+									<i class="fa fa-flask bg-yellow"></i>
+									<span>Tools</span>
+								</a>
+								<ul class="sub-menu">
+									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+								</ul>
+							</li>
 						<li>
 							<a href="logout.php">
 								<i class="fa fa-sign-out-alt bg-red"></i>
@@ -509,21 +522,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</ul>
 
 					<?php if( $admin_check || $staff_check ) { ?>
-						<ul class="nav"><li class="nav-header">Staff Section</li>
-							<li class="has-sub 
-								<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
-								<?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'active'; } ?>
-							">
-								<a href="javascript:;">
-									<b class="caret"></b>
-									<i class="fa fa-flask"></i>
-									<span>Tools</span>
-								</a>
-								<ul class="sub-menu">
-									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
-								</ul>
-							</li>
-						</ul>
+						
 					<?php } ?>
 
 					<?php if( $admin_check ) { ?>
