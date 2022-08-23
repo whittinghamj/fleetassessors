@@ -277,9 +277,6 @@ function vrn_lookup() {
 		$remote_data_raw = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data_raw['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel'], true );
 
-		debug( $remote_data );
-		die();
-
 		// check if we found something
 		if( isset( $remote_data['Make'] ) ) {
 			// save data
@@ -292,7 +289,6 @@ function vrn_lookup() {
 
 			$vrn_id = $conn->lastInsertId();
 
-			$mot_history = $remote_data_raw['Results']['FullMotHistory'];
 
 			// update data
 			$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Make'] )."' WHERE `id` = '".$vrn_id."' " );
@@ -315,10 +311,7 @@ function vrn_lookup() {
 			$update = $conn->exec( "UPDATE `vrn_database` SET `is_mot_valid` = '".$remote_data['IsMOTDue']."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `is_taxed` = '".$remote_data['RoadTaxStatusDescription']."' WHERE `id` = '".$vrn_id."' " );
 			$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
-
 			$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
-			$update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".$mot_history."' WHERE `id` = '".$vrn_id."' " );
-
 			$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 		} else {
 			// redirect
@@ -334,8 +327,6 @@ function vrn_lookup() {
 		// api lookup
 		$remote_data_raw = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data_raw['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel'], true );
-
-		$mot_history = $remote_data_raw['Results']['FullMotHistory'];
 
 		// update data
 		$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Make'] )."' WHERE `id` = '".$vrn_id."' " );
@@ -358,10 +349,7 @@ function vrn_lookup() {
 		$update = $conn->exec( "UPDATE `vrn_database` SET `is_mot_valid` = '".$remote_data['IsMOTDue']."' WHERE `id` = '".$vrn_id."' " );
 		$update = $conn->exec( "UPDATE `vrn_database` SET `is_taxed` = '".$remote_data['RoadTaxStatusDescription']."' WHERE `id` = '".$vrn_id."' " );
 		$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
-
 		$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
-		$update = $conn->exec( "UPDATE `vrn_database` SET `mot_history` = '".$mot_history."' WHERE `id` = '".$vrn_id."' " );
-
 		$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 	}
 
