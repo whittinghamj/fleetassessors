@@ -4262,7 +4262,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
-														<?php if( $data['cancelled'] || $data['complete'] ) { ?>
+														<?php if( $job['status_raw'] == 'cancelled' || $job['status_raw'] == 'complete' ) { ?>
 															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
 														<?php } else { ?>
 															<label class="bmd-label-floating"><strong>Job Age</strong></label>
