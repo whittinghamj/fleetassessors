@@ -293,7 +293,7 @@ function vrn_lookup() {
 
 			$vrn_id = $conn->lastInsertId();
 
-			$mot_history = json_encode( $remote_data['Results']['FullMotHistory'] );
+			$mot_history = base64_encode( $remote_data['Results']['FullMotHistory'] );
 
 			echo '<pre>';
 			debug( $mot_history );
@@ -343,7 +343,7 @@ function vrn_lookup() {
 		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data, true );
 
-		$mot_history = serialize( $remote_data['Results']['FullMotHistory'] );
+		$mot_history = base64_encode( $remote_data['Results']['FullMotHistory'] );
 
 		// update data
 		$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
