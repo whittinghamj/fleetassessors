@@ -2113,6 +2113,26 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 
 							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="?c=customers" type="button" class="btn btn-white">Back</a>
+														<button type="submit" class="btn btn-success">Save</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- jobs -->
+							<div class="row">
 								<!-- jobs -->
 								<div class="col-xl-12 col-sm-12">
 									<div class="panel panel-inverse">
@@ -2193,25 +2213,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													?>
 												</tbody>
 											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel">
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-8 col-xs-12">
-												</div>
-												<div class="col-xl-4 col-xs-12 text-right">
-													<div class="btn-group">
-														<a href="?c=customers" type="button" class="btn btn-white">Back</a>
-														<button type="submit" class="btn btn-success">Save</button>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -4532,6 +4533,24 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							<?php } ?>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="panel">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-xl-8 col-xs-12">
+										</div>
+										<div class="col-xl-4 col-xs-12 text-right">
+											<div class="btn-group">
+												<a href="?c=vrn_lookup" type="button" class="btn btn-white">Back</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
