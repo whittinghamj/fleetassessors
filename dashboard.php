@@ -4263,7 +4263,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Job Age</strong></label>
-														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>">
+														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
