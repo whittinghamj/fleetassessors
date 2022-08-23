@@ -571,7 +571,7 @@ function get_job( $id ) {
 	if( $data['cancelled'] || $data['complete'] ) {
 		// calculate completion time
 		$datediff = $data['updated'] - $data['added'];
-	} else() {
+	} else {
 		// calculate job age
 		$datediff = time() - $data['added'];
 	}
