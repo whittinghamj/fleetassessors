@@ -4267,7 +4267,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<div class="row">
 								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 									<!-- initial estimate details -->
-									<div class="col-xl-6 col-sm-12">
+									<div class="col-xl-12">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Initial Estimate</h2>
@@ -4345,7 +4345,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 
 									<!-- revised estimate details -->
-									<div class="col-xl-6 col-sm-12">
+									<div class="col-xl-12">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Uplift Estimate</h2>
