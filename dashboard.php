@@ -4459,7 +4459,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="history.back();" type="button" onclick="processing();" class="btn btn-white">Back</a>
+														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-white">Back</a>
 														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
 													</div>
 												</div>
