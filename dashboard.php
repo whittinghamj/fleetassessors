@@ -4835,9 +4835,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				</div>
 			<?php } ?>
 
-			<div id="footer" class="footer">
-				<?php echo $globals['copyright']; ?>
-			</div>
+			<!--
+				<div id="footer" class="footer">
+					<?php echo $globals['copyright']; ?>
+				</div>
+			-->
 			
 			<a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		
