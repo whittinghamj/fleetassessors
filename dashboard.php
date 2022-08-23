@@ -2175,41 +2175,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															}				
 
 															// output
-															echo '
-																<tr>
-																	<td class="text-nowrap">
-																		<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
-																	</td>
-																	<td class="text-nowrap">
-																		'.date( "M dS Y", $job['added'] ).'
-																	</td>
-																	<td class="text-nowrap">
-																		'.$job['vrn'].' <br>
-																		'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].', '.$job['vrn_details']['model'].'
-																	</td>
-																	<td class="text-nowrap">
-																		'.$job['estimator'].'
-																	</td>
-																	<td class="text-nowrap">
-																		£'.(      number_format( $job['initial_estimate'] ).'
-																	</td>
-																	<td class="text-nowrap">
-																		£'.number_format( $job['revised_estimate'] ).'
-																	</td>
-																	<td class="text-nowrap">
-																	</td>
-																	<td class="text-nowrap">
-																		'.$job['status'].'
-																	</td>
-																	<td class="text-nowrap">
-																		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-																		<div class="dropdown-menu dropdown-menu-right" role="menu">
-																			<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																			<a href="#" onclick="job_delete( '.$job['id'].' );" class="dropdown-item">Delete</a>
-																		</div>
-																	</td>
-																</tr>
-															';
+															
 														}
 													?>
 												</tbody>
