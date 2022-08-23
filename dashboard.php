@@ -463,7 +463,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</a>
 							</li>
 							<li <?php if( get( 'c' ) == 'staging' ) { echo'class="active"'; } ?>>
-								<a href="dashboard.php?c=staging">
+								<a href="dashboard.php?c=staging" onclick="processing();">
 									<i class="fa fa-rocket bg-gradient-pink"></i>
 									<span>Staging</span> 
 								</a>
@@ -473,28 +473,28 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<ul class="nav"><li class="nav-header">Navigation</li>
 						<li <?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { echo'class="active"'; } ?>>
-							<a href="dashboard.php">
+							<a href="dashboard.php" onclick="processing();">
 								<i class="fa fa-home bg-blue"></i>
 								<span>Home</span> 
 							</a>
 						</li>
 						<?php if( $admin_check || $staff_check ) { ?>
 							<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
-								<a href="dashboard.php?c=customers">
+								<a href="dashboard.php?c=customers" onclick="processing();">
 									<i class="fa fa-users bg-orange"></i>
 									<span>Customers</span> 
 								</a>
 							</li>
 						<?php } ?>
 						<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
-							<a href="dashboard.php?c=jobs">
+							<a href="dashboard.php?c=jobs" onclick="processing();">
 								<i class="fa fa-car bg-green"></i>
 								<span>Jobs</span> 
 							</a>
 						</li>
 						<?php if( $admin_check || $staff_check ) { ?>
 							<li <?php if( get( 'c' ) == 'provider' || get( 'c' ) == 'providers' ) { echo'class="active"'; } ?>>
-								<a href="dashboard.php?c=providers">
+								<a href="dashboard.php?c=providers" onclick="processing();">
 									<i class="fa fa-address-card bg-purple"></i>
 									<span>Providers</span> 
 								</a>
@@ -510,11 +510,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<span>Tools</span>
 								</a>
 								<ul class="sub-menu">
-									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup" onclick="processing();">VRN Lookup</a></li>
 								</ul>
 							</li>
 						<li>
-							<a href="logout.php">
+							<a href="logout.php" onclick="processing();">
 								<i class="fa fa-sign-out-alt bg-red"></i>
 								<span>Sign Out</span> 
 							</a>
@@ -5021,7 +5021,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
         // global modals
         function processing( id ) {
 			swal({
-				title: 'Processing',
+				title: 'Loading',
 				text: 'Please wait one moment.',
 				buttons: {
 					
