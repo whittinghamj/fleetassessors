@@ -4421,7 +4421,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
 						 				<h2>$job</h2>
-										<?php debug( $customer ); ?>
+										<?php debug( $job ); ?>
 									</div>
 								</div>
 						 	</div>
