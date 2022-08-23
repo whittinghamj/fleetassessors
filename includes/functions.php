@@ -720,6 +720,37 @@ function get_customer( $id = '' ) {
 	return $data;
 }
 
+// get all providers
+function get_providers() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$providers = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `providers` 
+		ORDER BY `name` ASC
+	" );
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each product
+	foreach( $data as $bit ) {
+		// add existing data
+		$providers[$count] = $bit;
+
+		$count++;
+	}
+
+	// sanity check
+	$providers = stripslashes_deep( $providers );
+
+	return $providers;
+}
+
 function get_orders_for_coverage_area() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 

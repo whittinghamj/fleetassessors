@@ -4189,6 +4189,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					}
 					$job 			= get_job( $job_id );
+					$providers 		= get_providers();
 				?>
 
 				<div id="content" class="content">
@@ -4487,6 +4488,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 			<div class="col-xl-12 col-sm-12">
 						 				<h2>$job</h2>
 										<?php debug( $job ); ?>
+										<h2>$providers</h2>
+										<?php debug( $providers ); ?>
 									</div>
 								</div>
 						 	</div>
