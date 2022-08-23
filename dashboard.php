@@ -2250,6 +2250,38 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					  	</div>
 				   	</div>
 				</div>
+
+				<!-- add job modal -->
+				<form class="form" method="post" action="actions.php?a=job_add">
+					<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
+					   	<div class="modal-dialog modal-notice">
+						  	<div class="modal-content">
+							 	<div class="modal-header">
+									<h5 class="modal-title" id="myModalLabel">Add Job</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										x
+									</button>
+							 	</div>
+							 	<div class="modal-body">
+							 		<div class="row">
+										<div class="col-xl-12 col-sm-12">
+											<div class="form-group">
+												<label class="bmd-label-floating"><strong>VRN</strong></label>
+												<input type="text" id="vrn" name="vrn" class="form-control" required>
+											</div>
+										</div>
+									</div>
+							 	</div>
+							 	<div class="modal-footer">
+							 		<div class="btn-group">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+									</div>
+								</div>
+						  	</div>
+					   	</div>
+					</div>
+				</form>
 			<?php } ?>
 
 			<?php function user() { ?>
@@ -4829,6 +4861,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			selectOnClose: true
 		} );
 
+		var sweet_loader = '<div class="sweet_loader"><svg viewBox="0 0 140 140" width="140" height="140"><g class="outline"><path d="m 70 28 a 1 1 0 0 0 0 84 a 1 1 0 0 0 0 -84" stroke="rgba(0,0,0,0.1)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></g><g class="circle"><path d="m 70 28 a 1 1 0 0 0 0 84 a 1 1 0 0 0 0 -84" stroke="#71BBFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dashoffset="200" stroke-dasharray="300"></path></g></svg></div>';
+
 		// sweetalerts
 		var handleSweetNotification = function() {
 			$( '[data-click="swal-primary"]' ).click(function(e) {
@@ -4989,7 +5023,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			swal({
 				title: 'Processing',
 				text: 'Please wait one moment.',
-				icon: 'success',
+				icon: sweet_loader,
 				buttons: {
 					
 				}
