@@ -523,17 +523,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<li <?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'class="active"'; } ?>><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
 								</ul>
 							</li>
+						</ul>
+					<?php } ?>
+
+					<?php if( $admin_check ) { ?>
+						<ul class="nav"><li class="nav-header">Admin Section</li>
 							<li <?php if( get( 'c' ) == 'user' || get( 'c' ) == 'users' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=users">
 									<i class="fa fa-users"></i>
 									<span>Users</span> 
 								</a>
 							</li>
-						</ul>
-					<?php } ?>
-
-					<?php if( $admin_check ) { ?>
-						<ul class="nav"><li class="nav-header">Admin Section</li>
 							<li <?php if( get( 'c' ) == 'system_settings' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=system_settings">
 									<i class="fa fa-cogs"></i>
