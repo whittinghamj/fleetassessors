@@ -4250,6 +4250,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="row">
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
+														<input type="text" name="updated" class="form-control" value="<?php echo $job['updated']; ?>">
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
 															<option value="active" <?php if( $job['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
@@ -4295,7 +4301,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_estimate" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4305,7 +4311,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_labour']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_labour" value="<?php echo $job['initial_labour']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4315,7 +4321,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_paint']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_paint" value="<?php echo $job['initial_paint']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4325,7 +4331,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_additional']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_additional" value="<?php echo $job['initial_additional']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4335,7 +4341,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_parts']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_parts" value="<?php echo $job['initial_parts']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4345,7 +4351,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['initial_check']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="initial_check" value="<?php echo $job['initial_check']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4373,7 +4379,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_estimate']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_estimate" value="<?php echo $job['uplift_estimate']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4383,7 +4389,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_labour" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4393,7 +4399,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_paint" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4403,7 +4409,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_additional" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4413,7 +4419,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_parts" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
@@ -4423,7 +4429,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="uplift_check" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>

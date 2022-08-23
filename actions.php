@@ -495,7 +495,7 @@ function job_add() {
 
 	// save data - job
 	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
-		(`added`,`last_checked`,`status`,`customer_id`,`created_by`,`vrn`)
+		(`added`,`updated`,`status`,`customer_id`,`created_by`,`vrn`)
 		VALUE
 		('".time()."',
 		'".time()."',
