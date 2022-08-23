@@ -4308,6 +4308,36 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
+												<div class="col-xl-2 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Additional Items</label>
+													<div class="col-md-9">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['initial_additional_items']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Parts</label>
+													<div class="col-md-9">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['initial_parts']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Check</label>
+													<div class="col-md-9">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['initial_cjeck']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
