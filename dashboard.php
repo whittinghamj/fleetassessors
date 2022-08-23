@@ -4473,7 +4473,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 															<div class="input-group">
 																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approve_estimate" value="<?php echo $job['approve_estimate']; ?>" placeholder="0.00" />
+																<input type="text" class="form-control" name="approved_estimate" value="<?php echo $job['approved_estimate']; ?>" placeholder="0.00" />
 																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 															</div>
 														</div>
