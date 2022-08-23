@@ -4296,7 +4296,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<strong><p>SORN</p></strong>
 												</div>
 												<div class="stats-link">
-													<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+													<a href="javascript:;">N/a</a>
 												</div>
 											</div>
 										</div>
@@ -4329,7 +4329,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<?php } else { ?>
 										<div class="col-xl-2 col-md-6">
 											<div class="widget widget-stats bg-red">
-												<div class="stats-icon"><i class="fa fa-cross"></i></div>
+												<div class="stats-icon"><i class="fa fa-times"></i></div>
 												<div class="stats-info">
 													<strong><p>MOT</p></strong>
 												</div>
