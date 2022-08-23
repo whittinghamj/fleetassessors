@@ -5023,7 +5023,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			swal({
 				title: 'Processing',
 				text: 'Please wait one moment.',
-				icon: sweet_loader,
 				buttons: {
 					
 				}
