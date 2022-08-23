@@ -567,6 +567,12 @@ function get_job( $id ) {
 		$data['customer'] 					= get_customer( $data['customer_id'] );
 	}
 
+	$now = time(); // or your date as well
+	$your_date = strtotime("2010-01-31");
+	$datediff = $data['updated'] - $data['added'];
+
+	$data['job_age'] = round( $datediff / ( 60 * 60 * 24 ) );
+
 	// sanity check
 	$data = stripslashes_deep( $data );
 

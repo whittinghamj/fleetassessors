@@ -4260,7 +4260,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>">
 													</div>
 												</div>
-												<div class="col-xl-3 col-sm-12">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Job Age</strong></label>
+														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
@@ -4271,7 +4277,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</select>
 													</div>
 												</div>
-												<div class="col-xl-3 col-sm-12">
+												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Provider</strong></label>
 														<select name="provider_id" class="form-control select2">
