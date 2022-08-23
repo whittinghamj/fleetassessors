@@ -4278,7 +4278,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-2 col-lg-12 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Total</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
@@ -4288,7 +4288,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-lg-12 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Labour</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
