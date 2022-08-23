@@ -4283,7 +4283,27 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<div class="col-md-9">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
-															<input type="text" class="form-control" vale="" placeholder="0.00" />
+															<input type="text" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Labour</label>
+													<div class="col-md-9">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['initial_labour']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Paint</label>
+													<div class="col-md-9">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['initial_paint']; ?>" placeholder="0.00" />
 															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 														</div>
 													</div>
