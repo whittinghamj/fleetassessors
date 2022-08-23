@@ -4181,7 +4181,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<form class="form" method="post" action="actions.php?a=vrn_lookup">
 								<div class="form-group input-group-append">
 									<input type="text" name="vrn" id="vrn" class="form-control" placeholder="eg: ND08 NVK" />
-									<button type="submit" class="btn btn-success">Search</button>
+									<button type="submit" onclick="processing();" class="btn btn-success">Search</button>
 								</div>
 							</form>
 						</div>

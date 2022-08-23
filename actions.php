@@ -130,6 +130,7 @@ function accept_terms() {
 	go( 'dashboard.php' );
 }
 
+// customer functions
 function customer_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
@@ -265,6 +266,7 @@ function customer_delete() {
 	go( 'dashboard.php?c=customers' );
 }
 
+// vrn lookup
 function vrn_lookup() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
