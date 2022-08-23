@@ -4188,7 +4188,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					if( empty( $job_id ) ) {
 
 					}
-					$job 			= get_customer( $job_id );
+					$job 			= get_job( $job_id );
 				?>
 
 				<div id="content" class="content">
