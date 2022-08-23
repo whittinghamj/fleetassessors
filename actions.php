@@ -56,10 +56,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 $a = get( 'a' );
 
 switch( $a ) {
+	// accept terms function
     case "accept_terms":
         accept_terms();
         break;
 
+
+    // customer functions
     case "customer_add":
         customer_add();
         break;
@@ -72,6 +75,8 @@ switch( $a ) {
         customer_delete();
         break;
 
+
+    // job functions
     case "job_add":
         job_add();
         break;
@@ -84,10 +89,8 @@ switch( $a ) {
         job_delete();
         break;
 
-    case "system_settings":
-        system_settings();
-        break;
 
+    // admin functions
     case "user_add":
         user_add();
         break;
@@ -100,6 +103,12 @@ switch( $a ) {
         user_delete();
         break;
 
+    case "system_settings":
+        system_settings();
+        break;
+
+
+    // tools functions
     case "vrn_lookup":
         vrn_lookup();
         break;
@@ -129,6 +138,7 @@ function accept_terms() {
 	// redirect
 	go( 'dashboard.php' );
 }
+
 
 // customer functions
 function customer_add() {
@@ -266,6 +276,7 @@ function customer_delete() {
 	go( 'dashboard.php?c=customers' );
 }
 
+
 // vrn lookup
 function vrn_lookup() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
@@ -376,44 +387,129 @@ function vrn_lookup() {
 }
 
 
-
-
-function order_add_item() {
+// job functions
+function job_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
-	$order_id 							= post( 'order_id' );
-	$product_id 						= post( 'product_id' );
-	$qty 								= post( 'qty' );
+	$customer_id 			= post( 'customer_id' );
+	$vrn 					= post( 'vrn' );
+	$vrn 					= str_replace( ' ', '', $vrn );
+	$vrn 					= trim( $vrn );
+	$vrn 					= strtoupper( $vrn );
 
-	// get data
-	$order = get_order( $order_id );
-	$product = get_product( $product_id );
+	// does vrn already exist
+	$query = $conn->query( "
+	        SELECT `id`, `added`, `last_checked` 
+	        FROM `vrn_database` 
+	        WHERE `vrn` = '".$vrn."' 
+	    " );
+	$data = $query->fetch( PDO::FETCH_ASSOC );
 
-	// save data
-	$insert = $conn->exec( "INSERT INTO `order_items` 
-		(`added`,`order_id`,`product_id`,`qty`)
+	if( isset( $data['id'] ) ) {
+		// update data
+		$vrn_id = $data['id'];
+
+		error_log( " " );
+		error_log( "Using local DVLA dataset" );
+		error_log( " " );
+	} else {
+		// api lookup
+		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
+		$remote_data = json_decode( $remote_data, true );
+
+		// check if we found something
+		if( isset( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] ) ) {
+			// save data
+			$insert = $conn->exec( "INSERT INTO `vrn_database` 
+				(`added`,`vrn`)
+				VALUE
+				('".time()."', 
+				'".$vrn."'
+			)" );
+
+			$vrn_id = $conn->lastInsertId();
+
+			// update data
+			$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model'] )."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `color` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Colour']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['YearOfManufacture']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `fuel` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['FuelType']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `cylinder_capacity` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['CylinderCapacity']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `top_speed` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['TopSpeed']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `bhp` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Bhp']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `vehicle_type` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['VehicleType']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `body_style` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['BodyStyle']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `insurance_group` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['InsuranceGroup']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `last_v5_issued` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateOfLastV5CIssued']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `first_v5_issued` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateOfFirstRegistration']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `average_miles_per_year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['AverageMileagePerYear']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `total_mots` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['TotalMotRecords']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `last_mot_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['LastMotDate']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `next_mot_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateMotDue']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `is_mot_valid` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['IsMOTDue']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `is_taxed` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['RoadTaxStatusDescription']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
+			$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
+		} else {
+			// redirect
+			go( 'dashboard.php?c=vrn_lookup_results&vrn=nothing_found' );
+		}
+	}
+
+	// check if we should update the data
+	$added = $data['added'];
+	$last_checked = $data['last_checked'];
+	$time_diff = ($last_checked - $added);
+	if( $time_diff > 7776000 ) {
+		// api lookup
+		$remote_data = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
+		$remote_data = json_decode( $remote_data, true );
+
+		// update data
+		$update = $conn->exec( "UPDATE `vrn_database` SET `make` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Make'] )."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `model` = '".ucwords( $remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Model'] )."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `color` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Colour']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['YearOfManufacture']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `fuel` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['FuelType']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `cylinder_capacity` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['CylinderCapacity']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `top_speed` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['TopSpeed']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `bhp` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Bhp']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `vehicle_type` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['VehicleType']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `body_style` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['BodyStyle']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `insurance_group` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['InsuranceGroup']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `last_v5_issued` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateOfLastV5CIssued']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `first_v5_issued` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateOfFirstRegistration']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `average_miles_per_year` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['AverageMileagePerYear']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `total_mots` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['TotalMotRecords']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `last_mot_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['LastMotDate']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `next_mot_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateMotDue']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `is_mot_valid` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['IsMOTDue']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `is_taxed` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['RoadTaxStatusDescription']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `next_tax_date` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['DateRoadTaxDue']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `co2_emissions` = '".$remote_data['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel']['Co2Emissions']."' WHERE `id` = '".$vrn_id."' " );
+		$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
+	}
+
+	// save data - job
+	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
+		(`added`,`status`,`customer_id`,`vrn`)
 		VALUE
 		('".time()."', 
-		'".$order_id."',
-		'".$product_id."',
-		'".$qty."'
+		'pending', 
+		'".$customer_id."',
+		'".$vrn."'
 	)" );
 
-	$order_item_id = $conn->lastInsertId();
-	
-	// update order total
-	$item_total = ( $product['price'] * $qty );
-	$order_total = ( $order['total_price'] + $item_total );
-
-	// save data
-	$update = $conn->exec( "UPDATE `orders` SET `total_price` = '".$order_total."' WHERE `id` = '".$order_id."' " );
+	$job_id = $conn->lastInsertId();
 
 	// set status message
-	status_message( "success", "Item has been added to order." );
+	status_message( "success", "Job has been created." );
 
 	// redirect
-	go( $_SERVER['HTTP_REFERER'] );
+	go( 'dashboard.php?c=job&id='.$job_id );
 }
 
 function order_assign_florist() {

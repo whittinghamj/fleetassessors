@@ -2253,6 +2253,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<!-- add job modal -->
 				<form class="form" method="post" action="actions.php?a=job_add">
+					<input type="hidden" name="customer_id" value="<?php echo $customer_id; ?>">
 					<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
 					   	<div class="modal-dialog modal-notice">
 						  	<div class="modal-content">
