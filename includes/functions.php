@@ -567,9 +567,14 @@ function get_job( $id ) {
 		$data['customer'] 					= get_customer( $data['customer_id'] );
 	}
 
-	$now = time(); // or your date as well
-	$your_date = strtotime("2010-01-31");
-	$datediff = $data['updated'] - $data['added'];
+	// calculate age or completion time
+	if( $data['cancelled'] || $data['complete'] ) {
+		// calculate completion time
+		$datediff = $data['updated'] - $data['added'];
+	} else() {
+		// calculate job age
+		$datediff = time() - $data['added'];
+	}
 
 	$data['job_age'] = round( $datediff / ( 60 * 60 * 24 ) );
 

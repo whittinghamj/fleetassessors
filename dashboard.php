@@ -4262,7 +4262,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Job Age</strong></label>
+														<?php if( $data['cancelled'] || $data['complete'] ) { ?>
+															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
+														<?php } else { ?>
+															<label class="bmd-label-floating"><strong>Job Age</strong></label>
+														<?php } ?>
 														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
 													</div>
 												</div>
