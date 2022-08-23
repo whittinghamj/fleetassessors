@@ -277,6 +277,9 @@ function vrn_lookup() {
 		$remote_data_raw = file_get_contents( 'https://www.rapidcarcheck.co.uk/FreeAccess/?vrm='.$vrn.'&auth=ACCESSAPIENDPOINT&site=https://spotonmotorsmanchester.co.uk' );
 		$remote_data = json_decode( $remote_data_raw['Results']['InitialVehicleCheckModel']['BasicVehicleDetailsModel'], true );
 
+		debug( $remote_data );
+		die();
+
 		// check if we found something
 		if( isset( $remote_data['Make'] ) ) {
 			// save data
