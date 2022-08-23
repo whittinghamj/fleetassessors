@@ -509,7 +509,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</ul>
 
 					<?php if( $admin_check || $staff_check ) { ?>
-						<ul class="nav"><li class="nav-header">Admin Section</li>
+						<ul class="nav"><li class="nav-header">Staff Section</li>
 							<li class="has-sub 
 								<?php if( get( 'c' ) == 'tools' ) { echo'active'; } ?>
 								<?php if( get( 'c' ) == 'vrn_lookup' || get( 'c' ) == 'vrn_lookup_results' ) { echo'active'; } ?>
@@ -529,6 +529,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<span>Users</span> 
 								</a>
 							</li>
+						</ul>
+					<?php } ?>
+
+					<?php if( $admin_check ) { ?>
+						<ul class="nav"><li class="nav-header">Admin Section</li>
 							<li <?php if( get( 'c' ) == 'system_settings' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=system_settings">
 									<i class="fa fa-cogs"></i>
