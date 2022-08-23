@@ -539,7 +539,9 @@ function job_delete() {
 	debug(parse_url($url, PHP_URL_QUERY));
 	debug(parse_url($url, PHP_URL_FRAGMENT));
 
-	parse_str($url, $get_array);
+	$query = parse_url( $url, PHP_URL_QUERY );
+
+	parse_str($query, $get_array);
 
 	debug($get_array);
 
