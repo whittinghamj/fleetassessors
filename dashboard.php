@@ -4278,8 +4278,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<label class="form-label col-form-label col-md-3">Initial Estimate</label>
+												<div class="col-xl-1 col-sm-12">
+													<label class="form-label col-form-label col-md-3">Total</label>
 													<div class="col-md-9">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
@@ -4326,7 +4326,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $jobs['notes']; ?></textarea>
+														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
