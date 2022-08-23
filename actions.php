@@ -520,7 +520,7 @@ function job_delete() {
 	$id 							= get( 'id' );
 
 	// delete data
-	// $delete = $conn->exec( "DELETE FROM `jobs` WHERE `id` = '".$id."' " );
+	$delete = $conn->exec( "DELETE FROM `jobs` WHERE `id` = '".$id."' " );
 
 	// set status message
 	status_message( "success", "Job has been deleted." );
