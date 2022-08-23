@@ -4264,7 +4264,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<label class="bmd-label-floating"><strong>Provider</strong></label>
 														<select name="provider_id" class="form-control select2">
 															<?php foreach( $providers as $provider ) { ?>
-																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['ir'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
 															<?php } ?>
 														</select>
 													</div>
