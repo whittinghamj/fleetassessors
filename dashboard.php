@@ -457,7 +457,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					<?php if( $dev_check ) { ?>
 						<ul class="nav"><li class="nav-header">Dev Section</li>
 							<li <?php if( get( 'c' ) == 'dev' ) { echo'class="active"'; } ?>>
-								<a href="dashboard.php?c=dev">
+								<a href="dashboard.php?c=dev" onclick="processing();">
 									<i class="fa fa-code bg-gradient-purple"></i>
 									<span>Global Vars</span> 
 								</a>
