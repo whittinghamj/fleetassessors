@@ -3761,7 +3761,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
 														</td>
 														<td class="text-nowrap">
-															'.date( "M dS Y", $job['added'] ).'
+															'.date( "Y-m-d H:i:s", $job['added'] ).'
 														</td>
 														<td class="text-nowrap">
 															<a href="?c=customer&id='.$job['customer_id'].'">'.$job['customer']['company_name'].'</a>
@@ -4251,7 +4251,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
-														<input type="text" name="updated" class="form-control" value="<?php echo $job['updated']; ?>">
+														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>">
 													</div>
 												</div>
 												<div class="col-xl-3 col-sm-12">
