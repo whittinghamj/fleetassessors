@@ -529,15 +529,15 @@ function job_delete() {
 
 	$url = $_SERVER['HTTP_REFERER'];
 
-	var_dump(parse_url($url));
-	var_dump(parse_url($url, PHP_URL_SCHEME));
-	var_dump(parse_url($url, PHP_URL_USER));
-	var_dump(parse_url($url, PHP_URL_PASS));
-	var_dump(parse_url($url, PHP_URL_HOST));
-	var_dump(parse_url($url, PHP_URL_PORT));
-	var_dump(parse_url($url, PHP_URL_PATH));
-	var_dump(parse_url($url, PHP_URL_QUERY));
-	var_dump(parse_url($url, PHP_URL_FRAGMENT));
+	debug(parse_url($url));
+	debug(parse_url($url, PHP_URL_SCHEME));
+	debug(parse_url($url, PHP_URL_USER));
+	debug(parse_url($url, PHP_URL_PASS));
+	debug(parse_url($url, PHP_URL_HOST));
+	debug(parse_url($url, PHP_URL_PORT));
+	debug(parse_url($url, PHP_URL_PATH));
+	debug(parse_url($url, PHP_URL_QUERY));
+	debug(parse_url($url, PHP_URL_FRAGMENT));
 
 	die();
 
