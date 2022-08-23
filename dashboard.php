@@ -4298,7 +4298,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Paint</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
@@ -4308,7 +4308,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Additional</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
@@ -4318,7 +4318,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Parts</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
@@ -4328,7 +4328,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Check</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
@@ -4347,7 +4347,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
-											<h2 class="panel-title">Revised Estimate</h2>
+											<h2 class="panel-title">Uplift Estimate</h2>
 											<div class="panel-heading-btn">
 												<div class="btn-group">
 													
@@ -4355,7 +4355,68 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 										<div class="panel-body">
-											
+											<div class="row">
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Total</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_estimate']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Labour</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Paint</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Additional</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Parts</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Check</label>
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+														<div class="input-group">
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
