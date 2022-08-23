@@ -4248,7 +4248,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-3 col-sm-12">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Added</strong></label>
+														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['added'] ); ?>">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
 														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>">
