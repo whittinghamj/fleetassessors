@@ -565,7 +565,6 @@ function get_job( $id ) {
 	if( isset( $data['id'] ) ) {
 		// add additional data
 		$data['customer'] 					= get_customer( $data['customer_id'] );
-		$data['payment_details']			= get_payment( $data['payment_id'] );
 	}
 
 	// sanity check
