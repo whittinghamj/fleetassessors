@@ -1702,7 +1702,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<form class="form" method="post" action="actions.php?a=customer_edit">
 							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
 
-							<div class="row row-eq-height">
+							<div class="row">
 								<!-- customer status -->
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
@@ -2201,7 +2201,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																			£'.number_format( $job['initial_estimate'] ).'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['revised_estimate'] ).'
+																			£'.number_format( $job['uplift_estimate'] ).'
 																		</td>
 																		<td class="text-nowrap">
 																		</td>
