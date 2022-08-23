@@ -1702,7 +1702,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<form class="form" method="post" action="actions.php?a=customer_edit">
 							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
 
-							<div class="row">
+							<div class="row row-eq-height">
 								<!-- customer status -->
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
