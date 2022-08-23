@@ -526,6 +526,19 @@ function job_delete() {
 	status_message( "success", "Job has been deleted." );
 
 	debug( $_SERVER['HTTP_REFERER'] );
+
+	$url = $_SERVER['HTTP_REFERER'];
+
+	var_dump(parse_url($url));
+	var_dump(parse_url($url, PHP_URL_SCHEME));
+	var_dump(parse_url($url, PHP_URL_USER));
+	var_dump(parse_url($url, PHP_URL_PASS));
+	var_dump(parse_url($url, PHP_URL_HOST));
+	var_dump(parse_url($url, PHP_URL_PORT));
+	var_dump(parse_url($url, PHP_URL_PATH));
+	var_dump(parse_url($url, PHP_URL_QUERY));
+	var_dump(parse_url($url, PHP_URL_FRAGMENT));
+
 	die();
 
 	// redirect
