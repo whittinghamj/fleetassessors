@@ -4527,7 +4527,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
-								<?php debug( $vrn ); ?>
 							<?php } ?>
 						</div>
 					</div>
