@@ -248,6 +248,23 @@ function customer_edit() {
 	go( $_SERVER['HTTP_REFERER'] );
 }
 
+function customer_delete() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// map fields
+	$id 							= get( 'id' );
+
+	// delete data
+	$delete = $conn->exec( "DELETE FROM `jobs` WHERE `customer_id` = '".$id."' " );
+	$delete = $conn->exec( "DELETE FROM `customers` WHERE `id` = '".$id."' " );
+
+	// set status message
+	status_message( "success", "Customer has been deleted." );
+
+	// redirect
+	go( 'dashboard.php?c=customers' );
+}
+
 function vrn_lookup() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
