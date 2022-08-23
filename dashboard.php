@@ -4265,7 +4265,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 
 							<div class="row">
-								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12 padding:0;">
 									<!-- initial estimate details -->
 									<div class="col-xl-12">
 										<div class="panel panel-inverse">
