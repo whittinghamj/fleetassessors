@@ -2191,7 +2191,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		'.$job['estimator'].'
 																	</td>
 																	<td class="text-nowrap">
-																		£'.number_format( $job['initial_estimate'] ).'
+																		£'.(      number_format( $job['initial_estimate'] ).'
 																	</td>
 																	<td class="text-nowrap">
 																		£'.number_format( $job['revised_estimate'] ).'
@@ -2205,7 +2205,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																		<div class="dropdown-menu dropdown-menu-right" role="menu">
 																			<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																			<a href="#" onclick="customer_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+																			<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
 																		</div>
 																	</td>
 																</tr>

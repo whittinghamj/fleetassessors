@@ -513,6 +513,25 @@ function job_add() {
 	go( 'dashboard.php?c=job&id='.$job_id );
 }
 
+function job_delete() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// map fields
+	$id 							= get( 'id' );
+
+	// delete data
+	// $delete = $conn->exec( "DELETE FROM `jobs` WHERE `id` = '".$id."' " );
+
+	// set status message
+	status_message( "success", "Job has been deleted." );
+
+	debug( $_SERVER['HTTP_REFERER'] );
+	die();
+
+	// redirect
+	// go( 'dashboard.php?c=customers' );
+}
+
 function order_assign_florist() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
