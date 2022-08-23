@@ -4291,6 +4291,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</select>
 													</div>
 												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Estimator</strong></label>
+														<input type="text" name="estimator" class="form-control" value="<?php echo $job['estimator']; ?>" placeholder="Joe Bloggs">
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
