@@ -4290,7 +4290,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									<?php } elseif( $vrn['is_taxed'] == 'SORN' ) { ?>
 										<div class="offset-xl-4 col-xl-2 col-md-6">
-											<div class="widget widget-stats bg-red">
+											<div class="widget widget-stats bg-green">
 												<div class="stats-icon"><i class="fa fa-check"></i></div>
 												<div class="stats-info">
 													<strong><p>SORN</p></strong>
