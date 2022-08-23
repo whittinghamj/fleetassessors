@@ -525,30 +525,19 @@ function job_delete() {
 	// set status message
 	status_message( "success", "Job has been deleted." );
 
-	debug( $_SERVER['HTTP_REFERER'] );
-
+	// redirect to the right place
 	$url = $_SERVER['HTTP_REFERER'];
-
-	debug(parse_url($url));
-	debug(parse_url($url, PHP_URL_SCHEME));
-	debug(parse_url($url, PHP_URL_USER));
-	debug(parse_url($url, PHP_URL_PASS));
-	debug(parse_url($url, PHP_URL_HOST));
-	debug(parse_url($url, PHP_URL_PORT));
-	debug(parse_url($url, PHP_URL_PATH));
-	debug(parse_url($url, PHP_URL_QUERY));
-	debug(parse_url($url, PHP_URL_FRAGMENT));
-
 	$query = parse_url( $url, PHP_URL_QUERY );
-
-	parse_str($query, $get_array);
-
-	debug($get_array);
-
-	die();
-
-	// redirect
-	// go( 'dashboard.php?c=customers' );
+	parse_str( $query, $url_bits );
+	if( $url_bits['c'] == 'job' || $url_bits['c'] == 'jobs' ) {
+		go( 'dashboard.php?c=jobs' );
+	} elseif( $url_bits['c'] == 'customer' ) {
+		go( 'dashboard.php?c=customer&id='.$url_bits['id'] );
+	} elseif( $url_bits['c'] == 'customers' ) {
+		go( 'dashboard.php?c=customers' );
+	} else {
+		go( $_SERVER['HTTP_REFERER'] );
+	}
 }
 
 function order_assign_florist() {
