@@ -5058,10 +5058,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			} );
 		}
 
-    	function order_delete( id ) {
+    	function customer_delete( id ) {
 			swal({
-				title: 'Delete Order?',
-				text: 'You will not be able to undo this action.',
+				title: 'Delete Customer?',
+				text: 'This action will delete the customer record and all jobs for this customer. This action CANNOT be undone.',
 				icon: 'error',
 				buttons: {
 					cancel: {
@@ -5081,10 +5081,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				}
 			} ).then(function( e ) {
 			    if( e == true ) {
-			    	console.log( 'deleting order: ' + id );
+			    	console.log( 'deleting customer: ' + id );
 
 			    	// process action
-			    	window.location = "actions.php?a=order_delete&id=" + id;
+			    	window.location = "actions.php?a=customer_delete&id=" + id;
 			    }
 			} );
 		}
