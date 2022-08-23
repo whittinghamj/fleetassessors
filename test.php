@@ -6,7 +6,7 @@ use Exception as BaseException;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/lib.php';
 
 class Exception extends BaseException
