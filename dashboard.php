@@ -4262,7 +4262,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
+							</div>
 
+							<div class="row">
 								<!-- initial estimate details -->
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
@@ -4277,12 +4279,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<label class="form-label col-form-label col-md-3">Invalid Input</label>
+													<label class="form-label col-form-label col-md-3">Initial Estimate</label>
 													<div class="col-md-9">
 														<div class="input-group">
-															<div class="input-group-text">@</div>
-															<input type="text" class="form-control is-invalid" />
-															<div class="invalid-feedback">Please choose a unique and valid username.</div>
+															<div class="input-group-text">£</div>
+															<input type="text" class="form-control" vale="" placeholder="0.00" />
+															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 														</div>
 													</div>
 												</div>
