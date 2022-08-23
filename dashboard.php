@@ -4280,7 +4280,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="row">
 												<div class="col-xl-2 col-sm-12">
 													<label class="form-label col-form-label col-md-3">Total</label>
-													<div class="col-md-9">
+													<div class="col-md-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" />
