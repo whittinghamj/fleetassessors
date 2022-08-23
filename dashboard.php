@@ -4193,16 +4193,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<div id="content" class="content">
 					<!-- sanity check -->
-					<?php if( !isset( $customer['id'] ) ) { ?>
+					<?php if( !isset( $job['id'] ) ) { ?>
 						<?php echo $not_found; ?>
 					<?php } else { ?>
 						<ol class="breadcrumb float-xl-right">
 							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-							<li class="breadcrumb-item"><a href="dashboard.php?c=customers">Customers</a></li>
-							<li class="breadcrumb-item active">User: <?php echo $customer['company_name']; ?></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs">Jobs</a></li>
+							<li class="breadcrumb-item active">Job: <?php echo $job['vrn']; ?></li>
 						</ol>
 
-						<h1 class="page-header">Customer: <?php echo $customer['company_name']; ?></h1>
+						<h1 class="page-header">Job: <?php echo $job['vrn']; ?></h1>
 
 						<div class="row">
 							<div class="col-xl-12">
