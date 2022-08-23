@@ -4309,11 +4309,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
-													<label class="form-label col-form-label col-md-3">Additional Items</label>
+													<label class="form-label col-form-label col-md-3">Additional</label>
 													<div class="col-md-9">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
-															<input type="text" class="form-control" value="<?php echo $job['initial_additional_items']; ?>" placeholder="0.00" />
+															<input type="text" class="form-control" value="<?php echo $job['initial_additional']; ?>" placeholder="0.00" />
 															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 														</div>
 													</div>
@@ -4333,7 +4333,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<div class="col-md-9">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
-															<input type="text" class="form-control" value="<?php echo $job['initial_cjeck']; ?>" placeholder="0.00" />
+															<input type="text" class="form-control" value="<?php echo $job['initial_check']; ?>" placeholder="0.00" />
 															<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
 														</div>
 													</div>
