@@ -4278,8 +4278,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-2 col-sm-12">
-													<label class="form-label col-form-label col-xl-12 col-lg-12 col-md-12 col-xs-12">Total</label>
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
+													<label class="form-label col-form-label col-md-3">Total</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
@@ -4288,9 +4288,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Labour</label>
-													<div class="col-md-9">
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_labour']; ?>" placeholder="0.00" />
@@ -4298,9 +4298,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Paint</label>
-													<div class="col-md-9">
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_paint']; ?>" placeholder="0.00" />
@@ -4308,9 +4308,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Additional</label>
-													<div class="col-md-9">
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_additional']; ?>" placeholder="0.00" />
@@ -4318,9 +4318,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Parts</label>
-													<div class="col-md-9">
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_parts']; ?>" placeholder="0.00" />
@@ -4328,9 +4328,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-2 col-md-12 col-xs-12">
 													<label class="form-label col-form-label col-md-3">Check</label>
-													<div class="col-md-9">
+													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
 															<input type="text" class="form-control" value="<?php echo $job['initial_check']; ?>" placeholder="0.00" />
