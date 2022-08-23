@@ -4279,7 +4279,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-xl-2 col-sm-12">
-													<label class="form-label col-form-label col-md-3">Total</label>
+													<label class="form-label col-form-label col-xl-12 col-lg-12 col-md-12 col-xs-12">Total</label>
 													<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
 														<div class="input-group">
 															<div class="input-group-text">£</div>
