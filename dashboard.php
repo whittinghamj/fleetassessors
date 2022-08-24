@@ -763,6 +763,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							Invoice = $1000 <br>
 							Invoice + VAT = <?php echo vat_add(1000, 20); ?> <br>
 							Invoice + VAT - VAT = <?php echo vat_remove(1200, 20); ?>
+							<hr>
+							<?php
+								$vatDecimal = (float) 1 + (20 / 100);
+								$priceExclVAT = round((1.00 / $vatDecimal), 2);
+								$priceDisplay = number_format($priceExclVAT, 2, ',', '.');
+
+								echo $priceDisplay;
+							?>
 						</div>
 					</div>
 
