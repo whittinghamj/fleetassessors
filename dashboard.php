@@ -1720,7 +1720,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<ol class="breadcrumb float-xl-right">
 							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
 							<li class="breadcrumb-item"><a href="dashboard.php?c=customers">Customers</a></li>
-							<li class="breadcrumb-item active">User: <?php echo $customer['company_name']; ?></li>
+							<li class="breadcrumb-item active"><?php echo $customer['company_name']; ?></li>
 						</ol>
 
 						<h1 class="page-header">Customer: <?php echo $customer['company_name']; ?></h1>
