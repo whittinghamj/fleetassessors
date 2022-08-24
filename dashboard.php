@@ -4066,7 +4066,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Revised Estimate
-											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
 									</div>
@@ -4078,7 +4078,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Profit
-											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
 									</div>
