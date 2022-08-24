@@ -3802,8 +3802,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Revisied Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Est</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Revisied Est Uplift</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift</strong></th>
 											<th class="text-nowrap" data-orderable="false" width=""></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Status</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"></th>
@@ -3825,9 +3826,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
 												}	
 
+												// cal vat details
 												$initial_estimate = vat_details( $job['initial_estimate'] );
 												$uplift_estimate = vat_details( $job['uplift_estimate'] );
 												$approved_estimate = vat_details( $job['approved_estimate'] );
+
+												// build revised estimate
+												$revised_estimate = $initial_estimate['ex_vat'] + $uplift_estimate['ex_vat'];
 
 
 												// output
@@ -4019,7 +4024,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 							<div class="row">
 								<!-- job options -->
-								<div class="col-xl-6 col-sm-12">
+								<div class="col-xl-12 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Job Options</h2>
@@ -4087,241 +4092,52 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 
 							<div class="row">
-								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-									<!-- initial estimate details -->
-									<div class="col-xl-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Initial Amounts</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Total</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_estimate" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Labour</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_labour" value="<?php echo $job['initial_labour']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Paint</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_paint" value="<?php echo $job['initial_paint']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Additional</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_additional" value="<?php echo $job['initial_additional']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Parts</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_parts" value="<?php echo $job['initial_parts']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Check</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="initial_check" value="<?php echo $job['initial_check']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
+								<!-- uplift estimate -->
+								<div class="col-xl-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Uplift Breakdown</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
 												</div>
 											</div>
 										</div>
-									</div>
-
-									<!-- revised estimate details -->
-									<div class="col-xl-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Uplift Amounts</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
+										<div class="panel-body">
+											<div class="col-xl-2 col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating"><strong>Labour</strong></label>
+													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" readonly>
 												</div>
 											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Total</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_estimate" value="<?php echo $job['uplift_estimate']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Labour</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_labour" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Paint</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_paint" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Additional</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_additional" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Parts</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_parts" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Check</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="uplift_check" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
+											<div class="col-xl-2 col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating"><strong>Paint</strong></label>
+													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" readonly>
 												</div>
 											</div>
-										</div>
-									</div>
-
-									<!-- approved estimate details -->
-									<div class="col-xl-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Approved Amounts</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
+											<div class="col-xl-2 col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating"><strong>Additional</strong></label>
+													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" readonly>
 												</div>
 											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Total</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_estimate" value="<?php echo $job['approved_estimate']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Labour</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_labour" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Paint</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_paint" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Additional</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_additional" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Parts</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_parts" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
-													<div class="col-xl-2 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-														<label class="form-label col-form-label col-md-3">Check</label>
-														<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-															<div class="input-group">
-																<div class="input-group-text">£</div>
-																<input type="text" class="form-control" name="approved_check" value="<?php echo $job['approved_check']; ?>" placeholder="0.00" />
-																<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
-															</div>
-														</div>
-													</div>
+											<div class="col-xl-2 col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating"><strong>Parts</strong></label>
+													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" readonly>
+												</div>
+											</div>
+											<div class="col-xl-2 col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating"><strong>Check</strong></label>
+													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" readonly>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+
 
 								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12">
 									<!-- customer notes -->
