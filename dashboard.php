@@ -2336,6 +2336,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<input type="text" id="vrn" name="vrn" class="form-control" required>
 											</div>
 										</div>
+										<div class="col-xl-12 col-lg-12 col-sm-12 col-md-12 col-xs-12">
+											<label class="form-label col-form-label col-md-3">Initial Estimate Inc VAT</label>
+											<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+												<div class="input-group">
+													<div class="input-group-text">£</div>
+													<input type="text" class="form-control" name="initial_estimate" placeholder="0.00" />
+													<!-- <div class="invalid-feedback">Please choose a unique and valid username.</div> -->
+												</div>
+											</div>
+										</div>
 									</div>
 							 	</div>
 							 	<div class="modal-footer">

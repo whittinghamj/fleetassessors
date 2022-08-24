@@ -397,6 +397,10 @@ function job_add() {
 	$vrn 					= str_replace( ' ', '', $vrn );
 	$vrn 					= trim( $vrn );
 	$vrn 					= strtoupper( $vrn );
+	$initial_estimate 		= post( 'initial_estimate' );
+	$initial_estimate		= str_replace( ' ', '', $initial_estimate );
+	$initial_estimate 		= str_replace( '£', '', $initial_estimate );
+	$initial_estimate 		= str_replace( ',', '', $initial_estimate );
 
 	// does vrn already exist
 	$query = $conn->query( "
@@ -495,14 +499,15 @@ function job_add() {
 
 	// save data - job
 	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
-		(`added`,`updated`,`status`,`customer_id`,`created_by`,`vrn`)
+		(`added`,`updated`,`status`,`customer_id`,`created_by`,`vrn`,`initial_estimate`)
 		VALUE
 		('".time()."',
 		'".time()."',
 		'pending',
 		'".$customer_id."',
 		'".$account_details['id']."',
-		'".$vrn."'
+		'".$vrn."',
+		'".$initial_estimate."'
 	)" );
 
 	$job_id = $conn->lastInsertId();
