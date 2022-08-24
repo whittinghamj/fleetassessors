@@ -3802,7 +3802,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Revisied Est Uplift</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift</strong></th>
 											<th class="text-nowrap" data-orderable="false" width=""></th>
