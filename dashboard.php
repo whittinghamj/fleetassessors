@@ -3994,7 +3994,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<li class="breadcrumb-item active">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></li>
 						</ol>
 
-						<h1 class="page-header">Job: <?php echo $job['vrn']; ?></h1>
+						<h1 class="page-header">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></h1>
 
 						<div class="row">
 							<div class="col-xl-12">
