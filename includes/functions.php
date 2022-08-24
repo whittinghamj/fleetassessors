@@ -10,7 +10,7 @@ function vat_add( $price, $vat ) {
 // remove vat
 function vat_remove( $price, $vat ) {
 	$data['vat'] = $vat;
-	$data['price_with_vat'] = $price;
+	$data['inc_vat'] = $price;
 
 	//Divisor (for our math).
 	$vatDivisor = 1 + ( $vat / 100 );
@@ -23,7 +23,7 @@ function vat_remove( $price, $vat ) {
 
 	//Print out the price before VAT.
 	// echo number_format($priceBeforeVat, 2), '<br>';
-	$data['price_without_vat'] = $priceBeforeVat ;
+	$data['ex_vat'] = $priceBeforeVat ;
 
 	//Print out how much of the gross price was VAT.
 	// echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
