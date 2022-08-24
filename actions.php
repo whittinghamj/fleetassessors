@@ -541,16 +541,16 @@ function job_edit() {
 	$approved_additional 			= post( 'approved_additional' );
 	$approved_parts 				= post( 'approved_parts' );
 	$approved_check 				= post( 'approved_check' );
-	$approved_total 					= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
+	$approved_total 				= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
 
 	$notes 							= post( 'notes' );
 
 	// save data
 	$update = $conn->exec( "UPDATE `jobs` SET `status` = '".$status."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `provider_id` = '".$provider_id."' WHERE `id` = '".$job_id."' " );
-	$update = $conn->exec( "UPDATE `jobs` SET `estimator` = '".$address_1."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `estimator` = '".$estimator."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_labour` = '".$uplift_labour."' WHERE `id` = '".$job_id."' " );
-	$update = $conn->exec( "UPDATE `jobs` SET `uplift_paint` = '".$address_city."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `uplift_paint` = '".$uplift_paint."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_additional` = '".$uplift_additional."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_parts` = '".$uplift_parts."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_check` = '".$uplift_check."' WHERE `id` = '".$job_id."' " );
@@ -561,8 +561,8 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `approved_parts` = '".$approved_parts."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `approved_check` = '".$approved_check."' WHERE `id` = '".$job_id."' " );
 
-	$update = $conn->exec( "UPDATE `jobs` SET `uplift_total` = '".$uplift_total."' WHERE `id` = '".$job_id."' " );
-	$update = $conn->exec( "UPDATE `jobs` SET `approved_total` = '".$approved_total."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `uplift_estimate` = '".$uplift_total."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `approved_estimate` = '".$approved_total."' WHERE `id` = '".$job_id."' " );
 
 	$update = $conn->exec( "UPDATE `jobs` SET `notes` = '".$notes."' WHERE `id` = '".$job_id."' " );
 
