@@ -4081,19 +4081,19 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-1 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Added</strong></label>
 														<input type="text" name="added" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['added'] ); ?>" readonly>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-1 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
 														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>" readonly>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-1 col-sm-12">
 													<div class="form-group">
 														<?php if( $job['status'] == 'cancelled' || $job['status'] == 'complete' ) { ?>
 															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
@@ -4103,7 +4103,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-1 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
@@ -4122,6 +4122,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
 															<?php } ?>
 														</select>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Initial Estimate Ex VAT</strong></label>
+														<input type="text" name="initial_estimate" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">

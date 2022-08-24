@@ -568,6 +568,8 @@ function job_edit() {
 
 	$update = $conn->exec( "UPDATE `jobs` SET `notes` = '".$notes."' WHERE `id` = '".$job_id."' " );
 
+	$update = $conn->exec( "UPDATE `jobs` SET `updated` = '".time()."' WHERE `id` = '".$job_id."' " );
+
 	// set status message
 	status_message( "success", "Job has been updated." );
 
