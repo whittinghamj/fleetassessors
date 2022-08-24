@@ -2284,6 +2284,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														?>
 													</tbody>
 												</table>
+												<strong><font color="red">*</font></strong> Prices are excluding VAT unless otherwise stated.
 											<?php } ?>
 										</div>
 									</div>
@@ -3883,6 +3884,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										?>
 									</tbody>
 								</table>
+								<strong><font color="red">*</font></strong> Prices are excluding VAT unless otherwise stated.
 							<?php } ?>
 						</div>
 					</div>
@@ -3977,6 +3979,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					}
 					$job 			= get_job( $job_id );
 					$providers 		= get_providers();
+
+					// $initial_estimate = vat_details( $job['initial_estimate'] );
+					// $initial_estimate = vat_details( $job['initial_estimate'] );
+					// $initial_estimate = vat_details( $job['initial_estimate'] );
 				?>
 
 				<div id="content" class="content">
@@ -4017,6 +4023,21 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 						<?php } ?>
+
+						<!-- summary -->
+						<div class="row">
+							<div class="offset-xl-4 col-xl-2 col-md-6">
+								<div class="widget widget-stats bg-green">
+									<div class="stats-icon"><i class="fa fa-check"></i></div>
+									<div class="stats-info">
+										<strong><p><?php echo $job['initial_estimate']</p></strong>
+									</div>
+									<div class="stats-link">
+										<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+									</div>
+								</div>
+							</div>
+						</div>
 
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">

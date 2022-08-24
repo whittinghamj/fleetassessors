@@ -402,6 +402,7 @@ function job_add() {
 	$initial_estimate 		= str_replace( '£', '', $initial_estimate );
 	$initial_estimate 		= str_replace( ',', '', $initial_estimate );
 	$initial_estimate 		= preg_replace( "/[^0-9\.]/", "", $initial_estimate );
+	$initial_estimate 		= vat_details( $initial_estimate );
 
 	// does vrn already exist
 	$query = $conn->query( "
@@ -508,7 +509,7 @@ function job_add() {
 		'".$customer_id."',
 		'".$account_details['id']."',
 		'".$vrn."',
-		'".$initial_estimate."'
+		'".$initial_estimate['ex_vat']."'
 	)" );
 
 	$job_id = $conn->lastInsertId();
@@ -549,6 +550,7 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `status` = '".$status."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `provider_id` = '".$provider_id."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `estimator` = '".$estimator."' WHERE `id` = '".$job_id."' " );
+	
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_labour` = '".$uplift_labour."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_paint` = '".$uplift_paint."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_additional` = '".$uplift_additional."' WHERE `id` = '".$job_id."' " );
