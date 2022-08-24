@@ -4088,6 +4088,64 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
+							<!-- customer / job notes -->
+							<div class="row">
+								<div class="col-xl-6 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Customer</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Name</strong></small></label>
+														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Contact</strong></small></label>
+														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['name']; ?>" readonly>
+														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
+														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-6 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Notes</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<!-- job options -->
 							<div class="row">
 								<div class="col-xl-12 col-sm-12">
@@ -4274,31 +4332,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							</div>
-							<!-- job notes -->
-							<div class="row">
-								<div class="col-xl-6 col-sm-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Notes</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+
+							
 
 							<!-- form options -->
 							<div class="row">
