@@ -4137,7 +4137,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Total</strong></label>
-														<input type="text" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
+														<input type="text" name="uplift_total" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
 													</div>
 												</div>
 											</div>
@@ -4193,7 +4193,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Total</strong></label>
-														<input type="text" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
+														<input type="text" name="approved_total" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
 													</div>
 												</div>
 											</div>
