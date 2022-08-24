@@ -4107,37 +4107,37 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Labour</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_labour" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Paint</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_pain" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Additional</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_additional" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Parts</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_parts" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Check</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_check" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Total</strong></label>
-														<input type="text" name="uplift_estimate" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
+														<input type="text" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
 													</div>
 												</div>
 											</div>
@@ -4163,37 +4163,37 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Labour</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
+														<input type="text" name="approved_labour" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Paint</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
+														<input type="text" name="approved_paint" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Additional</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
+														<input type="text" name="approved_additional" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Parts</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
+														<input type="text" name="approved_parts" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Check</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
+														<input type="text" name="approved_check" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Total</strong></label>
-														<input type="text" name="uplift_estimate" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
+														<input type="text" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
 													</div>
 												</div>
 											</div>
