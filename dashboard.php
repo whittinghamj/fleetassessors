@@ -4104,34 +4104,36 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 										<div class="panel-body">
-											<div class="col-xl-2 col-sm-12">
-												<div class="form-group">
-													<label class="bmd-label-floating"><strong>Labour</strong></label>
-													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" readonly>
+											<div class="row">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Labour</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" readonly>
+													</div>
 												</div>
-											</div>
-											<div class="col-xl-2 col-sm-12">
-												<div class="form-group">
-													<label class="bmd-label-floating"><strong>Paint</strong></label>
-													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" readonly>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Paint</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" readonly>
+													</div>
 												</div>
-											</div>
-											<div class="col-xl-2 col-sm-12">
-												<div class="form-group">
-													<label class="bmd-label-floating"><strong>Additional</strong></label>
-													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" readonly>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Additional</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" readonly>
+													</div>
 												</div>
-											</div>
-											<div class="col-xl-2 col-sm-12">
-												<div class="form-group">
-													<label class="bmd-label-floating"><strong>Parts</strong></label>
-													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" readonly>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Parts</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" readonly>
+													</div>
 												</div>
-											</div>
-											<div class="col-xl-2 col-sm-12">
-												<div class="form-group">
-													<label class="bmd-label-floating"><strong>Check</strong></label>
-													<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" readonly>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Check</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" readonly>
+													</div>
 												</div>
 											</div>
 										</div>
