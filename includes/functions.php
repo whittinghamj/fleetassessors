@@ -1941,7 +1941,7 @@ function post( $key = null ) {
 		$post = trim( $post );
 	}
 
-	$post = addslashes( $post );
+	// $post = addslashes( $post );
 	return $post;
 }
 
