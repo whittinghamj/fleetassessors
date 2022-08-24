@@ -401,6 +401,7 @@ function job_add() {
 	$initial_estimate		= str_replace( ' ', '', $initial_estimate );
 	$initial_estimate 		= str_replace( '£', '', $initial_estimate );
 	$initial_estimate 		= str_replace( ',', '', $initial_estimate );
+	$initial_estimate 		= preg_replace( "/[^0-9\.]/", "", $initial_estimate );
 
 	// does vrn already exist
 	$query = $conn->query( "
