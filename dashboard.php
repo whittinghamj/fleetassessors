@@ -4090,7 +4090,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
 							<!-- customer / job notes -->
-							<div class="row">
+							<div class="row" style="margin-bottom: -99999px; padding-bottom: 99999px; overflow: hidden;">
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
