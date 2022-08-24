@@ -754,6 +754,19 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
+							<h2 class="panel-title">VAT</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							Invoice = $1000 <br>
+							VAT = <? $echo add_vat(1000, 20); ?>
+						</div>
+					</div>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
 							<h2 class="panel-title">Playground</h2>
 							<div class="panel-heading-btn">
 

@@ -1,5 +1,19 @@
 <?php
 
+// add vat
+function add_vat( $price, $vat ) {
+    $nett = $price;
+    $gross = $nett * ( $vat / 100 ) + $nett;
+    return $gross;
+}
+
+// remove vat
+function remove_vat( $price, $vat ) {
+    $gross = $price;
+    $nett = $gross-( $gross * ( $vat / 100 ) );
+    return $nett;
+}
+
 // map functions to find nearest florist
 function distance( $a, $b ) {
 	list( $lat1, $lon1 ) = $a;
