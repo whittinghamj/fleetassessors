@@ -4028,7 +4028,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<div class="row">
 							<div class="col-xl-3 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-info text-white"><i class="fa fa-file-text"></i></div>
+									<div class="stats-icon stats-icon-square bg-gradient-info text-white"><i class="fa fa-file"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Initial Estimate
