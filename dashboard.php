@@ -2234,10 +2234,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																	$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
 																}				
 
-																$initial_estimate['inc_vat'] = $job['initial_estimate'];
-																$initial_estimate['ex_vat'] = $job['initial_estimate'];
+																$initial_estimate = vat_details( $job['initial_estimate'] );
+																$revised_estimate = vat_details( $job['revised_estimate'] );
+																$approved_estimate = vat_details( $job['approved_estimate'] );
 
-																
+
 																// output
 																echo '
 																	<tr>
@@ -2255,7 +2256,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																			'.$job['estimator'].'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['initial_estimate'], 2 ).' <br>
+																			£'.number_format( $initial_estimate['inc_vat'], 2 ).' <br>
 																		</td>
 																		<td class="text-nowrap">
 																			£'.number_format( $job['uplift_estimate'], 2 ).' <br>
