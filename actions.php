@@ -531,17 +531,37 @@ function job_edit() {
 	$estimator 						= post( 'estimator' );
 	
 	$uplift_labour 					= post( 'uplift_labour' );
+	$uplift_labour 					= preg_replace( "/[^0-9\.]/", "", $uplift_labour );
+
 	$uplift_paint 					= post( 'uplift_paint' );
+	$uplift_paint 					= preg_replace( "/[^0-9\.]/", "", $uplift_paint );
+
 	$uplift_additional 				= post( 'uplift_additional' );
+	$uplift_additional 				= preg_replace( "/[^0-9\.]/", "", $uplift_additional );
+
 	$uplift_parts 					= post( 'uplift_parts' );
+	$uplift_parts 					= preg_replace( "/[^0-9\.]/", "", $uplift_parts );
+
 	$uplift_check 					= post( 'uplift_check' );
+	$uplift_check 					= preg_replace( "/[^0-9\.]/", "", $uplift_check );
+
 	$uplift_total 					= ( $uplift_labour + $uplift_paint + $uplift_additional + $uplift_parts + $uplift_check );
 
 	$approved_labour 				= post( 'approved_labour' );
+	$approved_labour 				= preg_replace( "/[^0-9\.]/", "", $approved_labour );
+
 	$approved_paint 				= post( 'approved_paint' );
+	$approved_paint 				= preg_replace( "/[^0-9\.]/", "", $approved_paint );
+
 	$approved_additional 			= post( 'approved_additional' );
+	$approved_additional 			= preg_replace( "/[^0-9\.]/", "", $approved_additional );
+
 	$approved_parts 				= post( 'approved_parts' );
+	$approved_parts 				= preg_replace( "/[^0-9\.]/", "", $approved_parts );
+
 	$approved_check 				= post( 'approved_check' );
+	$approved_check 				= preg_replace( "/[^0-9\.]/", "", $approved_check );
+
 	$approved_total 				= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
 
 	$notes 							= post( 'notes' );
