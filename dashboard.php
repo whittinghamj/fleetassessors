@@ -140,6 +140,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 	<!-- custom css -->
 	<style type="text/css">
+		.row {
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -ms-flexbox;
+		  display:         flex;
+		  flex-wrap: wrap;
+		}
+		.row > [class*='col-'] {
+		  display: flex;
+		  flex-direction: column;
+		}
 		.hidden{ 
 		    display: none;
 		}
