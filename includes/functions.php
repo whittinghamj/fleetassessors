@@ -32,6 +32,34 @@ function vat_remove( $price, $vat ) {
 	//Print out the gross price.
 	// echo $price;
 
+	return $priceBeforeVat;
+}
+
+// price with vat details
+function vat_details( $price, $vat ) {
+	$data['vat'] = $vat;
+	$data['inc_vat'] = $price;
+
+	//Divisor (for our math).
+	$vatDivisor = 1 + ( $vat / 100 );
+
+	//Determine the price before VAT.
+	$priceBeforeVat = $price / $vatDivisor;
+
+	//Determine how much of the gross price was VAT.
+	$vatAmount = $price - $priceBeforeVat;
+
+	//Print out the price before VAT.
+	// echo number_format($priceBeforeVat, 2), '<br>';
+	$data['ex_vat'] = $priceBeforeVat ;
+
+	//Print out how much of the gross price was VAT.
+	// echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
+	$data['vat_amount'] = $vatAmount;
+
+	//Print out the gross price.
+	// echo $price;
+
 	return $data;
 }
 
