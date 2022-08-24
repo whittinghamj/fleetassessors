@@ -4068,7 +4068,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-chart-line"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Revised Estimate
@@ -4080,7 +4080,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check-circle"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Profit
