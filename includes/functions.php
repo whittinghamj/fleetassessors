@@ -23,11 +23,11 @@ function vat_remove( $price, $vat ) {
 
 	//Print out the price before VAT.
 	// echo number_format($priceBeforeVat, 2), '<br>';
-	$data['price_without_vat'] = number_format( $priceBeforeVat, 2) ;
+	$data['price_without_vat'] = $priceBeforeVat ;
 
 	//Print out how much of the gross price was VAT.
 	// echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
-	$data['vat_amount'] = number_format( $vatAmount, 2 );
+	$data['vat_amount'] = $vatAmount;
 
 	//Print out the gross price.
 	// echo $price;
