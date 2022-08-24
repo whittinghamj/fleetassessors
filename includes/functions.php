@@ -10,7 +10,7 @@ function vat_add( $price, $vat ) {
 // remove vat
 function vat_remove( $price, $vat ) {
     $gross = $price;
-    $nett = $gross-( $gross * ( $vat / 100 ) );
+    $nett = $gross - ( $gross * ( $vat / 100 ) );
     return $nett;
 }
 
