@@ -2339,7 +2339,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Initial Est Inc VAT</strong></label>
-												<input type="number" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
+												<input type="text" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
 											</div>
 										</div>
 									</div>
