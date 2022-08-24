@@ -4022,8 +4022,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
+							<!-- job options -->
 							<div class="row">
-								<!-- job options -->
 								<div class="col-xl-12 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
@@ -4091,12 +4091,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 
+							<!-- initial uplift estimate -->
 							<div class="row">
-								<!-- uplift estimate -->
 								<div class="col-xl-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
-											<h2 class="panel-title">Uplift Breakdown</h2>
+											<h2 class="panel-title">Initial Uplift Breakdown</h2>
 											<div class="panel-heading-btn">
 												<div class="btn-group">
 													
@@ -4132,7 +4132,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Check</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" readonly>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
@@ -4145,27 +4145,81 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
+							</div>
 
-
-								<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 col-xs-12">
-									<!-- customer notes -->
-									<div class="col-xl-6 col-sm-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Notes</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
+							<!-- approved uplift estimate -->
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Approved Uplift Breakdown</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Labour</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Paint</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Additional</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Parts</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Check</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Total</strong></label>
+														<input type="text" name="uplift_estimate" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
 													</div>
 												</div>
 											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-															<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
-														</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- job notes -->
+							<div class="row">
+								<div class="col-xl-6 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Notes</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
@@ -4174,6 +4228,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 
+							<!-- form options -->
 							<div class="row">
 								<div class="col-xl-12">
 									<div class="panel">
