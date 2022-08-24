@@ -2304,7 +2304,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	<div class="modal-body">
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
-						 				<h2>$customers</h2>
+						 				<h2>$customer</h2>
 										<?php debug( $customer ); ?>
 
 										<h2>$users</h2>
