@@ -2235,6 +2235,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																}				
 
 																$initial_estimate = vat_details( $job['initial_estimate'] );
+																$uplift_estimate = vat_details( $job['uplift_estimate'] );
+																$approved_estimate = vat_details( $job['approved_estimate'] );
 
 
 																// output
@@ -2254,13 +2256,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																			'.$job['estimator'].'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['initial_estimate'], 2 ).' <br>
+																			£'.number_format( $initial_estimate['inc_vat'], 2 ).' <br>
+																			£'.number_format( $initial_estimate['ex_vat'], 2 ).'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['uplift_estimate'], 2 ).' <br>
+																			£'.number_format( $uplift_estimate['inc_vat'], 2 ).' <br>
+																			£'.number_format( $uplift_estimate['ex_vat'], 2 ).'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['approved_estimate'], 2 ).' <br>
+																			£'.number_format( $approved_estimate['inc_vat'], 2 ).' <br>
+																			£'.number_format( $approved_estimate['ex_vat'], 2 ).'
 																		</td>
 																		<td class="text-nowrap">
 																		</td>
