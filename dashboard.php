@@ -2251,13 +2251,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																			'.$job['estimator'].'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['initial_estimate'] ).'
+																			£'.number_format( $job['initial_estimate'], 2 ).' <br>
+																			£'.echo number_format( vat_remove( $job['initial_estimate'], 20 ), 2 ).'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['uplift_estimate'] ).'
+																			£'.echo number_format( vat_remove( $job['uplift_estimate'], 20 ), 2 ).'
 																		</td>
 																		<td class="text-nowrap">
-																			£'.number_format( $job['approved_estimate'] ).'
+																			£'.echo number_format( vat_remove( $job['approved_estimate'], 20 ), 2 ).'
 																		</td>
 																		<td class="text-nowrap">
 																		</td>
