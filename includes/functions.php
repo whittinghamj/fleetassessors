@@ -1,14 +1,14 @@
 <?php
 
 // add vat
-function add_vat( $price, $vat ) {
+function vat_add( $price, $vat ) {
     $nett = $price;
     $gross = $nett * ( $vat / 100 ) + $nett;
     return $gross;
 }
 
 // remove vat
-function remove_vat( $price, $vat ) {
+function vat_remove( $price, $vat ) {
     $gross = $price;
     $nett = $gross-( $gross * ( $vat / 100 ) );
     return $nett;

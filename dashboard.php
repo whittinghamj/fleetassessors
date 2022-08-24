@@ -761,8 +761,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 						<div class="panel-body">
 							Invoice = $1000 <br>
-							Invoice + VAT = <?php echo add_vat(1000, 20); ?>
-							Invoice + VAT - VAT = <?php echo add_vat(1200, 20); ?>
+							Invoice + VAT = <?php echo vat_add(1000, 20); ?> <br>
+							Invoice + VAT - VAT = <?php echo vat_remove(1200, 20); ?>
 						</div>
 					</div>
 
