@@ -3980,6 +3980,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					$job 			= get_job( $job_id );
 					$providers 		= get_providers();
 
+					$markup 		= ( $job['uplift_estimate'] - $job['initial_estimate'] );
+					$profit 		= ( $job['uplift_estimate'] - $job['approved_estimate'] );
+
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
@@ -4026,7 +4029,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 						<!-- summary -->
 						<div class="row">
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-info text-white"><i class="fa fa-file"></i></div>
 									<div class="stats-content">
@@ -4038,7 +4041,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-orange text-white"><i class="fa fa-check-square"></i></div>
 									<div class="stats-content">
@@ -4050,7 +4053,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
 									<div class="stats-content">
@@ -4059,6 +4062,30 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Markup
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $markup, 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Profit
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
 									</div>
 								</div>
 							</div>
