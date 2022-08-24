@@ -4032,9 +4032,33 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Initial Estimate
-											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
 										</div>
-										<div class="stats-number">£<?php echo $job['initial_estimate']; ?></div>
+										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-orange text-white"><i class="fa fa-users"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Initial Uplift Estimate
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-orange text-white"><i class="fa fa-users"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Approved Uplift Element
+											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
 									</div>
 								</div>
 							</div>
