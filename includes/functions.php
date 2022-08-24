@@ -36,7 +36,7 @@ function vat_remove( $price, $vat ) {
 }
 
 // price with vat details
-function vat_details( $price, $vat ) {
+function vat_details( $price, $vat = 20 ) {
 	$data['vat'] = $vat;
 	$data['inc_vat'] = $price;
 
