@@ -2665,7 +2665,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<ol class="breadcrumb float-xl-right">
 							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
 							<li class="breadcrumb-item"><a href="dashboard.php?c=users">Users</a></li>
-							<li class="breadcrumb-item active">User: <?php echo $user['full_name']; ?></li>
+							<li class="breadcrumb-item active"><?php echo $user['full_name']; ?></li>
 						</ol>
 
 						<h1 class="page-header">User: <?php echo $user['full_name']; ?></h1>
@@ -3991,7 +3991,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<ol class="breadcrumb float-xl-right">
 							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
 							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs">Jobs</a></li>
-							<li class="breadcrumb-item active">Job: <?php echo $job['vrn']; ?></li>
+							<li class="breadcrumb-item active">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></li>
 						</ol>
 
 						<h1 class="page-header">Job: <?php echo $job['vrn']; ?></h1>
