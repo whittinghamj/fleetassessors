@@ -766,7 +766,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							?>
 							Ex VAT = £<?php echo $price_ex_vat; ?> <br>
 							Inc VAT = <?php echo $price_inc_vat; ?> <br>
-							Invoice + VAT - VAT = <?php echo vat_remove(1200, 20); ?>
 
 							<hr>
 
@@ -794,6 +793,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 								//Print out the gross price.
 								echo $price;
+								?>
+
+								<hr>
+
+								<?php
+									$vat = vat_remove( '1504', '20' ); 
+									debug( $vat );
 								?>
 						</div>
 					</div>

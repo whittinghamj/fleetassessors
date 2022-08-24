@@ -9,9 +9,30 @@ function vat_add( $price, $vat ) {
 
 // remove vat
 function vat_remove( $price, $vat ) {
-    $gross = $price;
-    $nett = $gross - ( $gross * ( $vat / 100 ) );
-    return $nett;
+	$data['vat'] = $vat;
+	$data['price_with_vat'] = $price;
+
+	//Divisor (for our math).
+	$vatDivisor = 1 + ( $vat / 100 );
+
+	//Determine the price before VAT.
+	$priceBeforeVat = $price / $vatDivisor;
+
+	//Determine how much of the gross price was VAT.
+	$vatAmount = $price - $priceBeforeVat;
+
+	//Print out the price before VAT.
+	// echo number_format($priceBeforeVat, 2), '<br>';
+	$data['price_without_vat'] = number_format( $priceBeforeVat, 2) ;
+
+	//Print out how much of the gross price was VAT.
+	// echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
+	$data['vat_amount'] = number_format( $vatAmount, 2 );
+
+	//Print out the gross price.
+	// echo $price;
+
+	return $data;
 }
 
 // map functions to find nearest florist
