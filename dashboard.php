@@ -4030,10 +4030,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								<div class="widget widget-stats bg-green">
 									<div class="stats-icon"><i class="fa fa-check"></i></div>
 									<div class="stats-info">
-										<strong><p><?php echo $job['initial_estimate']</p></strong>
-									</div>
-									<div class="stats-link">
-										<a href="javascript:;"><?php echo strtoupper( $vrn['next_tax_date'] ); ?></a>
+										<strong><p><?php echo number_format( $job['initial_estimate'], 2 ); ?></p></strong>
 									</div>
 								</div>
 							</div>
