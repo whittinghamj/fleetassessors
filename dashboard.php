@@ -3980,8 +3980,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					$job 			= get_job( $job_id );
 					$providers 		= get_providers();
 
-					$markup 		= ( $job['uplift_estimate'] - $job['initial_estimate'] );
-					$profit 		= ( $job['uplift_estimate'] - $job['approved_estimate'] );
+					$markup 		= $job['uplift_estimate'];
+					$profit 		= $job['approved_estimate'];
+					$revised_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
 
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
@@ -4070,10 +4071,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-check"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
-											Markup
+											Revised Estimate
 											<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
-										<div class="stats-number">£<?php echo number_format( $markup, 2 ); ?></div>
+										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
 									</div>
 								</div>
 							</div>
