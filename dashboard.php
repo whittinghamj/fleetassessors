@@ -4113,7 +4113,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Paint</strong></label>
-														<input type="text" name="uplift_pain" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_paint" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
