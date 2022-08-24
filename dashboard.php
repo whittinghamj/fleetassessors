@@ -768,6 +768,33 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							Inc VAT = <?php echo $price_inc_vat; ?> <br>
 							Invoice + VAT - VAT = <?php echo vat_remove(1200, 20); ?>
 
+							<hr>
+
+							<?php
+								//The VAT rate.
+								$vat = 20;
+
+								//Divisor (for our math).
+								$vatDivisor = 1 + ($vat / 100);
+
+								//The gross price, including VAT.
+								$price = 1504;
+
+								//Determine the price before VAT.
+								$priceBeforeVat = $price / $vatDivisor;
+
+								//Determine how much of the gross price was VAT.
+								$vatAmount = $price - $priceBeforeVat;
+
+								//Print out the price before VAT.
+								echo number_format($priceBeforeVat, 2), '<br>';
+
+								//Print out how much of the gross price was VAT.
+								echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
+
+								//Print out the gross price.
+								echo $price;
+								?>
 						</div>
 					</div>
 
