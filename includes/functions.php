@@ -490,7 +490,7 @@ function get_user( $id ) {
 		$data['initials']		= get_first_letters( $data['full_name'] );
 
 		// full address
-		$data['full_address'] = $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
+		$data['full_address'] 	= $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 	}
 
 	// sanity check
@@ -532,10 +532,13 @@ function get_users( $type = '' ) {
 		$users[$count] = $bit;
 
 		// full name
-		$users[$count]['full_name'] = $bit['first_name'].' '.$bit['last_name'];
+		$users[$count]['full_name']	 	= $bit['first_name'].' '.$bit['last_name'];
+
+		// create initials
+		$data['initials']				= get_first_letters( $users[$count]['full_name'] );
 
 		// full address
-		$users[$count]['full_address'] = $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
+		$users[$count]['full_address'] 	= $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
 
 		$count++;
 	}

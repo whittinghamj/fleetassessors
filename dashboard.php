@@ -2616,6 +2616,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														$user['account_status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
 													} elseif( $user['status'] == 'terminated' ) {
 														$user['account_status'] = '<button class="btn btn-danger btn-block">Terminated</button>';
+													} elseif( $user['status'] == 'pending' ) {
+														$user['account_status'] = '<button class="btn btn-info btn-block">Terminated</button>';
 													}
 
 													// account type
@@ -2773,14 +2775,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					if( $admin_check && isset( $_GET['id'] ) || $staff_check && isset( $_GET['id'] ) ) {
 						$user_id = get( 'id' );
 						$user = account_details( $user_id );
-						$payouts = get_florist_payouts( $user_id );
 					} else{
 						$user = account_details( $account_details['id'] );
-						$payouts = get_florist_payouts( $account_details['id'] );
 					}
 
-					$addresses_countries = get_global_countries();
-					$subscriptions = get_subscription_plans();
+					$customers = get_customers();
 				?>
 
 				<div id="content" class="content">
@@ -2837,11 +2836,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<a href="?c=users" type="button" onclick="processing();" class="btn btn-white">Back</a>
 														<button type="submit" onclick="processing();" class="btn btn-primary">Save</button>
 													</div>
-													<?php if( $dev_check ) { ?>
-														<div class="btn-group">
-															<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
-														</div>
-													<?php } ?>
 												</div>
 											</div>
 										</div>
@@ -2869,7 +2863,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<label class="bmd-label-floating"><strong>Status</strong></label>
 															<select name="status" class="form-control">
 																<option value="active" <?php if( $user['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
-																<option value="invited" <?php if( $user['status'] == 'invited' ) { echo 'selected'; } ?> >Invited</option>
 																<option value="terminated" <?php if( $user['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
 																<option value="suspended" <?php if( $user['status'] == 'suspended' ) { echo 'selected'; } ?> >Suspended</option>
 																<option value="terminated" <?php if( $user['status'] == 'terminated' ) { echo 'selected'; } ?> >Terminated</option>
@@ -2881,26 +2874,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<label class="bmd-label-floating"><strong>Type</strong></label>
 															<select name="type" class="form-control">
 																<option value="customer" <?php if( $user['type'] == 'customer' ) { echo 'selected'; } ?> >Customer</option>
-																<option value="florist" <?php if( $user['type'] == 'florist' ) { echo 'selected'; } ?> >Florist</option>
-																<option disabled="disabled">----- CAUTION -----</option>
-																<option value="staff" <?php if( $user['type'] == 'staff' ) { echo 'selected'; } ?> >Staff</option>
+																<option value="staff" <?php if( $user['type'] == 'staff' ) { echo 'selected'; } ?> >Staff Member</option>
 																<?php if( $admin_check ) { ?>
 																	<option value="admin" <?php if( $user['type'] == 'admin' ) { echo 'selected'; } ?>>Admin</option>
 																<?php } ?>
 															</select>
 														</div>
 													</div>
-													<?php if( $admin_check && $user['type'] == 'florist' || $staff_check && $user['type'] == 'florist' ) { ?>
-														<div class="col-xl-1 col-sm-12">
-															<div class="form-group">
-																<label class="bmd-label-floating"><strong>Fallback Florist</strong></label>
-																<select name="fallback_florist" class="form-control">
-																	<option value="no" <?php if( $user['fallback_florist'] == 'no' ) { echo 'selected'; } ?> >No</option>
-																	<option value="yes" <?php if( $user['fallback_florist'] == 'yes' ) { echo 'selected'; } ?> >Yes</option>
-																</select>
-															</div>
-														</div>
-													<?php } ?>
 												</div>
 											</div>
 										</div>
@@ -2920,15 +2900,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Company Name</strong></label>
-														<input type="text" name="company_name" class="form-control" value="<?php echo $user['company_name']; ?>">
-														<small>Example: Epic Flowers</small>
-													</div>
-												</div>
-											</div>
-											<div class="row">
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>First Name</strong></label>
@@ -2945,18 +2916,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												</div>
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Landline Tel</strong></label>
-														<input type="text" name="tel_landline" class="form-control" value="<?php echo $user['tel_landline']; ?>">
-														<small>Example: +44 1254 745560</small>
+														<label class="bmd-label-floating"><strong>Phone</strong></label>
+														<input type="text" name="tel_landline" class="form-control" value="<?php echo $user['phone']; ?>">
+														<small>Example: +44 (0) 1254 745560</small>
 													</div>
 												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Cell Tel</strong></label>
-														<input type="text" name="tel_cell" class="form-control" value="<?php echo $user['tel_cell']; ?>">
-														<small>Example: +44 1254 745560</small>
-													</div>
-												</div>
+												
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Address 1</strong></label>
@@ -3288,168 +3253,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 									</div>
-
-									<!-- subscription plan -->
-									<?php if( $user['type'] == 'florist' ) { ?>
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Subscription Plan</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Subscription Plan</strong></label>
-															<select name="subscription_id" class="form-control select2">
-																<?php foreach( $subscriptions as $subscription ) { ?>
-																	<?php if( $subscription['type'] == 'florist' ) { ?>
-																		<option value="<?php echo $subscription['id']; ?>" <?php if( $subscription['id'] == $user['subscription_id'] ) { echo 'selected'; } ?>><?php echo $subscription['name'].' - $'.$subscription['cap_amount']; ?></option>
-																	<?php } ?>
-																<?php } ?>
-															</select>
-															<small>Changing the subscription plan will take effect immediately.</small>
-														</div>
-													</div>
-													<div class="col-xl-3 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Cap Cycle</strong></label>
-															<br>
-															<?php
-																if( $user['subscription']['cap_cycle'] == '1_day' ) { echo '1 Day'; }
-																if( $user['subscription']['cap_cycle'] == '1_week' ) { echo '1 Week'; }
-																if( $user['subscription']['cap_cycle'] == '1_month' ) { echo '1 Month'; }
-																if( $user['subscription']['cap_cycle'] == '1_year' ) { echo '1 Year'; }
-															?>
-														</div>
-													</div>
-													<div class="col-xl-3 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Network Fee</strong></label>
-															<br>
-															<?php echo $user['subscription']['network_percentage']; ?>%
-														</div>
-													</div>
-													<div class="col-xl-3 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Target Cap Amount</strong></label>
-															<br>
-															$<?php echo number_format( $user['subscription']['cap_amount'], 2 ); ?>
-														</div>
-													</div>
-													<div class="col-xl-3 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Cap Amount this Cycle</strong></label>
-															<br>
-															$<?php echo number_format( $user['cap_total'], 2 ); ?>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
 								</div>
 
 								<div class="col-xl-6 col-sm-12">
-									<!-- payout details -->
-									<?php if( $user['type'] == 'florist' ) { ?>
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Payout Details</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														Please make sure your account details are correct and up-to-date.<br><br>
-													</div>
-												</div>
-												<div id="payput_bank_details" class="row ">
-													<div class="col-xl-4 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Account Holder</strong></label>
-															<input type="text" name="bank_account_name" class="form-control" value="<?php echo $user['bank_account_name']; ?>">
-															<small>Example: Mr John P Smith</small>
-														</div>
-													</div>
-													<div class="col-xl-4 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Account Number</strong></label>
-															<input type="text" name="bank_account_number" class="form-control" value="<?php echo $user['bank_account_number']; ?>">
-														</div>
-													</div>
-													<div class="col-xl-4 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Routing Number / Sort Code</strong></label>
-															<input type="text" name="bank_sort_code" class="form-control" value="<?php echo $user['bank_sort_code']; ?>">
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
-
-									<!-- coverage area -->
-									<?php if( $user['type'] == 'florist' ) { ?>
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Coverage Area</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_coverage_area_modal">Add</a>
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Coverage Area</strong></label>
-															<input id="coverage_area" name="coverage_area" class="form-control" value="<?php echo $user['coverage_area']; ?>" readonly="readonly">
-															<small>Enter each location and press the 'Tab' or 'Enter' key to continue and add additional coverage locations or use the 'Add' button above..</small>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
-
-									<!-- seconady coverage area -->
-									<?php if( $user['fallback_florist'] == 'yes' ) { ?>
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Elite Florist / Secondary Coverage Area</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_secondary_coverage_area_modal">Add</a>
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-12 col-sm-12">
-														<p>You have agreed to participate in our 'Elite Florist' program. This means you will be our catch-all florist for the locations you specify below. These should be outside your normal coverage area. Orders that are not accepted by a florist within 3 hours will appear assigned to you based upon your secondary coverage area.</p>
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Secondary Coverage Area</strong></label>
-															<input id="secondary_coverage_area" name="secondary_coverage_area" class="form-control" value="<?php echo $user['secondary_coverage_area']; ?>" readonly="readonly">
-															<small>Use the 'Add' button above to add each secondary coverage area you and willing to service as an Elite florist. These areas are unique and only you will service orders in these areas.</small>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
-
 									<!-- notes -->
-									<?php if( $admin_check || $staff_check ) { ?>
+									<?php if( $admin_check ) { ?>
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Notes</h2>
@@ -3463,7 +3271,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="row">
 													<div class="col-xl-12 col-sm-12">
 														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Notes</strong></label>
+															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Admin use only. Only visible to admin users.)</small></label>
 															<textarea name="notes" class="form-control" rows="7"><?php echo $user['notes']; ?></textarea>
 														</div>
 													</div>
@@ -3474,358 +3282,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 						</form>
-
-						<!-- payouts -->
-						<?php if( $user['type'] == 'florist' ) { ?>
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Payouts</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<?php if( !isset( $user['payouts'][0] ) ) { ?>
-												<center>
-													<h3>
-														No payouts found.
-													</h3>
-												</center>
-											<?php } else { ?>
-												<table id="table_payouts" class="table table-striped table-bordered table-td-valign-middle">
-													<thead>
-														<tr>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Created</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Amount</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Status</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"></th>
-														</tr>
-													</thead>
-													<tbody>
-														<?php
-															// build table
-															foreach( $payouts as $payout ) {
-																// status
-																if( $payout['status'] == 'pending' ) {
-																	$payout['status_html'] = '<button class="btn btn-info btn-block">Pending</button>';
-																	$payout['status_table_color'] = 'table-warning';
-																} elseif( $payout['status'] == 'paid' ) {
-																	$payout['status_html'] = '<button class="btn btn-lime btn-block">Paid</button>';
-																	$payout['status_table_color'] = 'table-success';
-																} elseif( $payout['status'] == 'rejected' ) {
-																	$payout['status_html'] = '<button class="btn btn-danger btn-block">Rejected</button>';
-																	$payout['status_table_color'] = 'table-danger';
-																} elseif( $payout['status'] == 'error' ) {
-																	$payout['status_html'] = '<button class="btn btn-danger btn-block">Error</button>';
-																	$payout['status_table_color'] = 'table-danger';
-																}
-
-																// payment for
-																if( $payout['payment_for'] == 'host' ){
-																	$payout['payment_for'] = 'Hosting Fee';
-																} elseif( $payout['payment_for'] == 'referral' ) {
-																	$payout['payment_for'] = 'Referral Fee';
-																}
-
-																// output
-																echo '
-																	<tr class="">
-																		<td class="text-nowrap">
-																			'.$payout['id'].'
-																		</td>
-																		<td class="text-nowrap">
-																			'.date( "Y-m-d H:i:s", $payout['added'] ).'
-																		</td>
-																		<td class="text-nowrap">
-																			'.$payout['notes'].'
-																		</td>
-																		<td class="text-nowrap">
-																			'.$payout['payment_for'].'
-																		</td>
-																		<td class="text-nowrap">
-																			'.$payout['amount'].' '.strtoupper( $payout['currency'] ).'
-																		</td>
-																		<td class="text-nowrap">
-																			'.$payout['status_html'].'
-																		</td>
-																		<td class="text-nowrap">
-																			'.( $admin_check || $staff_check ? '
-																				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-																				<div class="dropdown-menu dropdown-menu-right" role="menu">
-																					<!-- <a href="?c=payout&id='.$payout['id'].'" class="dropdown-item">View / Edit</a> -->
-																					<a href="#quick_details_'.$payout['id'].'" data-toggle="modal" data-target="#quick_details_'.$payout['id'].'" class="dropdown-item">View / Edit</a>
-																					'.( $payout['status'] == 'pending' ? '<a href="actions.php?a=payout_update&action=paid&id='.$payout['id'].'" class="dropdown-item" onclick="return confirm(\'Are you sure?\' )">Mark Paid</a>' : '' ).'
-																					'.( $payout['status'] == 'pending' ? '<a href="actions.php?a=payout_update&action=delete&id='.$payout['id'].'" class="dropdown-item" onclick="return confirm(\'Are you sure?\' )">Delete</a>' : '' ).'
-																				</div>
-																				' : '' ).'
-																		</td>
-																	</tr>
-																';
-
-																// quick details
-																if( $admin_check || $staff_check ) {
-																	echo '
-																		<form>
-																			<div class="modal fade" id="quick_details_'.$payout['id'].'" tabindex="-1" role="dialog" aria-labelledby="quick_details_'.$payout['id'].'" aria-hidden="true">
-																			   	<div class="modal-dialog modal-notice">
-																				  	<div class="modal-content">
-																					 	<div class="modal-header">
-																							<h5 class="modal-title" id="quick_details_'.$payout['id'].'">Payout Details</h5>
-																							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-																								x
-																							</button>
-																					 	</div>
-																					 	<div class="modal-body">
-																					 		<div class="row">
-																					 			<div class="col-xl-12">
-																						 			<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Status</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.ucfirst( $payout['status'] ).'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																						 		<div class="col-xl-12">
-																						 			<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Payee</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.$user['first_name'].' '.$user['last_name'].'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																						 			<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Created</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.date( "Y-m-d H:i:s", $payout['added'] ).'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																									<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Paid</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.date( "Y-m-d H:i:s", $payout['paid'] ).'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																									<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Payout Method</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.( $user['payout_type'] == 'fiat' ? 'Bank Transfer' : 'HNT' ).'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																						 			<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Amount</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.$payout['amount'].' '.strtoupper( $payout['currency'] ).'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																									<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Transaction ID</strong></label>
-																										<div class="col-xl-9">
-																											<input type="text" class="form-control m-b-5" value="'.$payout['transaction_id'].'" readonly/>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="col-xl-12">
-																									<div class="form-group row m-b-15">
-																										<label class="col-form-label col-xl-3"><strong>Notes</strong></label>
-																										<div class="col-xl-9">
-																											<textarea name="notes" class="form-control" rows="3" readonly>'.$payout['notes'].'</textarea>
-																										</div>
-																									</div>
-																								</div>
-																							</div>
-																					 	</div>
-																					 	<div class="modal-footer">
-																					 		<div class="btn-group">
-																								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																							</div>
-																						</div>
-																				  	</div>
-																			   	</div>
-																			</div>
-																		</form>
-																	';
-																}
-															}
-														?>
-													</tbody>
-												</table>
-											<?php } ?>
-										</div>
-									</div>
-								</div>
-							</div>
-						<?php } ?>
 					<?php } ?>
-				</div>
-
-				<!-- add coverage area modal -->
-				<div class="modal fade" id="add_coverage_area_modal" tabindex="-1" role="dialog" aria-labelledby="add_coverage_area_modal" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Add New Coverage Area</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-										<p>
-											To add new coverage area(s), select the country, state and city you witsh to cover. When making your selections, use your keyboards 'ctrl' key to make multiple selections and click the 'add' button.
-										</p>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<select id="global_address_country" name="global_address_country" class="form-control select2">
-												<option value="">Select a country</option>
-												<?php foreach( $addresses_countries as $address_country ) { ?>
-													<option value="<?php echo $address_country['country']; ?>" ><?php echo code_to_country( $address_country['country'] ); ?></option>
-												<?php } ?>
-											</select>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="global_address_state_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="global_address_state_container" class="hidden">
-												<select id="global_address_state" name="global_address_state" class="form-control select2">
-													<option value="">Select country first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="global_address_city_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="global_address_city_container" class="hidden">
-												<select id="global_address_city" name="global_address_city" class="form-control select2">
-													<option value="">Select state first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="global_address_zipcode_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="global_address_zipcode_container" class="hidden">
-												<select id="global_address_zipcode" name="global_address_zipcode" class="form-control select2" multiple="multiple">
-													<option value="">Select city first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-12 col-sm-12">
-										<p><font color="red"><strong>*</strong></font> After each selection, please allow for the next field to populate. Large lists can take a moment to render in your browser. Try now to double click.</p>
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<a href="#" onclick="ajax_submit_coverage_area();" class="btn btn-primary">Add</a>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
-				</div>
-
-				<!-- add secondary coverage area modal -->
-				<div class="modal fade" id="add_secondary_coverage_area_modal" tabindex="-1" role="dialog" aria-labelledby="add_secondary_coverage_area_modal" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Add New Secondary Coverage Area</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-										<p>
-											To add new coverage area(s), select the country, state and city you witsh to cover. When making your selections, use your keyboards 'ctrl' key to make multiple selections and click the 'add' button. Items that are greyed out have already been selected by another florist.
-										</p>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<select id="secondary_global_address_country" name="secondary_global_address_country" class="form-control select2">
-												<option value="">Select a country</option>
-												<?php foreach( $addresses_countries as $address_country ) { ?>
-													<option value="<?php echo $address_country['country']; ?>" ><?php echo code_to_country( $address_country['country'] ); ?></option>
-												<?php } ?>
-											</select>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="secondary_global_address_state_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="secondary_global_address_state_container" class="hidden">
-												<select id="secondary_global_address_state" name="secondary_global_address_state" class="form-control select2">
-													<option value="">Select country first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="secondary_global_address_city_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="secondary_global_address_city_container" class="hidden">
-												<select id="secondary_global_address_city" name="secondary_global_address_city" class="form-control select2">
-													<option value="">Select state first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-3 col-sm-12">
-										<div class="form-group">
-											<span id="secondary_global_address_zipcode_container_loading" class="hidden text-center">
-												<img src="images/ajax-loader-bar.gif" alt="content loading">
-											</span>
-											<span id="secondary_global_address_zipcode_container" class="hidden">
-												<select id="secondary_global_address_zipcode" name="secondary_global_address_zipcode" class="form-control select2" multiple="multiple">
-													<option value="">Select city first</option>
-												</select>
-											</span>
-										</div>
-									</div>
-									<div class="col-xl-12 col-sm-12">
-										<p><font color="red"><strong>*</strong></font> After each selection, please allow for the next field to populate. Large lists can take a moment to render in your browser. Try now to double click.</p>
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<a href="#" onclick="ajax_submit_secondary_coverage_area();" class="btn btn-primary">Add</a>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
 				</div>
 
 				<!-- dev modal -->
