@@ -783,7 +783,7 @@ function get_customer( $id = '' ) {
 	$data['secondary_contact'] = get_user( $data['secondary_contact_id'] );
 
 	// build full address
-	$data['full_address'] = $data['address_1'].', '.( empty( $data['address_2'] ) ? '' : $data['address_2'].', ' ).', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
+	$data['full_address'] = $data['address_1'].', '.( $data['address_2'] == '' ? '' : $data['address_2'].', ' ).', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 
 	// get jobs
 	$data['jobs'] = get_jobs( $id );
