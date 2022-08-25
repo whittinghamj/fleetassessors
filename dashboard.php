@@ -1292,7 +1292,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<!-- BEGIN timeline-header -->
 												<div class="timeline-header">
 													<div class="username">
-														<a href="javascript:;">Jamie Whittingham<i class="fa fa-check-circle text-blue ms-1"></i></a>
+														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
 													</div>
 													<div>
 														<a href="#" class="btn btn-lg btn-white border-0 rounded-pill w-40px h-40px p-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown">
