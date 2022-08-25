@@ -1849,7 +1849,23 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<form class="form" method="post" action="actions.php?a=customer_edit">
 							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
 
+							<!-- top summary boxes -->
 							<div class="row">
+								<div class="col-xl-2 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Total Jobs
+											</div>
+											<div class="stats-number">£<?php echo number_format( count( $customer['jobs'] ), 2 ); ?></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="row">
+								<!-- left column -->
 								<div class="col-xl-6 col-sm-12">
 									<!-- options -->
 									<div class="panel panel-inverse">
@@ -2202,6 +2218,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 
+								<!-- right column -->
 								<div class="col-xl-6 col-sm-12">
 									<!-- contacts -->
 									<div class="panel panel-inverse">
