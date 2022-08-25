@@ -2643,7 +2643,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																'.$user['full_name'].'
 															</td>
 															<td class="text-nowrap">
-																'.$type_button.'
+																'.$user['type_button'].'
 															</td>
 															<td class="text-nowrap">
 																'.$user['email'].'
