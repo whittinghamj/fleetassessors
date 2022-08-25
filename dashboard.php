@@ -2386,8 +2386,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
 															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
 															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Revised Est</strong></th>
-															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Est</strong></th>
+															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift Est</strong></th>
+															<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift Element</strong></th>
 															<th class="text-nowrap" data-orderable="false" width=""></th>
 															<th class="text-nowrap" data-orderable="false" width="1px">Status</th>
 															<th class="text-nowrap" data-orderable="false" width="1px"></th>
@@ -3926,8 +3926,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift Est</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift Element</strong></th>
 											<th class="text-nowrap" data-orderable="false" width=""></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Status</strong></th>
 											<th class="text-nowrap" data-orderable="false" width="1px"></th>
