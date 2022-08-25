@@ -788,6 +788,13 @@ function get_customer( $id = '' ) {
 	// get jobs
 	$data['jobs'] = get_jobs( $id );
 
+	// calculate total profit from all approved jobs
+	$total_profit = 0;
+	foreach( $data['jobs'] as $job ) {
+		$total_profit = ( $total_profit + $job['approved_estimate'] );
+	}
+	$data['total_approved_uplifts'] = $total_profit;
+
 	// sanity check
 	$data = stripslashes_deep( $data );
 

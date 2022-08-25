@@ -1861,6 +1861,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
+								<div class="col-xl-2 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Total Approved Uplifts
+											</div>
+											<div class="stats-number">£<?php echo number_format( $customer['total_approved_uplifts'], 2 ); ?></div>
+										</div>
+									</div>
+								</div>
 
 							</div>
 
