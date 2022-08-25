@@ -1227,6 +1227,7 @@ function user_add() {
 		$first_name 					= post( 'first_name' );
 		$last_name 						= post( 'last_name' );
 		$email 							= post( 'email' );
+		$phone 							= post( 'phone' );
 		$type 							= post( 'type' );
 
 		// does user already exist
@@ -1245,12 +1246,13 @@ function user_add() {
 		} else {
 			// save data
 			$insert = $conn->exec( "INSERT IGNORE INTO `users` 
-				(`added`,`added_by`,`type`,`email`,`first_name`,`last_name`,`status`)
+				(`added`,`added_by`,`type`,`email`,`phone`,`first_name`,`last_name`,`status`)
 				VALUE
 				('".time()."', 
 				'".$account_details['id']."',
 				'".$type."', 
 				'".$email."',
+				'".$phone."',
 				'".$first_name."',
 				'".$last_name."',
 				'active'
