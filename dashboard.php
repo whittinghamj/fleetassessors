@@ -1799,8 +1799,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 	<div class="modal-body">
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
-						 				<strong>Email:</strong> jamie.whittingham@gmail.com <br>
-						 				<strong>Phone:</strong> +44 (0) 7399 973949
+						 				<strong>Email:</strong> <a href="mailto:jamie.whittingham@gmail.com">jamie.whittingham@gmail.com</a> <br>
+						 				<strong>Phone:</strong> <a href="tel:+447399973949">+44 (0) 7399 973949</a>
 									</div>
 								</div>
 						 	</div>
