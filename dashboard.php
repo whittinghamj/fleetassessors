@@ -2663,7 +2663,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
 																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item">View / Edit</a>
-																	<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>
+																	'.( $user['id'] != $account_details['id'] '<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
 																</div>
 															</td>
 														</tr>
