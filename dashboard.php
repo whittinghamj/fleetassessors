@@ -755,6 +755,77 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
+							<h2 class="panel-title">divs</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							<style>
+								.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  flex-grow: 1;
+}
+
+/* only for demo not required */
+.box {
+    border:1px #666 solid;
+    height: 100%;
+}
+
+.row.display-flex [class*='col-'] {
+    background-color: #cceeee;
+}
+
+</style>
+							<div class="container">
+							    <div class="row display-flex">
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text</h3>
+							                <img src="//placehold.it/150x180" class="center-block">
+							            </div>
+							        </div>
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text</h3>
+							                <img src="//placehold.it/150x150" class="center-block">
+							            </div>
+							        </div>
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text more text that wraps to new link</h3>
+							                <img src="//placehold.it/150x150" class="center-block">
+							            </div>
+							        </div>
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text</h3>
+							                <img src="//placehold.it/150x150" class="center-block">
+							            </div>
+							        </div>
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text</h3>
+							                <img src="//placehold.it/150x150" class="center-block">
+							            </div>
+							        </div>
+							        <div class="col-lg-4 col-md-6 col-sm-12">
+							            <div class="box">
+							                <h3>Some text</h3>
+							                <img src="//placehold.it/150x150" class="center-block">
+							            </div>
+							        </div>
+							    </div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
 							<h2 class="panel-title">VAT</h2>
 							<div class="panel-heading-btn">
 
