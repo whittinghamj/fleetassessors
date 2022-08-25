@@ -1278,7 +1278,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="timeline-item">
 											<!-- BEGIN timeline-time -->
 											<div class="timeline-time">
-												<span class="date">today</span>
+												<span class="date">Aug 21 2022</span>
 												<span class="time">04:20</span>
 											</div>
 											<!-- END timeline-time -->
@@ -1291,10 +1291,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="timeline-content">
 												<!-- BEGIN timeline-header -->
 												<div class="timeline-header">
-													<div class="userimage"><img src="../assets/img/user/user-1.jpg" alt="" /></div>
+													<div class="userimage"><img src="assets/img/user/user-1.jpg" alt="" /></div>
 													<div class="username">
-														<a href="javascript:;">John Smith <i class="fa fa-check-circle text-blue ms-1"></i></a>
-														<div class="text-muted fs-12px">8 mins <i class="fa fa-globe-americas opacity-5 ms-1"></i></div>
+														<a href="javascript:;">Jamie <i class="fa fa-check-circle text-blue ms-1"></i></a>
 													</div>
 													<div>
 														<a href="#" class="btn btn-lg btn-white border-0 rounded-pill w-40px h-40px p-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown">
@@ -1327,29 +1326,28 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<!-- timeline-post -->
 													<div class="mb-3">
 														<div class="mb-2">
-															Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-															Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+															Initial platform was deployed. Added functions to add / edit and delete customers.
 														</div>
 														<div class="row gx-1">
 															<div class="col-6">
 																<div class="ratio ratio-4x3">
-																	<img src="../assets/img/gallery/gallery-14.jpg" class="d-block mw-100" />
+																	<img src="assets/img/gallery/gallery-14.jpg" class="d-block mw-100" />
 																</div>
 															</div>
 															<div class="col-3">
 																<div class="ratio ratio-4x3 mb-3px">
-																	<img src="../assets/img/gallery/gallery-12.jpg" class="d-block mw-100" />
+																	<img src="assets/img/gallery/gallery-12.jpg" class="d-block mw-100" />
 																</div>
 																<div class="ratio ratio-4x3">
-																	<img src="../assets/img/gallery/gallery-16.jpg" class="d-block mw-100" />
+																	<img src="assets/img/gallery/gallery-16.jpg" class="d-block mw-100" />
 																</div>
 															</div>
 															<div class="col-3">
 																<div class="ratio ratio-4x3 mb-3px">
-																	<img src="../assets/img/gallery/gallery-15.jpg" class="d-block mw-100" />
+																	<img src="assets/img/gallery/gallery-15.jpg" class="d-block mw-100" />
 																</div>
 																<div class="ratio ratio-4x3">
-																	<img src="../assets/img/gallery/gallery-11.jpg" class="d-block mw-100" />
+																	<img src="assets/img/gallery/gallery-11.jpg" class="d-block mw-100" />
 																</div>
 															</div>
 														</div>
