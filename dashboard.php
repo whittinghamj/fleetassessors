@@ -1492,61 +1492,61 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<input type="text" id="company_name" name="company_name" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>First Name</strong></label>
 												<input type="text" id="first_name" name="first_name" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Last Name</strong></label>
 												<input type="text" id="last_name" name="last_name" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Phone</strong></label>
 												<input type="text" id="phone" name="phone" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Email</strong></label>
 												<input type="email" id="email" name="email" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Address 1</strong></label>
 												<input type="text" id="address_1" name="address_1" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Address 2</strong></label>
 												<input type="text" id="address_2" name="address_2" class="form-control">
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>City</strong></label>
 												<input type="text" id="address_city" name="address_city" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>County</strong></label>
 												<input type="text" id="address_state" name="address_state" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Postcode</strong></label>
 												<input type="text" id="address_zip" name="address_zip" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Country</strong></label>
 												<select name="address_country" class="form-control select2">
