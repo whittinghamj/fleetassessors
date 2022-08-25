@@ -1915,7 +1915,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
-												Total Approved Uplifts
+												Approved Uplift
 											</div>
 											<div class="stats-number">£<?php echo number_format( $customer['total_approved_uplifts'], 2 ); ?></div>
 										</div>
