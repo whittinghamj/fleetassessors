@@ -1264,7 +1264,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<!-- app timeline -->
 					<div class="row">
-						<div class="col-xl-6 col-sm-12">
+						<div class="col-xl-4 col-sm-12">
 							<div class="panel panel-inverse">
 								<div class="panel-heading">
 									<h2 class="panel-title">Software Updates</h2>
@@ -1274,13 +1274,15 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 								<div class="panel-body">
 									<dl>
-										<dt class="text-inverse">Aug 22 2022 @ 18:15</dt>
-										<dd>one two three</dd>
-										<dt class="text-inverse mt-10px">Description Title</dt>
-										<dd>A description list....</dd>
-										<dd>A description list...</dd>
-										<dt class="text-inverse mt-10px">Description Title</dt>
-										<dd>A description list...</dd>
+										<dt class="text-inverse">Aug 21 2022 @ 18:15</dt>
+										<dd>Added ability to Add / Edit / Delete jobs.</dd>
+										<dd>Added global jobs view with add and search functions.</dd>
+										<dd>Added customer specific jobs view with add and search functions.</dd>
+										<dt class="text-inverse">Aug 21 2022 @ 03:19</dt>
+										<dd>Added ability to Add / Edit / Delete users.</dd>
+										<dd>Added ability to set users type (admin, staff, customer etc) and updated main platform to allow and show different content based upon user type.</dd>
+										<dt class="text-inverse">Aug 21 2022 @ 01:31</dt>
+										<dd>Initial platform deployed.</dd>
 									</dl>
 								</div>
 							</div>
