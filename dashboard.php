@@ -1273,57 +1273,15 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 								<div class="panel-body">
-									<div class="timeline">
-										<div class="timeline-item">
-											<div class="timeline-time">
-												<span class="date">Aug 21 2022</span>
-												<span class="time">13:00</span>
-											</div>
-											<div class="timeline-icon">
-												<a href="javascript:;">&nbsp;</a>
-											</div>
-											<div class="timeline-content">
-												<div class="timeline-header">
-													<div class="username">
-														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
-													</div>
-												</div>
-												
-												<div class="timeline-body">
-													<div class="mb-3">
-														<div class="mb-2">
-															Adding 'jobs' view and functions. Jobs can now be added / edited and removed from customer accounts. Global jobs can now be viewed and searched under the 'Jobs' view.
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="timeline-item">
-											<div class="timeline-time">
-												<span class="date">Aug 21 2022</span>
-												<span class="time">04:20</span>
-											</div>
-											<div class="timeline-icon">
-												<a href="javascript:;">&nbsp;</a>
-											</div>
-											<div class="timeline-content">
-												<div class="timeline-header">
-													<div class="username">
-														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
-													</div>
-												</div>
-												
-												<div class="timeline-body">
-													<div class="mb-3">
-														<div class="mb-2">
-															Initial platform was deployed. Added functions to add / edit and delete customers.
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+									<dl>
+										<dt class="text-inverse">Aug 22 2022 @ 18:15</dt>
+										<dd>one two three</dd>
+										<dt class="text-inverse mt-10px">Description Title</dt>
+										<dd>A description list....</dd>
+										<dd>A description list...</dd>
+										<dt class="text-inverse mt-10px">Description Title</dt>
+										<dd>A description list...</dd>
+									</dl>
 								</div>
 							</div>
 						</div>
