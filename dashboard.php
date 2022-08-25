@@ -1788,7 +1788,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<!-- contact genex modal -->
 				<div class="modal fade" id="contact_genex" tabindex="-1" role="dialog" aria-labelledby="contact_genex" aria-hidden="true">
-				   	<div class="modal-dialog modal">
+				   	<div class="modal-dialog modal-xl">
 					  	<div class="modal-content">
 						 	<div class="modal-header">
 								<h5 class="modal-title" id="myModalLabel">Contact Genex Support</h5>
