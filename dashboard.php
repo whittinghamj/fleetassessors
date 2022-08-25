@@ -1857,7 +1857,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="stats-title text-inverse-lighter">
 												Total Jobs
 											</div>
-											<div class="stats-number">£<?php echo number_format( count( $customer['jobs'] ), 2 ); ?></div>
+											<div class="stats-number"><?php echo number_format( count( $customer['jobs'] ); ?></div>
 										</div>
 									</div>
 								</div>
