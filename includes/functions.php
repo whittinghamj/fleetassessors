@@ -490,7 +490,7 @@ function get_user( $id ) {
 		$data['initials']		= get_first_letters( $data['full_name'] );
 
 		// full address
-		$data['full_address'] 	= $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
+		$data['full_address'] 	= '1'.$data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'].'2';
 		if( $data['full_address'] == ', , , , ' ) {
 			$data['full_address'] = '';
 		}
@@ -542,8 +542,8 @@ function get_users( $type = '' ) {
 
 		// full address
 		$users[$count]['full_address'] 	= $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
-		if( $data['full_address'] == '  , , , ' ) {
-			$data['full_address'] = '';
+		if( $users[$count]['full_address'] == ', , , , ' ) {
+			$users[$count]['full_address'] = '';
 		}
 
 		$count++;
