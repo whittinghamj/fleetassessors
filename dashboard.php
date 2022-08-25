@@ -792,6 +792,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							        <div class="col-lg-4 col-md-6 col-sm-12">
 							            <div class="box">
 							                <h3>Some text</h3>
+							                <br>asdf
+							                <br>asdf
+							                <br>asdf
+							                <br>asdf
+							                <br>asdf
 							                <img src="//placehold.it/150x150" class="center-block">
 							            </div>
 							        </div>
