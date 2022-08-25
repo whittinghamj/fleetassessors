@@ -2195,7 +2195,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<hr>
 												<div class="col-xl-12 col-sm-12">
 													<div class="widget-map-body">
-														<iframe class="d-block" src="https://www.google.com/maps?q=11+Augusta+St,+Accrington+BB5+2HX&output=embed" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+														<iframe class="d-block" src="https://www.google.com/maps?q=11 Augusta St, Accrington, BB5 2HX, GB&output=embed" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
 													</div>
 												</div>
 											</div>
