@@ -535,7 +535,7 @@ function get_users( $type = '' ) {
 		$users[$count]['full_name'] = $bit['first_name'].' '.$bit['last_name'];
 
 		// full address
-		$data['full_address'] = $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
+		$users[$count]['full_address'] = $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
 
 		$count++;
 	}
