@@ -5526,7 +5526,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
     	function user_delete( id ) {
 			swal({
-				title: 'Delete Customer?',
+				title: 'Delete User?',
 				text: 'This action will delete the user account. This action CANNOT be undone.',
 				icon: 'error',
 				buttons: {
