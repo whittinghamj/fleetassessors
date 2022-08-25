@@ -1274,45 +1274,56 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 								<div class="panel-body">
 									<div class="timeline">
-										<!-- BEGIN timeline-item -->
 										<div class="timeline-item">
-											<!-- BEGIN timeline-time -->
 											<div class="timeline-time">
 												<span class="date">Aug 21 2022</span>
 												<span class="time">04:20</span>
 											</div>
-											<!-- END timeline-time -->
-											<!-- BEGIN timeline-icon -->
 											<div class="timeline-icon">
 												<a href="javascript:;">&nbsp;</a>
 											</div>
-											<!-- END timeline-icon -->
-											<!-- BEGIN timeline-content -->
 											<div class="timeline-content">
-												<!-- BEGIN timeline-header -->
 												<div class="timeline-header">
 													<div class="username">
 														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
 													</div>
 												</div>
-												<!-- END timeline-header -->
 												
-												<!-- BEGIN timeline-body -->
 												<div class="timeline-body">
-													<!-- timeline-post -->
+													<div class="mb-3">
+														<div class="mb-2">
+															Adding 'jobs' view and functions. Jobs can now be added / edited and removed from customer accounts. Global jobs can now be viewed and searched under the 'Jobs' view.
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-time">
+												<span class="date">Aug 21 2022</span>
+												<span class="time">04:20</span>
+											</div>
+											<div class="timeline-icon">
+												<a href="javascript:;">&nbsp;</a>
+											</div>
+											<div class="timeline-content">
+												<div class="timeline-header">
+													<div class="username">
+														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
+													</div>
+												</div>
+												
+												<div class="timeline-body">
 													<div class="mb-3">
 														<div class="mb-2">
 															Initial platform was deployed. Added functions to add / edit and delete customers.
 														</div>
 													</div>
 												</div>
-												<!-- END timeline-body -->
 											</div>
-											<!-- END timeline-content -->
 										</div>
-										<!-- END timeline-item -->
 									</div>
-									<!-- END timeline -->
 								</div>
 							</div>
 						</div>
