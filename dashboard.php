@@ -2633,19 +2633,19 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													echo '
 														<tr>
 															<td class="text-nowrap">
-																'.$user['id'].'
+																<a href="?c=user&id='.$user['id'].'">'.$user['id'].'</a>
 															</td>
 															<td class="text-nowrap">
-																'.$user['full_name'].'
+																<a href="?c=user&id='.$user['id'].'">'.$user['full_name'].'</a>
 															</td>
 															<td class="text-nowrap">
 																'.$user['type_button'].'
 															</td>
 															<td class="text-nowrap">
-																'.$user['email'].'
+																<a href="mailto:'.$user['email'].'">'.$user['email'].'</a>
 															</td>
 															<td class="text-nowrap">
-																'.$user['phone'].'
+																<a href="tel:'.$user['phone'].'">'.$user['phone'].'</a>
 															</td>
 															<td class="text-nowrap">
 																'.$user['full_address'].'
