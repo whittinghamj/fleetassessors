@@ -1291,7 +1291,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="timeline-content">
 												<!-- BEGIN timeline-header -->
 												<div class="timeline-header">
-													<div class="userimage"><img src="assets/img/user/user-1.jpg" alt="" /></div>
 													<div class="username">
 														<a href="javascript:;">Jamie <i class="fa fa-check-circle text-blue ms-1"></i></a>
 													</div>
