@@ -1876,10 +1876,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 									</div>
-								</div>
+								
 
 								<!-- customer details -->
-								<div class="col-xl-6 col-sm-12">
 									<!-- contact details -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
