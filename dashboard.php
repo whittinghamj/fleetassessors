@@ -1274,6 +1274,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 								<div class="panel-body">
 									<dl>
+										<dt class="text-inverse">Aug 22 2022 @ 13:00</dt>
+										<dd>Expanded the job functionality and added maths for estimates.</dd>
 										<dt class="text-inverse">Aug 21 2022 @ 18:15</dt>
 										<dd>Added ability to Add / Edit / Delete jobs.</dd>
 										<dd>Added global jobs view with add and search functions.</dd>
