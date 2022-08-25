@@ -2617,7 +2617,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												foreach( $users as $user ) {
 													// user status
 													if( $user['status'] == 'active' ) {
-														$user['account_status'] = '<button class="btn btn-lime btn-block">Active</button>';
+														$user['account_status'] = '<button class="btn btn-success btn-block">Active</button>';
 													} elseif( $user['status'] == 'suspended' ) {
 														$user['account_status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
 													} elseif( $user['status'] == 'terminated' ) {
