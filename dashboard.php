@@ -2825,25 +2825,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
 
 							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel">
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-8 col-xs-12">
-												</div>
-												<div class="col-xl-4 col-xs-12 text-right">
-													<div class="btn-group">
-														<a href="?c=users" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="processing();" class="btn btn-primary">Save</button>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
 								<!-- admin options -->
 								<?php if( $admin_check || $staff_check ) { ?>
 									<div class="col-xl-12 col-xl-12 col-sm-12">
@@ -3279,6 +3260,25 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 									<?php } ?>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="?c=users" type="button" onclick="processing();" class="btn btn-white">Back</a>
+														<button type="submit" onclick="processing();" class="btn btn-primary">Save</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</form>
