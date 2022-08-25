@@ -5496,7 +5496,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
     	function customer_delete( id ) {
 			swal({
 				title: 'Delete Customer?',
-				text: 'This action will delete the customer record and all jobs for this customer. This action CANNOT be undone.',
+				text: 'This action will delete the customer record and all jobs for this customer. \nThis action CANNOT be undone.',
 				icon: 'error',
 				buttons: {
 					cancel: {
@@ -5558,7 +5558,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		function job_delete( id ) {
 			swal({
 				title: 'Delete Job?',
-				text: 'This action will delete the job. This action CANNOT be undone.',
+				text: 'This action will delete the job. \nThis action CANNOT be undone.',
 				icon: 'error',
 				buttons: {
 					cancel: {
