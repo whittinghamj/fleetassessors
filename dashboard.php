@@ -4060,6 +4060,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 				?>
 
+				<style>
+					.row.display-flex {
+  						display: flex;
+  						flex-wrap: wrap;
+					}
+
+					.row.display-flex > [class*='col-'] {
+						flex-grow: 1;
+					}
+				</style>
+
 				<div id="content" class="content">
 					<!-- sanity check -->
 					<?php if( !isset( $job['id'] ) ) { ?>
@@ -4099,7 +4110,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						<?php } ?>
 
-						<!-- summary -->
+						<!-- top summary boxes -->
 						<div class="row">
 							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
@@ -4166,7 +4177,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
 							<!-- customer / job notes -->
-							<div class="row" style="margin-bottom: -99999px; padding-bottom: 99999px; overflow: hidden;">
+							<div class="row display-flex">
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
