@@ -754,7 +754,7 @@ function get_customers() {
 		$customers[$count]['primary_contact']				= get_user( $bit['primary_contact_id'] );
 
 		// build full address
-		$customers[$count]['full_address'] 					= $bit['address_1'].', '.( empty( $bit['address_2'] ) ? '' : $bit['address_2'].', ' ).', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
+		$customers[$count]['full_address'] 					= $bit['address_1'].', '.( $bit['address_2'] == '' ? '' : $bit['address_2'].', ' ).', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
 		$count++;
 	}
 
