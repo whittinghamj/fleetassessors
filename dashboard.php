@@ -6281,7 +6281,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			// data tables > table_users
 			$(function () {
 				$( '#table_users' ).DataTable({
-					"order": [[ 0, "asc" ]],
+					"order": [[ 1, "asc" ]],
 					"responsive": true,
 					"columnDefs": [{
 						"targets"  : 'no-sort',
