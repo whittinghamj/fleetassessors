@@ -4189,7 +4189,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Contact</strong></small></label>
+														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 														<div class="row">
 															<div class="col-xl-4 col-sm-12">
 																<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
