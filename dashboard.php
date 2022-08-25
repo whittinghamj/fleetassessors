@@ -1262,13 +1262,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					<?php } ?>
 
+					<!-- app timeline -->
 					<div class="row">
 						<div class="col-xl-6 col-sm-12">
 							<div class="panel panel-inverse">
 								<div class="panel-heading">
 									<h2 class="panel-title">Software Updates</h2>
 									<div class="panel-heading-btn">
-										<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Contact Support</button>
+										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
 									</div>
 								</div>
 								<div class="panel-body">
@@ -1773,6 +1774,33 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
 						 				Nothing to show.
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+
+				<!-- contact genex modal -->
+				<div class="modal fade" id="contact_genex" tabindex="-1" role="dialog" aria-labelledby="contact_genex" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Contact Genex Support</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+						 				<strong>Email:</strong> jamie.whittingham@gmail.com <br>
+						 				<strong>Phone:</strong> +44 (0) 7399 973949
 									</div>
 								</div>
 						 	</div>
