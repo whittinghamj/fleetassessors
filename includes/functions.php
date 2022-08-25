@@ -491,7 +491,7 @@ function get_user( $id ) {
 
 		// full address
 		$data['full_address'] 	= $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
-		if( $data['full_address'] == ' , , , , ' ) {
+		if( $data['full_address'] == ', , , , ' ) {
 			$data['full_address'] = '';
 		}
 	}
@@ -542,10 +542,10 @@ function get_users( $type = '' ) {
 
 		// full address
 		$users[$count]['full_address'] 	= $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
-		if( $data['full_address'] == ' , , , , ' ) {
+		if( $data['full_address'] == '  , , , ' ) {
 			$data['full_address'] = '';
 		}
-		
+
 		$count++;
 	}
 
