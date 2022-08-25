@@ -1304,79 +1304,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														<div class="mb-2">
 															Initial platform was deployed. Added functions to add / edit and delete customers.
 														</div>
-														<div class="row gx-1">
-															<div class="col-6">
-																<div class="ratio ratio-4x3">
-																	<img src="assets/img/gallery/gallery-14.jpg" class="d-block mw-100" />
-																</div>
-															</div>
-															<div class="col-3">
-																<div class="ratio ratio-4x3 mb-3px">
-																	<img src="assets/img/gallery/gallery-12.jpg" class="d-block mw-100" />
-																</div>
-																<div class="ratio ratio-4x3">
-																	<img src="assets/img/gallery/gallery-16.jpg" class="d-block mw-100" />
-																</div>
-															</div>
-															<div class="col-3">
-																<div class="ratio ratio-4x3 mb-3px">
-																	<img src="assets/img/gallery/gallery-15.jpg" class="d-block mw-100" />
-																</div>
-																<div class="ratio ratio-4x3">
-																	<img src="assets/img/gallery/gallery-11.jpg" class="d-block mw-100" />
-																</div>
-															</div>
-														</div>
 													</div>
-													
-													<!-- timeline-stats -->
-													<div class="d-flex align-items-center text-gray-600 mb-2">
-														<div class="d-flex align-items-center">
-															<span class="fa-stack fs-10px">
-																<i class="fa fa-circle fa-stack-2x text-danger"></i>
-																<i class="fa fa-heart fa-stack-1x fa-inverse fs-11px"></i>
-															</span>
-															<span class="fa-stack fs-10px">
-																<i class="fa fa-circle fa-stack-2x text-blue"></i>
-																<i class="fa fa-thumbs-up fa-stack-1x fa-inverse fs-11px bottom-0 mb-1px"></i>
-															</span>
-															<span class="ms-1">4.3k</span>
-														</div>
-														<div class="d-flex align-items-center ms-auto">
-															<div>259 Shares</div>
-															<div class="ms-3">21 Comments</div>
-														</div>
-													</div>
-													
-													<!-- timeline-action -->
-													<hr class="my-10px" />
-													<div class="d-flex align-items-center fw-bold">
-														<a href="javascript:;" class="flex-fill text-decoration-none text-center text-gray-600">
-															<i class="fa fa-thumbs-up fa-fw me-3px"></i> Like
-														</a>
-														<a href="javascript:;" class="flex-fill text-decoration-none text-center text-gray-600">
-															<i class="fa fa-comments fa-fw me-3px"></i> Comment</a> 
-														<a href="javascript:;" class="flex-fill text-decoration-none text-center text-gray-600">
-															<i class="fa fa-share fa-fw me-3px"></i> Share
-														</a>
-													</div>
-													<hr class="mt-10px mb-3" />
-													
-													<!-- timeline-input -->
-													<form action="" class="d-flex align-items-center">
-														<div><img src="../assets/img/user/user-13.jpg" height="35" class="rounded-pill" /></div>
-														<div class="ps-2 flex-1">
-															<div class="position-relative">
-																<input type="text" class="form-control rounded-pill ps-3 py-2 fs-13px  bg-gray-200" placeholder="Write a comment..." />
-																<div class="position-absolute end-0 top-0 bottom-0 d-flex align-items-center px-2">
-																	<a href="#" class="btn bg-none text-gray-600 shadow-none px-1"><i class="far fa-smile fa-fw fa-lg d-block"></i></a>
-																	<a href="#" class="btn bg-none text-gray-600 shadow-none px-1"><i class="fa fa-camera fa-fw fa-lg d-block"></i></a>
-																	<a href="#" class="btn bg-none text-gray-600 shadow-none px-1"><i class="fa fa-film fa-fw fa-lg d-block"></i></a>
-																	<a href="#" class="btn bg-none text-gray-600 shadow-none px-1"><i class="far fa-sticky-note fa-fw fa-lg d-block"></i></a>
-																</div>
-															</div>
-														</div>
-													</form>
 												</div>
 												<!-- END timeline-body -->
 											</div>
