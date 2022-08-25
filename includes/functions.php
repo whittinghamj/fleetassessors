@@ -490,7 +490,7 @@ function get_user( $id ) {
 		$data['initials']		= get_first_letters( $data['full_name'] );
 
 		// full address
-		$data['full_address'] 	= '1'.$data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'].'2';
+		$data['full_address'] 	= $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 		if( $data['full_address'] == ', , , , ' ) {
 			$data['full_address'] = '';
 		}
