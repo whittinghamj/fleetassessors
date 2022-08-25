@@ -1205,7 +1205,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
 										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 0%;"></div>
+											<div class="progress-bar" style="width: 50%;"></div>
 										</div>
 										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
 									</div>
