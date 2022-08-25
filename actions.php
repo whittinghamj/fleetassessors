@@ -1276,224 +1276,44 @@ function user_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
-	$user_id 						= post( 'user_id' );
-	$company_name 					= post( 'company_name' );
+	$id 							= post( 'user_id' );
 	$first_name 					= post( 'first_name' );
 	$last_name 						= post( 'last_name' );
 	$email 							= post( 'email' );
-	$password_1 					= post( 'password_1' );
-	$password_2 					= post( 'password_2' );
 	$type 							= post( 'type' );
 	$status 						= post( 'status' );
-	$fallback_florist 				= post( 'fallback_florist' );
 	$address_1 						= post( 'address_1' );
 	$address_2 						= post( 'address_2' );
 	$address_city 					= post( 'address_city' );
 	$address_state 					= post( 'address_state' );
 	$address_zip 					= post( 'address_zip' );
 	$address_country 				= post( 'address_country' );
-	$tel_landline 					= post( 'tel_landline' );
-	$tel_cell 						= post( 'tel_cell' );
-	$coverage_area 					= post( 'coverage_area' );
-	$secondary_coverage_area 		= post( 'secondary_coverage_area' );
+	$phone 							= post( 'phone' );
 	$notes 							= post( 'notes' );
-	$subscription_id 				= post( 'subscription_id' );
-	$bank_account_name 				= post( 'bank_account_name' );
-	$bank_account_number			= post( 'bank_account_number' );
-	$bank_sort_code					= post( 'bank_sort_code' );
-	$bank_sort_code 				= str_replace( array( ' ', '-' ), '', $bank_sort_code );
-
-	// forward geocoding
-	$address_full[] = $address_1;
-	$address_full[] = $address_2;
-	$address_full[] = $address_city;
-	$address_full[] = $address_state;
-	$address_full[] = $address_zip;
-	$address_full[] = $address_country;
-	$address = implode( ', ', $address_full );
-	$geocode_data = forward_geocoding( $address );
-
-	if( isset( $geocode_data['features'][0]['id'] ) ) {
-		$address_lat = $geocode_data['features'][0]['geometry']['coordinates'][1];
-		$address_lng = $geocode_data['features'][0]['geometry']['coordinates'][0];
-	} else {
-		$address_lat = '';
-		$address_lng = '';
-	}
-
-	// do passwords match
-	if( $password_1 != $password_2 ) {
-		// set status message
-		status_message( "danger", "Passwords do not match, please try again." );
-		
-		// redirect
-		go( $_SERVER['HTTP_REFERER'] );
-	}
 
 	// save data
 	if( $admin_check || $staff_check ) {
 		$update = $conn->exec( "UPDATE `users` SET `status` = '".$status."' WHERE `id` = '".$user_id."' " );
 		$update = $conn->exec( "UPDATE `users` SET `type` = '".$type."' WHERE `id` = '".$user_id."' " );
-		$update = $conn->exec( "UPDATE `users` SET `fallback_florist` = '".$fallback_florist."' WHERE `id` = '".$user_id."' " );
 		$update = $conn->exec( "UPDATE `users` SET `notes` = '".$notes."' WHERE `id` = '".$user_id."' " );
 	}
-	$update = $conn->exec( "UPDATE `users` SET `company_name` = '".$company_name."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `first_name` = '".$first_name."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `last_name` = '".$last_name."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `email` = '".$email."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `password` = '".$password_1."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `tel_landline` = '".$tel_landline."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `tel_cell` = '".$tel_cell."' WHERE `id` = '".$user_id."' " );
+	$update = $conn->exec( "UPDATE `users` SET `phone` = '".$phone."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_1` = '".$address_1."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_2` = '".$address_2."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_city` = '".$address_city."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_state` = '".$address_state."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_zip` = '".$address_zip."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_country` = '".$address_country."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_lat` = '".$address_lat."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_lng` = '".$address_lng."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `coverage_area` = '".$coverage_area."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `secondary_coverage_area` = '".$secondary_coverage_area."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `bank_account_name` = '".$bank_account_name."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `bank_account_number` = '".$bank_account_number."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `bank_sort_code` = '".$bank_sort_code."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `subscription_id` = '".$subscription_id."' WHERE `id` = '".$user_id."' " );
 
 	// set status message
 	status_message( "success", "User has been updated." );
 
 	// redirect
 	go( $_SERVER['HTTP_REFERER'] );
-}
-
-function user_edit_from_order() {
-	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
-
-	// map fields
-	$user_id 						= post( 'user_id' );
-	$first_name 					= post( 'first_name' );
-	$last_name 						= post( 'last_name' );
-	$email 							= post( 'email' );
-
-	$address_1 						= post( 'address_1' );
-	$address_2 						= post( 'address_2' );
-	$address_city 					= post( 'address_city' );
-	$address_state 					= post( 'address_state' );
-	$address_zip 					= post( 'address_zip' );
-	$address_country 				= post( 'address_country' );
-
-	$tel_landline 					= post( 'tel_landline' );
-	$tel_cell 						= post( 'tel_cell' );
-
-	// forward geocoding
-	$address_full[] = $address_1;
-	$address_full[] = $address_2;
-	$address_full[] = $address_city;
-	$address_full[] = $address_state;
-	$address_full[] = $address_zip;
-	$address_full[] = $address_country;
-	$address = implode( ', ', $address_full );
-	$geocode_data = forward_geocoding( $address );
-
-	if( isset( $geocode_data['features'][0]['id'] ) ) {
-		$address_lat = $geocode_data['features'][0]['geometry']['coordinates'][1];
-		$address_lng = $geocode_data['features'][0]['geometry']['coordinates'][0];
-	} else {
-		$address_lat = '';
-		$address_lng = '';
-	}
-
-	// save data
-	$update = $conn->exec( "UPDATE `users` SET `first_name` = '".$first_name."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `last_name` = '".$last_name."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `email` = '".$email."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `tel_landline` = '".$tel_landline."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `tel_cell` = '".$tel_cell."' WHERE `id` = '".$user_id."' " );
-
-	$update = $conn->exec( "UPDATE `users` SET `address_1` = '".$address_1."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_2` = '".$address_2."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_city` = '".$address_city."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_state` = '".$address_state."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_zip` = '".$address_zip."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_country` = '".$address_country."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_lat` = '".$address_lat."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `address_lng` = '".$address_lng."' WHERE `id` = '".$user_id."' " );
-
-	// set status message
-	status_message( "success", "Customer has been updated." );
-
-	// redirect
-	go( $_SERVER['HTTP_REFERER'] );
-}
-
-function user_edit_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
-
-	// map fields
-	$user_id 						= post( 'user_id' );
-	$coverage_area 					= post_array( 'coverage_area' );
-	$coverage_area 					= implode( ',', $coverage_area );
-
-	// get data
-	$user 							= get_user( $user_id );
-
-	// build new data
-	$coverage_area 					= $user['coverage_area'].','.$coverage_area; 
-
-	// save data
-	$update = $conn->exec( "UPDATE `users` SET `coverage_area` = '".$coverage_area."' WHERE `id` = '".$user_id."' " );
-
-	debug( $coverage_area );
-}
-
-function user_edit_secondary_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
-
-	// map fields
-	$user_id 						= post( 'user_id' );
-	$secondary_coverage_area 		= post_array( 'secondary_coverage_area' );
-
-	// get data
-	$user 							= get_user( $user_id );
-
-	// mark each area as taken in the database
-	foreach( $secondary_coverage_area as $id => $data ) {
-		$update = $conn->exec( "UPDATE `global_addresses` SET `user_id` = '".$user_id."' WHERE `country` = '".$user['address_country']."' AND `zip_code` = '".$data."' " );
-	}
-
-	// build new data
-	$secondary_coverage_area 		= implode( ',', $secondary_coverage_area );
-	$secondary_coverage_area 		= $user['secondary_coverage_area'].','.$secondary_coverage_area; 
-
-	// save data
-	$update = $conn->exec( "UPDATE `users` SET `secondary_coverage_area` = '".$secondary_coverage_area."' WHERE `id` = '".$user_id."' " );
-
-	debug( $secondary_coverage_area );
-}
-
-function user_edit_remove_secondary_coverage_area() {
-	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
-
-	// map fields
-	$user_id 						= post( 'user_id' );
-	$area 							= post( 'area' );
-
-	// get data
-	$user 							= get_user( $user_id );
-
-	// mark each area as free in the database
-	$update = $conn->exec( "UPDATE `global_addresses` SET `user_id` = '' WHERE `country` = '".$user['address_country']."' AND `zip_code` = '".$data."' " );
-
-	// build new data
-	$secondary_coverage_area 		= explode( ',', $user['secondary_coverage_area'] );
-	$item 							= array_search( $area, $secondary_coverage_area );
-	unset( $secondary_coverage_area[$item] );
-	$secondary_coverage_area 		= implode( ',', $secondary_coverage_area );
-
-	// save data
-	$update = $conn->exec( "UPDATE `users` SET `secondary_coverage_area` = '".$secondary_coverage_area."' WHERE `id` = '".$user_id."' " );
-
-	debug( $secondary_coverage_area );
 }
 
 function user_delete() {
