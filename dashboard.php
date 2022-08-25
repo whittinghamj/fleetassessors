@@ -755,6 +755,20 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
+							<h2 class="panel-title">Google Maps</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="widget-map-body">
+								<iframe class="d-block" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.5650178360584!2d-122.41879278478642!3d37.77679637975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter+HQ!5e0!3m2!1sen!2smy!4v1524046379645" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
 							<h2 class="panel-title">divs</h2>
 							<div class="panel-heading-btn">
 
@@ -763,24 +777,24 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<div class="panel-body">
 							<style>
 								.row.display-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-.row.display-flex > [class*='col-'] {
-  flex-grow: 1;
-}
+									display: flex;
+									flex-wrap: wrap;
+								}
+								
+								.row.display-flex > [class*='col-'] {
+									flex-grow: 1;
+								}
 
-/* only for demo not required */
-.box {
-    border:1px #666 solid;
-    height: 100%;
-}
+								/* only for demo not required */
+								.box {
+									border:1px #666 solid;
+									height: 100%;
+								}
 
-.row.display-flex [class*='col-'] {
-    background-color: #cceeee;
-}
-
-</style>
+								.row.display-flex [class*='col-'] {
+									background-color: #cceeee;
+								}
+							</style>
 							<div class="container">
 							    <div class="row display-flex">
 							        <div class="col-lg-4 col-md-6 col-sm-12">
@@ -4059,7 +4073,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 
-					
+
 				?>
 
 				<div id="content" class="content">
