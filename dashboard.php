@@ -4060,21 +4060,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 				?>
 
-				<style>
-					.equal {
-						display: -webkit-box;
-						display: -webkit-flex;
-						display: -ms-flexbox;
-						display: flex;
-						flex-wrap: wrap;
-					}
-
-					.equal > [class*='col-'] {
-						display: flex;
-						flex-direction: column;
-					}
-				</style>
-
 				<div id="content" class="content">
 					<!-- sanity check -->
 					<?php if( !isset( $job['id'] ) ) { ?>
@@ -4181,8 +4166,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
 							<!-- customer / job notes -->
-							<div class="row equal" style="display: table;">
-								<div class="col-xl-6 col-sm-12" style="display: table-cell;">
+							<div class="row">
+								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Customer</h2>
@@ -4214,7 +4199,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-6 col-sm-12" style="display: table-cell;">
+								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Notes</h2>
