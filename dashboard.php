@@ -1850,8 +1850,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							<input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
 
 							<div class="row">
-								<!-- customer status -->
 								<div class="col-xl-6 col-sm-12">
+									<!-- options -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Admin Options</h2>
@@ -1877,8 +1877,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								
-
-								<!-- customer details -->
 									<!-- contact details -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
@@ -2204,8 +2202,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 
-								<!-- contacts -->
 								<div class="col-xl-6 col-sm-12">
+									<!-- contacts -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Contact Details</h2>
@@ -2240,10 +2238,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 										</div>
 									</div>
-								</div>
 
-								<!-- customer notes -->
-								<div class="col-xl-6 col-sm-12">
+									<!-- customer notes -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Notes</h2>
