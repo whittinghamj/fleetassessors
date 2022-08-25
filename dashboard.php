@@ -1277,7 +1277,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="timeline-item">
 											<div class="timeline-time">
 												<span class="date">Aug 21 2022</span>
-												<span class="time">04:20</span>
+												<span class="time">13:00</span>
 											</div>
 											<div class="timeline-icon">
 												<a href="javascript:;">&nbsp;</a>
