@@ -1294,29 +1294,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<div class="username">
 														<a href="javascript:;">Jamie Whittingham <i class="fa fa-check-circle text-blue ms-1"></i></a>
 													</div>
-													<div>
-														<a href="#" class="btn btn-lg btn-white border-0 rounded-pill w-40px h-40px p-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown">
-															<i class="fa fa-ellipsis-h text-gray-600"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a href="#" class="dropdown-item d-flex align-items-center">
-																<i class="fa fa-fw fa-bookmark fa-lg"></i> 
-																<div class="flex-1 ps-1">
-																	<div>Save Post</div>
-																	<div class="mt-n1 text-gray-500"><small>Add this to your saved items</small></div>
-																</div>
-															</a>
-															<div class="dropdown-divider"></div>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-edit fa-lg me-1"></i> Edit post</a>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-user fa-lg me-1"></i> Edit audience</a>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-bell fa-lg me-1"></i> Turn off notifications for this post</a>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-language fa-lg me-1"></i> Turn off translations</a>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-calendar-alt fa-lg me-1"></i> Turn date</a>
-															<div class="dropdown-divider"></div>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-archive fa-lg me-1"></i> Move to archive</a>
-															<a href="#" class="dropdown-item"><i class="fa fa-fw fa-trash-alt fa-lg me-1"></i> Move to Recycle bin</a>
-														</div>
-													</div>
 												</div>
 												<!-- END timeline-header -->
 												
