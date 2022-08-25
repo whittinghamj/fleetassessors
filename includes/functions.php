@@ -488,6 +488,9 @@ function get_user( $id ) {
 
 		// create initials
 		$data['initials']		= get_first_letters( $data['full_name'] );
+
+		// full address
+		$data['full_address'] = $data['address_1'].', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 	}
 
 	// sanity check
@@ -530,6 +533,9 @@ function get_users( $type = '' ) {
 
 		// full name
 		$users[$count]['full_name'] = $bit['first_name'].' '.$bit['last_name'];
+
+		// full address
+		$data['full_address'] = $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
 
 		$count++;
 	}

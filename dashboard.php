@@ -1380,7 +1380,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -2547,32 +2547,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
 				<?php
-					// match filter
-					if( get( 'filter' ) == 'customers' ) {
-						$users = get_users_summary( 'customer' );
-						$page_name = 'Customers';
-					} elseif( get( 'filter' ) == 'florists' ) {
-						$users = get_users_summary( 'florist' );
-						$page_name = 'Florists';
-					} elseif( get( 'filter' ) == 'staff_members' ) {
-						$users = get_users_summary( 'staff' );
-						$page_name = 'Staff Members';
-					} elseif( get( 'filter' ) == 'admins' ) {
-						$users = get_users_summary( 'admin' );
-						$page_name = 'Admins';
-					}
-
 					// get data
-					$departments = get_departments();
+					$users = get_users();
 				?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
 						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-						<li class="breadcrumb-item active"><?php echo $page_name ?></li>
+						<li class="breadcrumb-item active">Users</li>
 					</ol>
 
-					<h1 class="page-header"><?php echo $page_name; ?></h1>
+					<h1 class="page-header">Users</h1>
 
 					<div class="row">
 						<div class="col-xl-12">
@@ -2590,7 +2575,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -2604,10 +2589,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<div class="col-xl-12">
 							<div class="panel panel-inverse">
 								<div class="panel-heading">
-									<h2 class="panel-title"><?php echo $page_name; ?></h2>
+									<h2 class="panel-title">Users</h2>
 									<div class="panel-heading-btn">
 										<div class="btn-group">
-											<button class="btn btn-primary" data-toggle="modal" data-target="#user_add">Add</button>
+											<button class="btn btn-primary" data-toggle="modal" data-target="#user_add">Add User</button>
 										</div>
 									</div>
 								</div>
@@ -2615,20 +2600,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<table id="table_users" class="table table-striped table-bordered table-td-valign-middle">
 										<thead>
 											<tr>
-												<th class="text-nowrap" data-orderable="true"><strong>Name</strong></th>
-												<?php if( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists' ) { ?>
-													<th class="text-nowrap" data-orderable="true" width="1px"><strong>Company</strong></th>
-												<?php } ?>
-												<?php if( get( 'filter' ) == 'staff_members' || get( 'filter' ) == 'admins' ) { ?>
-													<th class="text-nowrap" data-orderable="true" width="1px"><strong>Department</strong></th>
-												<?php } ?>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>ID</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Name</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Type</strong></th>
 												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Email</strong></th>
-												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Landline</strong></th>
-												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Cell</strong></th>
-												<?php if( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists' ) { ?>
-													<th class="text-nowrap" data-orderable="true" width="1px"><strong>Address</strong></th>
-													<th class="text-nowrap" data-orderable="true" width="1px"><strong>Subscription Plan</strong></th>
-												<?php } ?>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Phone</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Address</strong></th>
+												<th class="text-nowrap" data-orderable="false" width=""></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Status</strong></th>
 												<th class="text-nowrap" data-orderable="false" width="1px"></th>
 											</tr>
 										</thead>
@@ -2643,74 +2622,48 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 														$user['account_status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
 													} elseif( $user['status'] == 'terminated' ) {
 														$user['account_status'] = '<button class="btn btn-danger btn-block">Terminated</button>';
-													} elseif( $user['status'] == 'expired' ) {
-														$user['account_status'] = '<button class="btn btn-warning btn-block">Expired</button>';
-													} elseif( $user['status'] == 'pending' ) {
-														$user['account_status'] = '<button class="btn btn-warning btn-block">Pending</button>';
-													} elseif( $user['status'] == 'invited' ) {
-														$user['account_status'] = '<button class="btn btn-warning btn-block">Invited</button>';
 													}
 
-													// subscription w status
-													if( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists') {
-														if( $user['subscription_status'] == 'active' ) {
-															$user['subscription_status'] = '<button class="btn btn-lime btn-block">Active</button>';
-														} elseif( $user['subscription_status'] == 'suspended' ) {
-															$user['subscription_status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
-														} elseif( $user['subscription_status'] == 'terminated' ) {
-															$user['subscription_status'] = '<button class="btn btn-danger btn-block">Terminated</button>';
-														} elseif( $user['subscription_status'] == 'expired' ) {
-															$user['subscription_status'] = '<button class="btn btn-warning btn-block">Expired</button>';
-														} elseif( $user['subscription_status'] == 'pending' ) {
-															$user['subscription_status'] = '<button class="btn btn-info btn-block">Pending</button>';
-														}
-													}
-
-													// match department
-													if( $user['type'] == 'admin' || $user['type'] == 'staff' ) {
-														// find user's department
-														foreach( $departments as $department ) {
-															if( $user['department_id'] == $department['id'] ) {
-																break;
-															}
-														}
+													// account type
+													if( $user['type'] == 'admin' ) {
+														$user['type_button'] = '<button class="btn btn-lime btn-block">Admin</button>';
+													} elseif( $user['type'] == 'staff' ) {
+														$user['type_button'] = '<button class="btn btn-warning btn-block">staff</button>';
+													} elseif( $user['type'] == 'customer' ) {
+														$user['type_button'] = '<button class="btn btn-info btn-block">Customer</button>';
 													}
 
 													// output
 													echo '
 														<tr>
 															<td class="text-nowrap">
+																'.$user['id'].'
+															</td>
+															<td class="text-nowrap">
 																'.$user['full_name'].'
 															</td>
 															<td class="text-nowrap">
-																'.( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists' ? $user['company_name'] : '' ).'
-																'.( get( 'filter' ) == 'staff_members' || get( 'filter' ) == 'admins' ? $department['name'] : '' ).'
+																'.$type_button.'
 															</td>
 															<td class="text-nowrap">
 																'.$user['email'].'
 															</td>
 															<td class="text-nowrap">
-																'.$user['tel_landline'].'
+																'.$user['phone'].'
 															</td>
 															<td class="text-nowrap">
-																'.$user['tel_cell'].'
+																'.$user['full_address'].'
 															</td>
-															'.( get( 'filter' ) == 'customers' || get( 'filter' ) == 'florists' ? '
-																<td class="text-nowrap">
-																	'.$user['address_1'].', '.( !empty( $user['address_2'] ) ? $user['address_2'].',' : '' ).'
-																	'.$user['address_city'].', '.$user['address_state'].', '.$user['address_zip'].', '.$user['address_country'].'
-																</td>
-															' : '' ).'
-															'.( get( 'filter' ) == 'florists' ? '
-																<td class="text-nowrap">
-																	'.$user['subscription_status'].'
-																</td>
-															' : '' ).'
+															<td class="text-nowrap">
+															</td>
+															<td class="text-nowrap">
+																'.$user['account_status'].'
+															</td>
 															<td class="text-nowrap">
 																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
 																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item">View / Edit</a>
-																	<a href="actions.php?a=user_delete&id='.$user['id'].'" class="dropdown-item" onclick="return confirm(\'Are you sure?\' )">Delete</a>
+																	<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>
 																</div>
 															</td>
 														</tr>
@@ -2758,12 +2711,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<input type="email" name="email" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Password</strong></label>
-												<input type="text" name="password" class="form-control" required>
-											</div>
-										</div>
 									</div>
 									<div class="row">
 										<div class="col-xl-12 col-sm-12">
@@ -2771,9 +2718,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<label class="bmd-label-floating"><strong>Account Type</strong></label>
 												<select name="type" class="form-control">
 													<option value="customer" selected>Customer</option>
-													<option value="florist">Florist</option>
-													<option disabled="disabled">----- CAUTION -----</option>
-													<option value="florist">Staff Member</option>
+													<option value="staff">Staff Member</option>
 													<?php if( $admin_check ) { ?>
 														<option value="admin">Admin</option>
 													<?php } ?>
@@ -3946,7 +3891,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev Output</a>
+													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -4050,7 +3995,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																<a href="#" onclick="customer_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
 															</div>
 														</td>
 													</tr>
@@ -5575,6 +5520,37 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			    	// process action
 			    	window.location = "actions.php?a=customer_delete&id=" + id;
+			    }
+			} );
+		}
+
+    	function user_delete( id ) {
+			swal({
+				title: 'Delete Customer?',
+				text: 'This action will delete the user account. This action CANNOT be undone.',
+				icon: 'error',
+				buttons: {
+					cancel: {
+						text: 'Cancel',
+						value: null,
+						visible: true,
+						className: 'btn btn-default',
+						closeModal: true,
+					},
+					confirm: {
+						text: 'Delete',
+						value: true,
+						visible: true,
+						className: 'btn btn-danger',
+						closeModal: true
+					}
+				}
+			} ).then(function( e ) {
+			    if( e == true ) {
+			    	console.log( 'deleting customer: ' + id );
+
+			    	// process action
+			    	window.location = "actions.php?a=user_delete&id=" + id;
 			    }
 			} );
 		}
