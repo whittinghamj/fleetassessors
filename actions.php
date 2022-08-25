@@ -149,7 +149,7 @@ function customer_add() {
 	$first_name 					= post( 'first_name' );
 	$last_name 						= post( 'last_name' );
 	$email 							= post( 'email' );
-	$password 						= post( 'password' );
+	$phone 							= post( 'phone' );
 	$address_1 						= post( 'address_1' );
 	$address_2 						= post( 'address_2' );
 	$address_city 					= post( 'address_city' );
@@ -176,7 +176,7 @@ function customer_add() {
 
 	// save data - user
 	$insert = $conn->exec( "INSERT IGNORE INTO `users` 
-		(`added`,`status`,`type`,`first_name`,`last_name`,`email`,`password`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`added_by`)
+		(`added`,`status`,`type`,`first_name`,`last_name`,`email`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`added_by`)
 		VALUE
 		('".time()."', 
 		'active', 
@@ -184,7 +184,6 @@ function customer_add() {
 		'".$first_name."',
 		'".$last_name."',
 		'".$email."',
-		'".$password."',
 		'".$address_1."',
 		'".$address_2."',
 		'".$address_city."',
