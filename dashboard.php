@@ -4058,6 +4058,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
 					// $initial_estimate = vat_details( $job['initial_estimate'] );
+
+					
 				?>
 
 				<div id="content" class="content">
@@ -4182,7 +4184,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Name</strong></small></label>
-														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
+														<div class="row">
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
+															</div>
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['address_1']; ?>, " readonly>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>

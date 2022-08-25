@@ -752,12 +752,9 @@ function get_customers() {
 		// add additional data
 		$customers[$count]['total_jobs']					= total_jobs_for_customer( $bit['id'] );
 		$customers[$count]['primary_contact']				= get_user( $bit['primary_contact_id'] );
-		// $orders[$count]['ordering_florist'] 			= get_user( $bit['ordering_florist_id'] );
-		// $orders[$count]['destination_florist'] 			= get_user( $bit['destination_florist_id'] );
-		// $orders[$count]['delivery_details'] 			= get_delivery_detail( $bit['delivery_id'] );
-		// $orders[$count]['order_items']					= get_order_items( $bit['id'] );
-		// $orders[$count]['payment_details']				= get_payment( $bit['payment_id'] );
 
+		// build full address
+		$customers[$count]['full_address'] 					= $data['address_1'].', '.( empty( $data['address_2'] ) ? '' : $data['address_2'].', ' ).', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 		$count++;
 	}
 
@@ -784,6 +781,9 @@ function get_customer( $id = '' ) {
 
 	// get secondary contact details
 	$data['secondary_contact'] = get_user( $data['secondary_contact_id'] );
+
+	// build full address
+	$data['full_address'] = $data['address_1'].', '.( empty( $data['address_2'] ) ? '' : $data['address_2'].', ' ).', '.$data['address_city'].', '.$data['address_state'].', '.$data['address_zip'].', '.$data['address_country'];
 
 	// get jobs
 	$data['jobs'] = get_jobs( $id );
