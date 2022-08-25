@@ -1197,7 +1197,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							-->
 							<div class="col-xl-3 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-car"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Pending Jobs
@@ -2839,9 +2839,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											</div>
 											<div class="panel-body">
 												<div class="row">
-													<div class="col-xl-1 col-sm-12">
+													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
 														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Status</strong></label>
+															<label class="bmd-label-floating"><strong>Account Status</strong></label>
 															<select name="status" class="form-control">
 																<option value="active" <?php if( $user['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
 																<option value="terminated" <?php if( $user['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
@@ -2850,9 +2850,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															</select>
 														</div>
 													</div>
-													<div class="col-xl-1 col-sm-12">
+													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
 														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Type</strong></label>
+															<label class="bmd-label-floating"><strong>Account Type</strong></label>
 															<select name="type" class="form-control">
 																<option value="customer" <?php if( $user['type'] == 'customer' ) { echo 'selected'; } ?> >Customer</option>
 																<option value="staff" <?php if( $user['type'] == 'staff' ) { echo 'selected'; } ?> >Staff Member</option>
