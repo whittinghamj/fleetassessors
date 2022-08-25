@@ -4182,7 +4182,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 							<!-- customer / job notes -->
 							<div class="row equal" style="display: table;">
-								<div class="col-xl-6 col-sm-12 table-cell">
+								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Customer</h2>
@@ -4214,7 +4214,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-6 col-sm-12 table-cell" style="height: 100%;">
+								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Notes</h2>
