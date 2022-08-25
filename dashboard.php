@@ -4190,15 +4190,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Contact</strong></small></label>
-														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
-														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
-														<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
+														<input type="text" name="company_name" class="form-control col-xl-4" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
+														<input type="text" name="company_name" class="form-control col-xl-4" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
+														<input type="text" name="company_name" class="form-control col-xl-4" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
@@ -4214,7 +4215,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $job['notes']; ?></textarea>
+														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
