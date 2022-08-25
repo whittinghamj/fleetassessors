@@ -1506,24 +1506,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="col-xl-6 col-sm-12">
 											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Phone</strong></label>
-												<input type="text" id="phone" name="phone" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Email</strong></label>
-												<input type="email" id="email" name="email" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Password</strong></label>
-												<input type="text" id="password" name="password" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
 												<label class="bmd-label-floating"><strong>Address 1</strong></label>
 												<input type="text" id="address_1" name="address_1" class="form-control" required>
 											</div>
@@ -1813,7 +1795,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							 	<div class="modal-footer">
 							 		<div class="btn-group">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" class="btn btn-primary">Continue</button>
+										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
 									</div>
 								</div>
 						  	</div>
