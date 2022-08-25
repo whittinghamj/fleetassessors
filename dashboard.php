@@ -2628,7 +2628,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													if( $user['type'] == 'admin' ) {
 														$user['type_button'] = '<button class="btn btn-lime btn-block">Admin</button>';
 													} elseif( $user['type'] == 'staff' ) {
-														$user['type_button'] = '<button class="btn btn-warning btn-block">staff</button>';
+														$user['type_button'] = '<button class="btn btn-warning btn-block">Staff</button>';
 													} elseif( $user['type'] == 'customer' ) {
 														$user['type_button'] = '<button class="btn btn-info btn-block">Customer</button>';
 													}
