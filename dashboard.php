@@ -1810,7 +1810,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Added By</strong></label>
-														<input type="text" name="added_by_name" class="form-control" value="<?php echo $customer['added_by_user']['full_name']; ?>">
+														<input type="text" name="added_by_name" class="form-control" value="<?php echo $customer['added_by_user']['full_name']; ?>" readonly>
 													</div>
 												</div>
 											</div>
