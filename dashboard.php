@@ -2655,7 +2655,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					<?php } ?>
 
-					<!-- customers -->
+					<!-- jobs -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
 							<h2 class="panel-title">Jobs</h2>
