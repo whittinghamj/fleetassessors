@@ -754,6 +754,10 @@ function user_delete() {
 	// map fields
 	$id 							= get( 'id' );
 
+	// update customer records to remove primary or secondary contact ids
+	$update = $conn->exec( "UPDATE `customers` SET `primary_contact_id` = '' WHERE `primary_contact_id` = '".$id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `secondary_contact_id` = '' WHERE `secondary_contact_id` = '".$id."' " );
+
 	// delete data
 	$delete = $conn->exec( "DELETE FROM `users` WHERE `id` = '".$id."' " );
 
