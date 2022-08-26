@@ -2924,11 +2924,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Initial Estimate <small>ex VAT</small>
-											<span class="d-none d-sm-block">
 												<span class="ms-2">
-													<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i>
+													<i class="fa fa-info-circle d-none d-sm-block" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i>
 												</span>
-											</span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
 									</div>
