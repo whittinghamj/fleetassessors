@@ -2940,7 +2940,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="stats-number">
 											£<?php echo number_format( $job['initial_estimate'], 2 ); ?> 
-											<span style="font-size: 10px;">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></span>
 										</div>
 									</div>
 								</div>
