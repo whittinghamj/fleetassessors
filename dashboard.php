@@ -3012,17 +3012,23 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
-														<div class="row">
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
+														<?php if( issset( $job['customer']['primary_contact']['id'] ) ) { ?>
+															<div class="row">
+																<div class="col-xl-4 col-sm-12">
+																	<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
+																</div>
+																<div class="col-xl-4 col-sm-12">
+																	<input type="text" name="phone" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
+																</div>
+																<div class="col-xl-4 col-sm-12">
+																	<input type="text" name="email" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
+																</div>
 															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="phone" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
-															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="email" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
-															</div>
-														</div>
+														<?php } else { ?>
+															<div class="row">
+																<div class="col-xl-4 col-sm-12">
+																	No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
+														<?php } ?>
 													</div>
 												</div>
 											</div>
