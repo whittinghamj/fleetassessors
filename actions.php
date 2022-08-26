@@ -591,22 +591,27 @@ function job_edit() {
 
 	$approved_labour 				= post( 'approved_labour' );
 	$approved_labour 				= preg_replace( "/[^0-9\.]/", "", $approved_labour );
+	$approved_labour	 			= round( $approved_labour, 2 );
 	if( empty( $approved_labour ) ) { $approved_labour = '0.00'; }
 
 	$approved_paint 				= post( 'approved_paint' );
 	$approved_paint 				= preg_replace( "/[^0-9\.]/", "", $approved_paint );
+	$approved_paint	 				= round( $approved_paint, 2 );
 	if( empty( $approved_paint ) ) { $approved_paint = '0.00'; }
 
 	$approved_additional 			= post( 'approved_additional' );
 	$approved_additional 			= preg_replace( "/[^0-9\.]/", "", $approved_additional );
+	$approved_additional	 		= round( $approved_additional, 2 );
 	if( empty( $approved_additional ) ) { $approved_additional = '0.00'; }
 
 	$approved_parts 				= post( 'approved_parts' );
 	$approved_parts 				= preg_replace( "/[^0-9\.]/", "", $approved_parts );
+	$approved_parts	 				= round( $approved_parts, 2 );
 	if( empty( $approved_parts ) ) { $approved_parts = '0.00'; }
 
 	$approved_check 				= post( 'approved_check' );
 	$approved_check 				= preg_replace( "/[^0-9\.]/", "", $approved_check );
+	$approved_check	 				= round( $approved_check, 2 );
 	if( empty( $approved_check ) ) { $approved_check = '0.00'; }
 
 	$approved_total 				= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
