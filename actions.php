@@ -705,7 +705,7 @@ function user_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// map fields
-	$id 							= post( 'user_id' );
+	$user_id 						= post( 'user_id' );
 	$first_name 					= post( 'first_name' );
 	$last_name 						= post( 'last_name' );
 	$email 							= post( 'email' );
@@ -768,6 +768,8 @@ function user_delete() {
 	go( 'dashboard.php?c=users' );
 }
 
+
+// system settings
 function system_settings() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
