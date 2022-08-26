@@ -6,10 +6,10 @@ function action_security_check( $security_levels ) {
 
 	foreach( $security_levels as $security_level ) {
 		error_log( 'checkpoint ' . $security_level );
-		
+
 		// admin check
 		if( $security_level == 'admin' ) {
-			if( $admin_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
+			if( $admin_check ) { break; } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
 		}
 
 		// staff check
