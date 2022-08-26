@@ -557,6 +557,9 @@ function job_edit() {
 	$status 						= post( 'status' );
 	$provider_id 					= post( 'provider_id' );
 	$estimator 						= post( 'estimator' );
+	$initial_estimate 				= post( 'initial_estimate' );
+	$initial_estimate 				= number_format( $initial_estimate, 2 );
+	$initial_estimate 				= preg_replace( "/[^0-9\.]/", "", $initial_estimate );
 	
 	$uplift_labour 					= post( 'uplift_labour' );
 	$uplift_labour 					= preg_replace( "/[^0-9\.]/", "", $uplift_labour );
