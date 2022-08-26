@@ -135,9 +135,9 @@ function home() {
 function dev() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	action_security_check( 'staff' );
+	action_security_check( array( 'admin','staff' ) );
 
-	echo 'we ran the staff checkpoint';
+	echo 'We passed the checkpoint.';
 }
 
 function accept_terms() {
@@ -159,6 +159,9 @@ function accept_terms() {
 // customer functions
 function customer_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
 
 	// map fields
 	$company_name 					= post( 'company_name' );

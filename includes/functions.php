@@ -4,8 +4,6 @@
 function action_security_check( $security_level ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	error_log( "========== \nSECURITY CHECKPOINT. \n==========" );
-
 	// admin check
 	if( $security_level == 'admin' ) {
 		if( $admin_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
