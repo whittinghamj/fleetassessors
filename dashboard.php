@@ -122,6 +122,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	<link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet">
 
 	<!-- highcharts -->
+	<link href="assets/css/highcharts.css" rel="stylesheet">
 
 	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 
@@ -2926,6 +2927,20 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 						<?php } ?>
+
+						<div class="row">
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Job has been Approved.
+										</div>
+										<div class="stats-number">
+											£<?php echo number_format( $job['initial_estimate'], 2 ); ?> 
+										</div>
+									</div>
+								</div>
+							</div>
 
 						<!-- top summary boxes -->
 						<div class="row">
