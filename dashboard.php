@@ -125,7 +125,59 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	<link href="assets/css/highcharts.css" rel="stylesheet">
 
 	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
-	
+
+	<?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { ?>
+		<!-- highcharts -->
+		<style>
+			.highcharts-figure,
+			.highcharts-data-table table {
+			    min-width: 320px;
+			    max-width: 800px;
+			    margin: 1em auto;
+			}
+
+			.highcharts-data-table table {
+			    font-family: Verdana, sans-serif;
+			    border-collapse: collapse;
+			    border: 1px solid #ebebeb;
+			    margin: 10px auto;
+			    text-align: center;
+			    width: 100%;
+			    max-width: 500px;
+			}
+
+			.highcharts-data-table caption {
+			    padding: 1em 0;
+			    font-size: 1.2em;
+			    color: #555;
+			}
+
+			.highcharts-data-table th {
+			    font-weight: 600;
+			    padding: 0.5em;
+			}
+
+			.highcharts-data-table td,
+			.highcharts-data-table th,
+			.highcharts-data-table caption {
+			    padding: 0.5em;
+			}
+
+			.highcharts-data-table thead tr,
+			.highcharts-data-table tr:nth-child(even) {
+			    background: #f8f8f8;
+			}
+
+			.highcharts-data-table tr:hover {
+			    background: #f1f7ff;
+			}
+
+			input[type="number"] {
+			    min-width: 50px;
+			}
+		</style>
+	<?php } ?>
+
 	<?php if( get( 'c' ) == 'invoice' ) { ?>
 		<link href="assets/css/default/invoice-print.min.css" rel="stylesheet" />
 	<?php } ?>
@@ -1197,7 +1249,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							-->
 							<div class="col-xl-3 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white"><i class="fa fa-car"></i></div>
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Pending Jobs
@@ -1274,22 +1326,27 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 								<div class="panel-body">
 									<dl>
-										<dt class="text-inverse">Aug 22 2022 @ 13:00</dt>
-										<dd>Expanded the job functionality and added maths for estimates.</dd>
-										<dt class="text-inverse">Aug 21 2022 @ 18:15</dt>
-										<dd>Added ability to Add / Edit / Delete jobs.</dd>
-										<dd>Added global jobs view with add and search functions.</dd>
-										<dd>Added customer specific jobs view with add and search functions.</dd>
-										<dt class="text-inverse">Aug 21 2022 @ 03:19</dt>
-										<dd>Added ability to Add / Edit / Delete users.</dd>
-										<dd>Added ability to set users type (admin, staff, customer etc) and updated main platform to allow and show different content based upon user type.</dd>
-										<dt class="text-inverse">Aug 21 2022 @ 01:31</dt>
-										<dd>Initial platform deployed.</dd>
+										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
+										<dd>Initial platform release.</dd>
 									</dl>
 								</div>
 							</div>
 						</div>
 					</div>
+
+					<div class="col-xl-4 col-sm-12">
+						<div class="panel panel-inverse">
+							<div class="panel-heading">
+								<h2 class="panel-title">Lost vs Approved Jobs</h2>
+							</div>
+							<div class="panel-body">
+								<figure class="highcharts-figure">
+									<div id="container"></div>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
 				</div>
 
 				<!-- dev modal -->
@@ -5067,18 +5124,70 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-		<!-- timeline -->
-		<script src="assets/js/demo/timeline.demo.js"></script>
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'messages' ) { ?>
-		<script src="assets/js/demo/email-inbox.demo.js"></script>
-
 		<script>
-			// refresh every 60 seconds
-			setInterval( function() {
-				window.location.reload();
-            }, 60000 ); 
+Highcharts.chart('container', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  title: {
+    text: 'Browser market shares in January, 2018'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+      }
+    }
+  },
+  series: [{
+    name: 'Brands',
+    colorByPoint: true,
+    data: [{
+      name: 'Chrome',
+      y: 61.41,
+      sliced: true,
+      selected: true
+    }, {
+      name: 'Internet Explorer',
+      y: 11.84
+    }, {
+      name: 'Firefox',
+      y: 10.85
+    }, {
+      name: 'Edge',
+      y: 4.67
+    }, {
+      name: 'Safari',
+      y: 4.18
+    }, {
+      name: 'Sogou Explorer',
+      y: 1.64
+    }, {
+      name: 'Opera',
+      y: 1.6
+    }, {
+      name: 'QQ',
+      y: 1.2
+    }, {
+      name: 'Other',
+      y: 2.61
+    }]
+  }]
+});
 		</script>
 	<?php } ?>
 
@@ -5282,168 +5391,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					"autoWidth": false,
 					"lengthMenu": [10, 25, 50, 100, 500],
 					"pageLength": 10,
-					search: {
-					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
-					}
-				} );
-			} );
-		</script>
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'product' ) { ?>
-		<script src="assets/plugins/ckeditor/ckeditor.js"></script>
-		<script src="assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
-		<script src="assets/js/demo/form-wysiwyg.demo.js"></script>
-		<script src="assets/plugins/highlight.js/highlight.min.js"></script>
-		<script src="assets/js/demo/render.highlight.js"></script>
-
-		<script>
-			function _(el){
-				return document.getElementById(el);
-			}
-
-			function uploadFile() {
-				var file = _( "file1" ).files[0];
-				var product_id = _( "product_id" ).value;
-				// alert(file.name+" | "+file.size+" | "+file.type);
-				var formdata = new FormData();
-				formdata.append( "file1", file );
-				formdata.append( "product_id", product_id );
-				var ajax = new XMLHttpRequest();
-				ajax.upload.addEventListener( "progress", progressHandler, false );
-				ajax.addEventListener( "load", completeHandler, false) ;
-				ajax.addEventListener( "error", errorHandler, false) ;
-				ajax.addEventListener( "abort", abortHandler, false );
-				ajax.open( "POST", "actions.php?a=product_image_add" );
-				ajax.send( formdata );
-			}
-
-			function progressHandler( event ) {
-				_( "loaded_n_total" ).innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
-				var percent = (event.loaded / event.total ) * 100;
-				_( "progressBar" ).value = Math.round( percent );
-				_( "status" ).innerHTML = Math.round( percent )+"% uploaded... please wait";
-			}
-
-			function completeHandler( event) {
-				_( "status" ).innerHTML = event.target.responseText;
-				_( "progressBar" ).value = 0;
-				setTimeout( function() {
-					// set_status_message( 'success', 'Product image has been uploaded.' );
-					window.location = window.location;
-				}, 1000 );
-			}
-
-			function errorHandler(event){
-				_( "status" ).innerHTML = "Upload Failed";
-				setTimeout( function() {
-					$( '#status' ).fadeOut( 'fast' );
-				}, 5000 );
-			}
-
-			function abortHandler( event ){
-				_( "status" ).innerHTML = "Upload Aborted";
-				setTimeout( function() {
-					$( '#status' ).fadeOut( 'fast' );
-				}, 5000 );
-			}
-		</script>
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'products' ) { ?>
-		<script type="text/javascript">
-			// data tables > table_products
-			$(function () {
-				$( '#table_products' ).DataTable({
-					"order": [[ 1, "desc" ]],
-					"responsive": true,
-					"columnDefs": [{
-						"targets"  : 'no-sort',
-						"orderable": false,
-					}],
-					"language": {
-						"emptyTable": "No data found."
-					},
-					"oLanguage": {
-						"sSearch": "Filter: "
-					},
-					"paging": true,
-					"processing": true,
-					"lengthChange": true,
-					"searching": true,
-					"ordering": true,
-					"info": true,
-					"autoWidth": false,
-					"lengthMenu": [50, 100, 500],
-					"pageLength": 50,
-					search: {
-					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
-					}
-				} );
-			} );
-		</script>
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'subscription' ) { ?>
-		<script type="text/javascript">
-			// data tables > table_subscription_users
-			$(function () {
-				$( '#table_subscription_users' ).DataTable({
-					"order": [[ 0, "asc" ]],
-					"responsive": true,
-					"columnDefs": [{
-						"targets"  : 'no-sort',
-						"orderable": false,
-					}],
-					"language": {
-						"emptyTable": "No data found."
-					},
-					"oLanguage": {
-						"sSearch": "Filter: "
-					},
-					"paging": true,
-					"processing": true,
-					"lengthChange": true,
-					"searching": true,
-					"ordering": true,
-					"info": true,
-					"autoWidth": false,
-					"lengthMenu": [25, 50, 100, 500],
-					"pageLength": 25,
-					search: {
-					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
-					}
-				} );
-			} );
-		</script>
-	<?php } ?>
-
-	<?php if( get( 'c' ) == 'subscriptions' ) { ?>
-		<script type="text/javascript">
-			// data tables > table_subscriptions
-			$(function () {
-				$( '#table_subscriptions' ).DataTable({
-					"order": [[ 0, "asc" ]],
-					"responsive": true,
-					"columnDefs": [{
-						"targets"  : 'no-sort',
-						"orderable": false,
-					}],
-					"language": {
-						"emptyTable": "No data found."
-					},
-					"oLanguage": {
-						"sSearch": "Filter: "
-					},
-					"paging": true,
-					"processing": true,
-					"lengthChange": true,
-					"searching": true,
-					"ordering": true,
-					"info": true,
-					"autoWidth": false,
-					"lengthMenu": [25, 50, 100, 500],
-					"pageLength": 25,
 					search: {
 					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
 					}
