@@ -135,9 +135,9 @@ function home() {
 function dev() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	action_security_check( 'admin' );
+	action_security_check( 'staff' );
 
-	echo 'we ran the admin checkpoint';
+	echo 'we ran the staff checkpoint';
 }
 
 function accept_terms() {
