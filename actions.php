@@ -427,6 +427,7 @@ function job_add() {
 	$initial_estimate 		= str_replace( '£', '', $initial_estimate );
 	$initial_estimate 		= str_replace( ',', '', $initial_estimate );
 	$initial_estimate 		= preg_replace( "/[^0-9\.]/", "", $initial_estimate );
+	$initial_estimate 		= round( $initial_estimate, 2 );
 	$initial_estimate 		= vat_details( $initial_estimate );
 
 	// does vrn already exist
@@ -558,27 +559,32 @@ function job_edit() {
 	$provider_id 					= post( 'provider_id' );
 	$estimator 						= post( 'estimator' );
 	$initial_estimate 				= post( 'initial_estimate' );
-	$initial_estimate 				= number_format( $initial_estimate, 2 );
 	$initial_estimate 				= preg_replace( "/[^0-9\.]/", "", $initial_estimate );
+	$initial_estimate 				= round( $initial_estimate, 2 );
 	
 	$uplift_labour 					= post( 'uplift_labour' );
 	$uplift_labour 					= preg_replace( "/[^0-9\.]/", "", $uplift_labour );
+	$uplift_labour	 				= round( $uplift_labour, 2 );
 	if( empty( $uplift_labour ) ) { $uplift_labour = '0.00'; }
 
 	$uplift_paint 					= post( 'uplift_paint' );
 	$uplift_paint 					= preg_replace( "/[^0-9\.]/", "", $uplift_paint );
+	$uplift_paint	 				= round( $uplift_paint, 2 );
 	if( empty( $uplift_paint ) ) { $uplift_paint = '0.00'; }
 
 	$uplift_additional 				= post( 'uplift_additional' );
 	$uplift_additional 				= preg_replace( "/[^0-9\.]/", "", $uplift_additional );
+	$uplift_additional 				= round( $uplift_additional, 2 );
 	if( empty( $uplift_additional ) ) { $uplift_additional = '0.00'; }
 
 	$uplift_parts 					= post( 'uplift_parts' );
 	$uplift_parts 					= preg_replace( "/[^0-9\.]/", "", $uplift_parts );
+	$uplift_parts 					= round( $uplift_parts, 2 );
 	if( empty( $uplift_parts ) ) { $uplift_parts = '0.00'; }
 
 	$uplift_check 					= post( 'uplift_check' );
 	$uplift_check 					= preg_replace( "/[^0-9\.]/", "", $uplift_check );
+	$uplift_check 					= round( $uplift_check, 2 );
 	if( empty( $uplift_check ) ) { $uplift_check = '0.00'; }
 
 	$uplift_total 					= ( $uplift_labour + $uplift_paint + $uplift_additional + $uplift_parts + $uplift_check );

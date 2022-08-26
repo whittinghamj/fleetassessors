@@ -59,7 +59,7 @@ function vat_remove( $price, $vat = 20 ) {
 // price with vat details
 function vat_details( $price, $vat = 20 ) {
 	$data['vat'] = $vat;
-	$data['inc_vat'] = $price;
+	$data['inc_vat'] = round( $price, 2 );
 
 	//Divisor (for our math).
 	$vatDivisor = 1 + ( $vat / 100 );
@@ -72,11 +72,11 @@ function vat_details( $price, $vat = 20 ) {
 
 	//Print out the price before VAT.
 	// echo number_format($priceBeforeVat, 2), '<br>';
-	$data['ex_vat'] = $priceBeforeVat ;
+	$data['ex_vat'] = round( $priceBeforeVat, 2 );
 
 	//Print out how much of the gross price was VAT.
 	// echo 'VAT @ ' . $vat . '% - ' . number_format($vatAmount, 2), '<br>';
-	$data['vat_amount'] = $vatAmount;
+	$data['vat_amount'] = round( $vatAmount, 2 );
 
 	//Print out the gross price.
 	// echo $price;
@@ -794,7 +794,7 @@ function get_customers() {
 		if( $customers[$count]['full_address'] == ', , , , ' ) {
 			$customers[$count]['full_address'] = '';
 		}
-		
+
 		$count++;
 	}
 
