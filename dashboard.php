@@ -3012,7 +3012,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
-														<?php if( issset( $job['customer']['primary_contact']['id'] ) ) { ?>
+														<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
 															<div class="row">
 																<div class="col-xl-4 col-sm-12">
 																	<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
