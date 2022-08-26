@@ -1274,6 +1274,9 @@ function user_add() {
 function user_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
+	debug( $_POST );
+	die();
+
 	// map fields
 	$id 							= post( 'user_id' );
 	$first_name 					= post( 'first_name' );
