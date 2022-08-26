@@ -812,6 +812,15 @@ function get_customer( $id = '' ) {
 	" );
 	$data = $query->fetch( PDO::FETCH_ASSOC );
 
+	// find added_by
+	$users = get_users();
+	foreach( $users as $user ) {
+		if( $customer['added_by'] == $user['id'] ) {
+			$customer['added_by_user'] = $user;
+			break;
+		}
+	}
+
 	// get primary contact details
 	$data['primary_contact'] = get_user( $data['primary_contact_id'] );
 

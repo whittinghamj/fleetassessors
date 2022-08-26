@@ -1712,14 +1712,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					}
 					$customer 		= get_customer( $customer_id );
 					$users 			= get_users( 'customer' );
-
-					// find added_by
-					foreach( $users as $temp_user ) {
-						if( $customer['added_by'] == $temp_user['id'] ) {
-							$customer['added_by_user'] = $temp_user;
-							break;
-						}
-					}
 				?>
 
 				<div id="content" class="content">
