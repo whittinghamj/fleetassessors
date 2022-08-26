@@ -2917,6 +2917,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															</select>
 														</div>
 													</div>
+													
 													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Account Type</strong></label>
