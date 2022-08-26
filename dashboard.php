@@ -3002,7 +3002,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 																<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
 															</div>
 															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['full_address']; ?>, " readonly>
+																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['full_address']; ?>" readonly>
 															</div>
 														</div>
 													</div>
