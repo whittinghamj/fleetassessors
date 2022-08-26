@@ -2929,7 +2929,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<?php } ?>
 
 						<div class="row">
-							<div class="col-xl-2 col-xs-6">
+							<div class="col-xl-12 col-xs-6">
 								<div class="widget widget-stats bg-success text-inverse">
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
@@ -2941,6 +2941,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							</div>
+						</div>
 
 						<!-- top summary boxes -->
 						<div class="row">
