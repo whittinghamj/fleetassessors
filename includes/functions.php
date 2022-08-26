@@ -14,7 +14,7 @@ function action_security_check( $security_levels ) {
 
 		// staff check
 		if( $security_level == 'staff' ) {
-			if( $staff_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
+			if( $staff_check ) { breakl } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
 		}
 	}
 

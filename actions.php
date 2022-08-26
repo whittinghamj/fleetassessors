@@ -243,6 +243,9 @@ function customer_add() {
 function customer_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
 	// map fields
 	$customer_id 					= post( 'customer_id' );
 	$company_name 					= post( 'company_name' );
@@ -279,6 +282,9 @@ function customer_edit() {
 
 function customer_delete() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
 
 	// map fields
 	$id 							= get( 'id' );
@@ -647,62 +653,56 @@ function job_delete() {
 function user_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	// security check
-	if( $admin_check || $staff_check ) {
-		// map fields
-		$first_name 					= post( 'first_name' );
-		$last_name 						= post( 'last_name' );
-		$email 							= post( 'email' );
-		$phone 							= post( 'phone' );
-		$type 							= post( 'type' );
+	// security point
+	action_security_check( array( 'admin','staff' ) );
 
-		// does user already exist
-		$query = $conn->query( "
-	        SELECT `id` 
-	        FROM `users` 
-	        WHERE `email` = '".$email."' 
-	    " );
-		$user = $query->fetch( PDO::FETCH_ASSOC );
-		if( isset( $user['id'] ) ) {
-			// set status message
-			status_message( "danger", $email." already has an account." );
+	// map fields
+	$first_name 					= post( 'first_name' );
+	$last_name 						= post( 'last_name' );
+	$email 							= post( 'email' );
+	$phone 							= post( 'phone' );
+	$type 							= post( 'type' );
 
-			// redirect
-			go( $_SERVER['HTTP_REFERER'] );
-		} else {
-			// save data
-			$insert = $conn->exec( "INSERT IGNORE INTO `users` 
-				(`added`,`added_by`,`type`,`email`,`phone`,`first_name`,`last_name`,`status`)
-				VALUE
-				('".time()."', 
-				'".$account_details['id']."',
-				'".$type."', 
-				'".$email."',
-				'".$phone."',
-				'".$first_name."',
-				'".$last_name."',
-				'active'
-			)" );
+	// does user already exist
+	$query = $conn->query( "
+        SELECT `id` 
+        FROM `users` 
+        WHERE `email` = '".$email."' 
+    " );
+	$user = $query->fetch( PDO::FETCH_ASSOC );
+	if( isset( $user['id'] ) ) {
+		// set status message
+		status_message( "danger", $email." already has an account." );
 
-			$user_id = $conn->lastInsertId();
-
-			// set status message
-			status_message( "success", "User has been added." );
-
-			// redirect
-			go( 'dashboard.php?c=user&id='.$user_id );
-		}
-	} else {
 		// redirect
-		go( 'dashboard.php?c=access_denied' );
+		go( $_SERVER['HTTP_REFERER'] );
+	} else {
+		// save data
+		$insert = $conn->exec( "INSERT IGNORE INTO `users` 
+			(`added`,`added_by`,`type`,`email`,`phone`,`first_name`,`last_name`,`status`)
+			VALUE
+			('".time()."', 
+			'".$account_details['id']."',
+			'".$type."', 
+			'".$email."',
+			'".$phone."',
+			'".$first_name."',
+			'".$last_name."',
+			'active'
+		)" );
+
+		$user_id = $conn->lastInsertId();
+
+		// set status message
+		status_message( "success", "User has been added." );
+
+		// redirect
+		go( 'dashboard.php?c=user&id='.$user_id );
 	}
 }
 
 function user_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
-
-	debug( $_POST );
-	die();
 
 	// map fields
 	$id 							= post( 'user_id' );
@@ -748,23 +748,20 @@ function user_edit() {
 function user_delete() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	// security check
-	if( $admin_check || $staff_check ) {
-		// map fields
-		$id 							= get( 'id' );
+	// security point
+	action_security_check( array( 'admin','staff' ) );
 
-		// delete data
-		$delete = $conn->exec( "DELETE FROM `users` WHERE `id` = '".$id."' " );
+	// map fields
+	$id 							= get( 'id' );
 
-		// set status message
-		status_message( "success", "User has been deleted." );
+	// delete data
+	$delete = $conn->exec( "DELETE FROM `users` WHERE `id` = '".$id."' " );
 
-		// redirect
-		go( 'dashboard.php?c=users' );
-	} else {
-		// redirect
-		go( 'dashboard.php?c=access_denied' );
-	}
+	// set status message
+	status_message( "success", "User has been deleted." );
+
+	// redirect
+	go( 'dashboard.php?c=users' );
 }
 
 function system_settings() {
