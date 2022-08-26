@@ -169,6 +169,7 @@ function customer_add() {
 	$last_name 						= post( 'last_name' );
 	$email 							= post( 'email' );
 	$phone 							= post( 'phone' );
+	$phone 							= preg_replace( "/[^0-9\.]/", "", $phone );
 	$address_1 						= post( 'address_1' );
 	$address_2 						= post( 'address_2' );
 	$address_city 					= post( 'address_city' );
@@ -599,7 +600,7 @@ function job_edit() {
 	$approved_check 				= post( 'approved_check' );
 	$approved_check 				= preg_replace( "/[^0-9\.]/", "", $approved_check );
 	if( empty( $approved_check ) ) { $approved_check = '0.00'; }
-	
+
 	$approved_total 				= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
 
 	$notes 							= post( 'notes' );
