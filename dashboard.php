@@ -2925,7 +2925,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="stats-title text-inverse-lighter">
 											Initial Estimate <small>ex VAT</small>
 
-											<span class="ms-2">
+											<span class="ms-2 d-none d-sm-block">
 												<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i>
 											</span>
 										</div>
