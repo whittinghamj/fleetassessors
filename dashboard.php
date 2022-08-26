@@ -1712,6 +1712,14 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					}
 					$customer 		= get_customer( $customer_id );
 					$users 			= get_users( 'customer' );
+
+					// find added_by
+					foreach( $users as $temp_user ) {
+						if( $customer['added_by'] == $temp_user['id'] ) {
+							$customer['added_by_user'] = $temp_user;
+							break;
+						}
+					}
 				?>
 
 				<div id="content" class="content">
@@ -1804,6 +1812,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<option value="suspended" <?php if( $customer['status'] == 'suspended' ) { echo 'selected'; } ?> >Suspended</option>
 															<option value="terminated" <?php if( $customer['status'] == 'terminated' ) { echo 'selected'; } ?> >Terminated</option>
 														</select>
+													</div>
+												</div>
+
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Added By</strong></label>
+														<input type="text" name="added_by_name" class="form-control" value="<?php echo $customer['added_by_user']['full_name']; ?>">
 													</div>
 												</div>
 											</div>
