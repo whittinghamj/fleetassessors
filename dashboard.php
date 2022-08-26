@@ -122,7 +122,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	<link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet">
 
 	<!-- highcharts -->
-	<link href="assets/css/highcharts.css" rel="stylesheet">
 
 	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 
