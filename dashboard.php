@@ -1314,7 +1314,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					<?php } ?>
 
-					<!-- app timeline -->
+					<!-- stats -->
 					<div class="row">
 						<div class="col-xl-4 col-sm-12">
 							<div class="panel panel-inverse">
@@ -1335,6 +1335,26 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 						<div class="col-xl-4 col-sm-12">
 							<div id="highchart_container"></div>
+						</div>
+					</div>
+
+					<!-- other bits -->
+					<div class="row">
+						<div class="col-xl-4 col-sm-12">
+							<div class="panel panel-inverse">
+								<div class="panel-heading">
+									<h2 class="panel-title">Software Updates</h2>
+									<div class="panel-heading-btn">
+										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<dl>
+										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
+										<dd>Initial platform release.</dd>
+									</dl>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
