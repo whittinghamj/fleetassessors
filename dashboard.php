@@ -1162,7 +1162,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				</div>
 			<?php } ?>
 
-			<!-- production section -->
+
+			<!-- access denied view -->
 			<?php function access_denied() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
 
@@ -1187,231 +1188,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				</div>
 			<?php } ?>
 
-			<?php function home() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
-
-				<?php $stats['total_users'] 		= total_users(); ?>
-				<?php $stats['total_customers'] 	= total_customers(); ?>
-				<?php $stats['total_jobs'] 			= total_jobs(); ?>
-				<?php $stats['pending_jobs'] 		= total_jobs( 'pending' ); ?>
-				<?php $stats['total_providers'] 	= total_providers(); ?>
-
-				<div id="content" class="content">
-					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a></li>
-					</ol>
-
-					<h1 class="page-header">Dashboard</h1>
-
-					<div class="row">
-						<div class="col-xl-12">
-							<div id="status_message"></div><div id="kyc_status_message"></div>
-						</div>
-					</div>
-
-					<?php if( $dev_check ) { ?>
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="panel">
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-xl-8 col-xs-12">
-											</div>
-											<div class="col-xl-4 col-xs-12 text-right">
-												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-
-					<!-- admin / staff dashboard tiles -->
-					<?php if( $admin_check || $staff_check ) { ?>
-						<div class="row">
-							<!--
-								<div class="col-xl-3 col-xl-6">
-									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-analytics"></i></div>
-										<div class="stats-content">
-											<div class="stats-title text-inverse-lighter">TODAY'S VISITS</div>
-											<div class="stats-number">7,842,900</div>
-											<div class="stats-progress progress">
-												<div class="progress-bar" style="width: 70.1%;"></div>
-											</div>
-											<div class="stats-desc text-inverse-lighter">Better than last week (70.1%)</div>
-										</div>
-									</div>
-								</div>
-							-->
-							<div class="col-xl-3 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Pending Jobs
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
-										</div>
-										<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Jobs
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
-										</div>
-										<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-users"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Customers
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
-										</div>
-										<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-purple text-white d-none d-sm-block"><i class="fa fa-address-card"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Providers
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
-										</div>
-										<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=providers">Find out more ...</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-
-					<!-- stats -->
-					<div class="row">
-						<div class="col-xl-4 col-sm-12">
-							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title">Software Updates</h2>
-									<div class="panel-heading-btn">
-										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
-									</div>
-								</div>
-								<div class="panel-body">
-									<dl>
-										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
-										<dd>Initial platform release.</dd>
-									</dl>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-sm-12">
-							<div id="highchart_container"></div>
-						</div>
-					</div>
-
-					<!-- other bits -->
-					<div class="row">
-						<div class="col-xl-4 col-sm-12">
-							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title">Software Updates</h2>
-									<div class="panel-heading-btn">
-										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
-									</div>
-								</div>
-								<div class="panel-body">
-									<dl>
-										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
-										<dd>Initial platform release.</dd>
-									</dl>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- dev modal -->
-				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Dev</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-						 				Nothing to show.
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
-				</div>
-
-				<!-- contact genex modal -->
-				<div class="modal fade" id="contact_genex" tabindex="-1" role="dialog" aria-labelledby="contact_genex" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Contact Genex Support</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-						 				<strong>Email:</strong> <a href="mailto:jamie.whittingham@gmail.com">jamie.whittingham@gmail.com</a> <br>
-						 				<strong>Phone:</strong> <a href="tel:+447399973949">+44 (0) 7399 973949</a>
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
-				</div>
-			<?php } ?>
 
 			<!-- customer views -->
 			<?php function customers() { ?>
@@ -2603,6 +2379,907 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 				</form>
 			<?php } ?>
 
+
+			<!-- home view -->
+			<?php function home() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+
+				<?php $stats['total_users'] 		= total_users(); ?>
+				<?php $stats['total_customers'] 	= total_customers(); ?>
+				<?php $stats['total_jobs'] 			= total_jobs(); ?>
+				<?php $stats['pending_jobs'] 		= total_jobs( 'pending' ); ?>
+				<?php $stats['total_providers'] 	= total_providers(); ?>
+
+				<div id="content" class="content">
+					<ol class="breadcrumb float-xl-right">
+						<li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a></li>
+					</ol>
+
+					<h1 class="page-header">Dashboard</h1>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
+					<!-- admin / staff dashboard tiles -->
+					<?php if( $admin_check || $staff_check ) { ?>
+						<div class="row">
+							<!--
+								<div class="col-xl-3 col-xl-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-analytics"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">TODAY'S VISITS</div>
+											<div class="stats-number">7,842,900</div>
+											<div class="stats-progress progress">
+												<div class="progress-bar" style="width: 70.1%;"></div>
+											</div>
+											<div class="stats-desc text-inverse-lighter">Better than last week (70.1%)</div>
+										</div>
+									</div>
+								</div>
+							-->
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Pending Jobs
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
+										</div>
+										<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
+										<div class="stats-progress progress">
+											<div class="progress-bar" style="width: 100%;"></div>
+										</div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Total Jobs
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
+										</div>
+										<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
+										<div class="stats-progress progress">
+											<div class="progress-bar" style="width: 100%;"></div>
+										</div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-users"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Total Customers
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
+										</div>
+										<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
+										<div class="stats-progress progress">
+											<div class="progress-bar" style="width: 100%;"></div>
+										</div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-purple text-white d-none d-sm-block"><i class="fa fa-address-card"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Total Providers
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
+										</div>
+										<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
+										<div class="stats-progress progress">
+											<div class="progress-bar" style="width: 100%;"></div>
+										</div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=providers">Find out more ...</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
+					<!-- stats -->
+					<div class="row">
+						<div class="col-xl-4 col-sm-12">
+							<div class="panel panel-inverse">
+								<div class="panel-heading">
+									<h2 class="panel-title">Software Updates</h2>
+									<div class="panel-heading-btn">
+										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<dl>
+										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
+										<dd>Initial platform release.</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-4 col-sm-12">
+							<div id="highchart_container"></div>
+						</div>
+					</div>
+
+					<!-- other bits -->
+					<div class="row">
+						<div class="col-xl-4 col-sm-12">
+							<div class="panel panel-inverse">
+								<div class="panel-heading">
+									<h2 class="panel-title">Software Updates</h2>
+									<div class="panel-heading-btn">
+										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<dl>
+										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
+										<dd>Initial platform release.</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+						 				Nothing to show.
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+
+				<!-- contact genex modal -->
+				<div class="modal fade" id="contact_genex" tabindex="-1" role="dialog" aria-labelledby="contact_genex" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Contact Genex Support</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+						 				<strong>Email:</strong> <a href="mailto:jamie.whittingham@gmail.com">jamie.whittingham@gmail.com</a> <br>
+						 				<strong>Phone:</strong> <a href="tel:+447399973949">+44 (0) 7399 973949</a>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			<?php } ?>
+
+
+			<!-- job views -->
+			<?php function jobs() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+
+				<?php
+					// get data
+					$jobs 	= get_all_jobs();
+					$customers = get_customers();
+				?>
+
+				<div id="content" class="content">
+					<ol class="breadcrumb float-xl-right">
+						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item active">Jobs</li>
+					</ol>
+					
+					<h1 class="page-header">Jobs</h1>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<!-- dev options -->
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
+					<!-- customers -->
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<h2 class="panel-title">Jobs</h2>
+							<div class="panel-heading-btn">
+								<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+							</div>
+						</div>
+						<div class="panel-body">
+							<?php if( !isset( $jobs[0]['id'] ) ) { ?>
+								<center>
+									<h3>
+										No jobs found.
+									</h3>
+								</center>
+							<?php } else { ?>
+								<table id="table_jobs" class="table table-striped table-bordered table-td-valign-middle">
+									<thead>
+										<tr>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Added</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Customer</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift Est</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift Element</strong></th>
+											<th class="text-nowrap" data-orderable="false" width=""></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Status</strong></th>
+											<th class="text-nowrap" data-orderable="false" width="1px"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											// build table
+											foreach( $jobs as $job ) {
+												// status 
+												$job['status_raw'] = $job['status'];
+												if( $job['status'] == 'pending' ) {
+													$job['status'] = '<button class="btn btn-info btn-block">Pending</button>';
+												} elseif( $job['status'] == 'active' ) {
+													$job['status'] = '<button class="btn btn-info btn-block">Active</button>';
+												} elseif( $job['status'] == 'suspended' ) {
+													$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
+												} elseif( $job['status'] == 'complete' ) {
+													$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
+												}	
+
+												// cal vat details
+												$initial_estimate = vat_details( $job['initial_estimate'] );
+												$uplift_estimate = vat_details( $job['uplift_estimate'] );
+												$approved_estimate = vat_details( $job['approved_estimate'] );
+
+												// build revised estimate
+												$revised_estimate = $initial_estimate['ex_vat'] + $uplift_estimate['ex_vat'];
+
+
+												// output
+												echo '
+													<tr>
+														<td class="text-nowrap">
+															<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
+														</td>
+														<td class="text-nowrap">
+															'.date( "Y-m-d H:i:s", $job['added'] ).'
+														</td>
+														<td class="text-nowrap">
+															<a href="?c=customer&id='.$job['customer_id'].'">'.$job['customer']['company_name'].'</a>
+														</td>
+														<td class="text-nowrap">
+															'.$job['vrn'].' <br>
+															'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].', '.$job['vrn_details']['model'].'
+														</td>
+														<td class="text-nowrap">
+															'.$job['estimator'].'
+														</td>
+														<td class="text-nowrap">
+															£'.number_format( $job['initial_estimate'], 2 ).'
+														</td>
+														<td class="text-nowrap">
+															£'.number_format( $job['uplift_estimate'], 2 ).'
+														</td>
+														<td class="text-nowrap">
+															£'.number_format( $job['approved_estimate'], 2 ).'
+														</td>
+														<td class="text-nowrap">
+														</td>
+														<td class="text-nowrap">
+															'.$job['status'].'
+														</td>
+														<td class="text-nowrap">
+															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+															<div class="dropdown-menu dropdown-menu-right" role="menu">
+																<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
+																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+															</div>
+														</td>
+													</tr>
+												';
+											}
+										?>
+									</tbody>
+								</table>
+								<strong><font color="red">*</font></strong> Prices are excluding VAT unless otherwise stated.
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+
+				<!-- add job modal -->
+				<form class="form" method="post" action="actions.php?a=job_add">
+					<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
+					   	<div class="modal-dialog modal-notice">
+						  	<div class="modal-content">
+							 	<div class="modal-header">
+									<h5 class="modal-title" id="myModalLabel">Add Job</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										x
+									</button>
+							 	</div>
+							 	<div class="modal-body">
+							 		<div class="row">
+							 			<div class="col-xl-12 col-sm-12">
+							 				<div class="form-group">
+												<label class="bmd-label-floating"><strong>Customer</strong></label>
+												<select name="customer_id" class="form-control select2">
+													<?php foreach( $customers as $customer ) { ?>
+														<option value="<?php echo $customer['id']; ?>"><?php echo $customer['company_name']; ?></option>
+													<?php } ?>
+												</select>
+											</div>
+										</div>
+										<div class="col-xl-6 col-sm-12">
+											<div class="form-group">
+												<label class="bmd-label-floating"><strong>VRN</strong></label>
+												<input type="text" id="vrn" name="vrn" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-xl-6 col-sm-12">
+											<div class="form-group">
+												<label class="bmd-label-floating"><strong>Initial Est Inc VAT</strong></label>
+												<input type="text" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
+											</div>
+										</div>
+									</div>
+							 	</div>
+							 	<div class="modal-footer">
+							 		<div class="btn-group">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+									</div>
+								</div>
+						  	</div>
+					   	</div>
+					</div>
+				</form>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+										<?php debug( $jobs ); ?>
+										<?php debug( $customers ); ?>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			<?php } ?>
+
+			<?php function job() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+
+				<?php 
+					// get data
+					$job_id 		= get( 'id' );
+
+					// sanity check
+					if( empty( $job_id ) ) {
+
+					}
+					$job 			= get_job( $job_id );
+					$providers 		= get_providers();
+
+					$markup 		= $job['uplift_estimate'];
+					$profit 		= $job['approved_estimate'];
+					$revised_estimate = ( $job['initial_estimate'] + $job['uplift_estimate'] );
+					// $approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
+				?>
+
+				<div id="content" class="content">
+					<!-- sanity check -->
+					<?php if( !isset( $job['id'] ) ) { ?>
+						<?php echo $not_found; ?>
+					<?php } else { ?>
+						<ol class="breadcrumb float-xl-right">
+							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs">Jobs</a></li>
+							<li class="breadcrumb-item active">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></li>
+						</ol>
+
+						<h1 class="page-header">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></h1>
+
+						<div class="row">
+							<div class="col-xl-12">
+								<div id="status_message"></div><div id="kyc_status_message"></div>
+							</div>
+						</div>
+
+						<?php if( $dev_check ) { ?>
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
+						<!-- top summary boxes -->
+						<div class="row">
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Initial Estimate
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-check-square"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Initial Uplift Estimate
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Approved Uplift Element
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Revised Estimate
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Profit
+										</div>
+										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<form class="form" method="post" action="actions.php?a=job_edit">
+							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
+
+							<!-- customer / job notes -->
+							<div class="row">
+								<div class="col-xl-6 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Customer</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Name</strong></small></label>
+														<div class="row">
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
+															</div>
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['address_1']; ?>, " readonly>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
+														<div class="row">
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
+															</div>
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="phone" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
+															</div>
+															<div class="col-xl-4 col-sm-12">
+																<input type="text" name="email" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-6 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Notes</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-12 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['notes']; ?></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- job options -->
+							<div class="row">
+								<div class="col-xl-12 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Job Options</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-1 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Added</strong></label>
+														<input type="text" name="added" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['added'] ); ?>" readonly>
+													</div>
+												</div>
+												<div class="col-xl-1 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
+														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>" readonly>
+													</div>
+												</div>
+												<div class="col-xl-1 col-sm-12">
+													<div class="form-group">
+														<?php if( $job['status'] == 'cancelled' || $job['status'] == 'complete' ) { ?>
+															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
+														<?php } else { ?>
+															<label class="bmd-label-floating"><strong>Job Age</strong></label>
+														<?php } ?>
+														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
+													</div>
+												</div>
+												<div class="col-xl-1 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Status</strong></label>
+														<select name="status" class="form-control select2">
+															<option value="active" <?php if( $job['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
+															<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
+															<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
+															<option value="complete" <?php if( $job['status'] == 'complete' ) { echo 'selected'; } ?> >Complete</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Provider</strong></label>
+														<select name="provider_id" class="form-control select2">
+															<?php foreach( $providers as $provider ) { ?>
+																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+															<?php } ?>
+														</select>
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Initial Estimate Ex VAT</strong></label>
+														<input type="text" name="initial_estimate" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Estimator</strong></label>
+														<input type="text" name="estimator" class="form-control" value="<?php echo $job['estimator']; ?>" placeholder="Joe Bloggs">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- initial uplift estimate -->
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Initial Uplift Breakdown</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
+														<input type="text" name="uplift_labour" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
+														<input type="text" name="uplift_paint" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
+														<input type="text" name="uplift_additional" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
+														<input type="text" name="uplift_parts" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
+														<input type="text" name="uplift_check" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Total (£)</strong></label>
+														<input type="text" name="uplift_total" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- approved uplift estimate -->
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Approved Uplift Breakdown</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
+														<input type="text" name="approved_labour" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
+														<input type="text" name="approved_paint" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
+														<input type="text" name="approved_additional" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
+														<input type="text" name="approved_parts" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
+														<input type="text" name="approved_check" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
+													</div>
+												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Total (£)</strong></label>
+														<input type="text" name="approved_total" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+
+							<!-- form options -->
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-white">Back</a>
+														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					<?php } ?>
+				</div>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+						 				<h2>$job</h2>
+										<?php debug( $job ); ?>
+										<h2>$providers</h2>
+										<?php debug( $providers ); ?>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			<?php } ?>
+
+
 			<!-- user functions -->
 			<?php function users() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
@@ -3360,683 +4037,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						 		<div class="row">
 						 			<div class="col-xl-12 col-sm-12">
 										<?php debug( $user ); ?>
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
-				</div>
-			<?php } ?>
-
-
-			<!-- job views -->
-			<?php function jobs() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
-
-				<?php
-					// get data
-					$jobs 	= get_all_jobs();
-					$customers = get_customers();
-				?>
-
-				<div id="content" class="content">
-					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-						<li class="breadcrumb-item active">Jobs</li>
-					</ol>
-					
-					<h1 class="page-header">Jobs</h1>
-
-					<div class="row">
-						<div class="col-xl-12">
-							<div id="status_message"></div><div id="kyc_status_message"></div>
-						</div>
-					</div>
-
-					<!-- dev options -->
-					<?php if( $dev_check ) { ?>
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="panel">
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-xl-8 col-xs-12">
-											</div>
-											<div class="col-xl-4 col-xs-12 text-right">
-												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-
-					<!-- customers -->
-					<div class="panel panel-inverse">
-						<div class="panel-heading">
-							<h2 class="panel-title">Jobs</h2>
-							<div class="panel-heading-btn">
-								<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
-							</div>
-						</div>
-						<div class="panel-body">
-							<?php if( !isset( $jobs[0]['id'] ) ) { ?>
-								<center>
-									<h3>
-										No jobs found.
-									</h3>
-								</center>
-							<?php } else { ?>
-								<table id="table_jobs" class="table table-striped table-bordered table-td-valign-middle">
-									<thead>
-										<tr>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>ID</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Added</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Customer</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>VRN</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Estimator</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Initial Uplift Est</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Approved Uplift Element</strong></th>
-											<th class="text-nowrap" data-orderable="false" width=""></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"><strong>Status</strong></th>
-											<th class="text-nowrap" data-orderable="false" width="1px"></th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-											// build table
-											foreach( $jobs as $job ) {
-												// status 
-												$job['status_raw'] = $job['status'];
-												if( $job['status'] == 'pending' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">Pending</button>';
-												} elseif( $job['status'] == 'active' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">Active</button>';
-												} elseif( $job['status'] == 'suspended' ) {
-													$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
-												} elseif( $job['status'] == 'complete' ) {
-													$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
-												}	
-
-												// cal vat details
-												$initial_estimate = vat_details( $job['initial_estimate'] );
-												$uplift_estimate = vat_details( $job['uplift_estimate'] );
-												$approved_estimate = vat_details( $job['approved_estimate'] );
-
-												// build revised estimate
-												$revised_estimate = $initial_estimate['ex_vat'] + $uplift_estimate['ex_vat'];
-
-
-												// output
-												echo '
-													<tr>
-														<td class="text-nowrap">
-															<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
-														</td>
-														<td class="text-nowrap">
-															'.date( "Y-m-d H:i:s", $job['added'] ).'
-														</td>
-														<td class="text-nowrap">
-															<a href="?c=customer&id='.$job['customer_id'].'">'.$job['customer']['company_name'].'</a>
-														</td>
-														<td class="text-nowrap">
-															'.$job['vrn'].' <br>
-															'.$job['vrn_details']['year'].' '.$job['vrn_details']['make'].', '.$job['vrn_details']['model'].'
-														</td>
-														<td class="text-nowrap">
-															'.$job['estimator'].'
-														</td>
-														<td class="text-nowrap">
-															£'.number_format( $job['initial_estimate'], 2 ).'
-														</td>
-														<td class="text-nowrap">
-															£'.number_format( $job['uplift_estimate'], 2 ).'
-														</td>
-														<td class="text-nowrap">
-															£'.number_format( $job['approved_estimate'], 2 ).'
-														</td>
-														<td class="text-nowrap">
-														</td>
-														<td class="text-nowrap">
-															'.$job['status'].'
-														</td>
-														<td class="text-nowrap">
-															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
-															</div>
-														</td>
-													</tr>
-												';
-											}
-										?>
-									</tbody>
-								</table>
-								<strong><font color="red">*</font></strong> Prices are excluding VAT unless otherwise stated.
-							<?php } ?>
-						</div>
-					</div>
-				</div>
-
-				<!-- add job modal -->
-				<form class="form" method="post" action="actions.php?a=job_add">
-					<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
-					   	<div class="modal-dialog modal-notice">
-						  	<div class="modal-content">
-							 	<div class="modal-header">
-									<h5 class="modal-title" id="myModalLabel">Add Job</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-										x
-									</button>
-							 	</div>
-							 	<div class="modal-body">
-							 		<div class="row">
-							 			<div class="col-xl-12 col-sm-12">
-							 				<div class="form-group">
-												<label class="bmd-label-floating"><strong>Customer</strong></label>
-												<select name="customer_id" class="form-control select2">
-													<?php foreach( $customers as $customer ) { ?>
-														<option value="<?php echo $customer['id']; ?>"><?php echo $customer['company_name']; ?></option>
-													<?php } ?>
-												</select>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>VRN</strong></label>
-												<input type="text" id="vrn" name="vrn" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Initial Est Inc VAT</strong></label>
-												<input type="text" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
-											</div>
-										</div>
-									</div>
-							 	</div>
-							 	<div class="modal-footer">
-							 		<div class="btn-group">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
-									</div>
-								</div>
-						  	</div>
-					   	</div>
-					</div>
-				</form>
-
-				<!-- dev modal -->
-				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Dev</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-										<?php debug( $jobs ); ?>
-										<?php debug( $customers ); ?>
-									</div>
-								</div>
-						 	</div>
-						 	<div class="modal-footer">
-						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-					  	</div>
-				   	</div>
-				</div>
-			<?php } ?>
-
-			<?php function job() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
-
-				<?php 
-					// get data
-					$job_id 		= get( 'id' );
-
-					// sanity check
-					if( empty( $job_id ) ) {
-
-					}
-					$job 			= get_job( $job_id );
-					$providers 		= get_providers();
-
-					$markup 		= $job['uplift_estimate'];
-					$profit 		= $job['approved_estimate'];
-					$revised_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
-
-					// $initial_estimate = vat_details( $job['initial_estimate'] );
-					// $initial_estimate = vat_details( $job['initial_estimate'] );
-					// $initial_estimate = vat_details( $job['initial_estimate'] );
-
-
-				?>
-
-				<div id="content" class="content">
-					<!-- sanity check -->
-					<?php if( !isset( $job['id'] ) ) { ?>
-						<?php echo $not_found; ?>
-					<?php } else { ?>
-						<ol class="breadcrumb float-xl-right">
-							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs">Jobs</a></li>
-							<li class="breadcrumb-item active">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></li>
-						</ol>
-
-						<h1 class="page-header">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></h1>
-
-						<div class="row">
-							<div class="col-xl-12">
-								<div id="status_message"></div><div id="kyc_status_message"></div>
-							</div>
-						</div>
-
-						<?php if( $dev_check ) { ?>
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel">
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-8 col-xs-12">
-												</div>
-												<div class="col-xl-4 col-xs-12 text-right">
-													<div class="btn-group">
-														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						<?php } ?>
-
-						<!-- top summary boxes -->
-						<div class="row">
-							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Initial Estimate
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
-										</div>
-										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-check-square"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Initial Uplift Estimate
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
-										</div>
-										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Approved Uplift Element
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
-										</div>
-										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Revised Estimate
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
-										</div>
-										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Profit
-										</div>
-										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<form class="form" method="post" action="actions.php?a=job_edit">
-							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
-
-							<!-- customer / job notes -->
-							<div class="row">
-								<div class="col-xl-6 col-sm-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Customer</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Name</strong></small></label>
-														<div class="row">
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
-															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['address_1']; ?>, " readonly>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
-														<div class="row">
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
-															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="phone" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
-															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="email" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-6 col-sm-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Notes</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['notes']; ?></textarea>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- job options -->
-							<div class="row">
-								<div class="col-xl-12 col-sm-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Job Options</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-1 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Added</strong></label>
-														<input type="text" name="added" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['added'] ); ?>" readonly>
-													</div>
-												</div>
-												<div class="col-xl-1 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
-														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>" readonly>
-													</div>
-												</div>
-												<div class="col-xl-1 col-sm-12">
-													<div class="form-group">
-														<?php if( $job['status'] == 'cancelled' || $job['status'] == 'complete' ) { ?>
-															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
-														<?php } else { ?>
-															<label class="bmd-label-floating"><strong>Job Age</strong></label>
-														<?php } ?>
-														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
-													</div>
-												</div>
-												<div class="col-xl-1 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Status</strong></label>
-														<select name="status" class="form-control select2">
-															<option value="active" <?php if( $job['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
-															<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
-															<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
-															<option value="complete" <?php if( $job['status'] == 'complete' ) { echo 'selected'; } ?> >Complete</option>
-														</select>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Provider</strong></label>
-														<select name="provider_id" class="form-control select2">
-															<?php foreach( $providers as $provider ) { ?>
-																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
-															<?php } ?>
-														</select>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Initial Estimate Ex VAT</strong></label>
-														<input type="text" name="initial_estimate" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Estimator</strong></label>
-														<input type="text" name="estimator" class="form-control" value="<?php echo $job['estimator']; ?>" placeholder="Joe Bloggs">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- initial uplift estimate -->
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Initial Uplift Breakdown</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
-														<input type="text" name="uplift_labour" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
-														<input type="text" name="uplift_paint" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
-														<input type="text" name="uplift_additional" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
-														<input type="text" name="uplift_parts" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
-														<input type="text" name="uplift_check" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Total (£)</strong></label>
-														<input type="text" name="uplift_total" class="form-control" value="<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- approved uplift estimate -->
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Approved Uplift Breakdown</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
-														<input type="text" name="approved_labour" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
-														<input type="text" name="approved_paint" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
-														<input type="text" name="approved_additional" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
-														<input type="text" name="approved_parts" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
-														<input type="text" name="approved_check" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Total (£)</strong></label>
-														<input type="text" name="approved_total" class="form-control" value="<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							
-
-							<!-- form options -->
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="panel">
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-8 col-xs-12">
-												</div>
-												<div class="col-xl-4 col-xs-12 text-right">
-													<div class="btn-group">
-														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-					<?php } ?>
-				</div>
-
-				<!-- dev modal -->
-				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
-				   	<div class="modal-dialog modal-xl">
-					  	<div class="modal-content">
-						 	<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel">Dev</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									x
-								</button>
-						 	</div>
-						 	<div class="modal-body">
-						 		<div class="row">
-						 			<div class="col-xl-12 col-sm-12">
-						 				<h2>$job</h2>
-										<?php debug( $job ); ?>
-										<h2>$providers</h2>
-										<?php debug( $providers ); ?>
 									</div>
 								</div>
 						 	</div>

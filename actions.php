@@ -548,6 +548,9 @@ function job_add() {
 function job_edit() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
 	// map fields
 	$job_id 						= post( 'job_id' );
 	$status 						= post( 'status' );
@@ -624,6 +627,9 @@ function job_edit() {
 function job_delete() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+	
 	// map fields
 	$id 							= get( 'id' );
 
