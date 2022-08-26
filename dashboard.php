@@ -2930,7 +2930,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 						<div class="row">
 							<div class="col-xl-2 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
+								<div class="widget widget-stats bg-success text-inverse">
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Job has been Approved.
