@@ -3026,7 +3026,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															</div>
 														<?php } else { ?>
 															<div class="row">
-																<div class="col-xl-4 col-sm-12">
+																<div class="col-xl-12 col-sm-12">
 																	No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
 																</div>
 															</div>
