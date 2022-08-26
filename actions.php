@@ -709,6 +709,7 @@ function user_edit() {
 	$first_name 					= post( 'first_name' );
 	$last_name 						= post( 'last_name' );
 	$email 							= post( 'email' );
+	$password 						= post( 'password' );
 	$type 							= post( 'type' );
 	$status 						= post( 'status' );
 	$address_1 						= post( 'address_1' );
@@ -729,7 +730,7 @@ function user_edit() {
 	$update = $conn->exec( "UPDATE `users` SET `first_name` = '".$first_name."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `last_name` = '".$last_name."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `email` = '".$email."' WHERE `id` = '".$user_id."' " );
-	$update = $conn->exec( "UPDATE `users` SET `password` = '".$password_1."' WHERE `id` = '".$user_id."' " );
+	$update = $conn->exec( "UPDATE `users` SET `password` = '".$password."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `phone` = '".$phone."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_1` = '".$address_1."' WHERE `id` = '".$user_id."' " );
 	$update = $conn->exec( "UPDATE `users` SET `address_2` = '".$address_2."' WHERE `id` = '".$user_id."' " );

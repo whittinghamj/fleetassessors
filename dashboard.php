@@ -3288,15 +3288,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-3 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Password</strong></label>
-														<input type="text" name="password_1" class="form-control" value="<?php echo $user['password']; ?>" required>
-														<small>Only use letters and numbers.</small>
-													</div>
-												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Confirm Password</strong></label>
-														<input type="text" name="password_2" class="form-control" value="<?php echo $user['password']; ?>" required>
-														<small>Only use letters and numbers.</small>
+														<input type="text" name="password" class="form-control" value="<?php echo $user['password']; ?>" required>
+														<small>Only use letters and numbers. Min 8 characters.</small>
 													</div>
 												</div>
 											</div>
