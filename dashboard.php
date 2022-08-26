@@ -5133,7 +5133,7 @@ Highcharts.chart('container', {
     type: 'pie'
   },
   title: {
-    text: 'Browser market shares in January, 2018'
+    // text: 'Browser market shares in January, 2018'
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
