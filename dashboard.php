@@ -5472,6 +5472,40 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		</script>
 	<?php } ?>
 
+	<?php if( get( 'c' ) == 'jobs' ) { ?>
+		<script type="text/javascript">
+			// data tables > table_customers
+			$(function () {
+				$( '#table_jobs' ).DataTable({
+					"order": [[ 0, "desc" ]],
+					"responsive": true,
+					"columnDefs": [{
+						"targets"  : 'no-sort',
+						"orderable": false,
+					}],
+					"language": {
+						"emptyTable": "No jobs found."
+					},
+					"oLanguage": {
+						"sSearch": "Filter: "
+					},
+					"paging": true,
+					"processing": true,
+					"lengthChange": true,
+					"searching": true,
+					"ordering": true,
+					"info": true,
+					"autoWidth": false,
+					"lengthMenu": [10, 25, 50, 100, 500],
+					"pageLength": 10,
+					search: {
+					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
+					}
+				} );
+			} );
+		</script>
+	<?php } ?>
+
 	<?php if( get( 'c' ) == 'user' ) { ?>
 		<?php
 			if( $admin_check && isset( $_GET['id'] ) || $staff_check && isset( $_GET['id'] ) ) {
