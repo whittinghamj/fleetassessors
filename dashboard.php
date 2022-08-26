@@ -5116,7 +5116,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 		<script>
-			Highcharts.chart("container", {
+			Highcharts.chart("highchart_container", {
 			    chart: {
 			        plotBackgroundColor: null,
 			        plotBorderWidth: null,
