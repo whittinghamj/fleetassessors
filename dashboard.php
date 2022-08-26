@@ -3334,7 +3334,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
 														<a href="?c=users" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="processing();" class="btn btn-primary">Save</button>
+														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
 													</div>
 												</div>
 											</div>
