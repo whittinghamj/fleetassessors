@@ -2938,7 +2938,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											Initial Estimate <small>ex VAT</small>
 											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
 										</div>
-										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
+										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div> <br>
+										<small>test</small>
 									</div>
 								</div>
 							</div>
@@ -2980,22 +2981,18 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 
-
-							
-							<!-- 
-								<div class="col-xl-2 col-xs-6">
-									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
-										<div class="stats-content">
-											<div class="stats-title text-inverse-lighter">
-												Approved Estimate
-												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the customers initial estimate plus the approved uplift element. This figure excludes VAT."></i></span>
-											</div>
-											<div class="stats-number">£<?php echo number_format( $approved_estimate, 2 ); ?></div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Approved Estimate
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the customers initial estimate plus the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
+										<div class="stats-number">£<?php echo number_format( $approved_estimate, 2 ); ?></div>
 									</div>
 								</div>
-							-->
+							</div>
 							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
