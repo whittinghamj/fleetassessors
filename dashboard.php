@@ -2133,9 +2133,13 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<hr>
 												<br>
 												<div class="col-xl-12 col-sm-12">
-													<div class="widget-map-body">
-														<iframe class="d-block" src="https://www.google.com/maps?q=<?php echo $customer['full_address']; ?>&output=embed" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
-													</div>
+													<?php if( $customer['full_address'] == '' || $customer['full_address'] == ', , , , ') { ?>
+
+													<?php } else { ?>
+														<div class="widget-map-body">
+															<iframe class="d-block" src="https://www.google.com/maps?q=<?php echo $customer['full_address']; ?>&output=embed" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+														</div>
+													<?php } ?>
 												</div>
 											</div>
 										</div>
