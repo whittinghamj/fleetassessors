@@ -2242,15 +2242,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															foreach( $customer['jobs'] as $job ) {
 																// status 
 																$job['status_raw'] = $job['status'];
-																if( $job['status'] == 'pending' ) {
-																	$job['status'] = '<button class="btn btn-info btn-block">Pending</button>';
-																} elseif( $job['status'] == 'active' ) {
-																	$job['status'] = '<button class="btn btn-info btn-block">Active</button>';
-																} elseif( $job['status'] == 'suspended' ) {
+																if( $job['status'] == 'approved' ) {
+																	$job['status'] = '<button class="btn btn-success btn-block">Approved</button>';
+																} elseif( $job['status'] == 'cancelled' ) {
 																	$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
-																} elseif( $job['status'] == 'complete' ) {
-																	$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
-																}				
+																} elseif( $job['status'] == 'new' ) {
+																	$job['status'] = '<button class="btn btn-info btn-block">New Job</button>';
+																} elseif( $job['status'] == 'submitted' ) {
+																	$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
+																} elseif( $job['status'] == 'rejected' ) {
+																	$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
+																}	
 
 																$initial_estimate = vat_details( $job['initial_estimate'] );
 																$uplift_estimate = vat_details( $job['uplift_estimate'] );
@@ -2691,15 +2693,18 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 											foreach( $jobs as $job ) {
 												// status 
 												$job['status_raw'] = $job['status'];
-												if( $job['status'] == 'pending' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">Pending</button>';
-												} elseif( $job['status'] == 'active' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">Active</button>';
-												} elseif( $job['status'] == 'suspended' ) {
+												if( $job['status'] == 'approved' ) {
+													$job['status'] = '<button class="btn btn-success btn-block">Approved</button>';
+												} elseif( $job['status'] == 'cancelled' ) {
 													$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
-												} elseif( $job['status'] == 'complete' ) {
-													$job['status'] = '<button class="btn btn-success btn-block">Complete</button>';
-												}	
+												} elseif( $job['status'] == 'new' ) {
+													$job['status'] = '<button class="btn btn-info btn-block">New Job</button>';
+												} elseif( $job['status'] == 'submitted' ) {
+													$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
+												} elseif( $job['status'] == 'rejected' ) {
+													$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
+												}
+
 
 												// cal vat details
 												$initial_estimate = vat_details( $job['initial_estimate'] );
@@ -2708,7 +2713,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 												// build revised estimate
 												$revised_estimate = $initial_estimate['ex_vat'] + $uplift_estimate['ex_vat'];
-
 
 												// output
 												echo '
@@ -3090,10 +3094,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
-															<option value="active" <?php if( $job['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
+															<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> >Approved</option>
 															<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
-															<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
-															<option value="complete" <?php if( $job['status'] == 'complete' ) { echo 'selected'; } ?> >Complete</option>
+															<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
+															<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
+															<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
 														</select>
 													</div>
 												</div>
