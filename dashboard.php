@@ -2855,7 +2855,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					$markup 		= $job['uplift_estimate'];
 					$profit 		= $job['approved_estimate'];
 					$revised_estimate = ( $job['initial_estimate'] + $job['uplift_estimate'] );
-					// $approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
+					$approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
 				?>
 
 				<div id="content" class="content">
@@ -2904,7 +2904,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
-											Initial Estimate
+											Initial Estimate <small>ex VAT</small>
 											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
@@ -2913,10 +2913,22 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 							<div class="col-xl-2 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
+									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+									<div class="stats-content">
+										<div class="stats-title text-inverse-lighter">
+											Revised Estimate <small>ex VAT</small>
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+										</div>
+										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-xs-6">
+								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-check-square"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
-											Initial Uplift Estimate
+											Initial Uplift Element
 											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
@@ -2940,10 +2952,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
-											Revised Estimate
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+											Approved Estimate
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the customers initial estimate plus the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
-										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
+										<div class="stats-number">£<?php echo number_format( $approved_estimate, 2 ); ?></div>
 									</div>
 								</div>
 							</div>
@@ -2953,6 +2965,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Profit
+											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="This is the amount we were able to increase the estimate from its initial value. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
 									</div>

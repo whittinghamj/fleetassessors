@@ -525,7 +525,7 @@ function job_add() {
 
 	// save data - job
 	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
-		(`added`,`updated`,`status`,`customer_id`,`created_by`,`vrn`,`initial_estimate`)
+		(`added`,`updated`,`status`,`customer_id`,`created_by`,`vrn`,`initial_estimate_inc_vat`,`initial_estimate`)
 		VALUE
 		('".time()."',
 		'".time()."',
@@ -533,6 +533,7 @@ function job_add() {
 		'".$customer_id."',
 		'".$account_details['id']."',
 		'".$vrn."',
+		'".$initial_estimate['inc_vat']."',
 		'".$initial_estimate['ex_vat']."'
 	)" );
 
@@ -629,7 +630,7 @@ function job_delete() {
 
 	// security point
 	action_security_check( array( 'admin','staff' ) );
-	
+
 	// map fields
 	$id 							= get( 'id' );
 
