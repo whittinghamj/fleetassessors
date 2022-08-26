@@ -1302,8 +1302,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
-															'.$customer['primary_contact']['full_name'].' <br>
-															<small>'.$customer['primary_contact']['phone'].'</small>
+															'.( isset( $customer['primary_contact']['id'] ) ? $customer['primary_contact']['full_name'].' <br><small>'.$customer['primary_contact']['phone'].'</small>' : '' ).'
 														</td>
 														<td class="text-nowrap">
 															'.$customer['total_jobs'].'
