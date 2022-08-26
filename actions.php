@@ -617,6 +617,8 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `status` = '".$status."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `provider_id` = '".$provider_id."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `estimator` = '".$estimator."' WHERE `id` = '".$job_id."' " );
+
+	$update = $conn->exec( "UPDATE `jobs` SET `initial_estimate` = '".$initial_estimate."' WHERE `id` = '".$job_id."' " );
 	
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_labour` = '".$uplift_labour."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_paint` = '".$uplift_paint."' WHERE `id` = '".$job_id."' " );
