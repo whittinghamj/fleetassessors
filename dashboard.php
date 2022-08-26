@@ -2464,7 +2464,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Pending Jobs
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
 										</div>
 										<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
 										<div class="stats-progress progress">
@@ -2480,7 +2480,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Total Jobs
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
 										</div>
 										<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
 										<div class="stats-progress progress">
@@ -2496,7 +2496,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Total Customers
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
 										</div>
 										<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
 										<div class="stats-progress progress">
@@ -2512,7 +2512,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Total Providers
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
 										</div>
 										<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
 										<div class="stats-progress progress">
@@ -2924,9 +2924,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Initial Estimate <small>ex VAT</small>
-												<span class="ms-2">
-													<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i>
-												</span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['initial_estimate'], 2 ); ?></div>
 									</div>
@@ -2938,7 +2936,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Revised Estimate <small>ex VAT</small>
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
 									</div>
@@ -2950,7 +2948,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Approved Uplift Element
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
 									</div>
@@ -2964,7 +2962,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Initial Uplift Element
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
 									</div>
@@ -2976,7 +2974,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Approved Uplift Element
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Approved Uplift Element" data-placement="top" data-content="This is the approved uplift element. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $job['approved_estimate'], 2 ); ?></div>
 									</div>
@@ -2989,7 +2987,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Approved Estimate
-												<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the customers initial estimate plus the approved uplift element. This figure excludes VAT."></i></span>
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the customers initial estimate plus the approved uplift element. This figure excludes VAT."></i></span>
 											</div>
 											<div class="stats-number">£<?php echo number_format( $approved_estimate, 2 ); ?></div>
 										</div>
@@ -3002,7 +3000,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Profit
-											<span class="ml-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="This is the amount we were able to increase the estimate from its initial value. This figure excludes VAT."></i></span>
+											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="This is the amount we were able to increase the estimate from its initial value. This figure excludes VAT."></i></span>
 										</div>
 										<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
 									</div>
