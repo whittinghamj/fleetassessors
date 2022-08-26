@@ -515,6 +515,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									<span>Global Vars</span> 
 								</a>
 							</li>
+							<li <?php if( get( 'c' ) == 'dev' ) { echo'class="active"'; } ?>>
+								<a href="actions.php?a=dev" onclick="processing();">
+									<i class="fa fa-code bg-gradient-purple"></i>
+									<span>DEV Actions Test</span> 
+								</a>
+							</li>
 							<li <?php if( get( 'c' ) == 'staging' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=staging" onclick="processing();">
 									<i class="fa fa-rocket bg-gradient-pink"></i>
@@ -2917,7 +2923,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															</select>
 														</div>
 													</div>
-													
+
 													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Account Type</strong></label>
