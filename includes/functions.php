@@ -791,6 +791,10 @@ function get_customers() {
 
 		// build full address
 		$customers[$count]['full_address'] 					= $bit['address_1'].', '.$bit['address_city'].', '.$bit['address_state'].', '.$bit['address_zip'].', '.$bit['address_country'];
+		if( $customers[$count]['full_address'] == ', , , , ' ) {
+			$customers[$count]['full_address'] = '';
+		}
+		
 		$count++;
 	}
 
