@@ -90,7 +90,7 @@ switch( $a ) {
         break;
 
 
-    // admin functions
+    // user functions
     case "user_add":
         user_add();
         break;
@@ -103,6 +103,8 @@ switch( $a ) {
         user_delete();
         break;
 
+
+    // other functions
     case "system_settings":
         system_settings();
         break;
@@ -111,6 +113,12 @@ switch( $a ) {
     // tools functions
     case "vrn_lookup":
         vrn_lookup();
+        break;
+
+
+    // dev function
+    case "dev":
+        dev();
         break;
 
 	default:
@@ -122,6 +130,14 @@ function home() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	die( 'access denied to function name '.get( 'a' ) );
+}
+
+function dev() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	action_security_check( 'admin' );
+
+	echo 'we ran the admin checkpoint';
 }
 
 function accept_terms() {
