@@ -2943,6 +2943,16 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						</div>
 
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel bg-success text-white">
+									<div class="panel-body">
+										Job has been approved.
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<!-- top summary boxes -->
 						<div class="row">
 							<div class="col-xl-2 col-xs-6">
