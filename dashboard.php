@@ -2160,7 +2160,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-12 col-sm-12">
+												<div class="col-xl-6 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Primary</strong></label>
 														<select name="primary_contact_id" id="primary_contact_id" class="form-control select2">
@@ -2170,6 +2170,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 															<?php } ?>
 														</select>
 													</div>
+												</div>
+												<div class="col-xl-6 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Secondary</strong></label>
 														<select name="secondary_contact_id" id="secondary_contact_id" class="form-control select2">
