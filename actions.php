@@ -135,7 +135,7 @@ function home() {
 function dev() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	action_security_check( array( 'jamie','staff' ) );
+	action_security_check( array( 'admin','staff' ) );
 
 	echo 'We passed the checkpoint.';
 }
