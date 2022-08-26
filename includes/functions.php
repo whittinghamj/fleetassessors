@@ -1,18 +1,23 @@
 <?php
 
 // action security check
-function action_security_check( $security_level ) {
+function action_security_check( $security_levels ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	// admin check
-	if( $security_level == 'admin' ) {
-		if( $admin_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
+	foreach( $security_levels as $security_level ) {
+		error_log( 'checkpoint ' . $security_level )
+		// admin check
+		if( $security_level == 'admin' ) {
+			if( $admin_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
+		}
+
+		// staff check
+		if( $security_level == 'staff' ) {
+			if( $staff_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
+		}
 	}
 
-	// staff check
-	if( $security_level == 'staff' ) {
-		if( $staff_check ) { } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
-	}
+	error_log( 'checkpoint passed' );
 }
 
 // add vat
