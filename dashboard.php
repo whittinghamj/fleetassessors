@@ -2538,6 +2538,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					<?php } ?>
 
 					<!-- stats -->
+					<div class="row">
 						<div class="col-xl-4 col-sm-12">
 							<div id="highchart_container"></div>
 						</div>
