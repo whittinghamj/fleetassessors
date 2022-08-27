@@ -2928,31 +2928,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 							</div>
 						<?php } ?>
 
-						<div class="row">
-							<div class="col-xl-12 col-xs-6">
-								<div class="widget widget-stats bg-success text-inverse">
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Job has been Approved.
-										</div>
-										<div class="stats-number">
-											£<?php echo number_format( $job['initial_estimate'], 2 ); ?> 
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="panel bg-success text-white">
-									<div class="panel-body">
-										Job has been approved.
-									</div>
-								</div>
-							</div>
-						</div>
-
 						<!-- top summary boxes -->
 						<div class="row">
 							<div class="col-xl-2 col-xs-6">
@@ -3179,7 +3154,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Initial Estimate Ex VAT</strong></label>
-														<input type="text" name="initial_estimate" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00">
+														<input type="text" name="initial_estimate" class="form-control" value="<?php echo $job['initial_estimate']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
@@ -3211,31 +3186,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
-														<input type="text" name="uplift_labour" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_labour" class="form-control" value="<?php echo $job['uplift_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
-														<input type="text" name="uplift_paint" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_paint" class="form-control" value="<?php echo $job['uplift_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
-														<input type="text" name="uplift_additional" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_additional" class="form-control" value="<?php echo $job['uplift_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
-														<input type="text" name="uplift_parts" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_parts" class="form-control" value="<?php echo $job['uplift_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
-														<input type="text" name="uplift_check" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00">
+														<input type="text" name="uplift_check" class="form-control" value="<?php echo $job['uplift_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
@@ -3267,31 +3242,31 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Labour (£)</strong></label>
-														<input type="text" name="approved_labour" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00">
+														<input type="text" name="approved_labour" class="form-control" value="<?php echo $job['approved_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Paint (£)</strong></label>
-														<input type="text" name="approved_paint" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00">
+														<input type="text" name="approved_paint" class="form-control" value="<?php echo $job['approved_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Additional (£)</strong></label>
-														<input type="text" name="approved_additional" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00">
+														<input type="text" name="approved_additional" class="form-control" value="<?php echo $job['approved_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Parts (£)</strong></label>
-														<input type="text" name="approved_parts" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00">
+														<input type="text" name="approved_parts" class="form-control" value="<?php echo $job['approved_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Check (£)</strong></label>
-														<input type="text" name="approved_check" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00">
+														<input type="text" name="approved_check" class="form-control" value="<?php echo $job['approved_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
 												<div class="col-xl-2 col-sm-12">
@@ -3305,8 +3280,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 									</div>
 								</div>
 							</div>
-
-							
 
 							<!-- form options -->
 							<div class="row">
