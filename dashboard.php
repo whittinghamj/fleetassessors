@@ -2935,9 +2935,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<!-- top summary boxes -->
 						<div class="row">
 							<?php if( $job['status'] != 'approved' ) { ?>
-								<div class="col-xl-4 col-xs-6">
+								<div class="col-xl-4 col-md-12 col-xs-12">
 							<?php } else { ?>
-								<div class="col-xl-2 col-xs-6">
+								<div class="col-xl-2 col-md-12 col-xs-12">
 							<?php } ?>
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
