@@ -2935,9 +2935,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						<!-- top summary boxes -->
 						<div class="row">
 							<?php if( $job['status'] != 'approved' ) { ?>
-								<div class="col-xl-4 col-md-12 col-xs-12">
+								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
@@ -2953,9 +2953,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 							<?php if( $job['status'] != 'approved' ) { ?>
-								<div class="col-xl-4 col-md-12 col-xs-12">
+								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-warning text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
@@ -2969,9 +2969,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 							<?php if( $job['status'] != 'approved' ) { ?>
-								<div class="col-xl-4 col-md-12 col-xs-12">
+								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
@@ -2985,7 +2985,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 								</div>
 							</div>
 							<?php if( $job['status'] == 'approved' ) { ?>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check"></i></div>
 										<div class="stats-content">
@@ -2997,7 +2997,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
 										<div class="stats-content">
@@ -3009,7 +3009,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-2 col-md-12 col-xs-12">
+								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
 										<div class="stats-content">
