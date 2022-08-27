@@ -15,7 +15,7 @@ function dashboard_stats_statuses() {
 	// get data
 	$query = $conn->query( "
 		SELECT `id`,`status` 
-		FROM `customers` 
+		FROM `jobs` 
 	" );
 
 	$data = $query->fetchAll( PDO::FETCH_ASSOC );
