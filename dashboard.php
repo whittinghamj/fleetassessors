@@ -2544,6 +2544,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 						</div>
 					</div>
 
+					<hr>
+
 					<!-- other bits -->
 					<div class="row">
 						<div class="col-xl-4 col-sm-12">
