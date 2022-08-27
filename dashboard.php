@@ -5237,25 +5237,25 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			            data: [
 			                {
 			                    name: "Approved",
-			                    y: <?php echo $dashboard_stats['approved']; ?>,
+			                    y: <?php echo $dashboard_stats['job_statuses']['approved']; ?>,
 			                    sliced: true,
 			                    selected: true,
 			                },
 			                {
 			                    name: "Rejected",
-			                    y: <?php echo $dashboard_stats['rejected']; ?>,
+			                    y: <?php echo $dashboard_stats['job_statuses']['rejected']; ?>,
 			                },
 			                {
 			                    name: "Cancelled",
-			                    y: <?php echo $dashboard_stats['cancelled']; ?>,
+			                    y: <?php echo $dashboard_stats['job_statuses']['cancelled']; ?>,
 			                },
 			                {
 			                    name: "New Jobs",
-			                    y: <?php echo $dashboard_stats['new']; ?>,
+			                    y: <?php echo $dashboard_stats['job_statuses']['new']; ?>,
 			                },
 			                {
 			                    name: "Submitted",
-			                    y: <?php echo $dashboard_stats['submitted']; ?>,
+			                    y: <?php echo $dashboard_stats['job_statuses']['submitted']; ?>,
 			                },
 			            ],
 			        },
