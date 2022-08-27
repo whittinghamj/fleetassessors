@@ -5234,42 +5234,26 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			            colorByPoint: true,
 			            data: [
 			                {
-			                    name: "Chrome",
+			                    name: "Approved",
 			                    y: 61.41,
 			                    sliced: true,
 			                    selected: true,
 			                },
 			                {
-			                    name: "Internet Explorer",
+			                    name: "Rejected",
 			                    y: 11.84,
 			                },
 			                {
-			                    name: "Firefox",
-			                    y: 10.85,
+			                    name: "Cancelled",
+			                    y: 11.84,
 			                },
 			                {
-			                    name: "Edge",
-			                    y: 4.67,
+			                    name: "New Jobs",
+			                    y: 11.84,
 			                },
 			                {
-			                    name: "Safari",
-			                    y: 4.18,
-			                },
-			                {
-			                    name: "Sogou Explorer",
-			                    y: 1.64,
-			                },
-			                {
-			                    name: "Opera",
-			                    y: 1.6,
-			                },
-			                {
-			                    name: "QQ",
-			                    y: 1.2,
-			                },
-			                {
-			                    name: "Other",
-			                    y: 2.61,
+			                    name: "Submitted",
+			                    y: 11.84,
 			                },
 			            ],
 			        },
