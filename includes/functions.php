@@ -26,7 +26,7 @@ function dashboard_stats_statuses() {
 	foreach( $data as $bit ) {
 		// count status value
 		if( $bit['status'] == 'approved' ) {
-			$stats['approved']++;
+			$stats['approved'] = $stats['approved'] + 1;
 		}
 		if( $bit['status'] == 'cancelled' ) {
 			$stats['cancelled']++;
