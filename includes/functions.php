@@ -1,5 +1,53 @@
 <?php
 
+// dashboard stats > job statuses pie chart
+function dashboard_stats_statuses() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$stats = array();
+	$stats['approved'] 		= 0;
+	$stats['cancelled'] 	= 0;
+	$stats['new'] 			= 0;
+	$stats['rejected'] 		= 0;
+	$stats['submitted'] 	= 0;
+
+	// get data
+	$query = $conn->query( "
+		SELECT `id`,`status` 
+		FROM `customers` 
+	" );
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each order
+	foreach( $data as $bit ) {
+		// count status value
+		if( $bit['status'] == 'approved' ) {
+			$stats['approved']++
+		}
+		if( $bit['status'] == 'cancelled' ) {
+			$stats['cancelled']++
+		}
+		if( $bit['status'] == 'new' ) {
+			$stats['new']++
+		}
+		if( $bit['status'] == 'rejected' ) {
+			$stats['rejected']++
+		}
+		if( $bit['status'] == 'submitted' ) {
+			$stats['submitted']++
+		}
+	}
+
+	// sanity check
+	$stats = stripslashes_deep( $stats );
+
+	return $stats;
+}
+
 // action security check
 function action_security_check( $security_levels ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;

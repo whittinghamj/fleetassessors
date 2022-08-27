@@ -5193,6 +5193,8 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	<?php } ?>
 
 	<?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { ?>
+		<?php $dashboard_stats['job_statuses'] = dashboard_stats_statuses(); ?>
+
 		<!-- highcharts -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -5235,25 +5237,25 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			            data: [
 			                {
 			                    name: "Approved",
-			                    y: 61.41,
+			                    y: <?php echo $dashboard_stats['approved']; ?>,
 			                    sliced: true,
 			                    selected: true,
 			                },
 			                {
 			                    name: "Rejected",
-			                    y: 11.84,
+			                    y: <?php echo $dashboard_stats['rejected']; ?>,
 			                },
 			                {
 			                    name: "Cancelled",
-			                    y: 11.84,
+			                    y: <?php echo $dashboard_stats['cancelled']; ?>,
 			                },
 			                {
 			                    name: "New Jobs",
-			                    y: 11.84,
+			                    y: <?php echo $dashboard_stats['new']; ?>,
 			                },
 			                {
 			                    name: "Submitted",
-			                    y: 11.84,
+			                    y: <?php echo $dashboard_stats['submitted']; ?>,
 			                },
 			            ],
 			        },
