@@ -2886,7 +2886,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					$markup 		= $job['uplift_estimate'];
 					$profit 		= $job['approved_estimate'];
 					$revised_estimate = ( $job['initial_estimate'] + $job['uplift_estimate'] );
-					$approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
+					if( $job['status'] == 'approved' ) { 
+						$approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
+					} else {
+						$approved_estimate = '0.00';
+					}
 				?>
 
 				<div id="content" class="content">
