@@ -26,19 +26,19 @@ function dashboard_stats_statuses() {
 	foreach( $data as $bit ) {
 		// count status value
 		if( $bit['status'] == 'approved' ) {
-			$stats['approved']++
+			$stats['approved']++;
 		}
 		if( $bit['status'] == 'cancelled' ) {
-			$stats['cancelled']++
+			$stats['cancelled']++;
 		}
 		if( $bit['status'] == 'new' ) {
-			$stats['new']++
+			$stats['new']++;
 		}
 		if( $bit['status'] == 'rejected' ) {
-			$stats['rejected']++
+			$stats['rejected']++;
 		}
 		if( $bit['status'] == 'submitted' ) {
-			$stats['submitted']++
+			$stats['submitted']++;
 		}
 	}
 
