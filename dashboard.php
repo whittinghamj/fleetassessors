@@ -5792,7 +5792,7 @@ $customers 		= get_customers();
 	<script>
 		Mousetrap.bind('shift+n', function() { 
 			console.log('add new job');
-			$('#add_job').modal('show');
+			$('#job_add').modal('show');
 		});
 	</script>
 </body>
