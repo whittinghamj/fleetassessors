@@ -5784,7 +5784,7 @@ $jobs 		= get_all_jobs();
 	</script>
 
 	<script>
-		Mousetrap.bind('shift+n', function() { 
+		Mousetrap.bind('shift+j', function() { 
 			console.log('add new job');
 			$('#job_add').modal('show');
 		});
