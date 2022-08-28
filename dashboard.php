@@ -190,6 +190,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<link href="assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
 	<?php } ?>
 
+	<!-- mousetrap -->
+	<script src="assets/js/mousetrap/mousetrap.min.js"></script>
+
 	<!-- custom css -->
 	<style type="text/css">
 
@@ -5922,6 +5925,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			introJs().start();
 			introJs().addHints();
 		}
+	</script>
+
+	<script>
+		Mousetrap.bind('shift+k', function() { 
+			console.log('add new job'); 
+		});
 	</script>
 </body>
 </html>
