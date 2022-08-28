@@ -3316,11 +3316,6 @@ $jobs 		= get_all_jobs();
 			<?php function users() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
-				<?php
-					// get data
-					$users = get_users();
-				?>
-
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
 						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
