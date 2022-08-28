@@ -83,6 +83,8 @@ $users 		= get_users();
 // get all jobs
 $jobs 		= get_all_jobs();
 
+// get all vrns
+$vrns 		= get_all_vrns();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -694,7 +696,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- dev section -->
 			<?php function dev() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -796,7 +798,7 @@ $jobs 		= get_all_jobs();
 			<?php } ?>
 
 			<?php function staging() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1192,7 +1194,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- access denied view -->
 			<?php function access_denied() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<div class="panel panel-inverse">
@@ -1218,7 +1220,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- customer views -->
 			<?php function customers() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1365,7 +1367,7 @@ $jobs 		= get_all_jobs();
 			<?php } ?>
 
 			<?php function customer() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<?php 
 					// get data
@@ -2075,7 +2077,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- home view -->
 			<?php function home() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<?php $stats['total_users'] 		= total_users(); ?>
 				<?php $stats['total_customers'] 	= total_customers(); ?>
@@ -2291,12 +2293,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- job views -->
 			<?php function jobs() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
-
-				<?php
-					// get data
-					$vrns 			= get_all_vrns();
-				?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -2384,7 +2381,7 @@ $jobs 		= get_all_jobs();
 												}
 
 
-												// cal vat details
+												// calc vat details
 												$initial_estimate = vat_details( $job['initial_estimate'] );
 												$uplift_estimate = vat_details( $job['uplift_estimate'] );
 												$approved_estimate = vat_details( $job['approved_estimate'] );
@@ -2489,16 +2486,12 @@ $jobs 		= get_all_jobs();
 			<?php } ?>
 
 			<?php function job() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<?php 
 					// get data
 					$job_id 		= get( 'id' );
 
-					// sanity check
-					if( empty( $job_id ) ) {
-
-					}
 					$job 			= get_job( $job_id );
 					$providers 		= get_providers();
 
@@ -2515,6 +2508,14 @@ $jobs 		= get_all_jobs();
 					foreach( $customers as $customer ) {
 						if( $customer['id'] == $job['customer_id'] ) {
 							$job['customer'] = $customer;
+							break;
+						}
+					}
+
+					// find vrn details
+					foreach( $vrns as $vrn ) {
+						if( $vrn['vrn'] == $job['vrn'] ) {
+							$vrn['vrn_details'] = $vrn;
 							break;
 						}
 					}
@@ -2712,7 +2713,36 @@ $jobs 		= get_all_jobs();
 									</div>
 								</div>
 
-								<div class="col-xl-6 col-sm-12">
+								<div class="col-xl-3 col-sm-12">
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Vehicle Details</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="form-group">
+												<label class="bmd-label-floating"><strong>Name</strong></small></label>
+												<div class="row">
+													<div class="col-xl-4 col-sm-12">
+														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
+													</div>
+													<div class="col-xl-4 col-sm-12">
+														<input type="text" name="vehicle_make" class="form-control" value="<?php echo $job['vrn_details']['make']; ?>" readonly>
+													</div>
+													<div class="col-xl-4 col-sm-12">
+														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-3 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Notes</h2>
@@ -2980,7 +3010,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- user functions -->
 			<?php function users() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -3139,7 +3169,7 @@ $jobs 		= get_all_jobs();
 			<?php } ?>
 
 			<?php function user() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<?php 
 					// get data
@@ -3678,7 +3708,7 @@ $jobs 		= get_all_jobs();
 
 			<!-- vrn views -->
 			<?php function vrn_lookup() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -3762,7 +3792,7 @@ $jobs 		= get_all_jobs();
 			<?php } ?>
 
 			<?php function vrn_lookup_results() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
 				<?php
 					$vrn = get( 'vrn' );
