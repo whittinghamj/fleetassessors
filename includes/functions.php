@@ -846,31 +846,26 @@ function get_all_vrns() {
 	// loop over data to add additional details about each user
 	foreach( $data as $bit ) {
 		// add existing data
-		$jobs[$count] = $bit;
+		$vrns[$count] = $bit;
 
-		// customer
-		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );
+		// time left until next mot
+		$time_until_next_mot = strtotime( $bit['next_mot_date'] );
 
-		// vrn details
-		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
+		// is mot valid
+		$time_diff = ( $time_until_next_mot - time() );
+		if( $time_diff < 1 ) {
+			$vrns[$count]['is_mot_valid'] = 'invalid';
+		} else {
+			$vrns[$count]['is_mot_valid'] = 'valid';
+		}
 
 		$count++;
 	}
-	// time left until next mot
-	$time_until_next_mot = strtotime( $data['next_mot_date'] );
-
-	// is mot valid
-	$time_diff = ( $time_until_next_mot - time() );
-	if( $time_diff < 1 ) {
-		$data['is_mot_valid'] = 'invalid';
-	} else {
-		$data['is_mot_valid'] = 'valid';
-	}
 
 	// sanity check
-	$data = stripslashes_deep( $data );
+	$vrns = stripslashes_deep( $vrns );
 
-	return $data;
+	return $vrns;
 }
 
 function get_payment( $id ) {
