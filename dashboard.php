@@ -2725,7 +2725,6 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Name</strong></small></label>
 												<div class="row">
 													<div class="col-xl-4 col-sm-12">
 														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
@@ -2735,6 +2734,12 @@ $vrns 		= get_all_vrns();
 													</div>
 													<div class="col-xl-4 col-sm-12">
 														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
+													</div>
+													<div class="col-xl-4 col-sm-12">
+														<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
+													</div>
+													<div class="col-xl-4 col-sm-12">
+														<input type="text" name="vehicle_fuel" class="form-control" value="<?php echo $job['vrn_details']['fuel']; ?>" readonly>
 													</div>
 												</div>
 											</div>
@@ -3950,7 +3955,7 @@ $vrns 		= get_all_vrns();
 								<div class="row">
 									<div class="offset-xl-4 col-xl-4 col-md-12">
 										<div class="row mb-15px">
-											<label class="form-label col-form-label col-md-3">Color</label>
+											<label class="form-label col-form-label col-md-3">Colour</label>
 											<div class="col-md-9">
 												<input type="email" class="form-control mb-5px" value="<?php echo $vrn['color']; ?>" readonly/>
 											</div>
