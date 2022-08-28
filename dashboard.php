@@ -5283,7 +5283,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			    },
 			    series: [
 			        {
-			            name: "Customers",
+			            name: "Total Jobs",
 			            colorByPoint: true,
 			            data: [
 			            	<?php foreach( $customers as $customer ) { ?>
