@@ -2540,7 +2540,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					<!-- stats -->
 					<div class="row">
 						<div class="col-xl-4 col-sm-12">
-							<div id="highchart_container"></div>
+							<div id="highchart_dashboard_stats_job_statuses"></div>
+						</div>
+						<div class="col-xl-4 col-sm-12">
+							<div id="highchart_dashboard_stats_jobs_per_customer"></div>
 						</div>
 					</div>
 
@@ -5178,7 +5181,10 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	<?php } ?>
 
 	<?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { ?>
-		<?php $dashboard_stats['job_statuses'] = dashboard_stats_statuses(); ?>
+		<?php 
+			$dashboard_stats['job_statuses'] = dashboard_stats_statuses();
+			$customers = get_customers();
+		?>
 
 		<!-- highcharts -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
@@ -5187,7 +5193,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 		<script>
-			Highcharts.chart("highchart_container", {
+			Highcharts.chart("highchart_dashboard_stats_job_statuses", {
 			    chart: {
 			        plotBackgroundColor: null,
 			        plotBorderWidth: null,
@@ -5217,7 +5223,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			    },
 			    series: [
 			        {
-			            name: "Brands",
+			            name: "Job Statuses",
 			            colorByPoint: true,
 			            data: [
 			                {
@@ -5247,6 +5253,49 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			    ],
 			});
 
+			Highcharts.chart("highchart_dashboard_stats_jobs_per_customer", {
+			    chart: {
+			        plotBackgroundColor: null,
+			        plotBorderWidth: null,
+			        plotShadow: false,
+			        type: "pie",
+			    },
+			    title: {
+			        text: "Jobs per Customer",
+			    },
+			    tooltip: {
+			        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+			    },
+			    accessibility: {
+			        point: {
+			            valueSuffix: "%",
+			        },
+			    },
+			    plotOptions: {
+			        pie: {
+			            allowPointSelect: true,
+			            cursor: "pointer",
+			            dataLabels: {
+			                enabled: true,
+			                format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+			            },
+			        },
+			    },
+			    series: [
+			        {
+			            name: "Customers",
+			            colorByPoint: true,
+			            data: [
+			            	<?php foreach( $customers as $customer ) { ?>
+				                {
+				                    name: "<?php echo $customer['company_name']; ?>",
+				                    y: <?php echo $customer['total_jobs']; ?>,
+				                },
+				            <?php } ?>
+			            ],
+			        },
+			    ],
+			});
 		</script>
 	<?php } ?>
 

@@ -48,6 +48,39 @@ function dashboard_stats_statuses() {
 	return $stats;
 }
 
+// dashboard stats > jobs per customer pie chart
+function dashboard_stats_jobs_per_customer() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create black array
+	$stats = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT `id`,`status`,`customer_id`
+		FROM `jobs` 
+	" );
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each order
+	foreach( $data as $bit ) {
+		$stats[$count] = $bit;
+
+		// fill customer details
+		$stats[$count]['customer'] = get_customer_lite( $bit['customer_id'] );
+
+		$count++;
+	}
+
+	// sanity check
+	$stats = stripslashes_deep( $stats );
+
+	return $stats;
+}
+
 // action security check
 function action_security_check( $security_levels ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
