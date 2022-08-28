@@ -5781,20 +5781,22 @@ $jobs 		= get_all_jobs();
 		}
 	</script>
 
-	<script>
-		// keyboard shortcuts
-		Mousetrap.bind('shift+j', function() { 
-			console.log('add new job');
-			$('#job_add').modal('show');
-		});
-		Mousetrap.bind('shift+u', function() { 
-			console.log('add new user');
-			$('#user_add').modal('show');
-		});
-		Mousetrap.bind('shift+c', function() { 
-			console.log('add new customer');
-			$('#customer_add').modal('show');
-		});
-	</script>
+	<?php if( $admin_check || $staff_check ) { ?>
+		<script>
+			// keyboard shortcuts
+			Mousetrap.bind('shift+j', function() { 
+				console.log('add new job');
+				$('#job_add').modal('show');
+			});
+			Mousetrap.bind('shift+u', function() { 
+				console.log('add new user');
+				$('#user_add').modal('show');
+			});
+			Mousetrap.bind('shift+c', function() { 
+				console.log('add new customer');
+				$('#customer_add').modal('show');
+			});
+		</script>
+	<?php } ?>
 </body>
 </html>
