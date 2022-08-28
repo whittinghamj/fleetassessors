@@ -5784,6 +5784,9 @@ $jobs 		= get_all_jobs();
 	<?php if( $admin_check || $staff_check ) { ?>
 		<script>
 			// keyboard shortcuts
+			Mousetrap.bind('shift+d', function() { 
+				$('#dev_modal').modal('show');
+			});
 			Mousetrap.bind('shift+j', function() { 
 				console.log('add new job');
 				$('#job_add').modal('show');
