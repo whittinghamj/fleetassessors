@@ -2510,6 +2510,14 @@ $jobs 		= get_all_jobs();
 					} else {
 						$approved_estimate = '0.00';
 					}
+
+					// find customer details
+					foreach( $customers as $customer ) {
+						if( $customer['id'] == $job['customer_id'] ) {
+							$job['customer'] = $customer;
+							break;
+						}
+					}
 				?>
 
 				<div id="content" class="content">

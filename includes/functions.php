@@ -759,12 +759,6 @@ function get_job( $id ) {
 	" );
 	$data = $query->fetch( PDO::FETCH_ASSOC );
 
-	// sanity check
-	if( isset( $data['id'] ) ) {
-		// add additional data
-		$data['customer'] 					= get_customer( $data['customer_id'] );
-	}
-
 	// calculate age or completion time
 	if( $data['status'] == 'cancelled' || $data['status'] == 'complete' ) {
 		// calculate completion time
