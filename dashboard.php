@@ -2735,6 +2735,8 @@ $vrns 		= get_all_vrns();
 													<div class="col-xl-4 col-sm-12">
 														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
 													</div>
+												</div>
+												<div class="row">
 													<div class="col-xl-4 col-sm-12">
 														<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
 													</div>
