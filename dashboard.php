@@ -74,6 +74,9 @@ $not_found = '
 define("STRIPE_SECRET_KEY", "sk_test_sa0QRUIVgFphzWQZ0gypyAv0");
 define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
+// get all customers
+$customers 		= get_customers();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -685,7 +688,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- dev section -->
 			<?php function dev() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -787,7 +790,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 
 			<?php function staging() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1183,7 +1186,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- access denied view -->
 			<?php function access_denied() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<div id="content" class="content">
 					<div class="panel panel-inverse">
@@ -1209,7 +1212,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- customer views -->
 			<?php function customers() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php
 					// get data
@@ -1703,7 +1706,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 
 			<?php function customer() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php 
 					// get data
@@ -2414,7 +2417,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- home view -->
 			<?php function home() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php $stats['total_users'] 		= total_users(); ?>
 				<?php $stats['total_customers'] 	= total_customers(); ?>
@@ -2630,12 +2633,11 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- job views -->
 			<?php function jobs() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php
 					// get data
 					$jobs 			= get_all_jobs_lite();
-					$customers 		= get_customers();
 					$vrns 			= get_all_vrns();
 				?>
 
@@ -2801,54 +2803,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 					</div>
 				</div>
 
-				<!-- add job modal -->
-				<form class="form" method="post" action="actions.php?a=job_add">
-					<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
-					   	<div class="modal-dialog modal-notice">
-						  	<div class="modal-content">
-							 	<div class="modal-header">
-									<h5 class="modal-title" id="myModalLabel">Add Job</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-										x
-									</button>
-							 	</div>
-							 	<div class="modal-body">
-							 		<div class="row">
-							 			<div class="col-xl-12 col-sm-12">
-							 				<div class="form-group">
-												<label class="bmd-label-floating"><strong>Customer</strong></label>
-												<select name="customer_id" class="form-control select2">
-													<?php foreach( $customers as $customer ) { ?>
-														<option value="<?php echo $customer['id']; ?>"><?php echo $customer['company_name']; ?></option>
-													<?php } ?>
-												</select>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>VRN</strong></label>
-												<input type="text" id="vrn" name="vrn" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12">
-											<div class="form-group">
-												<label class="bmd-label-floating"><strong>Initial Est Inc VAT</strong></label>
-												<input type="text" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
-											</div>
-										</div>
-									</div>
-							 	</div>
-							 	<div class="modal-footer">
-							 		<div class="btn-group">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
-									</div>
-								</div>
-						  	</div>
-					   	</div>
-					</div>
-				</form>
-
 				<!-- dev modal -->
 				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
 				   	<div class="modal-dialog modal-xl">
@@ -2878,7 +2832,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 
 			<?php function job() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php 
 					// get data
@@ -3361,7 +3315,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- user functions -->
 			<?php function users() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php
 					// get data
@@ -3591,7 +3545,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 
 			<?php function user() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php 
 					// get data
@@ -4132,7 +4086,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 			<!-- vrn views -->
 			<?php function vrn_lookup() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -4216,7 +4170,7 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 
 			<?php function vrn_lookup_results() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
 				<?php
 					$vrn = get( 'vrn' );
@@ -4738,6 +4692,54 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 			<?php } ?>
 		</div>
 	</dev>
+
+	<!-- add job modal -->
+	<form class="form" method="post" action="actions.php?a=job_add">
+		<div class="modal fade" id="job_add" tabindex="-1" role="dialog" aria-labelledby="job_add" aria-hidden="true">
+		   	<div class="modal-dialog modal-notice">
+			  	<div class="modal-content">
+				 	<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Add Job</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							x
+						</button>
+				 	</div>
+				 	<div class="modal-body">
+				 		<div class="row">
+				 			<div class="col-xl-12 col-sm-12">
+				 				<div class="form-group">
+									<label class="bmd-label-floating"><strong>Customer</strong></label>
+									<select name="customer_id" class="form-control select2">
+										<?php foreach( $customers as $customer ) { ?>
+											<option value="<?php echo $customer['id']; ?>"><?php echo $customer['company_name']; ?></option>
+										<?php } ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-xl-6 col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating"><strong>VRN</strong></label>
+									<input type="text" id="vrn" name="vrn" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-xl-6 col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating"><strong>Initial Est Inc VAT</strong></label>
+									<input type="text" id="initial_estimate" name="initial_estimate" class="form-control" placeholder="1503.24" required>
+								</div>
+							</div>
+						</div>
+				 	</div>
+				 	<div class="modal-footer">
+				 		<div class="btn-group">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+						</div>
+					</div>
+			  	</div>
+		   	</div>
+		</div>
+	</form>
 	
 	<!-- core js -->
 	<script src="assets/js/app.min.js"></script>
@@ -5319,146 +5321,6 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 		</script>
 	<?php } ?>
 
-	<?php if( get( 'c' ) == 'order' ) { ?>
-		<script src="assets/plugins/moment/min/moment.min.js"></script>
-		<script src="assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
-		<script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-		<script src="assets/plugins/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
-		<script src="assets/plugins/highlight.js/highlight.min.js"></script>
-		
-		<script>
-			$('#datepicker-disabled-past').datepicker({
-				todayHighlight: true,
-				autoclose: true
-			} );
-
-			// card message char count
-			function countChar( val ) {
-		        var len = val.value.length;
-		        if( len >= 100 ) {
-					val.value = val.value.substring( 0, 100 );
-		        } else {
-					$('#charNum').text( 100 - len );
-		        }
-	      	};
-
-			function order_submit( id ) {
-				swal({
-					title: 'Are you sure?',
-					text: 'You will be unable to make changes to this order once it is submitted.',
-					icon: 'success',
-					buttons: {
-						cancel: {
-							text: 'Cancel',
-							value: null,
-							visible: true,
-							className: 'btn btn-default',
-							closeModal: true,
-						},
-						confirm: {
-							text: 'Delete',
-							value: true,
-							visible: true,
-							className: 'btn btn-primary',
-							closeModal: true
-						}
-					}
-				} ).then(function( e ) {
-				    if( e == true ) {
-				    	console.log( 'deleting message: ' + id );
-
-				    	// process action
-				    	window.location = "actions.php?a=order_submit&id=" + id;
-				    }
-				} );
-			}
-		</script>
-
-		<!-- stripe payment scripts -->
-		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-		<script>
-		    function cardValidation() {
-		        var valid = true;
-		        var name = $( "#card-name" ).val();
-		        var email = $( "#email" ).val();
-		        var cardNumber = $( "#card-number" ).val();
-		        var month = $( "#month" ).val();
-		        var year = $( "#year" ).val();
-		        var cvc = $( "#cvc" ).val();
-
-		        $( "#error-message" ).html( "" ).hide();
-
-		        if (name.trim() == "" ) {
-		            valid = false;
-		        }
-		        if (email.trim() == "" ) {
-		            valid = false;
-		        }
-		        if (cardNumber.trim() == "" ) {
-		            valid = false;
-		        }
-		        if (month.trim() == "" ) {
-		            valid = false;
-		        }
-		        if (year.trim() == "" ) {
-		            valid = false;
-		        }
-		        if (cvc.trim() == "" ) {
-		            valid = false;
-		        }
-
-		        if (valid == false) {
-		            $( "#error-message" ).html( '<div class="row"><div class="col-xl-12 col-sm-12"><div class="alert alert-danger fade show m-b-0">All fields are required.</div></div></div></div> <br>' ).show();
-		        }
-
-		        return valid;
-		    }
-		    //set your publishable key
-		    Stripe.setPublishableKey( "<?php echo STRIPE_PUBLISHABLE_KEY; ?>" );
-
-		    //callback to handle the response from stripe
-		    function stripeResponseHandler( status, response ) {
-		        if (response.error) {
-		            //enable the submit button
-		            $( "#submit-btn" ).show();
-		            $( "#loader" ).css( "display", "none" );
-		            //display the errors on the form
-		            $( "#error-message" ).html( '<div class="row"><div class="col-xl-12 col-sm-12"><div class="alert alert-danger fade show m-b-0">'+response.error.message+'</div></div></div></div> <br>' ).show();
-		        } else {
-		            //get token id
-		            var token = response["id"];
-		            //insert the token into the form
-		            $( "#frmStripePayment" ).append( "<input type='hidden' name='token' value='" + token + "' />" );
-		            //submit form to the server
-		            $( "#frmStripePayment" ).submit();
-		        }
-		    }
-
-		    function stripePay( e ) {
-		        e.preventDefault();
-		        var valid = cardValidation();
-
-		        if( valid == true ) {
-		            $( "#submit-btn" ).hide();
-		            $( "#loader" ).css( "display", "inline-block" );
-		            Stripe.createToken(
-		                {
-		                    number: $( "#card-number" ).val(),
-		                    cvc: $( "#cvc" ).val(),
-		                    exp_month: $( "#month" ).val(),
-		                    exp_year: $( "#year" ).val(),
-		                },
-		                stripeResponseHandler
-		            );
-
-		            //submit from callback
-		            return false;
-		        }
-		    }
-		</script>
-	<?php } ?>
-
 	<?php if( get( 'c' ) == 'customers' ) { ?>
 		<script type="text/javascript">
 			// data tables > table_customers
@@ -5928,8 +5790,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 	</script>
 
 	<script>
-		Mousetrap.bind('shift+k', function() { 
-			console.log('add new job'); 
+		Mousetrap.bind('shift+n', function() { 
+			console.log('add new job');
+			$('#add_job').modal('show');
 		});
 	</script>
 </body>
