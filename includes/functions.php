@@ -868,57 +868,6 @@ function get_all_vrns() {
 	return $vrns;
 }
 
-function get_payment( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `order_payments` 
-		WHERE `id` = '".$id."' 
-	" );
-	$data = $query->fetch( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
-function get_order_item( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `order_items` 
-		WHERE `id` = '".$id."' 
-	" );
-	$data = $query->fetch( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
-function get_order_items( $id ) {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
-
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `order_items` 
-		WHERE `order_id` = '".$id."' 
-	" );
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	// sanity check
-	$data = stripslashes_deep( $data );
-
-	return $data;
-}
-
 // get all customers details
 function get_customers() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
