@@ -77,6 +77,12 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 // get all customers
 $customers 		= get_customers();
 
+// get all users
+$users 		= get_users();
+
+// get all jobs
+$jobs 		= get_all_jobs();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -688,7 +694,7 @@ $customers 		= get_customers();
 
 			<!-- dev section -->
 			<?php function dev() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -790,7 +796,7 @@ $customers 		= get_customers();
 			<?php } ?>
 
 			<?php function staging() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1186,7 +1192,7 @@ $customers 		= get_customers();
 
 			<!-- access denied view -->
 			<?php function access_denied() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<div id="content" class="content">
 					<div class="panel panel-inverse">
@@ -1212,7 +1218,7 @@ $customers 		= get_customers();
 
 			<!-- customer views -->
 			<?php function customers() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1701,7 +1707,7 @@ $customers 		= get_customers();
 			<?php } ?>
 
 			<?php function customer() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php 
 					// get data
@@ -1712,7 +1718,6 @@ $customers 		= get_customers();
 
 					}
 					$customer 		= get_customer( $customer_id );
-					$users 			= get_users( 'customer' );
 				?>
 
 				<div id="content" class="content">
@@ -2412,7 +2417,7 @@ $customers 		= get_customers();
 
 			<!-- home view -->
 			<?php function home() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php $stats['total_users'] 		= total_users(); ?>
 				<?php $stats['total_customers'] 	= total_customers(); ?>
@@ -2628,11 +2633,10 @@ $customers 		= get_customers();
 
 			<!-- job views -->
 			<?php function jobs() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php
 					// get data
-					$jobs 			= get_all_jobs_lite();
 					$vrns 			= get_all_vrns();
 				?>
 
@@ -2827,7 +2831,7 @@ $customers 		= get_customers();
 			<?php } ?>
 
 			<?php function job() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php 
 					// get data
@@ -3310,7 +3314,7 @@ $customers 		= get_customers();
 
 			<!-- user functions -->
 			<?php function users() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php
 					// get data
@@ -3540,7 +3544,7 @@ $customers 		= get_customers();
 			<?php } ?>
 
 			<?php function user() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php 
 					// get data
@@ -4081,7 +4085,7 @@ $customers 		= get_customers();
 
 			<!-- vrn views -->
 			<?php function vrn_lookup() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -4165,7 +4169,7 @@ $customers 		= get_customers();
 			<?php } ?>
 
 			<?php function vrn_lookup_results() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs; ?>
 
 				<?php
 					$vrn = get( 'vrn' );

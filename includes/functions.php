@@ -657,7 +657,7 @@ function get_users( $type = '' ) {
 	return $users;
 }
 
-// get jobs
+// get jobs for customer
 function get_jobs( $customer = '' ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -705,23 +705,7 @@ function get_all_jobs() {
 		FROM `jobs` 
 	" );
 
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	$count = 0;
-
-	// loop over data to add additional details about each user
-	foreach( $data as $bit ) {
-		// add existing data
-		$jobs[$count] = $bit;
-
-		// customer
-		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );
-
-		// vrn details
-		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
-
-		$count++;
-	}
+	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
 
 	// sanity check
 	$jobs = stripslashes_deep( $jobs );
