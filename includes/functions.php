@@ -4,7 +4,7 @@
 function dashboard_stats_statuses() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$stats = array();
 	$stats['approved'] 		= 0;
 	$stats['cancelled'] 	= 0;
@@ -52,7 +52,7 @@ function dashboard_stats_statuses() {
 function dashboard_stats_jobs_per_customer() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$stats = array();
 
 	// get data
@@ -608,7 +608,7 @@ function get_user( $id ) {
 function get_users( $type = '' ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$users = array();
 
 	// process filter
@@ -661,7 +661,7 @@ function get_users( $type = '' ) {
 function get_jobs( $customer = '' ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$jobs = array();
 
 	// get data
@@ -696,7 +696,7 @@ function get_jobs( $customer = '' ) {
 function get_all_jobs() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$jobs = array();
 
 	// get data
@@ -716,6 +716,40 @@ function get_all_jobs() {
 
 		// customer
 		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );
+
+		// vrn details
+		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
+
+		$count++;
+	}
+
+	// sanity check
+	$jobs = stripslashes_deep( $jobs );
+
+	return $jobs;
+}
+
+// get all jobs lite
+function get_all_jobs_lite( $customer = '' ) {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create blank array
+	$jobs = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `jobs` 
+	" );
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each user
+	foreach( $data as $bit ) {
+		// add existing data
+		$jobs[$count] = $bit;
 
 		// vrn details
 		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
@@ -793,6 +827,52 @@ function get_vrn( $vrn ) {
 	return $data;
 }
 
+// get all vrn details
+function get_all_vrns() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create blank array
+	$vrns = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `vrn_database` 
+	" );
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	$count = 0;
+
+	// loop over data to add additional details about each user
+	foreach( $data as $bit ) {
+		// add existing data
+		$jobs[$count] = $bit;
+
+		// customer
+		$jobs[$count]['customer'] = get_customer( $bit['customer_id'] );
+
+		// vrn details
+		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
+
+		$count++;
+	}
+	// time left until next mot
+	$time_until_next_mot = strtotime( $data['next_mot_date'] );
+
+	// is mot valid
+	$time_diff = ( $time_until_next_mot - time() );
+	if( $time_diff < 1 ) {
+		$data['is_mot_valid'] = 'invalid';
+	} else {
+		$data['is_mot_valid'] = 'valid';
+	}
+
+	// sanity check
+	$data = stripslashes_deep( $data );
+
+	return $data;
+}
+
 function get_payment( $id ) {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
@@ -848,7 +928,7 @@ function get_order_items( $id ) {
 function get_customers() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$customers = array();
 
 	// get data
@@ -936,7 +1016,7 @@ function get_customer( $id = '' ) {
 function get_providers() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
-	// create black array
+	// create blank array
 	$providers = array();
 
 	// get data

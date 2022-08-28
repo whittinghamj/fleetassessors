@@ -2631,8 +2631,9 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 				<?php
 					// get data
-					$jobs 	= get_all_jobs();
-					$customers = get_customers();
+					$jobs 			= get_all_jobs_lite();
+					$customers 		= get_customers();
+					$vrns 			= get_all_vrns();
 				?>
 
 				<div id="content" class="content">
@@ -2728,6 +2729,22 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 
 												// build revised estimate
 												$revised_estimate = $initial_estimate['ex_vat'] + $uplift_estimate['ex_vat'];
+
+												// find customer
+												foreach( $customers as $customer ) {
+													if( $customer['id'] == $job['customer_id'] ) {
+														$job['customer'] = $customer;
+														break;
+													}
+												}
+
+												// find vrn
+												foreach( $vrns as $vrn ) {
+													if( $vrn['vrn'] == $job['vrn'] ) {
+														$job['vrn_details'] = $vrn;
+														break;
+													}
+												}
 
 												// output
 												echo '
