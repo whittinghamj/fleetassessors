@@ -2515,7 +2515,7 @@ $vrns 		= get_all_vrns();
 					// find vrn details
 					foreach( $vrns as $vrn ) {
 						if( $vrn['vrn'] == $job['vrn'] ) {
-							$vrn['vrn_details'] = $vrn;
+							$job['vrn_details'] = $vrn;
 							break;
 						}
 					}
