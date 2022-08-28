@@ -2727,20 +2727,25 @@ $vrns 		= get_all_vrns();
 											<div class="form-group">
 												<div class="row">
 													<div class="col-xl-4 col-sm-12">
+														<label class="bmd-label-floating"><strong>Year</strong></small></label>
 														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
 													</div>
 													<div class="col-xl-4 col-sm-12">
+														<label class="bmd-label-floating"><strong>Make</strong></small></label>
 														<input type="text" name="vehicle_make" class="form-control" value="<?php echo $job['vrn_details']['make']; ?>" readonly>
 													</div>
 													<div class="col-xl-4 col-sm-12">
+														<label class="bmd-label-floating"><strong>Model</strong></small></label>
 														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col-xl-4 col-sm-12">
+														<label class="bmd-label-floating"><strong>Color</strong></small></label>
 														<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
 													</div>
 													<div class="col-xl-4 col-sm-12">
+														<label class="bmd-label-floating"><strong>Fuel</strong></small></label>
 														<input type="text" name="vehicle_fuel" class="form-control" value="<?php echo $job['vrn_details']['fuel']; ?>" readonly>
 													</div>
 												</div>
