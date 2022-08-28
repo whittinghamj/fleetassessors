@@ -1214,11 +1214,6 @@ $customers 		= get_customers();
 			<?php function customers() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers; ?>
 
-				<?php
-					// get data
-					$customers = get_customers();
-				?>
-
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
 						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
