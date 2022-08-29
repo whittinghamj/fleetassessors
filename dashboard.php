@@ -5531,8 +5531,8 @@ $vrns 		= get_all_vrns();
 					"ordering": true,
 					"info": true,
 					"autoWidth": false,
-					"lengthMenu": [10, 25, 50, 100, 500],
-					"pageLength": 10,
+					"lengthMenu": [50, 100, 500],
+					"pageLength": 50,
 					search: {
 					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
 					}
@@ -5565,8 +5565,8 @@ $vrns 		= get_all_vrns();
 					"ordering": true,
 					"info": true,
 					"autoWidth": false,
-					"lengthMenu": [10, 25, 50, 100, 500],
-					"pageLength": 10,
+					"lengthMenu": [50, 100, 500],
+					"pageLength": 50,
 					search: {
 					   search: '<?php if( isset( $_GET['search'] ) ) { echo $_GET['search']; } ?>'
 					}
