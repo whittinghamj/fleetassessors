@@ -4844,23 +4844,29 @@ $vrns 		= get_all_vrns();
 				 	</div>
 				 	<div class="modal-body">
 				 		<div class="row">
-				 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available.
-							<dl class="row">
-								<dt  class="col-md-3">shift + c</dt>
-								<dd  class="col-md-9">Opens the Add New Customer window.</dd>
+				 			<div class="col-xl-12 col-sm-12">
+					 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available.
+					 		</div>
+					 	</div>
+					 	<div class="row">
+					 		<div class="col-xl-12 col-sm-12">
+								<dl class="row">
+									<dt  class="col-md-3">shift + c</dt>
+									<dd  class="col-md-9">Opens the Add New Customer window.</dd>
 
-								<dt  class="col-md-3">shift + h</dt>
-								<dd  class="col-md-9">Opens this help window.</dd>
+									<dt  class="col-md-3">shift + h</dt>
+									<dd  class="col-md-9">Opens this help window.</dd>
 
-								<dt  class="col-md-3">shift + j</dt>
-								<dd  class="col-md-9">Opens the Add New Job window.</dd>
+									<dt  class="col-md-3">shift + j</dt>
+									<dd  class="col-md-9">Opens the Add New Job window.</dd>
 
-								<dt  class="col-md-3">shift + q</dt>
-								<dd  class="col-md-9">Logs you out of the system..</dd>
-								
-								<dt  class="col-md-3">shift + u</dt>
-								<dd  class="col-md-9">Opens the Add New User window.</dd>
-							</dl>
+									<dt  class="col-md-3">shift + q</dt>
+									<dd  class="col-md-9">Logs you out of the system..</dd>
+
+									<dt  class="col-md-3">shift + u</dt>
+									<dd  class="col-md-9">Opens the Add New User window.</dd>
+								</dl>
+							</div>
 						</div>
 				 	</div>
 				 	<div class="modal-footer">
