@@ -81,6 +81,16 @@ function dashboard_stats_jobs_per_customer() {
 	return $stats;
 }
 
+// strip everything but numbers
+function only_numbers( $string ) {
+	$string 		= str_replace( ' ', '', $string );
+	$string 		= str_replace( '£', '', $string );
+	$string 		= str_replace( ',', '', $string );
+	$string 		= preg_replace( "/[^0-9\.]/", "", $string );
+
+	return $string;
+}
+
 // action security check
 function action_security_check( $security_levels ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
