@@ -1,12 +1,12 @@
 <?php
 
-// php array with last 30 days
-function create_30_day_array() {
+// php array with last 14 days
+function create_14_day_array() {
 	// today
 	$today     = new DateTime();
 
 	//created 30 days interval back
-	$begin     = $today->sub( new DateInterval( 'P30D' ) );
+	$begin     = $today->sub( new DateInterval( 'P14D' ) );
 
 	$end       = new DateTime();
 
@@ -39,10 +39,10 @@ function dashboard_stats_jobs_per_day() {
 	$jobs_per_date = array();
 
 	// get last 30 days in array
-	$stats_dates = create_30_day_array();
+	$stats_dates = create_14_day_array();
 
 	$count = 0;
-	
+
 	foreach( $stats_dates as $stat_date ) {
 		$jobs_per_date[$count]['date'] = $stat_date;
 		$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date );
