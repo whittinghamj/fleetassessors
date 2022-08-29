@@ -8,6 +8,12 @@ error_reporting (E_ALL);
 include( dirname(__FILE__).'/includes/core.php' );
 include( dirname(__FILE__).'/includes/functions.php' );
 
+// create blank array
+$results = array();
+
+// set $count
+$count = 0;
+
 // get data
 $query = $conn->query( "
     SELECT * 
@@ -15,18 +21,14 @@ $query = $conn->query( "
 " );
 $data = $query->fetchAll( PDO::FETCH_ASSOC );
 
-// create blank array
-$results = array();
-
-$count = 0;
-
 // loop over data
 foreach( $data as $bit ) {
+    debug( $bit );
     // convert added to added_date
-    $date = date( "d-m-Y", $bit['added'] );
+    // $date = date( "d-m-Y", $bit['added'] );
 
     // update record
-    $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']['id']."' " );
+    // $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']['id']."' " );
 
 }
 
