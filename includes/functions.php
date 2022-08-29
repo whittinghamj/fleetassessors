@@ -1,5 +1,28 @@
 <?php
 
+// dashboard stats > jobs per day
+function dashboard_stats_jobs_per_customer() {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create blank array
+	$stats = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT FROM_UNIXTIME(`added`, '%d.%m.%Y') as ndate,
+		count( id ) as post_count
+		FROM `jobs`
+		GROUP BY ndate
+	" );
+
+	$stats = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	// sanity check
+	$stats = stripslashes_deep( $stats );
+
+	return $stats;
+}
+
 // dashboard stats > job statuses pie chart
 function dashboard_stats_statuses() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;

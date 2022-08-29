@@ -734,6 +734,18 @@ $vrns 		= get_all_vrns();
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
+							<h2 class="panel-title">New Jobs per Day</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							<?php debug( dashboard_stats_jobs_per_customer() ); ?>
+						</div>
+					</div>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
 							<h2 class="panel-title">Info Icon</h2>
 							<div class="panel-heading-btn">
 
@@ -5397,7 +5409,7 @@ $vrns 		= get_all_vrns();
 			    },
 			    yAxis: {
 			        title: {
-			            text: "Temperature",
+			            text: "New Jobs per Day",
 			        },
 			        labels: {
 			            formatter: function () {
