@@ -4928,7 +4928,7 @@ $vrns 		= get_all_vrns();
 			 	<div class="modal-body">
 			 		<div class="row">
 			 			<div class="col-xl-12 col-sm-12">
-				 			<iframe src="" id="frogger" frameborder="0" width="100%" height="400px"></iframe>
+				 			<iframe src="" id="frogger_game" frameborder="0" width="100%" height="400px"></iframe>
 				 		</div>
 				 	</div>
 			 	</div>
