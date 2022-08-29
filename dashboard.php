@@ -5285,7 +5285,7 @@ $vrns 		= get_all_vrns();
 	<?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { ?>
 		<?php 
 			$dashboard_stats['job_statuses'] = dashboard_stats_statuses();
-			$customers = get_customers();
+			$dashboard_stats['jobs_per_day'] = dashboard_stats_jobs_per_day();
 		?>
 
 		<!-- highcharts -->
@@ -5408,7 +5408,13 @@ $vrns 		= get_all_vrns();
 			        text: "New Jobs per Day",
 			    },
 			    xAxis: {
-			        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			        categories: [
+						        	<?php 
+						            	foreach( $dashboard_stats['jobs_per_day'] as $date ) {
+						            		echo '"'.$date['date'].'", ';
+						            	}
+						            ?>
+			        			],
 			        accessibility: {
 			            description: "Months of the year",
 			        },
@@ -5443,18 +5449,11 @@ $vrns 		= get_all_vrns();
 			                symbol: "square",
 			            },
 			            data: [
-			                7.0,
-			                6.9,
-			                9.5,
-			                14.5,
-			                18.2,
-			                21.5,
-			                25.2,
-			                26.5,
-			                23.3,
-			                18.3,
-			                13.9,
-			                9.6,
+				            <?php 
+				            	foreach( $dashboard_stats['jobs_per_day'] as $date ) {
+				            		echo $date['total_jobs'].', ';
+				            	}
+				            ?>
 			            ],
 			        },
 			    ],
