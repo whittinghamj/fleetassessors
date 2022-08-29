@@ -2247,6 +2247,12 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 								<div class="panel-body">
+									<dl class="row">
+										<dt  class="col-md-3">Description Title</dt>
+										<dd  class="col-md-9">A description list...</dd>
+									</dl>
+
+
 									<dl>
 										<dt class="text-inverse">Aug 29 2022 @ 13:00</dt>
 										<dd>Update to v1.0.1</dd>
