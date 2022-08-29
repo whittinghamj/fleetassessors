@@ -649,8 +649,6 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `engineer_notes` = '".$engineer_notes."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `internal_notes` = '".$internal_notes."' WHERE `id` = '".$job_id."' " );
 
-	$update = $conn->exec( "UPDATE `jobs` SET `internal_notes` = '".$internal_notes."' WHERE `id` = '".$job_id."' " );
-
 	$update = $conn->exec( "UPDATE `jobs` SET `hourly_rate` = '".$hourly_rate."' WHERE `id` = '".$job_id."' " );
 
 	// set status message
