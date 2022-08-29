@@ -2251,7 +2251,6 @@ $vrns 		= get_all_vrns();
 
 					<!-- stats -->
 					<div class="row">
-						<div class="col-xl-8 col-sm-12">
 						<div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div id="highchart_dashboard_stats_jobs_per_day"></div>
 						</div>
