@@ -676,7 +676,7 @@ function get_users( $type = '' ) {
 
 	$count = 0;
 
-	// loop over data to add additional details
+	// loop over data to add additional details about each user
 	foreach( $data as $bit ) {
 		// add existing data
 		$users[$count] = $bit;
@@ -720,7 +720,7 @@ function get_jobs( $customer = '' ) {
 
 	$count = 0;
 
-	// loop over data to add additional details
+	// loop over data to add additional details about each user
 	foreach( $data as $bit ) {
 		// add existing data
 		$jobs[$count] = $bit;
@@ -750,20 +750,7 @@ function get_all_jobs() {
 		FROM `jobs` 
 	" );
 
-	$data = $query->fetchAll( PDO::FETCH_ASSOC );
-
-	$count = 0;
-	
-	// loop over data to add additional details
-	foreach( $data as $bit ) {
-		// add existing data
-		$jobs[$count] = $bit;
-
-		// vrn details
-		$jobs[$count]['vrn_details'] = get_vrn( $bit['vrn'] );
-
-		$count++;
-	}
+	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
 
 	// sanity check
 	$jobs = stripslashes_deep( $jobs );
@@ -788,7 +775,7 @@ function get_all_jobs_lite( $customer = '' ) {
 
 	$count = 0;
 
-	// loop over data to add additional details
+	// loop over data to add additional details about each user
 	foreach( $data as $bit ) {
 		// add existing data
 		$jobs[$count] = $bit;
@@ -879,7 +866,7 @@ function get_all_vrns() {
 
 	$count = 0;
 
-	// loop over data to add additional details
+	// loop over data to add additional details about each user
 	foreach( $data as $bit ) {
 		// add existing data
 		$vrns[$count] = $bit;
