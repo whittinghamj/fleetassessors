@@ -740,7 +740,14 @@ $vrns 		= get_all_vrns();
 							</div>
 						</div>
 						<div class="panel-body">
-							<?php debug( dashboard_stats_jobs_per_day() ); ?>
+							<div class="row">
+								<div class="col-xl-6">
+									<?php debug( create_30_day_array() ); ?>
+								</div>
+								<div class="col-xl-6">
+									<?php debug( dashboard_stats_jobs_per_day() ); ?>
+								</div>
+							</div>
 						</div>
 					</div>
 

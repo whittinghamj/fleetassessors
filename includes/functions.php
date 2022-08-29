@@ -1,6 +1,19 @@
 <?php
 
-
+// php array with last 30 days
+function create_30_day_array() {
+	$today     = new DateTime(); // today
+	$begin     = $today->sub( new DateInterval( 'P30D' ) ); //created 30 days interval back
+	$end       = new DateTime();
+	$end       = $end->modify( '+1 day' ); // interval generates upto last day
+	$interval  = new DateInterval( 'P1D' ); // 1d interval range
+	$daterange = new DatePeriod( $begin, $interval, $end ); // it always runs forwards in date
+	foreach( $daterange as $date ) { // date object
+	    $d[] = $date->format( "d-m-Y" ); // your date
+	}
+	
+	return $d;
+}
 // dashboard stats > jobs per day
 function dashboard_stats_jobs_per_day() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
