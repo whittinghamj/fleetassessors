@@ -4928,7 +4928,7 @@ $vrns 		= get_all_vrns();
 			 	<div class="modal-body">
 			 		<div class="row">
 			 			<div class="col-xl-12 col-sm-12">
-				 			<iframe src="" id="frogger" frameborder="0"></iframe>
+				 			<iframe src="" id="frogger" frameborder="0" width="100%" height="400px"></iframe>
 				 		</div>
 				 	</div>
 			 	</div>
@@ -6069,7 +6069,7 @@ $vrns 		= get_all_vrns();
 
 				$( '#frogger_modal' ).modal( 'show' );
 			    $( '#frogger_modal' ).on( 'shown.bs.modal', function() {
-				    $( this ).find( 'iframe' ).attr( 'src', 'https://www.google.com' );
+				    $( this ).find( 'iframe' ).attr( 'src', 'https://www.cbc.ca/kids/games/play/jumper-frog' );
 				})  
 			});
 			Mousetrap.bind( 'shift+j', function() { 
