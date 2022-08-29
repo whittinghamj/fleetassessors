@@ -6034,11 +6034,11 @@ $vrns 		= get_all_vrns();
 				console.log( 'lets play frogger' );
 				
 				$('#frogger').on('show',function(){    
-			        $(this).find('iframe').attr('src','http://www.google.com')
+			        $(this).find('iframe').attr('src','http://www.google.com');
 			    })
-			    $('#frogger').modal({show:true})
+			    $('#frogger').modal({show:true});
 			    
-			    $('iframe').load(function() {
+			    $('iframe').load(function() { });
 			});
 			Mousetrap.bind( 'shift+j', function() { 
 				console.log( 'add new job' );
