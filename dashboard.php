@@ -742,7 +742,10 @@ $vrns 		= get_all_vrns();
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-xl-6">
-									<?php debug( create_30_day_array() ); ?>
+									<?php 
+										$stats_dates = create_30_day_array();
+										debug( $stats_dates );
+									?>
 								</div>
 								<div class="col-xl-6">
 									<?php 
@@ -753,8 +756,13 @@ $vrns 		= get_all_vrns();
 							</div>
 							<hr>
 							<?php
-								$m_array = preg_grep( '/^28.08.2022\s.*/', $stats['ndate'] );
-								debug( $m_array );
+								foreach( $stats_dates as $date ) {
+									foreach( $stats as $stat ) {
+										if( $stat['ndate'] == $date ) {
+											echo 'we found some jobs<br>';
+										}
+									}
+								}
 							?>
 						</div>
 					</div>
