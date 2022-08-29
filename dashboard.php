@@ -757,7 +757,9 @@ $vrns 		= get_all_vrns();
 							<hr>
 							<?php
 								foreach( $stats_dates as $date ) {
+									echo '<br>checking '.$date.' ... ';
 									foreach( $stats as $stat ) {
+										echo 'against '.$stat['ndate'].' ... ';
 										if( $stat['ndate'] == $date ) {
 											echo 'we found some jobs<br>';
 										}
