@@ -756,15 +756,16 @@ $vrns 		= get_all_vrns();
 							</div>
 							<hr>
 							<?php
-								foreach( $stats_dates as $date ) {
-									echo '<br>checking '.$date.' ... ';
-									foreach( $stats as $stat ) {
-										echo 'against '.$stat['ndate'].' ... ';
-										if( $stat['ndate'] == $date ) {
-											echo 'we found some jobs<br>';
-										}
-									}
+								$jobs_per_date = array();
+								$count = 0:
+								foreach( $stats_dates as $stat_date ) {
+									$jobs_per_date[$count]['date'] = $stat_date;
+									$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date);
+
+									$count++;
 								}
+							
+								debug( $jobs_per_date );
 							?>
 						</div>
 					</div>
