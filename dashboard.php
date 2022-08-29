@@ -2777,21 +2777,21 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Year</strong></small></label>
 														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
 													</div>
 												</div>
 
-												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Make</strong></small></label>
 														<input type="text" name="vehicle_make" class="form-control" value="<?php echo $job['vrn_details']['make']; ?>" readonly>
 													</div>
 												</div>
 
-												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Model</strong></small></label>
 														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
@@ -2800,14 +2800,14 @@ $vrns 		= get_all_vrns();
 											</div>
 
 											<div class="row">
-												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Color</strong></small></label>
 														<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
 													</div>
 												</div>
 
-												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Fuel</strong></small></label>
 														<input type="text" name="vehicle_fuel" class="form-control" value="<?php echo $job['vrn_details']['fuel']; ?>" readonly>
