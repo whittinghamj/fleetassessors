@@ -2182,7 +2182,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							-->
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
 									<div class="stats-content">
@@ -2198,7 +2198,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
 									<div class="stats-content">
@@ -2214,7 +2214,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-users"></i></div>
 									<div class="stats-content">
@@ -2230,7 +2230,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xs-6">
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-purple text-white d-none d-sm-block"><i class="fa fa-address-card"></i></div>
 									<div class="stats-content">
