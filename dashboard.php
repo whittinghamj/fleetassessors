@@ -2205,10 +2205,13 @@ $vrns 		= get_all_vrns();
 
 					<!-- stats -->
 					<div class="row">
-						<div class="col-xl-4 col-sm-12">
+						<div class="col-xl-8 col-sm-12">
+							<div id="highchart_dashboard_stats_jobs_per_day"></div>
+						</div>
+						<div class="col-xl-2 col-sm-12">
 							<div id="highchart_dashboard_stats_job_statuses"></div>
 						</div>
-						<div class="col-xl-4 col-sm-12">
+						<div class="col-xl-2 col-sm-12">
 							<div id="highchart_dashboard_stats_jobs_per_customer"></div>
 						</div>
 					</div>
@@ -5269,6 +5272,7 @@ $vrns 		= get_all_vrns();
 
 		<!-- highcharts -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
