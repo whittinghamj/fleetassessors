@@ -752,6 +752,8 @@ function get_all_jobs() {
 
 	$data = $query->fetchAll( PDO::FETCH_ASSOC );
 
+	$count = 0;
+	
 	// loop over data to add additional details
 	foreach( $data as $bit ) {
 		// add existing data
