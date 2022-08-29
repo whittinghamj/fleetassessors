@@ -427,6 +427,8 @@ function job_add() {
 	$initial_estimate 		= round( $initial_estimate, 2 );
 	$initial_estimate 		= vat_details( $initial_estimate );
 
+	$added_date 			= date( "d-m-Y", time() );
+
 	// does vrn already exist
 	$query = $conn->query( "
 	        SELECT `id`, `added`, `last_checked` 
@@ -524,9 +526,10 @@ function job_add() {
 
 	// save data - job
 	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
-		(`added`,`updated`,`customer_id`,`added_by`,`vrn`,`initial_estimate_inc_vat`,`initial_estimate`)
+		(`added`,`added_date`,`updated`,`customer_id`,`added_by`,`vrn`,`initial_estimate_inc_vat`,`initial_estimate`)
 		VALUE
 		('".time()."',
+		'".$added_date."',
 		'".time()."',
 		'".$customer_id."',
 		'".$account_details['id']."',
