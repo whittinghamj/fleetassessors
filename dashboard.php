@@ -2740,19 +2740,17 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
-														<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
-															<address>
-																<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
-																<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
-															</address>
-														<?php } else { ?>
-															<address>
-																No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
-															</address>
-														<?php } ?>
-													</div>
+													<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
+													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
+														<address>
+															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
+															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
+														</address>
+													<?php } else { ?>
+														<address>
+															No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
+														</address>
+													<?php } ?>
 												</div>
 											</div>
 										</div>
