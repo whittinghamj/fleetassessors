@@ -1,70 +1,32 @@
 <?php
+// error reporting
+ini_set ('display_errors', 1);
+ini_set ('display_startup_errors', 1);
+error_reporting (E_ALL);
 
-namespace Whoops\Example;
+// include main functions
+include( dirname(__FILE__).'/includes/core.php' );
+include( dirname(__FILE__).'/includes/functions.php' );
 
-use Exception as BaseException;
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Run;
+// get data
+$query = $conn->query( "
+    SELECT * 
+    FROM `jobs` 
+" );
+$data = $query->fetch( PDO::FETCH_ASSOC );
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/lib.php';
+// create blank array
+$results = array();
 
-class Exception extends BaseException
-{
+$count = 0;
+
+// loop over data
+foreach( $data as $bit ) {
+    // convert added to added_date
+    $date = date( "d-m-Y", $bit['added'] );
+
+    // update record
+    $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']['id']."' " );
+
 }
 
-$run     = new Run();
-$handler = new PrettyPageHandler();
-
-// Add a custom table to the layout:
-$handler->addDataTable('Ice-cream I like', [
-    'Chocolate' => 'yes',
-    'Coffee & chocolate' => 'a lot',
-    'Strawberry & chocolate' => 'it\'s alright',
-    'Vanilla' => 'ew',
-]);
-
-$handler->setApplicationPaths([__FILE__]);
-
-$handler->addDataTableCallback('Details', function(\Whoops\Exception\Inspector $inspector) {
-    $data = array();
-    $exception = $inspector->getException();
-    if ($exception instanceof SomeSpecificException) {
-        $data['Important exception data'] = $exception->getSomeSpecificData();
-    }
-    $data['Exception class'] = get_class($exception);
-    $data['Exception code'] = $exception->getCode();
-    return $data;
-});
-
-$run->pushHandler($handler);
-
-// Example: tag all frames inside a function with their function name
-$run->pushHandler(function ($exception, $inspector, $run) {
-
-    $inspector->getFrames()->map(function ($frame) {
-
-        if ($function = $frame->getFunction()) {
-            $frame->addComment("This frame is within function '$function'", 'cpt-obvious');
-        }
-
-        return $frame;
-    });
-
-});
-
-$run->register();
-
-function fooBar()
-{
-    throw new Exception("Something broke!");
-}
-
-function bar()
-{
-    whoops_add_stack_frame(function(){
-        fooBar();
-    });
-}
-
-bar();
