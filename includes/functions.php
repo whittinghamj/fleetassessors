@@ -2,14 +2,27 @@
 
 // php array with last 30 days
 function create_30_day_array() {
-	$today     = new DateTime(); // today
-	$begin     = $today->sub( new DateInterval( 'P30D' ) ); //created 30 days interval back
+	// today
+	$today     = new DateTime();
+
+	//created 30 days interval back
+	$begin     = $today->sub( new DateInterval( 'P30D' ) );
+
 	$end       = new DateTime();
-	$end       = $end->modify( '+1 day' ); // interval generates upto last day
-	$interval  = new DateInterval( 'P1D' ); // 1d interval range
-	$daterange = new DatePeriod( $begin, $interval, $end ); // it always runs forwards in date
-	foreach( $daterange as $date ) { // date object
-	    $d[] = $date->format( "d-m-Y" ); // your date
+
+	// interval generates upto last day
+	$end       = $end->modify( '+1 day' );
+
+	// 1d interval range
+	$interval  = new DateInterval( 'P1D' );
+
+	// it always runs forwards in date
+	$daterange = new DatePeriod( $begin, $interval, $end );
+
+	// date object
+	foreach( $daterange as $date ) { 
+		// your date
+	    $d[] = $date->format( "d-m-Y" ); 
 	}
 
 	// reverse the order
