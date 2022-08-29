@@ -2708,7 +2708,7 @@ $vrns 		= get_all_vrns();
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Profit
-												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="This is the amount we were able to increase the estimate from its initial value. This figure excludes VAT."></i></span>
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="Profit is calculated based upon the 'approved' uplift elements apart from 'parts' and uses the customer service charge percentage of <?php echo $customer['service_charge_percentage']; ?>%. This figure excludes VAT."></i></span>
 											</div>
 											<div class="stats-number">£<?php echo number_format( $job['profit'], 2 ); ?></div>
 										</div>
