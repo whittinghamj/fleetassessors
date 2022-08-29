@@ -2744,6 +2744,7 @@ $vrns 		= get_all_vrns();
 														<address>
 															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
 															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
+															<?php echo $job['customer']['primary_contact']['phone']; ?>
 														</address>
 													<?php } else { ?>
 														<address>
