@@ -2731,17 +2731,29 @@ $vrns 		= get_all_vrns();
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Name</strong></small></label>
-														<div class="row">
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
-															</div>
-															<div class="col-xl-4 col-sm-12">
-																<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['full_address']; ?>" readonly>
+													<address>
+														<strong><?php echo $job['customer']['company_name']; ?></strong><br />
+														<?php echo $job['customer']['full_address']; ?><br />
+														<abbr title="Phone">P:</abbr> (123) 456-7890
+													</address>
+													<address>
+														<strong>Full Name</strong><br />
+														<a href="mailto:#">first.last@example.com</a>
+													</address>
+													
+													<!--
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Name</strong></small></label>
+															<div class="row">
+																<div class="col-xl-4 col-sm-12">
+																	<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
+																</div>
+																<div class="col-xl-4 col-sm-12">
+																	<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['full_address']; ?>" readonly>
+																</div>
 															</div>
 														</div>
-													</div>
+													-->
 												</div>
 											</div>
 											<div class="row">
