@@ -2250,12 +2250,12 @@ $vrns 		= get_all_vrns();
 									<dl>
 										<dt class="text-inverse">Aug 29 2022 @ 13:00</dt>
 										<dd>Update to v1.0.1</dd>
-										<dd>&nbsp;&nbsp;<strong>ADDED:</strong> dashboard stats with graph and pie charts.</dd>
-										<dd>&nbsp;&nbsp;<strong>ADDED:</strong> ability to use shortcut keys anywhere on the site to access new customer, jobs and users.</dd>
-										<dd>&nbsp;&nbsp;<strong>ADDED:</strong> calculations on jobs page updated to reflect VAT..</dd>
-										<dd>&nbsp;&nbsp;<strong>ADDED:</strong> taxed and MOT status on VRN results page.</dd>
-										<dd>&nbsp;&nbsp;<strong>UPDATED:</strong> updated security checkpoints for secure areas customers, global jobs and users.</dd>
-										<dd>&nbsp;&nbsp;<strong>UPDATED:</strong> improved performance in SQL queries.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>ADDED:</strong> dashboard stats with graph and pie charts.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>ADDED:</strong> ability to use shortcut keys anywhere on the site to access new customer, jobs and users.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>ADDED:</strong> calculations on jobs page updated to reflect VAT..</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>ADDED:</strong> taxed and MOT status on VRN results page.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>UPDATED:</strong> updated security checkpoints for secure areas customers, global jobs and users.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>UPDATED:</strong> improved performance in SQL queries.</dd>
 									</dl>
 									<dl>
 										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
