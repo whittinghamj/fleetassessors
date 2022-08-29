@@ -5432,47 +5432,11 @@ $vrns 		= get_all_vrns();
 			                18.2,
 			                21.5,
 			                25.2,
-			                {
-			                    y: 26.5,
-			                    marker: {
-			                        symbol: "url(https://www.highcharts.com/samples/graphics/sun.png)",
-			                    },
-			                    accessibility: {
-			                        description: "Sunny symbol, this is the warmest point in the chart.",
-			                    },
-			                },
+			                26.5,
 			                23.3,
 			                18.3,
 			                13.9,
 			                9.6,
-			            ],
-			        },
-			        {
-			            name: "London",
-			            marker: {
-			                symbol: "diamond",
-			            },
-			            data: [
-			                {
-			                    y: 3.9,
-			                    marker: {
-			                        symbol: "url(https://www.highcharts.com/samples/graphics/snow.png)",
-			                    },
-			                    accessibility: {
-			                        description: "Snowy symbol, this is the coldest point in the chart.",
-			                    },
-			                },
-			                4.2,
-			                5.7,
-			                8.5,
-			                11.9,
-			                15.2,
-			                17.0,
-			                16.6,
-			                14.2,
-			                10.3,
-			                6.6,
-			                4.8,
 			            ],
 			        },
 			    ],
