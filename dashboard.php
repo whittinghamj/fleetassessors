@@ -2862,19 +2862,19 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-1 col-sm-12">
+												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Added</strong></label>
 														<input type="text" name="added" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['added'] ); ?>" readonly>
 													</div>
 												</div>
-												<div class="col-xl-1 col-sm-12">
+												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Last Updated</strong></label>
 														<input type="text" name="updated" class="form-control" value="<?php echo date( "Y-m-d H:i:s", $job['updated'] ); ?>" readonly>
 													</div>
 												</div>
-												<div class="col-xl-1 col-sm-12">
+												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<?php if( $job['status'] == 'cancelled' || $job['status'] == 'complete' ) { ?>
 															<label class="bmd-label-floating"><strong>Completion Time</strong></label>
@@ -2884,7 +2884,7 @@ $vrns 		= get_all_vrns();
 														<input type="text" class="form-control" value="<?php echo $job['job_age']; ?> day(s)" readonly>
 													</div>
 												</div>
-												<div class="col-xl-1 col-sm-12">
+												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
@@ -2900,7 +2900,7 @@ $vrns 		= get_all_vrns();
 														</select>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Provider</strong></label>
 														<select name="provider_id" class="form-control select2">
@@ -2910,19 +2910,19 @@ $vrns 		= get_all_vrns();
 														</select>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Initial Estimate Ex VAT</strong></label>
 														<input type="text" name="initial_estimate" class="form-control" value="£<?php echo $job['initial_estimate']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Estimator</strong></label>
 														<input type="text" name="estimator" class="form-control" value="<?php echo $job['estimator']; ?>" placeholder="Joe Bloggs">
 													</div>
 												</div>
-												<div class="col-xl-2 col-sm-12">
+												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Hourly Rate</strong></label>
 														<input type="text" name="hourly_rate" class="form-control" value="£<?php echo $job['hourly_rate']; ?>" placeholder="£35.00">
