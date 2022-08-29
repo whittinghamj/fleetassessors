@@ -2260,7 +2260,7 @@ $vrns 		= get_all_vrns();
 									<dl>
 										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
 										<dd>Initial platform release, v1</dd>
-										<dd>&nbsp;&nbsp;<strong>DEPLOYED:</strong> core application was deployed and configured.</dd>
+										<dd>&nbsp;&nbsp;->&nbsp;&nbsp;<strong>DEPLOYED:</strong> core application was deployed and configured.</dd>
 									</dl>
 								</div>
 							</div>
