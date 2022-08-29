@@ -1456,7 +1456,7 @@ $vrns 		= get_all_vrns();
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
-												Approved Uplift
+												Total Approved Uplift Value
 											</div>
 											<div class="stats-number">£<?php echo number_format( $customer['total_approved_uplifts'], 2 ); ?></div>
 										</div>
