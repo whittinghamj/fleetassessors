@@ -6066,13 +6066,10 @@ $vrns 		= get_all_vrns();
 			});
 			Mousetrap.bind( 'shift+g', function() { 
 				console.log( 'lets play frogger' );
-				
-				$('#frogger').on('show',function(){    
-			        $(this).find('iframe').attr('src','http://www.google.com');
-			    })
-			    $('#frogger').modal({show:true});
-			    
-			    $('iframe').load(function() { });
+
+			    $('#frogger').on('shown.bs.modal', function() {
+				    $(this).find('iframe').attr('src','http://www.google.com')
+				})  
 			});
 			Mousetrap.bind( 'shift+j', function() { 
 				console.log( 'add new job' );
@@ -6086,12 +6083,6 @@ $vrns 		= get_all_vrns();
 				console.log( 'add new user' );
 				$( '#user_add' ).modal( 'show' );
 			});
-
-			jQuery(document).ready(function() {	
-	jQuery("#videoModal").on('shown.bs.modal', function(){
-	   	jQuery('#videoModal iframe').attr('src', jQuery('#videoModal iframe').attr('data-src') );
-	});
-});
 		</script>
 	<?php } ?>
 </body>
