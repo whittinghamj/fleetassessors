@@ -745,9 +745,17 @@ $vrns 		= get_all_vrns();
 									<?php debug( create_30_day_array() ); ?>
 								</div>
 								<div class="col-xl-6">
-									<?php debug( dashboard_stats_jobs_per_day() ); ?>
+									<?php 
+										$stats = dashboard_stats_jobs_per_day();
+										debug( $stats ); 
+									?>
 								</div>
 							</div>
+							<hr>
+							<?php
+								$m_array = preg_grep( '/^28.08.2022\s.*/', $stats );
+								debug( $m_array );
+							?>
 						</div>
 					</div>
 
