@@ -4832,52 +4832,103 @@ $vrns 		= get_all_vrns();
 		</div>
 	</form>
 
-	<!-- add customer modal -->
-		<div class="modal fade" id="keyboard_shortcuts" tabindex="-1" role="dialog" aria-labelledby="keyboard_shortcuts" aria-hidden="true">
-		   	<div class="modal-dialog modal-notice">
-			  	<div class="modal-content">
-				 	<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Keyboard Shortcuts</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							x
-						</button>
+	<!-- shortcut key modal -->
+	<div class="modal fade" id="keyboard_shortcuts" tabindex="-1" role="dialog" aria-labelledby="keyboard_shortcuts" aria-hidden="true">
+	   	<div class="modal-dialog modal-notice">
+		  	<div class="modal-content">
+			 	<div class="modal-header">
+					<h5 class="modal-title" id="myModalLabel">Keyboard Shortcuts</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						x
+					</button>
+			 	</div>
+			 	<div class="modal-body">
+			 		<div class="row">
+			 			<div class="col-xl-12 col-sm-12">
+				 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available. <br><hr><br>
+				 		</div>
 				 	</div>
-				 	<div class="modal-body">
-				 		<div class="row">
-				 			<div class="col-xl-12 col-sm-12">
-					 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available. <br><hr><br>
-					 		</div>
-					 	</div>
-					 	<div class="row">
-					 		<div class="col-xl-12 col-sm-12">
-								<dl class="row">
-									<dt  class="col-md-3">shift + c</dt>
-									<dd  class="col-md-9">Opens the Add New Customer window.</dd>
+				 	<div class="row">
+				 		<div class="col-xl-12 col-sm-12">
+							<dl class="row">
+								<dt  class="col-md-3">shift + c</dt>
+								<dd  class="col-md-9">Opens the Add New Customer window.</dd>
 
-									<dt  class="col-md-3">shift + h</dt>
-									<dd  class="col-md-9">Opens this help window.</dd>
+								<dt  class="col-md-3">shift + g</dt>
+								<dd  class="col-md-9">Opens a game window.</dd>
 
-									<dt  class="col-md-3">shift + j</dt>
-									<dd  class="col-md-9">Opens the Add New Job window.</dd>
+								<dt  class="col-md-3">shift + h</dt>
+								<dd  class="col-md-9">Opens this help window.</dd>
 
-									<dt  class="col-md-3">shift + q</dt>
-									<dd  class="col-md-9">Logs you out of the system..</dd>
+								<dt  class="col-md-3">shift + j</dt>
+								<dd  class="col-md-9">Opens the Add New Job window.</dd>
 
-									<dt  class="col-md-3">shift + u</dt>
-									<dd  class="col-md-9">Opens the Add New User window.</dd>
-								</dl>
-							</div>
-						</div>
-				 	</div>
-				 	<div class="modal-footer">
-				 		<div class="btn-group">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<dt  class="col-md-3">shift + q</dt>
+								<dd  class="col-md-9">Logs you out of the system..</dd>
+
+								<dt  class="col-md-3">shift + u</dt>
+								<dd  class="col-md-9">Opens the Add New User window.</dd>
+							</dl>
 						</div>
 					</div>
-			  	</div>
-		   	</div>
-		</div>
-	</form>
+			 	</div>
+			 	<div class="modal-footer">
+			 		<div class="btn-group">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+		  	</div>
+	   	</div>
+	</div>
+
+	<!-- game modal -->
+	<div class="modal fade" id="game_modal" tabindex="-1" role="dialog" aria-labelledby="game_modal" aria-hidden="true">
+	   	<div class="modal-dialog modal-notice">
+		  	<div class="modal-content">
+			 	<div class="modal-header">
+					<h5 class="modal-title" id="myModalLabel">FROGGER</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						x
+					</button>
+			 	</div>
+			 	<div class="modal-body">
+			 		<div class="row">
+			 			<div class="col-xl-12 col-sm-12">
+				 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available. <br><hr><br>
+				 		</div>
+				 	</div>
+				 	<div class="row">
+				 		<div class="col-xl-12 col-sm-12">
+							<dl class="row">
+								<dt  class="col-md-3">shift + c</dt>
+								<dd  class="col-md-9">Opens the Add New Customer window.</dd>
+
+								<dt  class="col-md-3">shift + g</dt>
+								<dd  class="col-md-9">Opens a game window.</dd>
+
+								<dt  class="col-md-3">shift + h</dt>
+								<dd  class="col-md-9">Opens this help window.</dd>
+
+								<dt  class="col-md-3">shift + j</dt>
+								<dd  class="col-md-9">Opens the Add New Job window.</dd>
+
+								<dt  class="col-md-3">shift + q</dt>
+								<dd  class="col-md-9">Logs you out of the system..</dd>
+
+								<dt  class="col-md-3">shift + u</dt>
+								<dd  class="col-md-9">Opens the Add New User window.</dd>
+							</dl>
+						</div>
+					</div>
+			 	</div>
+			 	<div class="modal-footer">
+			 		<div class="btn-group">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+		  	</div>
+	   	</div>
+	</div>
 	
 	<!-- core js -->
 	<script src="assets/js/app.min.js"></script>
