@@ -61,7 +61,7 @@ $not_found = '
 	<div class="error-content">
 		<div class="error-message">We couldn\'t find it...</div>
 		<div class="error-desc mb-3 mb-sm-4 mb-md-5">
-			The page you\'re looking for doesn\'t exist. <br />
+			The page you\'re looking for doesn\'t exist. <br>
 		</div>
 		<div>
 			<a href="javascript:history.back()" class="btn btn-lime p-l-20 p-r-20">Go back</a>
@@ -2732,8 +2732,8 @@ $vrns 		= get_all_vrns();
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
 													<address>
-														<strong><?php echo $job['customer']['company_name']; ?></strong><br />
-														<?php echo $job['customer']['full_address']; ?><br />
+														<strong><?php echo $job['customer']['company_name']; ?></strong> <br>
+														<?php echo $job['customer']['full_address']; ?> <br>
 														<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
 													</address>
 												</div>
@@ -2742,8 +2742,8 @@ $vrns 		= get_all_vrns();
 												<div class="col-xl-12 col-sm-12">
 													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
 														<address>
-															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
-															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
+															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong> <br>
+															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a> <br>
 															<?php echo $job['customer']['primary_contact']['phone']; ?>
 														</address>
 													<?php } else { ?>
