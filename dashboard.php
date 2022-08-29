@@ -757,7 +757,7 @@ $vrns 		= get_all_vrns();
 							<hr>
 							<?php
 								$jobs_per_date = array();
-								$count = 0:
+								$count = 0;
 								foreach( $stats_dates as $stat_date ) {
 									$jobs_per_date[$count]['date'] = $stat_date;
 									$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date);
