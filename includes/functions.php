@@ -1,7 +1,8 @@
 <?php
 
+
 // dashboard stats > jobs per day
-function dashboard_stats_jobs_per_customer() {
+function dashboard_stats_jobs_per_day() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create blank array
