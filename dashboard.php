@@ -2582,7 +2582,8 @@ $vrns 		= get_all_vrns();
 					}
 
 					// calc profit per job
-					$job['profit'] = ( $job['approved_estimate'] / 100 * $customer['service_charge_percentage'] );
+					$billable_items = ( $job['approved_labour'] + $job['approved_paint'] + $job['approved_additional'] + $job['approved_parts'] );
+					$job['profit'] = ( $billable_items / 100 * $customer['service_charge_percentage'] );
 				?>
 
 				<div id="content" class="content">
