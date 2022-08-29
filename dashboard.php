@@ -2732,6 +2732,7 @@ $vrns 		= get_all_vrns();
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
 													<address>
+														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 														<strong><?php echo $job['customer']['company_name']; ?></strong><br />
 														<?php echo $job['customer']['full_address']; ?><br />
 														<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
@@ -2740,9 +2741,9 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
 														<address>
+															<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
 															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
 														</address>
