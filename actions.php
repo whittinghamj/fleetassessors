@@ -527,7 +527,7 @@ function job_add() {
 		(`added`,`added_date`,`updated`,`customer_id`,`added_by`,`vrn`,`initial_estimate_inc_vat`,`initial_estimate`)
 		VALUE
 		('".time()."',
-		'".date( "d-m-Y", time() )."'
+		'".date( "d-m-Y", time() )."',
 		'".time()."',
 		'".$customer_id."',
 		'".$account_details['id']."',
