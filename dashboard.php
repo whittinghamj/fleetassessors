@@ -2633,7 +2633,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-xl-block"><i class="fa fa-file"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Initial Estimate <small>ex VAT</small>
@@ -2651,7 +2651,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-warning text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-warning text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Revised Estimate <small>ex VAT</small>
@@ -2667,7 +2667,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Initial Uplift Element
@@ -2680,7 +2680,7 @@ $vrns 		= get_all_vrns();
 							<?php if( $job['status'] == 'approved' ) { ?>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Approved Uplift Element
@@ -2692,7 +2692,7 @@ $vrns 		= get_all_vrns();
 								</div>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Approved Estimate
@@ -2704,7 +2704,7 @@ $vrns 		= get_all_vrns();
 								</div>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
-										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
+										<!-- <div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div> -->
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
 												Profit
