@@ -2250,6 +2250,8 @@ $vrns 		= get_all_vrns();
 									<dl class="row">
 										<dt class="col-md-3">Update to v1.0.1</dt>
 										<dd class="col-md-3"><strong>ADDED:</strong> dashboard stats with graph and pie charts.</dd>
+										
+										<dt class="col-md-3"></dt>
 										<dd class="col-md-3"><strong>ADDED:</strong> ability to use shortcut keys anywhere on the site to access new customer, jobs and users.</dd>
 										<dd class="col-md-3"><strong>ADDED:</strong> calculations on jobs page updated to reflect VAT..</dd>
 										<dd class="col-md-3"><strong>ADDED:</strong> taxed and MOT status on VRN results page.</dd>
