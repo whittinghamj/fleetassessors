@@ -31,7 +31,7 @@ foreach( $data as $bit ) {
     console_output( "added = ".$bit['added']." | added_date = ".$date );
 
     // update record
-    // $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']['id']."' " );
+    $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']."' " );
 
 }
 
