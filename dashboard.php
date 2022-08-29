@@ -6067,8 +6067,9 @@ $vrns 		= get_all_vrns();
 			Mousetrap.bind( 'shift+g', function() { 
 				console.log( 'lets play frogger' );
 
-			    $('#frogger_modal').on('shown.bs.modal', function() {
-				    $(this).find('iframe').attr('src','http://www.google.com')
+				$( '#frogger_modal' ).modal( 'show' );
+			    $( '#frogger_modal' ).on( 'shown.bs.modal', function() {
+				    $( this ).find( 'iframe' ).attr( 'src', 'http://www.google.com' );
 				})  
 			});
 			Mousetrap.bind( 'shift+j', function() { 
