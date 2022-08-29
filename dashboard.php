@@ -2731,7 +2731,6 @@ $vrns 		= get_all_vrns();
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<label class="bmd-label-floating"><strong>Company</strong></small></label>
 													<address>
 														<strong><?php echo $job['customer']['company_name']; ?></strong><br />
 														<?php echo $job['customer']['full_address']; ?><br />
