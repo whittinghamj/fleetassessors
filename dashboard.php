@@ -742,31 +742,11 @@ $vrns 		= get_all_vrns();
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-xl-6">
-									<?php 
-										$stats_dates = create_30_day_array();
-										debug( $stats_dates );
-									?>
-								</div>
-								<div class="col-xl-6">
-									<?php 
-										$stats = dashboard_stats_jobs_per_day();
-										debug( $stats ); 
+									<?php
+										debug( dashboard_stats_jobs_per_day() );
 									?>
 								</div>
 							</div>
-							<hr>
-							<?php
-								$jobs_per_date = array();
-								$count = 0;
-								foreach( $stats_dates as $stat_date ) {
-									$jobs_per_date[$count]['date'] = $stat_date;
-									$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date );
-
-									$count++;
-								}
-							
-								debug( $jobs_per_date );
-							?>
 						</div>
 					</div>
 

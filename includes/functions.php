@@ -36,22 +36,22 @@ function dashboard_stats_jobs_per_day() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
 	// create blank array
-	$stats = array();
+	$jobs_per_date = array();
 
-	// get data
-	$query = $conn->query( "
-		SELECT FROM_UNIXTIME(`added`, '%d.%m.%Y') as ndate,
-		count( id ) as post_count
-		FROM `jobs`
-		GROUP BY ndate
-	" );
+	// get last 30 days in array
+	$stats_dates = create_30_day_array();
 
-	$stats = $query->fetchAll( PDO::FETCH_ASSOC );
+	foreach( $stats_dates as $stat_date ) {
+		$jobs_per_date[$count]['date'] = $stat_date;
+		$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date );
+
+		$count++;
+	}
 
 	// sanity check
-	$stats = stripslashes_deep( $stats );
+	$jobs_per_date = stripslashes_deep( $jobs_per_date );
 
-	return $stats;
+	return $jobs_per_date;
 }
 
 // dashboard stats > job statuses pie chart
@@ -293,7 +293,7 @@ function total_jobs_per_date( $date = '' ) {
     	FROM `jobs` 
     	WHERE `added_date` = '".$date."'
 	";
-	
+
 	// get data
     $query      = $conn->query( $sql );
 
