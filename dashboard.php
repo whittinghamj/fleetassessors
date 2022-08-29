@@ -2748,11 +2748,9 @@ $vrns 		= get_all_vrns();
 																<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
 															</address>
 														<?php } else { ?>
-															<div class="row">
-																<div class="col-xl-12 col-sm-12">
-																	No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
-																</div>
-															</div>
+															<address>
+																No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
+															</address>
 														<?php } ?>
 													</div>
 												</div>
