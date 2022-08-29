@@ -11,9 +11,13 @@ function create_30_day_array() {
 	foreach( $daterange as $date ) { // date object
 	    $d[] = $date->format( "d-m-Y" ); // your date
 	}
+
+	// reverse the order
+	array_reverse( $d );
 	
 	return $d;
 }
+
 // dashboard stats > jobs per day
 function dashboard_stats_jobs_per_day() {
 	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
