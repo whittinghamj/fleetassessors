@@ -2254,10 +2254,10 @@ $vrns 		= get_all_vrns();
 						<div class="col-xl-8">
 							<div id="highchart_dashboard_stats_jobs_per_day"></div>
 						</div>
-						<div class="col-xl-4">
+						<div class="col-xl-4 col-md-6">
 							<div id="highchart_dashboard_stats_job_statuses"></div>
 						</div>
-						<div class="col-xl-4">
+						<div class="col-xl-4 col-md-6">
 							<div id="highchart_dashboard_stats_jobs_per_customer"></div>
 						</div>
 					</div>
