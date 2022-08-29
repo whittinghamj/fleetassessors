@@ -536,6 +536,7 @@ function job_add() {
 		'".$initial_estimate['ex_vat']."'
 	)" );
 
+	// new record id
 	$job_id = $conn->lastInsertId();
 
 	// set status message
