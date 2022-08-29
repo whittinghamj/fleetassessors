@@ -2811,10 +2811,16 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-12 col-sm-12">
+												<div class="col-xl-6 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
+														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
+													</div>
+												</div>
+												<div class="col-xl-6 col-sm-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['notes']; ?></textarea>
+														<textarea name="notes" id="notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
 													</div>
 												</div>
 											</div>

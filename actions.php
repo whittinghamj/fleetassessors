@@ -616,7 +616,8 @@ function job_edit() {
 
 	$approved_total 				= ( $approved_labour + $approved_paint + $approved_additional + $approved_parts + $approved_check );
 
-	$notes 							= post( 'notes' );
+	$engineer_notes 				= post( 'engineer_notes' );
+	$internal_notes 				= post( 'internal_notes' );
 
 	// save data
 	$update = $conn->exec( "UPDATE `jobs` SET `status` = '".$status."' WHERE `id` = '".$job_id."' " );
@@ -640,7 +641,8 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `uplift_estimate` = '".$uplift_total."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `approved_estimate` = '".$approved_total."' WHERE `id` = '".$job_id."' " );
 
-	$update = $conn->exec( "UPDATE `jobs` SET `notes` = '".$notes."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `engineer_notes` = '".$engineer_notes."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `internal_notes` = '".$internal_notes."' WHERE `id` = '".$job_id."' " );
 
 	$update = $conn->exec( "UPDATE `jobs` SET `updated` = '".time()."' WHERE `id` = '".$job_id."' " );
 
