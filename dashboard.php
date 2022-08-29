@@ -2557,7 +2557,7 @@ $vrns 		= get_all_vrns();
 					$providers 		= get_providers();
 
 					$markup 		= $job['uplift_estimate'];
-					$profit 		= $job['approved_estimate'];
+					
 					$revised_estimate = ( $job['initial_estimate'] + $job['uplift_estimate'] );
 					if( $job['status'] == 'approved' ) { 
 						$approved_estimate = ( $job['initial_estimate'] + $job['approved_estimate'] );
@@ -2580,6 +2580,9 @@ $vrns 		= get_all_vrns();
 							break;
 						}
 					}
+
+					// calc profit per job
+					$job['profit'] = ( $job['approved_estimate'] / 100 * $customer['service_charge_percentage'] );
 				?>
 
 				<div id="content" class="content">
@@ -2628,51 +2631,51 @@ $vrns 		= get_all_vrns();
 							<?php } else { ?>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Initial Estimate <small>ex VAT</small>
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
-										</div>
-										<div class="stats-number">
-											£<?php echo number_format( $job['initial_estimate'], 2 ); ?> 
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-file"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Initial Estimate <small>ex VAT</small>
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Estimate" data-placement="top" data-content="This is the initial estimate submitted by the customer. This figure excludes VAT."></i></span>
+											</div>
+											<div class="stats-number">
+												£<?php echo number_format( $job['initial_estimate'], 2 ); ?> 
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 							<?php if( $job['status'] != 'approved' ) { ?>
 								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-warning text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Revised Estimate <small>ex VAT</small>
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-warning text-white d-none d-sm-block"><i class="fa fa-chart-line"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Revised Estimate <small>ex VAT</small>
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Revised Estimate" data-placement="top" data-content="This is the revised estimate sent to the customer. This figure excludes VAT."></i></span>
+											</div>
+											<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
 										</div>
-										<div class="stats-number">£<?php echo number_format( $revised_estimate, 2 ); ?></div>
 									</div>
 								</div>
-							</div>
 							<?php if( $job['status'] != 'approved' ) { ?>
 								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 							<?php } ?>
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Initial Uplift Element
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-info text-white d-none d-sm-block"><i class="fa fa-check-circle"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Initial Uplift Element
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Initial Uplift Estimate" data-placement="top" data-content="This is the initial uplift estimate. This figure excludes VAT."></i></span>
+											</div>
+											<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
 										</div>
-										<div class="stats-number">£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></div>
 									</div>
 								</div>
-							</div>
 							<?php if( $job['status'] == 'approved' ) { ?>
 								<div class="col-xl-2 col-md-6 col-xs-6">
 									<div class="widget widget-stats bg-white text-inverse">
@@ -2706,7 +2709,7 @@ $vrns 		= get_all_vrns();
 												Profit
 												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Profit" data-placement="top" data-content="This is the amount we were able to increase the estimate from its initial value. This figure excludes VAT."></i></span>
 											</div>
-											<div class="stats-number">£<?php echo number_format( $profit, 2 ); ?></div>
+											<div class="stats-number">£<?php echo number_format( $job['profit'], 2 ); ?></div>
 										</div>
 									</div>
 								</div>
