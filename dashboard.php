@@ -2734,14 +2734,14 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<address>
 														<strong><?php echo $job['customer']['company_name']; ?></strong> <br>
 														<?php echo $job['customer']['full_address']; ?> <br>
 														<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
 													</address>
 												</div>
-												<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
 														<address>
 															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong> <br>
@@ -2754,7 +2754,7 @@ $vrns 		= get_all_vrns();
 														</address>
 													<?php } ?>
 												</div>
-												<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<address>
 														<strong>Service Charge Percentage</strong> <br>
 														<?php echo $job['customer']['service_charge_percentage']; ?>%
