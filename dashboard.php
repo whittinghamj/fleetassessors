@@ -5852,8 +5852,8 @@ $vrns 		= get_all_vrns();
 			Mousetrap.bind('shift+j', function() { 
 				console.log('add new job');
 				$('#job_add').modal('show');
-				document.getElementById('add_job_vrn').focus()
-				document.getElementById('add_job_vrn').select()
+				document.getElementById('add_job_vrn').focus();
+				document.getElementById('add_job_vrn').select();
 
 			});
 			Mousetrap.bind('shift+u', function() { 
