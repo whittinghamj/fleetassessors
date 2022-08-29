@@ -2777,7 +2777,7 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Year</strong></small></label>
 														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
