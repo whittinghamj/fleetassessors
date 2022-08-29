@@ -2223,7 +2223,7 @@ $vrns 		= get_all_vrns();
 
 					<!-- stats -->
 					<div class="row">
-						<div class="col-xl-8 col-sm-12">
+						<div class="col-xl-8 col-sm-12 inverse-mode">
 							<div id="highchart_dashboard_stats_jobs_per_day"></div>
 						</div>
 						<div class="col-xl-2 col-sm-12">
