@@ -4355,7 +4355,7 @@ $vrns 		= get_all_vrns();
 							<div class="col-xl-6 col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating"><strong>First Name</strong></label>
-									<input type="text" name="first_name" class="form-control" required>
+									<input type="text" id="add_user_first_name" name="first_name" class="form-control" required>
 								</div>
 							</div>
 							<div class="col-xl-6 col-sm-12">
@@ -4431,7 +4431,7 @@ $vrns 		= get_all_vrns();
 							<div class="col-xl-6 col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating"><strong>VRN</strong></label>
-									<input type="text" id="vrn" name="vrn" class="form-control" required>
+									<input type="text" id="add_job_vrn" name="vrn" class="form-control" required>
 								</div>
 							</div>
 							<div class="col-xl-6 col-sm-12">
@@ -4469,7 +4469,7 @@ $vrns 		= get_all_vrns();
 							<div class="col-xl-12 col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating"><strong>Company Name</strong></label>
-									<input type="text" id="company_name" name="company_name" class="form-control" required>
+									<input type="text" id="add_customer_company_name" name="company_name" class="form-control" required>
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -5852,6 +5852,8 @@ $vrns 		= get_all_vrns();
 			Mousetrap.bind('shift+j', function() { 
 				console.log('add new job');
 				$('#job_add').modal('show');
+				$('#add_job_vrn').focus().select()
+
 			});
 			Mousetrap.bind('shift+u', function() { 
 				console.log('add new user');
