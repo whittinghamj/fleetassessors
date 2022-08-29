@@ -4888,8 +4888,10 @@ $vrns 		= get_all_vrns();
 								<dt  class="col-md-3">shift + c</dt>
 								<dd  class="col-md-9">Opens the Add New Customer window.</dd>
 
-								<dt  class="col-md-3">shift + g</dt>
-								<dd  class="col-md-9">Opens a game window.</dd>
+								<!--
+									<dt  class="col-md-3">shift + g</dt>
+									<dd  class="col-md-9">Opens a game window.</dd>
+								-->
 
 								<dt  class="col-md-3">shift + h</dt>
 								<dd  class="col-md-9">Opens this help window.</dd>
