@@ -2247,19 +2247,6 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 								<div class="panel-body">
-									<dl class="row">
-										<dt class="col-md-3">Update to v1.0.1</dt>
-										<dd class="col-md-3"><strong>ADDED:</strong> dashboard stats with graph and pie charts.</dd>
-										
-										<dt class="col-md-3"></dt>
-										<dd class="col-md-3"><strong>ADDED:</strong> ability to use shortcut keys anywhere on the site to access new customer, jobs and users.</dd>
-										<dd class="col-md-3"><strong>ADDED:</strong> calculations on jobs page updated to reflect VAT..</dd>
-										<dd class="col-md-3"><strong>ADDED:</strong> taxed and MOT status on VRN results page.</dd>
-										<dd class="col-md-3"><strong>UPDATED:</strong> updated security checkpoints for secure areas customers, global jobs and users.</dd>
-										<dd class="col-md-3"><strong>UPDATED:</strong> improved performance in SQL queries.</dd>
-									</dl>
-
-
 									<dl>
 										<dt class="text-inverse">Aug 29 2022 @ 13:00</dt>
 										<dd>Update to v1.0.1</dd>
@@ -2273,6 +2260,7 @@ $vrns 		= get_all_vrns();
 									<dl>
 										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
 										<dd>Initial platform release, v1</dd>
+										<dd><strong>DEPLOYED:</strong> core application was deployed and configured.</dd>
 									</dl>
 								</div>
 							</div>
