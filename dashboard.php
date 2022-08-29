@@ -4882,7 +4882,7 @@ $vrns 		= get_all_vrns();
 	</div>
 
 	<!-- game modal -->
-	<div class="modal fade" id="game_modal" tabindex="-1" role="dialog" aria-labelledby="game_modal" aria-hidden="true">
+	<div class="modal fade" id="frogger_modal" tabindex="-1" role="dialog" aria-labelledby="frogger_modal" aria-hidden="true">
 	   	<div class="modal-dialog modal-notice">
 		  	<div class="modal-content">
 			 	<div class="modal-header">
@@ -4894,7 +4894,7 @@ $vrns 		= get_all_vrns();
 			 	<div class="modal-body">
 			 		<div class="row">
 			 			<div class="col-xl-12 col-sm-12">
-				 			<iframe src="" frameborder="0"></iframe>
+				 			<iframe src="" id="frogger" frameborder="0"></iframe>
 				 		</div>
 				 	</div>
 			 	</div>
@@ -6029,6 +6029,16 @@ $vrns 		= get_all_vrns();
 			Mousetrap.bind( 'shift+h', function() { 
 				console.log( 'show shortcut key modal' );
 				$( '#keyboard_shortcuts' ).modal( 'show' );
+			});
+			Mousetrap.bind( 'shift+g', function() { 
+				console.log( 'lets play frogger' );
+				
+				$('#frogger').on('show',function(){    
+			        $(this).find('iframe').attr('src','http://www.google.com')
+			    })
+			    $('#frogger').modal({show:true})
+			    
+			    $('iframe').load(function() {
 			});
 			Mousetrap.bind( 'shift+j', function() { 
 				console.log( 'add new job' );
