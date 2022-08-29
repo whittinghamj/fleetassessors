@@ -4855,11 +4855,11 @@ $vrns 		= get_all_vrns();
 								<dt  class="col-md-3">shift + j</dt>
 								<dd  class="col-md-9">Opens the Add New Job window.</dd>
 
-								<dt  class="col-md-3">shift + u</dt>
-								<dd  class="col-md-9">Opens the Add New User window.</dd>
-
 								<dt  class="col-md-3">shift + q</dt>
 								<dd  class="col-md-9">Logs you out of the system..</dd>
+								
+								<dt  class="col-md-3">shift + u</dt>
+								<dd  class="col-md-9">Opens the Add New User window.</dd>
 							</dl>
 						</div>
 				 	</div>
@@ -6000,13 +6000,13 @@ $vrns 		= get_all_vrns();
 				console.log( 'add new job' );
 				$( '#job_add' ).modal( 'show' );
 			});
-			Mousetrap.bind( 'shift+u', function() { 
-				console.log( 'add new user' );
-				$( '#user_add' ).modal( 'show' );
-			});
 			Mousetrap.bind( 'shift+q', function() { 
 				console.log( 'logging user out' );
 				window.open( 'logout.php' );
+			});
+			Mousetrap.bind( 'shift+u', function() { 
+				console.log( 'add new user' );
+				$( '#user_add' ).modal( 'show' );
 			});
 		</script>
 	<?php } ?>
