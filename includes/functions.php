@@ -41,6 +41,8 @@ function dashboard_stats_jobs_per_day() {
 	// get last 30 days in array
 	$stats_dates = create_30_day_array();
 
+	$count = 0;
+	
 	foreach( $stats_dates as $stat_date ) {
 		$jobs_per_date[$count]['date'] = $stat_date;
 		$jobs_per_date[$count]['total_jobs'] = total_jobs_per_date( $stat_date );
