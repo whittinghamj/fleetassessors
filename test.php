@@ -13,7 +13,7 @@ $query = $conn->query( "
     SELECT * 
     FROM `jobs` 
 " );
-$data = $query->fetch( PDO::FETCH_ASSOC );
+$data = $query->fetchAll( PDO::FETCH_ASSOC );
 
 // create blank array
 $results = array();
