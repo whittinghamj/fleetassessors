@@ -2931,6 +2931,12 @@ $vrns 		= get_all_vrns();
 														<input type="text" name="estimator" class="form-control" value="<?php echo $job['estimator']; ?>" placeholder="Joe Bloggs">
 													</div>
 												</div>
+												<div class="col-xl-2 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Hourly Rate</strong></label>
+														<input type="text" name="hourly_rate" class="form-control" value="£<?php echo $job['hourly_rate']; ?>" placeholder="£35.00">
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

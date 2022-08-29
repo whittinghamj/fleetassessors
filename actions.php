@@ -619,6 +619,11 @@ function job_edit() {
 	$engineer_notes 				= post( 'engineer_notes' );
 	$internal_notes 				= post( 'internal_notes' );
 
+	$hourly_rate 					= post( 'hourly_rate' );
+	$hourly_rate 					= only_numbers( $hourly_rate );
+	$hourly_rate	 				= round( $hourly_rate, 2 );
+	if( empty( $hourly_rate ) ) { $hourly_rate = '0.00'; }
+
 	// save data
 	$update = $conn->exec( "UPDATE `jobs` SET `status` = '".$status."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `provider_id` = '".$provider_id."' WHERE `id` = '".$job_id."' " );
@@ -644,7 +649,9 @@ function job_edit() {
 	$update = $conn->exec( "UPDATE `jobs` SET `engineer_notes` = '".$engineer_notes."' WHERE `id` = '".$job_id."' " );
 	$update = $conn->exec( "UPDATE `jobs` SET `internal_notes` = '".$internal_notes."' WHERE `id` = '".$job_id."' " );
 
-	$update = $conn->exec( "UPDATE `jobs` SET `updated` = '".time()."' WHERE `id` = '".$job_id."' " );
+	$update = $conn->exec( "UPDATE `jobs` SET `internal_notes` = '".$internal_notes."' WHERE `id` = '".$job_id."' " );
+
+	$update = $conn->exec( "UPDATE `jobs` SET `hourly_rate` = '".$hourly_rate."' WHERE `id` = '".$job_id."' " );
 
 	// set status message
 	status_message( "success", "Job has been updated." );
