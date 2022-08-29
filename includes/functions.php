@@ -283,38 +283,17 @@ function total_jobs( $status = '' ) {
     return $data['total'];
 }
 
-// count jobs for customer
-function total_jobs_( $customer_id = '' ) {
+// count jobs per date
+function total_jobs_per_date( $date = '' ) {
     global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
 
     // get data
-    if( $admin_check || $staff_check ) {
-		if( empty( $status ) ) {
-			$sql = "
-				SELECT count(`id`) as total 
-		    	FROM `jobs` 
-			";
-		} else {
-			$sql = "
-				SELECT count(`id`) as total 
-		    	FROM `jobs` 
-		    	WHERE `status` = '".$status."'
-			";
-		}
-	} else {
-		if( empty( $status ) ) {
-			$sql = "
-				SELECT count(`id`) as total 
-		    	FROM `jobs` 
-			";
-		} else {
-			$sql = "
-				SELECT count(`id`) as total 
-		    	FROM `jobs` 
-		    	WHERE `status` = '".$status."' 
-			";
-		}
-	}
+    $sql = "
+		SELECT count(`id`) as total 
+    	FROM `jobs` 
+    	WHERE `added_date` = '".$date."'
+	";
+	
 	// get data
     $query      = $conn->query( $sql );
 
