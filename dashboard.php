@@ -4845,7 +4845,7 @@ $vrns 		= get_all_vrns();
 				 	<div class="modal-body">
 				 		<div class="row">
 				 			<div class="col-xl-12 col-sm-12">
-					 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available.
+					 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available. <br><hr><br>
 					 		</div>
 					 	</div>
 					 	<div class="row">
