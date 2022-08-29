@@ -2721,7 +2721,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-6 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
-											<h2 class="panel-title">Customer</h2>
+											<h2 class="panel-title">Customer Details</h2>
 											<div class="panel-heading-btn">
 												<div class="btn-group">
 													
@@ -2740,7 +2740,6 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
-													<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
 														<address>
 															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
