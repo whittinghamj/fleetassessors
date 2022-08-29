@@ -779,6 +779,34 @@ $vrns 		= get_all_vrns();
 
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
+							<h2 class="panel-title">iFrame Modal</h2>
+							<div class="panel-heading-btn">
+
+							</div>
+						</div>
+						<div class="panel-body">
+							<a href="#videoModal" target="_self" class="lsx-button" rel="noopener noreferrer" data-toggle="modal">Watch The Video</a>
+
+							<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+							    <div class="modal-dialog" role="document">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							                    <span aria-hidden="true">×</span>
+							                </button>
+							            </div>
+							            <div class="modal-body">
+							                <iframe width="100%" height="600" data-src="{url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
 							<h2 class="panel-title">Encrypt Email</h2>
 							<div class="panel-heading-btn">
 
@@ -6058,6 +6086,12 @@ $vrns 		= get_all_vrns();
 				console.log( 'add new user' );
 				$( '#user_add' ).modal( 'show' );
 			});
+
+			jQuery(document).ready(function() {	
+	jQuery("#videoModal").on('shown.bs.modal', function(){
+	   	jQuery('#videoModal iframe').attr('src', jQuery('#videoModal iframe').attr('data-src') );
+	});
+});
 		</script>
 	<?php } ?>
 </body>
