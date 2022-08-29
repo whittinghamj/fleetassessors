@@ -5444,10 +5444,6 @@ $vrns 		= get_all_vrns();
 			    },
 			    series: [
 			        {
-			            name: "Tokyo",
-			            marker: {
-			                symbol: "square",
-			            },
 			            data: [
 				            <?php 
 				            	foreach( $dashboard_stats['jobs_per_day'] as $date ) {
