@@ -5384,12 +5384,10 @@ $vrns 		= get_all_vrns();
 
 			Highcharts.chart("highchart_dashboard_stats_jobs_per_day", {
 			    title: {
-			        text: "Solar Employment Growth by Sector, 2010-2016",
+			        text: "New Jobs per Day",
 			    },
 
-			    subtitle: {
-			        text: "Source: thesolarfoundation.com",
-			    },
+			    
 
 			    yAxis: {
 			        title: {
