@@ -23,9 +23,12 @@ $data = $query->fetchAll( PDO::FETCH_ASSOC );
 
 // loop over data
 foreach( $data as $bit ) {
-    debug( $bit );
+    // debug( $bit );
+
     // convert added to added_date
-    // $date = date( "d-m-Y", $bit['added'] );
+    $date = date( "d-m-Y", $bit['added'] );
+
+    console_output( "added = ".$bit['added']." | added_date = ".$date );
 
     // update record
     // $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']['id']."' " );
