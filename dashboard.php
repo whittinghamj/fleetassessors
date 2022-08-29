@@ -2736,31 +2736,6 @@ $vrns 		= get_all_vrns();
 														<?php echo $job['customer']['full_address']; ?><br />
 														<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
 													</address>
-													<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
-														<address>
-															<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
-															<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
-														</address>
-													<?php } else { ?>
-														<div class="row">
-															<div class="col-xl-12 col-sm-12">
-																No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
-															</div>
-														</div>
-													<?php } ?>
-													<!--
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Name</strong></small></label>
-															<div class="row">
-																<div class="col-xl-4 col-sm-12">
-																	<input type="text" name="company_name" class="form-control" value="<?php echo $job['customer']['company_name']; ?>" readonly>
-																</div>
-																<div class="col-xl-4 col-sm-12">
-																	<input type="text" name="address" class="form-control" value="<?php echo $job['customer']['full_address']; ?>" readonly>
-																</div>
-															</div>
-														</div>
-													-->
 												</div>
 											</div>
 											<div class="row">
@@ -2768,17 +2743,10 @@ $vrns 		= get_all_vrns();
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Primary Contact</strong></small></label>
 														<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
-															<div class="row">
-																<div class="col-xl-4 col-sm-12">
-																	<input type="text" name="full_name" class="form-control" value="<?php echo $job['customer']['primary_contact']['full_name']; ?>" readonly>
-																</div>
-																<div class="col-xl-4 col-sm-12">
-																	<input type="text" name="phone" class="form-control" value="<?php echo $job['customer']['primary_contact']['phone']; ?>" readonly>
-																</div>
-																<div class="col-xl-4 col-sm-12">
-																	<input type="text" name="email" class="form-control" value="<?php echo $job['customer']['primary_contact']['email']; ?>" readonly>
-																</div>
-															</div>
+															<address>
+																<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong><br />
+																<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a>
+															</address>
 														<?php } else { ?>
 															<div class="row">
 																<div class="col-xl-12 col-sm-12">
