@@ -6069,7 +6069,7 @@ $vrns 		= get_all_vrns();
 
 				$( '#frogger_modal' ).modal( 'show' );
 			    $( '#frogger_modal' ).on( 'shown.bs.modal', function() {
-				    $( this ).find( 'iframe' ).attr( 'src', 'http://www.google.com' );
+				    $( this ).find( 'iframe' ).attr( 'src', 'https://www.google.com' );
 				})  
 			});
 			Mousetrap.bind( 'shift+j', function() { 
