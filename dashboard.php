@@ -2378,8 +2378,9 @@ $vrns 		= get_all_vrns();
 													$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
 												} elseif( $job['status'] == 'rejected' ) {
 													$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
+												} elseif( $job['status'] == 'pending' ) {
+													$job['status'] = '<button class="btn btn-info btn-block">Pending Submission</button>';
 												}
-
 
 												// calc vat details
 												$initial_estimate = vat_details( $job['initial_estimate'] );
@@ -2830,10 +2831,14 @@ $vrns 		= get_all_vrns();
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
 														<select name="status" class="form-control select2">
+															<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
+
+															<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending Submission</option>
+
+															<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
+
 															<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> >Approved</option>
 															<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
-															<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
-															<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
 															<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
 														</select>
 													</div>
