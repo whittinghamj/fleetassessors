@@ -1,7 +1,7 @@
 <?php
 // error reporting
-ini_set ('display_errors', 1);
-ini_set ('display_startup_errors', 1);
+ini_set ( 'display_errors', 1);
+ini_set ( 'display_startup_errors', 1);
 error_reporting (E_ALL);
 
 // include main functions
@@ -1817,7 +1817,7 @@ $vrns 		= get_all_vrns();
 												<hr>
 												<br>
 												<div class="col-xl-12 col-sm-12">
-													<?php if( $customer['full_address'] == '' || $customer['full_address'] == ', , , , ') { ?>
+													<?php if( $customer['full_address'] == '' || $customer['full_address'] == ', , , , ' ) { ?>
 
 													<?php } else { ?>
 														<div class="widget-map-body">
@@ -4831,6 +4831,47 @@ $vrns 		= get_all_vrns();
 		   	</div>
 		</div>
 	</form>
+
+	<!-- add customer modal -->
+		<div class="modal fade" id="keyboard_shortcuts" tabindex="-1" role="dialog" aria-labelledby="keyboard_shortcuts" aria-hidden="true">
+		   	<div class="modal-dialog modal-notice">
+			  	<div class="modal-content">
+				 	<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Keyboard Shortcuts</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							x
+						</button>
+				 	</div>
+				 	<div class="modal-body">
+				 		<div class="row">
+				 			Keyboard shortcuts can be used on the site to quickly access different functions and features. The following shortcuts are available.
+							<dl class="row">
+								<dt  class="col-md-3">shift + c</dt>
+								<dd  class="col-md-9">Opens the Add New Customer window.</dd>
+
+								<dt  class="col-md-3">shift + h</dt>
+								<dd  class="col-md-9">Opens this help window.</dd>
+
+								<dt  class="col-md-3">shift + j</dt>
+								<dd  class="col-md-9">Opens the Add New Job window.</dd>
+
+								<dt  class="col-md-3">shift + u</dt>
+								<dd  class="col-md-9">Opens the Add New User window.</dd>
+
+								<dt  class="col-md-3">shift + q</dt>
+								<dd  class="col-md-9">Logs you out of the system..</dd>
+							</dl>
+						</div>
+				 	</div>
+				 	<div class="modal-footer">
+				 		<div class="btn-group">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+			  	</div>
+		   	</div>
+		</div>
+	</form>
 	
 	<!-- core js -->
 	<script src="assets/js/app.min.js"></script>
@@ -4862,7 +4903,7 @@ $vrns 		= get_all_vrns();
 		function sendNotification(title, message, url) {
  			//First, check if notifications are supported or not in your browser!
  			if (!Notification) {
- 				console.log('Push notifications are not supported in your browser..');
+ 				console.log( 'Push notifications are not supported in your browser..' );
  				return;
  			}
 		}
@@ -5065,8 +5106,8 @@ $vrns 		= get_all_vrns();
 
 		// flashing div
 		function blink( selector ){
-			$( selector ).fadeOut(' slow', function() {
-			    $( this ).fadeIn(' slow', function() {
+			$( selector ).fadeOut( ' slow', function() {
+			    $( this ).fadeIn( ' slow', function() {
 			        blink( this );
 			    } );
 			} );
@@ -5920,12 +5961,12 @@ $vrns 		= get_all_vrns();
 				showProgress: true,
 				steps: [
 					{
-						element: document.querySelector('.tutorial_dashboard_tiles'),
+						element: document.querySelector( '.tutorial_dashboard_tiles' ),
 						intro: "Dashboard tiles serve as a quick summary of data relating to your account.",
 						position: 'right'
 					},
 					{
-						element: document.querySelector('.tutorial_referral_url'),
+						element: document.querySelector( '.tutorial_referral_url' ),
 						intro: "You can share a unique referral URL with other florists. This will help grow the platform and could also grab you a nice referral reward in our Referral Lotto.",
 						position: 'top'
 					},
@@ -5944,20 +5985,28 @@ $vrns 		= get_all_vrns();
 	<?php if( $admin_check || $staff_check ) { ?>
 		<script>
 			// keyboard shortcuts
-			Mousetrap.bind('shift+d', function() { 
-				$('#dev_modal').modal('show');
+			Mousetrap.bind( 'shift+c', function() { 
+				console.log( 'add new customer' );
+				$( '#customer_add' ).modal( 'show' );
 			});
-			Mousetrap.bind('shift+j', function() { 
-				console.log('add new job');
-				$('#job_add').modal('show');
+			Mousetrap.bind( 'shift+d', function() { 
+				$( '#dev_modal' ).modal( 'show' );
 			});
-			Mousetrap.bind('shift+u', function() { 
-				console.log('add new user');
-				$('#user_add').modal('show');
+			Mousetrap.bind( 'shift+h', function() { 
+				console.log( 'show shortcut key modal' );
+				$( '#keyboard_shortcuts' ).modal( 'show' );
 			});
-			Mousetrap.bind('shift+c', function() { 
-				console.log('add new customer');
-				$('#customer_add').modal('show');
+			Mousetrap.bind( 'shift+j', function() { 
+				console.log( 'add new job' );
+				$( '#job_add' ).modal( 'show' );
+			});
+			Mousetrap.bind( 'shift+u', function() { 
+				console.log( 'add new user' );
+				$( '#user_add' ).modal( 'show' );
+			});
+			Mousetrap.bind( 'shift+q', function() { 
+				console.log( 'logging user out' );
+				window.open( 'logout.php' );
 			});
 		</script>
 	<?php } ?>
