@@ -2234,78 +2234,6 @@ $vrns 		= get_all_vrns();
 						</div>
 					</div>
 
-					
-					<div class="panel panel-inverse" data-sortable-id="index-8">
-						<div class="panel-heading">
-							<h4 class="panel-title">Todo List</h4>
-							<div class="panel-heading-btn">
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-							</div>
-						</div>
-						<div class="panel-body p-0">
-							<div class="todolist">
-								<div class="todolist-item active">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist1" data-change="todolist" checked />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist1">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist2" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist2">Duis a ullamcorper massa.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist3" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist3">Phasellus bibendum, odio nec vestibulum ullamcorper.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist4" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist4">Duis pharetra mi sit amet dictum congue.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist5" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist5">Duis pharetra mi sit amet dictum congue.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist6" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist6">Phasellus bibendum, odio nec vestibulum ullamcorper.</label>
-								</div>
-								<div class="todolist-item">
-									<div class="todolist-input">
-										<div class="form-check">
-											<input type="checkbox" class="form-check-input" id="todolist7" data-change="todolist" />
-										</div>
-									</div>
-									<label class="todolist-label" for="todolist7">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</label>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 
 					<!-- other bits -->
@@ -2320,8 +2248,18 @@ $vrns 		= get_all_vrns();
 								</div>
 								<div class="panel-body">
 									<dl>
+										<dt class="text-inverse">Aug 29 2022 @ 13:00</dt>
+										<dd>Update to v1.0.1</dd>
+										<dd><strong>ADDED:</strong> dashboard stats with graph and pie charts.</dd>
+										<dd><strong>ADDED:</strong> ability to use shortcut keys anywhere on the site to access new customer, jobs and users.</dd>
+										<dd><strong>ADDED:</strong> calculations on jobs page updated to reflect VAT..</dd>
+										<dd><strong>ADDED:</strong> taxed and MOT status on VRN results page.</dd>
+										<dd><strong>UPDATED:</strong> updated security checkpoints for secure areas customers, global jobs and users.</dd>
+										<dd><strong>UPDATED:</strong> improved performance in SQL queries.</dd>
+									</dl>
+									<dl>
 										<dt class="text-inverse">Aug 24 2022 @ 13:00</dt>
-										<dd>Initial platform release.</dd>
+										<dd>Initial platform release, v1</dd>
 									</dl>
 								</div>
 							</div>
