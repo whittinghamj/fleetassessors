@@ -753,7 +753,7 @@ $vrns 		= get_all_vrns();
 							</div>
 							<hr>
 							<?php
-								$m_array = preg_grep( '/^28.08.2022\s.*/', $stats );
+								$m_array = preg_grep( '/^28.08.2022\s.*/', $stats['ndate'] );
 								debug( $m_array );
 							?>
 						</div>
