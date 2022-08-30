@@ -5383,6 +5383,19 @@ $vrns 		= get_all_vrns();
 			    }
 			} );
 		}
+
+		function secure_logout() {
+			swal({
+				title: 'Securing Data',
+				text: 'Secure logout in process.',
+				icon: 'success',
+				buttons: {
+					
+				}
+			} ).then(function( e ) {
+			    // placeholder
+			} );
+		}
 	</script>
 
 	<!-- mapbox -->
@@ -6077,7 +6090,8 @@ $vrns 		= get_all_vrns();
 			});
 			Mousetrap.bind( 'shift+q', function() { 
 				console.log( 'logging user out' );
-				window.open( 'logout.php' );
+				secure_logout();
+				window.location.href = "logout.php";
 			});
 			Mousetrap.bind( 'shift+u', function() { 
 				console.log( 'add new user' );
