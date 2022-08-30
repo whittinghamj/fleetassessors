@@ -525,7 +525,7 @@ $vrns 		= get_all_vrns();
 						<ul class="nav"><li class="nav-header">Dev Section</li>
 							<li <?php if( get( 'c' ) == 'dev' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=dev" onclick="processing();">
-									<i class="fa fa-code bg-gradient-purple"></i>
+									<i class="fa fa-code bg-gradient-purple-indigo"></i>
 									<span>Global Vars</span> 
 								</a>
 							</li>
