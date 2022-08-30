@@ -6091,7 +6091,11 @@ $vrns 		= get_all_vrns();
 			Mousetrap.bind( 'shift+q', function() { 
 				console.log( 'logging user out' );
 				secure_logout();
-				sleep( 2 );
+
+				setTimeout( function() {
+    				// wait 2 seconds
+  				}, 2000);
+
 				window.location.href = "logout.php";
 			});
 			Mousetrap.bind( 'shift+u', function() { 
