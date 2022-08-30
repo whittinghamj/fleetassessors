@@ -260,6 +260,9 @@ function customer_edit() {
 	$notes 							= post( 'notes' );
 	$primary_contact_id 			= post( 'primary_contact_id' );
 	$secondary_contact_id 			= post( 'secondary_contact_id' );
+	$service_charge_percentage 		= post( 'service_charge_percentage' );
+	$service_charge_percentage 		= only_numbers( $service_charge_percentage );
+	$service_charge_percentage 		= round( $service_charge_percentage, 2 );
 
 	// save data
 	$update = $conn->exec( "UPDATE `customers` SET `status` = '".$status."' WHERE `id` = '".$customer_id."' " );
@@ -273,6 +276,7 @@ function customer_edit() {
 	$update = $conn->exec( "UPDATE `customers` SET `primary_contact_id` = '".$primary_contact_id."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `secondary_contact_id` = '".$secondary_contact_id."' WHERE `id` = '".$customer_id."' " );
 	$update = $conn->exec( "UPDATE `customers` SET `notes` = '".$notes."' WHERE `id` = '".$customer_id."' " );
+	$update = $conn->exec( "UPDATE `customers` SET `service_charge_percentage` = '".$service_charge_percentage."' WHERE `id` = '".$customer_id."' " );
 
 	// set status message
 	status_message( "success", "Customer has been updated." );

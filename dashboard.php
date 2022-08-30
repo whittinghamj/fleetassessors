@@ -1525,6 +1525,13 @@ $vrns 		= get_all_vrns();
 														<input type="text" name="added_by_name" class="form-control" value="<?php echo $customer['added_by_user']['full_name']; ?>" readonly>
 													</div>
 												</div>
+
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Service Charge</strong></label>
+														<input type="text" name="service_charge_percentage" class="form-control" value="<?php echo $customer['service_charge_percentage']; ?>%">
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
