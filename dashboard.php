@@ -1901,7 +1901,7 @@ $vrns 		= get_all_vrns();
 									<!-- customer notes -->
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
-											<h2 class="panel-title">Notes</h2> <small>(Internal use only. Not visible to customers.)</small>
+											<h2 class="panel-title">Notes</h2> 
 											<div class="panel-heading-btn">
 												<div class="btn-group">
 													
@@ -1912,6 +1912,7 @@ $vrns 		= get_all_vrns();
 											<div class="row">
 												<div class="col-xl-12 col-sm-12">
 													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Internal Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
 														<textarea name="notes" id="notes" class="form-control" rows="7"><?php echo $customer['notes']; ?></textarea>
 													</div>
 												</div>
