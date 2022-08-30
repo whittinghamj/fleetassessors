@@ -2253,9 +2253,6 @@ $vrns 		= get_all_vrns();
 					<div class="row">
 						<div class="col-xl-8 col-md-12">
 							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title"></h2>
-								</div>
 								<div class="panel-body">
 									<div class="col-xl-12">
 										<div id="highchart_dashboard_stats_jobs_per_day"></div>
@@ -2266,9 +2263,6 @@ $vrns 		= get_all_vrns();
 
 						<div class="col-xl-2 col-md-6">
 							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title"></h2>
-								</div>
 								<div class="panel-body">
 									<div class="col-xl-12">
 										<div id="highchart_dashboard_stats_job_statuses"></div>
@@ -2279,9 +2273,6 @@ $vrns 		= get_all_vrns();
 
 						<div class="col-xl-2 col-md-6">
 							<div class="panel panel-inverse">
-								<div class="panel-heading">
-									<h2 class="panel-title"></h2>
-								</div>
 								<div class="panel-body">
 									<div class="col-xl-12">
 										<div id="highchart_dashboard_stats_jobs_per_customer"></div>
