@@ -2191,6 +2191,18 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							-->
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-blue">
+									<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+									<div class="stats-info">
+										<h4>NEW JOBS</h4>
+										<p><?php echo $stats['pending_jobs']; ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=jobs">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
+									</div>
+								</div>
+							</div>
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
 								<div class="widget widget-stats bg-white text-inverse">
 									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
