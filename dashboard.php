@@ -1998,7 +1998,9 @@ $vrns 		= get_all_vrns();
 																	$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
 																} elseif( $job['status'] == 'rejected' ) {
 																	$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
-																}	
+																} elseif( $job['status'] == 'pending' ) {
+																	$job['status'] = '<button class="btn btn-info btn-block">Pending Submission</button>';
+																}
 
 																$initial_estimate = vat_details( $job['initial_estimate'] );
 																$uplift_estimate = vat_details( $job['uplift_estimate'] );
