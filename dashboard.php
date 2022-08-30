@@ -488,9 +488,9 @@ $vrns 		= get_all_vrns();
 							<span class="d-none d-md-inline" style="color: white;"><?php echo $account_details['full_name']; ?></span> <b class="caret"></b>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a href="?c=user" class="dropdown-item">Account Settings</a>
+							<a href="?c=user" class="dropdown-item" onclick="processing();">Account Settings</a>
 							<div class="dropdown-divider"></div>
-							<a href="logout.php" class="dropdown-item">Sign Out</a>
+							<a href="logout.php" class="dropdown-item" onclick="processing();">Sign Out</a>
 						</div>
 					</li>
 				</ul>
@@ -1370,8 +1370,8 @@ $vrns 		= get_all_vrns();
 														<td class="text-nowrap">
 															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item">View / Edit</a>
-																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item">Delete</a>
+																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
+																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item" onclick="processing();">Delete</a>
 															</div>
 														</td>
 													</tr>
@@ -2030,8 +2030,8 @@ $vrns 		= get_all_vrns();
 																		<td class="text-nowrap">
 																			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																			<div class="dropdown-menu dropdown-menu-right" role="menu">
-																				<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
-																				<a href="#" onclick="job_delete( '.$job['id'].' );" class="dropdown-item">Delete</a>
+																				<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
+																				<a href="#" onclick="job_delete( '.$job['id'].' );" class="dropdown-item" onclick="processing();">Delete</a>
 																			</div>
 																		</td>
 																	</tr>
@@ -2194,7 +2194,7 @@ $vrns 		= get_all_vrns();
 										<div class="stats-progress progress">
 											<div class="progress-bar" style="width: 100%;"></div>
 										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
 							</div>
@@ -2210,7 +2210,7 @@ $vrns 		= get_all_vrns();
 										<div class="stats-progress progress">
 											<div class="progress-bar" style="width: 100%;"></div>
 										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs">Find out more ...</a></div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
 							</div>
@@ -2226,7 +2226,7 @@ $vrns 		= get_all_vrns();
 										<div class="stats-progress progress">
 											<div class="progress-bar" style="width: 100%;"></div>
 										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=customers">Find out more ...</a></div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=customers" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
 							</div>
@@ -2242,7 +2242,7 @@ $vrns 		= get_all_vrns();
 										<div class="stats-progress progress">
 											<div class="progress-bar" style="width: 100%;"></div>
 										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=providers">Find out more ...</a></div>
+										<div class="stats-desc text-inverse-lighter"><a href="?c=providers" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
 							</div>
@@ -2490,13 +2490,13 @@ $vrns 		= get_all_vrns();
 												echo '
 													<tr>
 														<td class="text-nowrap">
-															<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
+															<a href="?c=job&id='.$job['id'].'" onclick="processing();">'.$job['id'].'</a>
 														</td>
 														<td class="text-nowrap">
 															'.date( "Y-m-d H:i:s", $job['added'] ).'
 														</td>
 														<td class="text-nowrap">
-															<a href="?c=customer&id='.$job['customer_id'].'">'.$job['customer']['company_name'].'</a>
+															<a href="?c=customer&id='.$job['customer_id'].'" onclick="processing();">'.$job['customer']['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
 															'.$job['vrn'].' <br>
@@ -2522,7 +2522,7 @@ $vrns 		= get_all_vrns();
 														<td class="text-nowrap">
 															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=job&id='.$job['id'].'" class="dropdown-item">View / Edit</a>
+																<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
 															</div>
 														</td>
@@ -3212,10 +3212,10 @@ $vrns 		= get_all_vrns();
 													echo '
 														<tr>
 															<td class="text-nowrap">
-																<a href="?c=user&id='.$user['id'].'">'.$user['id'].'</a>
+																<a href="?c=user&id='.$user['id'].'" onclick="processing();">'.$user['id'].'</a>
 															</td>
 															<td class="text-nowrap">
-																<a href="?c=user&id='.$user['id'].'">'.$user['full_name'].'</a>
+																<a href="?c=user&id='.$user['id'].'" onclick="processing();">'.$user['full_name'].'</a>
 															</td>
 															<td class="text-nowrap">
 																'.$user['type_button'].'
@@ -3237,7 +3237,7 @@ $vrns 		= get_all_vrns();
 															<td class="text-nowrap">
 																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
-																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item">View / Edit</a>
+																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																	'.( $user['id'] != $account_details['id'] ? '<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
 																</div>
 															</td>
