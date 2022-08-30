@@ -525,7 +525,7 @@ $vrns 		= get_all_vrns();
 						<ul class="nav"><li class="nav-header">Dev Section</li>
 							<li <?php if( get( 'c' ) == 'dev' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=dev" onclick="processing();">
-									<i class="fa fa-code bg-gradient-purple-indigo"></i>
+									<i class="fa fa-code bg-gradient-purple"></i>
 									<span>Global Vars</span> 
 								</a>
 							</li>
@@ -3332,88 +3332,7 @@ $vrns 		= get_all_vrns();
 												<div class="row">
 													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
 														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Account Status</strong></label>
-															<select name="status" class="form-control">
-																<option value="active" <?php if( $user['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
-																<option value="terminated" <?php if( $user['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
-																<option value="suspended" <?php if( $user['status'] == 'suspended' ) { echo 'selected'; } ?> >Suspended</option>
-																<option value="terminated" <?php if( $user['status'] == 'terminated' ) { echo 'selected'; } ?> >Terminated</option>
-															</select>
-														</div>
-													</div>
-
-													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Account Type</strong></label>
-															<select name="type" class="form-control">
-																<option value="customer" <?php if( $user['type'] == 'customer' ) { echo 'selected'; } ?> >Customer</option>
-																<option value="staff" <?php if( $user['type'] == 'staff' ) { echo 'selected'; } ?> >Staff Member</option>
-																<?php if( $admin_check ) { ?>
-																	<option value="admin" <?php if( $user['type'] == 'admin' ) { echo 'selected'; } ?>>Admin</option>
-																<?php } ?>
-															</select>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<div class="col-xl-6 col-sm-12">
-									<!-- contact details -->
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Contact Details</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>First Name</strong></label>
-														<input type="text" name="first_name" class="form-control" value="<?php echo $user['first_name']; ?>" required>
-														<small>Example: Jo</small>
-													</div>
-												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Last Name</strong></label>
-														<input type="text" name="last_name" class="form-control" value="<?php echo $user['last_name']; ?>" required>
-														<small>Example: Bloggs</small>
-													</div>
-												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Phone</strong></label>
-														<input type="text" name="tel_landline" class="form-control" value="<?php echo $user['phone']; ?>">
-														<small>Example: +44 (0) 1254 745560</small>
-													</div>
-												</div>
-												
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Address 1</strong></label>
-														<input type="text" name="address_1" class="form-control" value="<?php echo $user['address_1']; ?>" required>
-														<small>Example: 123 Awesome Street</small>
-													</div>
-												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Address 2</strong></label>
-														<input type="text" name="address_2" class="form-control" value="<?php echo $user['address_2']; ?>">
-														<small>Example: PO BOX 1</small>
-													</div>
-												</div>
-												<div class="col-xl-3 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>City</strong></label>
-														<input type="text" name="address_city" class="form-control" value="<?php echo $user['address_city']; ?>" required>
-														<small>Example: Awesomeville</small>
+															<label class="bmd-label-floating"><strong>Account Sta                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                													<small>Example: Awesomeville</small>
 													</div>
 												</div>
 												<div class="col-xl-3 col-sm-12">
