@@ -1371,7 +1371,6 @@ $vrns 		= get_all_vrns();
 															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=customer&id='.$customer['id'].'"  onclick="processing();"class="dropdown-item" onclick="processing();">View / Edit</a>
-																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item" onclick="processing();">Delete</a>
 															</div>
 														</td>
