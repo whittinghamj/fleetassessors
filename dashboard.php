@@ -1351,10 +1351,10 @@ $vrns 		= get_all_vrns();
 												echo '
 													<tr>
 														<td class="text-nowrap">
-															<a href="?c=customer&id='.$customer['id'].'">'.$customer['id'].'</a>
+															<a href="?c=customer&id='.$customer['id'].'" onclick="processing();">'.$customer['id'].'</a>
 														</td>
 														<td class="text-nowrap">
-															<a href="?c=customer&id='.$customer['id'].'">'.$customer['company_name'].'</a>
+															<a href="?c=customer&id='.$customer['id'].'" onclick="processing();">'.$customer['company_name'].'</a>
 														</td>
 														<td class="text-nowrap">
 															'.( isset( $customer['primary_contact']['id'] ) ? $customer['primary_contact']['full_name'].' <br><small>'.$customer['primary_contact']['phone'].'</small>' : '' ).'
@@ -1370,6 +1370,7 @@ $vrns 		= get_all_vrns();
 														<td class="text-nowrap">
 															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
+																<a href="?c=customer&id='.$customer['id'].'"  onclick="processing();"class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="?c=customer&id='.$customer['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item" onclick="processing();">Delete</a>
 															</div>
