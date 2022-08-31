@@ -2193,7 +2193,7 @@ $vrns 		= get_all_vrns();
 							-->
 							<div class="col-xl-3 col-md-6">
 								<div class="widget widget-stats bg-blue">
-									<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+									<div class="stats-icon"><i class="fa fa-car"></i></div>
 									<div class="stats-info">
 										<h4>NEW JOBS</h4>
 										<p><?php echo $stats['pending_jobs']; ?></p>	
@@ -2205,7 +2205,7 @@ $vrns 		= get_all_vrns();
 							</div>
 							<div class="col-xl-3 col-md-6">
 								<div class="widget widget-stats bg-info">
-									<div class="stats-icon"><i class="fa fa-link"></i></div>
+									<div class="stats-icon"><i class="fa fa-car"></i></div>
 									<div class="stats-info">
 										<h4>TOTAL JOBS</h4>
 										<p><?php echo $stats['total_jobs']; ?></p>	
@@ -2224,6 +2224,18 @@ $vrns 		= get_all_vrns();
 									</div>
 									<div class="stats-link">
 										<a href="?c=customers" onclick="processing();">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-red">
+									<div class="stats-icon"><i class="fa fa-address-card"></i></div>
+									<div class="stats-info">
+										<h4>TOTAL PROVIDERS</h4>
+										<p><?php echo $stats['total_providers']; ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=providers" onclick="processing();">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -2282,7 +2294,9 @@ $vrns 		= get_all_vrns();
 									<div class="stats-content">
 										<div class="stats-title text-inverse-lighter">
 											Total Providers
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i></span>
+											<span class="ms-2 d-none d-sm-block">
+												<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i>
+											</span>
 										</div>
 										<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
 										<div class="stats-progress progress">
