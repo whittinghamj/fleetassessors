@@ -582,7 +582,7 @@ $vrns 		= get_all_vrns();
 							</li>
 						<li>
 							<a href="logout.php" onclick="processing();">
-								<i class="fa fa-sign-out-alt bg-red"></i>
+								<i class="fa fa-sign-out-alt"></i>
 								<span>Sign Out</span> 
 							</a>
 						</li>
