@@ -2010,7 +2010,7 @@ $vrns 		= get_all_vrns();
 																echo '
 																	<tr>
 																		<td class="text-nowrap">
-																			<a href="?c=job&id='.$job['id'].'">'.$job['id'].'</a>
+																			<a href="?c=job&id='.$job['id'].'" onclick="processing();">'.$job['id'].'</a>
 																		</td>
 																		<td class="text-nowrap">
 																			'.date( "M dS Y", $job['added'] ).'
