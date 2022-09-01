@@ -114,7 +114,7 @@ $vrns 		= get_all_vrns();
 	
 	<!-- theme -->
 	<link href="assets/css/apple/app.min.css" rel="stylesheet">
-	<link href="assets/css/apple/theme/blue.min.css" rel="stylesheet">
+	<link href="assets/css/default/theme/blue.min.css" rel="stylesheet">
 
 	<!-- ion icons -->
 	<link href="assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
