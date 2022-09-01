@@ -541,28 +541,28 @@ $vrns 		= get_all_vrns();
 					<ul class="nav"><li class="nav-header">Navigation</li>
 						<li <?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { echo'class="active"'; } ?>>
 							<a href="dashboard.php" onclick="processing();">
-								<i class="fa fa-home bg-blue"></i>
+								<i class="fa fa-home"></i>
 								<span>Home</span> 
 							</a>
 						</li>
 						<?php if( $admin_check || $staff_check ) { ?>
 							<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=customers" onclick="processing();">
-									<i class="fa fa-users bg-orange"></i>
+									<i class="fa fa-users"></i>
 									<span>Customers</span> 
 								</a>
 							</li>
 						<?php } ?>
 						<li <?php if( get( 'c' ) == 'job' || get( 'c' ) == 'jobs' ) { echo'class="active"'; } ?>>
 							<a href="dashboard.php?c=jobs" onclick="processing();">
-								<i class="fa fa-car bg-green"></i>
+								<i class="fa fa-car"></i>
 								<span>Jobs</span> 
 							</a>
 						</li>
 						<?php if( $admin_check || $staff_check ) { ?>
 							<li <?php if( get( 'c' ) == 'provider' || get( 'c' ) == 'providers' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=providers" onclick="processing();">
-									<i class="fa fa-address-card bg-purple"></i>
+									<i class="fa fa-address-card"></i>
 									<span>Providers</span> 
 								</a>
 							</li>
