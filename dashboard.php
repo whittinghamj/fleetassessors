@@ -2240,72 +2240,74 @@ $vrns 		= get_all_vrns();
 								</div>
 							</div>
 
-							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Pending Jobs
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
+							<!--
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Pending Jobs
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Pending Jobs" data-placement="top" data-content="Jobs that have yet to be approved."></i></span>
+											</div>
+											<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
+											<div class="stats-progress progress">
+												<div class="progress-bar" style="width: 100%;"></div>
+											</div>
+											<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 										</div>
-										<div class="stats-number"><?php echo $stats['pending_jobs']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Jobs
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-green text-white d-none d-sm-block"><i class="fa fa-car"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Total Jobs
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Jobs" data-placement="top" data-content="Includes all jobs from all customers."></i></span>
+											</div>
+											<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
+											<div class="stats-progress progress">
+												<div class="progress-bar" style="width: 100%;"></div>
+											</div>
+											<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 										</div>
-										<div class="stats-number"><?php echo $stats['total_jobs']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=jobs" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-users"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Customers
-											<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-orange text-white d-none d-sm-block"><i class="fa fa-users"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Total Customers
+												<span class="ms-2 d-none d-sm-block"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Customers" data-placement="top" data-content="Includes active and inactive customer accounts."></i></span>
+											</div>
+											<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
+											<div class="stats-progress progress">
+												<div class="progress-bar" style="width: 100%;"></div>
+											</div>
+											<div class="stats-desc text-inverse-lighter"><a href="?c=customers" onclick="processing();">Find out more ...</a></div>
 										</div>
-										<div class="stats-number"><?php echo $stats['total_customers']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=customers" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-								<div class="widget widget-stats bg-white text-inverse">
-									<div class="stats-icon stats-icon-square bg-gradient-purple text-white d-none d-sm-block"><i class="fa fa-address-card"></i></div>
-									<div class="stats-content">
-										<div class="stats-title text-inverse-lighter">
-											Total Providers
-											<span class="ms-2 d-none d-sm-block">
-												<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i>
-											</span>
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+									<div class="widget widget-stats bg-white text-inverse">
+										<div class="stats-icon stats-icon-square bg-gradient-purple text-white d-none d-sm-block"><i class="fa fa-address-card"></i></div>
+										<div class="stats-content">
+											<div class="stats-title text-inverse-lighter">
+												Total Providers
+												<span class="ms-2 d-none d-sm-block">
+													<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total Providers" data-placement="top" data-content="Includes active and inactive providers."></i>
+												</span>
+											</div>
+											<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
+											<div class="stats-progress progress">
+												<div class="progress-bar" style="width: 100%;"></div>
+											</div>
+											<div class="stats-desc text-inverse-lighter"><a href="?c=providers" onclick="processing();">Find out more ...</a></div>
 										</div>
-										<div class="stats-number"><?php echo $stats['total_providers']; ?></div>
-										<div class="stats-progress progress">
-											<div class="progress-bar" style="width: 100%;"></div>
-										</div>
-										<div class="stats-desc text-inverse-lighter"><a href="?c=providers" onclick="processing();">Find out more ...</a></div>
 									</div>
 								</div>
-							</div>
+							-->
 						</div>
 					<?php } ?>
 
