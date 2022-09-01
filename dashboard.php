@@ -113,7 +113,7 @@ $vrns 		= get_all_vrns();
 	<link href="https://fonts.googleapiss.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	
 	<!-- theme -->
-	<link href="assets/css/apple/app.min.css" rel="stylesheet">
+	<link href="assets/css/default/app.min.css" rel="stylesheet">
 	<link href="assets/css/default/theme/blue.min.css" rel="stylesheet">
 
 	<!-- ion icons -->
