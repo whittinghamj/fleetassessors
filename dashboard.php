@@ -2437,6 +2437,14 @@ $vrns 		= get_all_vrns();
 			<?php function jobs() { ?>
 				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
 
+				<?php 
+					$stats['total_jobs'] = count( $jobs );
+					$stats['total_new_jobs'] = 0;
+					foreach( $jobs as $job ) {
+						$stats['total_new_jobs']++;
+					}
+				?>
+
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
 						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
@@ -2478,11 +2486,23 @@ $vrns 		= get_all_vrns();
 							<div class="widget widget-stats bg-blue">
 								<div class="stats-icon"><i class="fa fa-car"></i></div>
 								<div class="stats-info">
-									<h4>TOTAL JOBS</h4>
-									<p><?php echo count( $jobs ); ?></p>	
+									<h4>NEW JOBS</h4>
+									<p><?php echo $stats['total_new_jobs']; ?></p>	
 								</div>
 								<div class="stats-link">
 									<a href="?c=jobs">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-md-6">
+							<div class="widget widget-stats bg-info">
+								<div class="stats-icon"><i class="fa fa-car"></i></div>
+								<div class="stats-info">
+									<h4>TOTAL JOBS</h4>
+									<p><?php echo $stats['total_jobs']; ?></p>	
+								</div>
+								<div class="stats-link">
+									<a href="?c=jobs" onclick="processing();">More ...  <i class="fa fa-arrow-alt-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
