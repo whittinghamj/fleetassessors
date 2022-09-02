@@ -2747,6 +2747,54 @@ $vrns 		= get_all_vrns();
 
 						<!-- top summary boxes -->
 						<div class="row">
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-blue">
+									<div class="stats-icon"><i class="fa fa-car"></i></div>
+									<div class="stats-info">
+										<h4>Initial Estimate <small>ex VAT</small></h4>
+										<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-info">
+									<div class="stats-icon"><i class="fa fa-car"></i></div>
+									<div class="stats-info">
+										<h4>Revised Estimate <small>ex VAT</small></h4>
+										<p>£<?php echo number_format( $revised_estimate, 2 ); ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-orange">
+									<div class="stats-icon"><i class="fa fa-users"></i></div>
+									<div class="stats-info">
+										<h4>Initial Uplift Element</h4>
+										<p>£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6">
+								<div class="widget widget-stats bg-red">
+									<div class="stats-icon"><i class="fa fa-address-card"></i></div>
+									<div class="stats-info">
+										<h4>TOTAL PROVIDERS</h4>
+										<p><?php echo $stats['total_providers']; ?></p>	
+									</div>
+									<div class="stats-link">
+										<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+									</div>
+								</div>
+							</div>
 							<?php if( $job['status'] != 'approved' ) { ?>
 								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
