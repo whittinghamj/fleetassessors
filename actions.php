@@ -672,6 +672,9 @@ function job_add_photo() {
 	// security point
 	action_security_check( array( 'admin','staff' ) );
 
+	debug( $_FILES );
+	die();
+
 	// map fields
 	$job_id 					= post('job_id');
 	$path_parts 				= pathinfo($_FILES["file1"]["name"]);
