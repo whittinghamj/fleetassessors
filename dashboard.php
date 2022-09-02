@@ -2441,7 +2441,9 @@ $vrns 		= get_all_vrns();
 					$stats['total_jobs'] = count( $jobs );
 					$stats['total_new_jobs'] = 0;
 					foreach( $jobs as $job ) {
-						$stats['total_new_jobs']++;
+						if( $job['status'] == 'new' ) {
+							$stats['total_new_jobs']++;
+						}
 					}
 				?>
 
