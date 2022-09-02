@@ -2815,9 +2815,8 @@ $vrns 		= get_all_vrns();
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
-							<div class="row no-gutters">
+							<div class="row">
 								<div class="col-xl-6 col-sm-12 no-gutters">
-
 									<!-- customer details -->
 									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
@@ -2875,21 +2874,39 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="panel-body">
 												<div class="row">
-													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
 														<address>
 															<strong>Year</strong> <br>
 															<?php echo $job['vrn_details']['year']; ?><br>
 														</address>
 													</div>
-													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
 														<address>
 															<strong>Make</strong> <br>
 															<?php echo $job['vrn_details']['make']; ?><br>
 														</address>
 													</div>
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Model</strong> <br>
+															<?php echo $job['vrn_details']['model']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Color</strong> <br>
+															<?php echo $job['vrn_details']['color']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Fuel</strong> <br>
+															<?php echo $job['vrn_details']['fuel']; ?><br>
+														</address>
+													</div>
 
 													<hr>
-													
+
 													<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Year</strong></small></label>
@@ -2930,7 +2947,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 
-								<div class="col-xl-6 col-sm-12">
+								<div class="col-xl-6 col-sm-12 no-gutters">
 									<!-- notes -->
 									<div class="col-xl-6 col-sm-6">
 										<div class="panel panel-inverse">
