@@ -39,7 +39,7 @@ include( dirname(__FILE__).'/includes/functions.php' );
 	</div>
 	
 	<div class="login-cover">
-		<div class="login-cover-image" style="background-image: url(assets/img/login-bg/login-bg-14.jpg)" data-id="login-cover-image"></div>
+		<div class="login-cover-image" style="background-image: url(assets/img/login-bg/accident-damage-reports.jpg)" data-id="login-cover-image"></div>
 		<div class="login-cover-bg"></div>
 	</div>
 	
