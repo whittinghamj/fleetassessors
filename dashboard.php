@@ -2892,9 +2892,7 @@ $vrns 		= get_all_vrns();
 														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
 													</div>
 												</div>
-											</div>
 
-											<div class="row">
 												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Color</strong></small></label>
