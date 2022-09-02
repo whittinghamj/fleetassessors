@@ -2815,8 +2815,8 @@ $vrns 		= get_all_vrns();
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
-							<div class="row">
-								<div class="col-xl-6 col-sm-12">
+							<div class="row no-gutters">
+								<div class="col-xl-6 col-sm-12 no-gutters">
 
 									<!-- customer details -->
 									<div class="col-xl-12 col-sm-12">
