@@ -3230,7 +3230,7 @@ $vrns 		= get_all_vrns();
 		                                        <div class="input-group">
 		                                            <span class="input-group-btn">
 		                                                <span class="btn btn-file">
-		                                                    Browse&hellip; <input type="file" name="file1" id="file1"> <input type="button" class="btn btn-xs btn-primary" value="Upload File" onclick="uploadFile()">
+		                                                    Browse &hellip; <input type="file" name="file1" id="file1"> <input type="button" class="btn btn-sm btn-primary" value="Upload File" onclick="uploadFile();">
 		                                                </span>
 		                                            </span>
 		                                            <input type="text" class="form-control hidden" readonly>
@@ -5863,17 +5863,17 @@ $vrns 		= get_all_vrns();
 
 			function uploadFile() {
 				var file = _( "file1" ).files[0];
-				var product_id = _( "product_id" ).value;
+				var job_id = _( "job_id" ).value;
 				// alert(file.name+" | "+file.size+" | "+file.type);
 				var formdata = new FormData();
 				formdata.append( "file1", file );
-				formdata.append( "product_id", product_id );
+				formdata.append( "job_id", job_id );
 				var ajax = new XMLHttpRequest();
 				ajax.upload.addEventListener( "progress", progressHandler, false );
 				ajax.addEventListener( "load", completeHandler, false) ;
 				ajax.addEventListener( "error", errorHandler, false) ;
 				ajax.addEventListener( "abort", abortHandler, false );
-				ajax.open( "POST", "actions.php?a=product_image_add" );
+				ajax.open( "POST", "actions.php?a=job_add_photo" );
 				ajax.send( formdata );
 			}
 
