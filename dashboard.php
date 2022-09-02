@@ -2875,6 +2875,21 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="panel-body">
 												<div class="row">
+													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+														<address>
+															<strong>Year</strong> <br>
+															<?php echo $job['vrn_details']['year']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+														<address>
+															<strong>Make</strong> <br>
+															<?php echo $job['vrn_details']['make']; ?><br>
+														</address>
+													</div>
+
+													<hr>
+													
 													<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Year</strong></small></label>
