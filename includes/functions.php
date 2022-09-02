@@ -1,5 +1,24 @@
 <?php
 
+// get job photos
+function get_job_photos( $job_id ) {
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+
+	// create blank array
+	$data = array();
+
+	// get data
+	$query = $conn->query( "
+		SELECT * 
+		FROM `job_photos` 
+		WHERE `job_id` = '".$job_id."' 
+	" );
+
+	$data = $query->fetchAll( PDO::FETCH_ASSOC );
+
+	return $data;
+}
+
 // php array with last 14 days
 function create_14_day_array() {
 	// today
