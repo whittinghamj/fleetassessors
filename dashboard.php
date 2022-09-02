@@ -2796,7 +2796,7 @@ $vrns 		= get_all_vrns();
 											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
 										</div>
 										<div class="stats-link">
-											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small>ex VAT</small></i></a>
 										</div>
 									</div>
 								</div>
