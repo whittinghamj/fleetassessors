@@ -2478,8 +2478,8 @@ $vrns 		= get_all_vrns();
 							<div class="widget widget-stats bg-blue">
 								<div class="stats-icon"><i class="fa fa-car"></i></div>
 								<div class="stats-info">
-									<h4>NEW JOBS</h4>
-									<p><?php echo $stats['pending_jobs']; ?></p>	
+									<h4>TOTAL JOBS</h4>
+									<p><?php echo count( $jobs ); ?></p>	
 								</div>
 								<div class="stats-link">
 									<a href="?c=jobs">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
