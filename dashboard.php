@@ -2965,8 +2965,8 @@ $vrns 		= get_all_vrns();
 														<?php foreach( $job['photos'] as $photo ) { ?>
 															<div class="image gallery-group-1">
 																<div class="image-inner">
-																	<a href="" data-lightbox="gallery-group-1">
-																		<div class="img" style="background-image: url(../assets/img/gallery/gallery-1.jpg)"></div>
+																	<a href="job_photos/<?php echo $photo['file_name']; ?>" data-lightbox="gallery-group-1">
+																		<div class="img" style="background-image: url(job_photos/<?php echo $photo['file_name']; ?>)"></div>
 																	</a>
 																	<p class="image-caption">
 																		#1382 - 3D Arch
