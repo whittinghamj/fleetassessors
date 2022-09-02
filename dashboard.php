@@ -2889,21 +2889,21 @@ $vrns 		= get_all_vrns();
 														</div>
 													</div>
 
-													<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+													<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Model</strong></small></label>
 															<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
 														</div>
 													</div>
 
-													<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+													<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Color</strong></small></label>
 															<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
 														</div>
 													</div>
 
-													<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+													<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Fuel</strong></small></label>
 															<input type="text" name="vehicle_fuel" class="form-control" value="<?php echo $job['vrn_details']['fuel']; ?>" readonly>
