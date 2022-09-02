@@ -2792,18 +2792,18 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-4">
 									<div class="widget widget-stats bg-blue">
 										<div class="stats-info">
-											<h4>Initial Estimate <small>ex VAT</small></h4>
+											<h4>Initial Estimate</h4>
 											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
 										</div>
 										<div class="stats-link">
-											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small>ex VAT</small></i></a>
+											<a href="?c=jobs"><small>ex VAT</small></i></a>
 										</div>
 									</div>
 								</div>
 								<div class="col-xl-2 col-md-4">
 									<div class="widget widget-stats bg-info">
 										<div class="stats-info">
-											<h4>Revised Estimate <small>ex VAT</small></h4>
+											<h4>Revised Estimate</h4>
 											<p>£<?php echo number_format( $revised_estimate, 2 ); ?></p>	
 										</div>
 										<div class="stats-link">
