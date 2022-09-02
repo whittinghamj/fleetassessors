@@ -2945,13 +2945,15 @@ $vrns 		= get_all_vrns();
 									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
-												<h2 class="panel-title">Photos</h2>
+												<h2 class="panel-title">Photo</h2>
 												<div class="panel-heading-btn">
-													<a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+													<div class="btn-group">
+														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													</div>
 												</div>
 											</div>
 											<div class="panel-body">
-												Photos will go here.
+												
 											</div>
 										</div>
 									</div>
