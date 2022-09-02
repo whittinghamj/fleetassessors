@@ -2486,9 +2486,6 @@ $vrns 		= get_all_vrns();
 									<h4>New Jobs</h4>
 									<p><?php echo $stats['total_new_jobs']; ?></p>	
 								</div>
-								<div class="stats-link">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
 							</div>
 						</div>
 						<div class="col-xl-6 col-md-6 col-xs-6">
@@ -2496,9 +2493,6 @@ $vrns 		= get_all_vrns();
 								<div class="stats-info">
 									<h4>Total Jobs</h4>
 									<p><?php echo $stats['total_jobs']; ?></p>	
-								</div>
-								<div class="stats-link">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 							</div>
 						</div>
