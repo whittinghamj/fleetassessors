@@ -2838,7 +2838,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 								<div class="col-xl-2 col-md-4">
-									<div class="widget widget-stats bg-yellow">
+									<div class="widget widget-stats bg-green">
 										<div class="stats-icon"><i class="fa fa-address-card"></i></div>
 										<div class="stats-info">
 											<h4>Profit</h4>
