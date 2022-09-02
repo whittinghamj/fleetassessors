@@ -2187,7 +2187,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							-->
-							<div class="col-xl-2 col-md-4 col-xs-6">
+							<div class="col-xl-3 col-md-4 col-xs-6">
 								<div class="widget widget-stats bg-blue">
 									<div class="stats-info">
 										<h4>New Jobs</h4>
