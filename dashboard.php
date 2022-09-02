@@ -2886,19 +2886,19 @@ $vrns 		= get_all_vrns();
 															<?php echo $job['vrn_details']['make']; ?><br>
 														</address>
 													</div>
-													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
 														<address>
 															<strong>Model</strong> <br>
 															<?php echo $job['vrn_details']['model']; ?><br>
 														</address>
 													</div>
-													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
 														<address>
 															<strong>Color</strong> <br>
 															<?php echo $job['vrn_details']['color']; ?><br>
 														</address>
 													</div>
-													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
 														<address>
 															<strong>Fuel</strong> <br>
 															<?php echo $job['vrn_details']['fuel']; ?><br>
