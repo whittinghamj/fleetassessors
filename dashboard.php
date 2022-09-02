@@ -2198,7 +2198,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-4 col-lg-4 col-md-4 col-xs-6">
+							<div class="col-xl-3 col-md-4 col-xs-6">
 								<div class="widget widget-stats bg-info">
 									<div class="stats-info">
 										<h4>Total Jobs</h4>
@@ -2209,7 +2209,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-4 col-lg-4 col-md-4 col-xs-6">
+							<div class="col-xl-3 col-md-4 col-xs-6">
 								<div class="widget widget-stats bg-orange">
 									<div class="stats-info">
 										<h4>Total Customers</h4>
@@ -2220,7 +2220,7 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-4 col-lg-4 col-md-4 col-xs-6">
+							<div class="col-xl-3 col-md-4 col-xs-6">
 								<div class="widget widget-stats bg-red">
 									<div class="stats-info">
 										<h4>Total Providers</h4>
