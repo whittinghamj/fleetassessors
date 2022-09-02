@@ -64,7 +64,7 @@ $not_found = '
 			The page you\'re looking for doesn\'t exist. <br>
 		</div>
 		<div>
-			<a href="javascript:history.back()" class="btn btn-lime p-l-20 p-r-20">Go back</a>
+			<a href="javascript:history.back()" class="btn btn-sm btn-success p-l-20 p-r-20">Go back</a>
 		</div>
 	</div>
 </div>
@@ -413,7 +413,7 @@ $vrns 		= get_all_vrns();
 							<form action="" method="POST" name="search">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Enter keyword">
-									<button type="submit" onclick="processing();" class="btn btn-search"><i class="fa fa-search"></i></button>
+									<button type="submit" onclick="processing();" class="btn btn-sm btn-search"><i class="fa fa-search"></i></button>
 								</div>
 							</form>
 						</li>
@@ -722,7 +722,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -870,7 +870,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -1229,7 +1229,7 @@ $vrns 		= get_all_vrns();
 							            </div>
 							            <!-- End -->
 							        </div>
-							        <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
+							        <div class="py-5 text-right"><a href="#" class="btn btn-sm btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
 							    </div>
 							</div>
 						</div>
@@ -1293,7 +1293,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a class="btn btn-sm btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -1308,7 +1308,7 @@ $vrns 		= get_all_vrns();
 						<div class="panel-heading">
 							<h2 class="panel-title">Customers</h2>
 							<div class="panel-heading-btn">
-								<button class="btn btn-primary" data-toggle="modal" data-target="#customer_add">Add Customer</button>
+								<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#customer_add">Add Customer</button>
 							</div>
 						</div>
 						<div class="panel-body">
@@ -1338,13 +1338,13 @@ $vrns 		= get_all_vrns();
 												// status
 												$customer['status_raw'] = $customer['status'];
 												if( $customer['status'] == 'pending' ) {
-													$customer['status'] = '<button class="btn btn-info btn-block">Pending</button>';
+													$customer['status'] = '<button class="btn btn-sm btn-info btn-block">Pending</button>';
 												} elseif( $customer['status'] == 'active' ) {
-													$customer['status'] = '<button class="btn btn-success btn-block">Active</button>';
+													$customer['status'] = '<button class="btn btn-sm btn-success btn-block">Active</button>';
 												} elseif( $customer['status'] == 'suspended' ) {
-													$customer['status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
+													$customer['status'] = '<button class="btn btn-sm btn-warning btn-block">Suspended</button>';
 												} elseif( $customer['status'] == 'terminated' ) {
-													$customer['status'] = '<button class="btn btn-danger btn-block">Terminated</button>';
+													$customer['status'] = '<button class="btn btn-sm btn-danger btn-block">Terminated</button>';
 												}					
 
 												// output
@@ -1368,7 +1368,7 @@ $vrns 		= get_all_vrns();
 															'.$customer['status'].'
 														</td>
 														<td class="text-nowrap">
-															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+															<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=customer&id='.$customer['id'].'"  onclick="processing();"class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="#" onclick="customer_delete( '.$customer['id'].' )" class="dropdown-item" onclick="processing();">Delete</a>
@@ -1404,7 +1404,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -1455,7 +1455,7 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+														<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
 												</div>
 											</div>
@@ -1938,8 +1938,8 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="?c=customers" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
+														<a href="?c=customers" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
+														<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
 													</div>
 												</div>
 											</div>
@@ -1956,7 +1956,7 @@ $vrns 		= get_all_vrns();
 										<div class="panel-heading">
 											<h2 class="panel-title">Jobs</h2>
 											<div class="panel-heading-btn">
-												<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+												<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
 											</div>
 										</div>
 										<div class="panel-body">
@@ -1989,17 +1989,17 @@ $vrns 		= get_all_vrns();
 																// status 
 																$job['status_raw'] = $job['status'];
 																if( $job['status'] == 'approved' ) {
-																	$job['status'] = '<button class="btn btn-success btn-block">Approved</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-success btn-block">Approved</button>';
 																} elseif( $job['status'] == 'cancelled' ) {
-																	$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-danger btn-block">Cancelled</button>';
 																} elseif( $job['status'] == 'new' ) {
-																	$job['status'] = '<button class="btn btn-info btn-block">New Job</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-info btn-block">New Job</button>';
 																} elseif( $job['status'] == 'submitted' ) {
-																	$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-warning btn-block">Submitted</button>';
 																} elseif( $job['status'] == 'rejected' ) {
-																	$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-danger btn-block">Rejected</button>';
 																} elseif( $job['status'] == 'pending' ) {
-																	$job['status'] = '<button class="btn btn-info btn-block">Pending Submission</button>';
+																	$job['status'] = '<button class="btn btn-sm btn-info btn-block">Pending Submission</button>';
 																}
 
 																$initial_estimate = vat_details( $job['initial_estimate'] );
@@ -2037,7 +2037,7 @@ $vrns 		= get_all_vrns();
 																			'.$job['status'].'
 																		</td>
 																		<td class="text-nowrap">
-																			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																			<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																			<div class="dropdown-menu dropdown-menu-right" role="menu">
 																				<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																				<a href="#" onclick="job_delete( '.$job['id'].' );" class="dropdown-item" onclick="processing();">Delete</a>
@@ -2082,7 +2082,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -2119,8 +2119,8 @@ $vrns 		= get_all_vrns();
 							 	</div>
 							 	<div class="modal-footer">
 							 		<div class="btn-group">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+										<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+										<button type="submit" onclick="processing();" class="btn btn-sm btn-primary">Continue</button>
 									</div>
 								</div>
 						  	</div>
@@ -2159,7 +2159,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -2345,7 +2345,7 @@ $vrns 		= get_all_vrns();
 								<div class="panel-heading">
 									<h2 class="panel-title">Software Updates</h2>
 									<div class="panel-heading-btn">
-										<button class="btn btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
+										<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#contact_genex">Contact Genex Support</button>
 									</div>
 								</div>
 								<div class="panel-body">
@@ -2389,7 +2389,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -2416,7 +2416,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -2464,7 +2464,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a class="btn btn-sm btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -2499,7 +2499,7 @@ $vrns 		= get_all_vrns();
 						<div class="panel-heading">
 							<h2 class="panel-title">Jobs</h2>
 							<div class="panel-heading-btn">
-								<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+								<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
 							</div>
 						</div>
 						<div class="panel-body">
@@ -2533,17 +2533,17 @@ $vrns 		= get_all_vrns();
 												// status 
 												$job['status_raw'] = $job['status'];
 												if( $job['status'] == 'approved' ) {
-													$job['status'] = '<button class="btn btn-success btn-block">Approved</button>';
+													$job['status'] = '<button class="btn btn-sm btn-success btn-block">Approved</button>';
 												} elseif( $job['status'] == 'cancelled' ) {
-													$job['status'] = '<button class="btn btn-danger btn-block">Cancelled</button>';
+													$job['status'] = '<button class="btn btn-sm btn-danger btn-block">Cancelled</button>';
 												} elseif( $job['status'] == 'new' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">New Job</button>';
+													$job['status'] = '<button class="btn btn-sm btn-info btn-block">New Job</button>';
 												} elseif( $job['status'] == 'submitted' ) {
-													$job['status'] = '<button class="btn btn-warning btn-block">Submitted</button>';
+													$job['status'] = '<button class="btn btn-sm btn-warning btn-block">Submitted</button>';
 												} elseif( $job['status'] == 'rejected' ) {
-													$job['status'] = '<button class="btn btn-danger btn-block">Rejected</button>';
+													$job['status'] = '<button class="btn btn-sm btn-danger btn-block">Rejected</button>';
 												} elseif( $job['status'] == 'pending' ) {
-													$job['status'] = '<button class="btn btn-info btn-block">Pending Submission</button>';
+													$job['status'] = '<button class="btn btn-sm btn-info btn-block">Pending Submission</button>';
 												}
 
 												// calc vat details
@@ -2604,7 +2604,7 @@ $vrns 		= get_all_vrns();
 															'.$job['status'].'
 														</td>
 														<td class="text-nowrap">
-															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+															<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
@@ -2642,7 +2642,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -2719,7 +2719,7 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+														<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
 												</div>
 											</div>
@@ -3168,8 +3168,8 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
+														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
+														<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
 													</div>
 												</div>
 											</div>
@@ -3203,7 +3203,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3240,7 +3240,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a class="btn btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a class="btn btn-sm btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -3257,7 +3257,7 @@ $vrns 		= get_all_vrns();
 									<h2 class="panel-title">Users</h2>
 									<div class="panel-heading-btn">
 										<div class="btn-group">
-											<button class="btn btn-primary" data-toggle="modal" data-target="#user_add">Add User</button>
+											<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#user_add">Add User</button>
 										</div>
 									</div>
 								</div>
@@ -3282,22 +3282,22 @@ $vrns 		= get_all_vrns();
 												foreach( $users as $user ) {
 													// user status
 													if( $user['status'] == 'active' ) {
-														$user['account_status'] = '<button class="btn btn-success btn-block">Active</button>';
+														$user['account_status'] = '<button class="btn btn-sm btn-success btn-block">Active</button>';
 													} elseif( $user['status'] == 'suspended' ) {
-														$user['account_status'] = '<button class="btn btn-warning btn-block">Suspended</button>';
+														$user['account_status'] = '<button class="btn btn-sm btn-warning btn-block">Suspended</button>';
 													} elseif( $user['status'] == 'terminated' ) {
-														$user['account_status'] = '<button class="btn btn-danger btn-block">Terminated</button>';
+														$user['account_status'] = '<button class="btn btn-sm btn-danger btn-block">Terminated</button>';
 													} elseif( $user['status'] == 'pending' ) {
-														$user['account_status'] = '<button class="btn btn-info btn-block">Terminated</button>';
+														$user['account_status'] = '<button class="btn btn-sm btn-info btn-block">Terminated</button>';
 													}
 
 													// account type
 													if( $user['type'] == 'admin' ) {
-														$user['type_button'] = '<button class="btn btn-lime btn-block">Admin</button>';
+														$user['type_button'] = '<button class="btn btn-sm btn-lime btn-block">Admin</button>';
 													} elseif( $user['type'] == 'staff' ) {
-														$user['type_button'] = '<button class="btn btn-warning btn-block">Staff</button>';
+														$user['type_button'] = '<button class="btn btn-sm btn-warning btn-block">Staff</button>';
 													} elseif( $user['type'] == 'customer' ) {
-														$user['type_button'] = '<button class="btn btn-info btn-block">Customer</button>';
+														$user['type_button'] = '<button class="btn btn-sm btn-info btn-block">Customer</button>';
 													}
 
 													// output
@@ -3327,7 +3327,7 @@ $vrns 		= get_all_vrns();
 																'.$user['account_status'].'
 															</td>
 															<td class="text-nowrap">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
 																	<a href="?c=user&id='.$user['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
 																	'.( $user['id'] != $account_details['id'] ? '<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
@@ -3364,7 +3364,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3414,7 +3414,7 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+														<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 													</div>
 												</div>
 											</div>
@@ -3869,8 +3869,8 @@ $vrns 		= get_all_vrns();
 												</div>
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
-														<a href="?c=users" type="button" onclick="processing();" class="btn btn-white">Back</a>
-														<button type="submit" onclick="saving();" class="btn btn-success">Save</button>
+														<a href="?c=users" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
+														<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
 													</div>
 												</div>
 											</div>
@@ -3901,7 +3901,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -3939,7 +3939,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -3961,7 +3961,7 @@ $vrns 		= get_all_vrns();
 							<form class="form" method="post" action="actions.php?a=vrn_lookup">
 								<div class="form-group input-group-append">
 									<input type="text" name="vrn" id="vrn" class="form-control" placeholder="eg: ND08 NVK" />
-									<button type="submit" onclick="processing();" class="btn btn-success">Search</button>
+									<button type="submit" onclick="processing();" class="btn btn-sm btn-success">Search</button>
 								</div>
 							</form>
 						</div>
@@ -3987,7 +3987,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -4029,7 +4029,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="col-xl-4 col-xs-12 text-right">
 												<div class="btn-group">
-													<a href="#" class="btn btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
 												</div>
 											</div>
 										</div>
@@ -4324,7 +4324,7 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="col-xl-4 col-xs-12 text-right">
 											<div class="btn-group">
-												<a href="?c=vrn_lookup" type="button" onclick="processing();" class="btn btn-white">Back</a>
+												<a href="?c=vrn_lookup" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
 											</div>
 										</div>
 									</div>
@@ -4353,7 +4353,7 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer">
 						 		<div class="btn-group">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 					  	</div>
@@ -4367,7 +4367,7 @@ $vrns 		= get_all_vrns();
 				</div>
 			-->
 			
-			<a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+			<a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		
 			<?php if( $account_details['accept_terms'] == 'no' ){ ?>
 				<div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-labelledby="modal-terms" aria-hidden="true">
@@ -4508,8 +4508,8 @@ $vrns 		= get_all_vrns();
 						 	</div>
 						 	<div class="modal-footer justify-content-center">
 						 		<div class="btn-group">
-						 			<a href="logout.php" class="btn btn-danger">I Don't Accept</a>
-						 			<a href="actions.php?a=accept_terms" class="btn btn-lime">I Accept</a>
+						 			<a href="logout.php" class="btn btn-sm btn-danger">I Don't Accept</a>
+						 			<a href="actions.php?a=accept_terms" class="btn btn-sm btn-success">I Accept</a>
 								</div>
 							</div>
 					  	</div>
@@ -4576,8 +4576,8 @@ $vrns 		= get_all_vrns();
 				 	</div>
 				 	<div class="modal-footer">
 				 		<div class="btn-group">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-							<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+							<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+							<button type="submit" onclick="processing();" class="btn btn-sm btn-primary">Continue</button>
 						</div>
 					</div>
 			  	</div>
@@ -4624,8 +4624,8 @@ $vrns 		= get_all_vrns();
 				 	</div>
 				 	<div class="modal-footer">
 				 		<div class="btn-group">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-							<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+							<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+							<button type="submit" onclick="processing();" class="btn btn-sm btn-primary">Continue</button>
 						</div>
 					</div>
 			  	</div>
@@ -4966,8 +4966,8 @@ $vrns 		= get_all_vrns();
 				 	</div>
 				 	<div class="modal-footer">
 				 		<div class="btn-group">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-							<button type="submit" onclick="processing();" class="btn btn-primary">Continue</button>
+							<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+							<button type="submit" onclick="processing();" class="btn btn-sm btn-primary">Continue</button>
 						</div>
 					</div>
 			  	</div>
@@ -5019,7 +5019,7 @@ $vrns 		= get_all_vrns();
 			 	</div>
 			 	<div class="modal-footer">
 			 		<div class="btn-group">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 		  	</div>
@@ -5045,7 +5045,7 @@ $vrns 		= get_all_vrns();
 			 	</div>
 			 	<div class="modal-footer">
 			 		<div class="btn-group">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 		  	</div>
