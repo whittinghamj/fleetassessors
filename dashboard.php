@@ -6161,6 +6161,10 @@ $vrns 		= get_all_vrns();
 	<?php } ?>
 
 	<?php if( get( 'c' ) == 'job' ) { ?>
+		<script src="assets/plugins/isotope-layout/dist/isotope.pkgd.min.js"></script>
+		<script src="assets/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+		<script src="assets/js/demo/gallery.demo.js"></script>
+
 		<script type="text/javascript">
 			function _(el){
 				return document.getElementById(el);
@@ -6213,7 +6217,6 @@ $vrns 		= get_all_vrns();
 			}
 		</script>
 	<?php } ?>
-
 
 	<?php if( get( 'c' ) == 'user' ) { ?>
 		<?php
