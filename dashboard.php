@@ -2825,12 +2825,24 @@ $vrns 		= get_all_vrns();
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-md-6">
+								<div class="col-xl-2 col-md-4">
 									<div class="widget widget-stats bg-red">
 										<div class="stats-icon"><i class="fa fa-address-card"></i></div>
 										<div class="stats-info">
 											<h4>Approved Uplift Element</h4>
 											<p>£<?php echo number_format( $job['approved_estimate'], 2 ); ?></p>	
+										</div>
+										<div class="stats-link">
+											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-2 col-md-4">
+									<div class="widget widget-stats bg-yellow">
+										<div class="stats-icon"><i class="fa fa-address-card"></i></div>
+										<div class="stats-info">
+											<h4>Profit</h4>
+											<p>£<?php echo number_format( $job['profit'], 2 ); ?></p>	
 										</div>
 										<div class="stats-link">
 											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
