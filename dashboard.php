@@ -3230,7 +3230,7 @@ $vrns 		= get_all_vrns();
 		                                        <div class="input-group">
 		                                            <span class="input-group-btn">
 		                                                <span class="btn btn-file">
-		                                                    Browse &hellip; <input type="file" name="file1" id="file1"> <input type="button" class="btn btn-sm btn-primary" value="Upload File" onclick="uploadFile();">
+		                                                    Browse &hellip; <input type="file" name="file1" id="file1" class="btn btn-sm btn-info"> <input type="button" class="btn btn-sm btn-primary" value="Upload File" onclick="uploadFile();">
 		                                                </span>
 		                                            </span>
 		                                            <input type="text" class="form-control hidden" readonly>
@@ -5889,21 +5889,21 @@ $vrns 		= get_all_vrns();
 				_( "progressBar" ).value = 0;
 				setTimeout( function() {
 					// set_status_message( 'success', 'Product image has been uploaded.' );
-					window.location = window.location;
+					// window.location = window.location;
 				}, 1000 );
 			}
 
 			function errorHandler(event){
 				_( "status" ).innerHTML = "Upload Failed";
 				setTimeout( function() {
-					$( '#status' ).fadeOut( 'fast' );
+					// $( '#status' ).fadeOut( 'fast' );
 				}, 5000 );
 			}
 
 			function abortHandler( event ){
 				_( "status" ).innerHTML = "Upload Aborted";
 				setTimeout( function() {
-					$( '#status' ).fadeOut( 'fast' );
+					// $( '#status' ).fadeOut( 'fast' );
 				}, 5000 );
 			}
 		</script>
