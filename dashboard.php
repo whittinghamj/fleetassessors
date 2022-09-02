@@ -2948,25 +2948,14 @@ $vrns 		= get_all_vrns();
 												<h2 class="panel-title">Photos</h2>
 												<div class="panel-heading-btn">
 													<div class="btn-group">
-														
+														<div class="btn-group">
+															<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
-															<textarea name="engineer_notes" id="engineer_notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
-														</div>
-													</div>
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-															<textarea name="internal_notes" id="internal_notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
-														</div>
-													</div>
-												</div>
+												Photos will go here.
 											</div>
 										</div>
 									</div>
