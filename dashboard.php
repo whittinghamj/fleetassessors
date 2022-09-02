@@ -2735,37 +2735,25 @@ $vrns 		= get_all_vrns();
 							<?php if( $job['status'] != 'approved' ) { ?>
 								<div class="col-xl-4 col-md-4">
 									<div class="widget widget-stats bg-blue">
-										<div class="stats-icon"><i class="fa fa-car"></i></div>
 										<div class="stats-info">
 											<h4>Initial Estimate <small>ex VAT</small></h4>
 											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
 										</div>
 									</div>
 								</div>
 								<div class="col-xl-4 col-md-4">
 									<div class="widget widget-stats bg-info">
-										<div class="stats-icon"><i class="fa fa-car"></i></div>
 										<div class="stats-info">
 											<h4>Revised Estimate <small>ex VAT</small></h4>
 											<p>£<?php echo number_format( $revised_estimate, 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
 										</div>
 									</div>
 								</div>
 								<div class="col-xl-4 col-md-4">
 									<div class="widget widget-stats bg-orange">
-										<div class="stats-icon"><i class="fa fa-users"></i></div>
 										<div class="stats-info">
 											<h4>Initial Uplift Element</h4>
 											<p>£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
 										</div>
 									</div>
 								</div>
@@ -2779,9 +2767,6 @@ $vrns 		= get_all_vrns();
 											<h4>Initial Estimate</h4>
 											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
 										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
-										</div>
 									</div>
 								</div>
 								<div class="col-xl-2 col-md-4 col-xs-6">
@@ -2789,9 +2774,6 @@ $vrns 		= get_all_vrns();
 										<div class="stats-info">
 											<h4>Revised Estimate</h4>
 											<p>£<?php echo number_format( $revised_estimate, 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
 										</div>
 									</div>
 								</div>
@@ -2801,9 +2783,6 @@ $vrns 		= get_all_vrns();
 											<h4>Initial Uplift Element</h4>
 											<p>£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></p>	
 										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
-										</div>
 									</div>
 								</div>
 								<div class="col-xl-2 col-md-4 col-xs-6">
@@ -2811,9 +2790,6 @@ $vrns 		= get_all_vrns();
 										<div class="stats-info">
 											<h4>Approved Uplift Element</h4>
 											<p>£<?php echo number_format( $job['approved_estimate'], 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
 										</div>
 									</div>
 								</div>
@@ -2823,9 +2799,6 @@ $vrns 		= get_all_vrns();
 											<h4>Final Estimate</h4>
 											<p>£<?php echo number_format( $approved_estimate, 2 ); ?></p>	
 										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
-										</div>
 									</div>
 								</div>
 								<div class="col-xl-2 col-md-4 col-xs-6">
@@ -2833,9 +2806,6 @@ $vrns 		= get_all_vrns();
 										<div class="stats-info">
 											<h4>Profit</h4>
 											<p>£<?php echo number_format( $job['profit'], 2 ); ?></p>	
-										</div>
-										<div class="stats-link">
-											<a href="?c=jobs"><small>ex VAT</small></i></a>
 										</div>
 									</div>
 								</div>
