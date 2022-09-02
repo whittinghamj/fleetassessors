@@ -67,7 +67,7 @@ $database['database'] 			= 'fleetassessors_dashboard';
 $database['username'] 			= 'whittinghamj';
 $database['password'] 			= 'admin1372Dextor!#&@Mimi!#&@';
 
-$dsn			= "mysql:host=".$database['hostname'].";dbname=".$database['database'];
+$dsn			                 = "mysql:host=".$database['hostname'].";dbname=".$database['database'];
 
 try{
 	$conn = new PDO( $dsn, $database['username'], $database['password'] );
@@ -77,7 +77,7 @@ try{
 }
 
 // site static vars
-$globals['url']					= 'https://fleetassessorsltd.com/';
+$globals['url']					= 'https://fal.genexnet.com/';
 $globals['domain']              = 'fleetassessorsltd.com';
 $globals['platform_name']		= 'Fleet Assessors LTD';
 $globals['platform_version']	= '1.0.0';

@@ -4,6 +4,10 @@ ini_set ( 'display_errors', 1);
 ini_set ( 'display_startup_errors', 1);
 error_reporting (E_ALL);
 
+// include main functions
+include( dirname(__FILE__).'/includes/core.php' );
+include( dirname(__FILE__).'/includes/functions.php' );
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -114,7 +118,7 @@ error_reporting (E_ALL);
         <div><p>> <span>ERROR CODE</span>: "<i>HTTP 403 Forbidden</i>"</p>
         <p>> <span>ERROR DESCRIPTION</span>: "<i>Access Denied. You do not have the permission to access this page on this server</i>"</p>
         <p>> <span>ERROR POSSIBLY CAUSED BY</span>: [<b>execute access forbidden, read access forbidden, write access forbidden, ssl required, ssl 128 required, ip address rejected, client certificate required, site access denied, too many users, invalid configuration, password change, mapper denied access, client certificate revoked, directory listing denied, client access licenses exceeded, client certificate is untrusted or invalid, client certificate has expired or is not yet valid, passport logon failed, source access denied, infinite depth is denied, too many requests from the same client ip</b>...]</p>
-        <p>> <span>SOME PAGES ON THIS SERVER THAT YOU DO HAVE PERMISSION TO ACCESS</span>: [<a href="../index.php">Secure Login Page</a>, ]</p><p>> <span>All connection requests and attempts are logged.</span></p>
+        <p>> <span>SOME PAGES ON THIS SERVER THAT YOU DO HAVE PERMISSION TO ACCESS</span>: [<a href="<?php echo $globals['url']; ?>">Secure Login Page</a>, ]</p><p>> <span>All connection requests and attempts are logged.</span></p>
         </div>
 
         <script>
