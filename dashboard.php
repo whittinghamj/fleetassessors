@@ -3209,6 +3209,53 @@ $vrns 		= get_all_vrns();
 					  	</div>
 				   	</div>
 				</div>
+
+				<!-- add photo modal -->
+				<div class="modal fade" id="add_photo_modal" tabindex="-1" role="dialog" aria-labelledby="add_photo_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Add Photo</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+					 			<form name="upload_form" id="upload_form" enctype="multipart/form-data" method="post">
+			                    	<input type="hidden" name="job_id" id="job_id" value="<?php echo $job_id; ?>">
+
+		                            <div class="row">
+		                            	<div class="col-lg-12 col-xs-12">
+		                                    <div class="form-group">
+		                                        <div class="input-group">
+		                                            <span class="input-group-btn">
+		                                                <span class="btn btn-file">
+		                                                    Browse&hellip; <input type="file" name="file1" id="file1"> <input type="button" class="btn btn-xs btn-primary" value="Upload File" onclick="uploadFile()">
+		                                                </span>
+		                                            </span>
+		                                            <input type="text" class="form-control hidden" readonly>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        	<div class="row">
+		                                <div class="col-lg-12 col-xs-12">
+		                                    <center>
+		                                        <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+		                                        <span id="loaded_n_total"></span> <span id="status"></span>
+		                                    </center>
+		                                </div>
+		                            </div>
+		                        </form>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
 			<?php } ?>
 
 
@@ -5807,6 +5854,61 @@ $vrns 		= get_all_vrns();
 			} );
 		</script>
 	<?php } ?>
+
+	<?php if( get( 'c' ) == 'job' ) { ?>
+		<script type="text/javascript">
+			function _(el){
+				return document.getElementById(el);
+			}
+
+			function uploadFile() {
+				var file = _( "file1" ).files[0];
+				var product_id = _( "product_id" ).value;
+				// alert(file.name+" | "+file.size+" | "+file.type);
+				var formdata = new FormData();
+				formdata.append( "file1", file );
+				formdata.append( "product_id", product_id );
+				var ajax = new XMLHttpRequest();
+				ajax.upload.addEventListener( "progress", progressHandler, false );
+				ajax.addEventListener( "load", completeHandler, false) ;
+				ajax.addEventListener( "error", errorHandler, false) ;
+				ajax.addEventListener( "abort", abortHandler, false );
+				ajax.open( "POST", "actions.php?a=product_image_add" );
+				ajax.send( formdata );
+			}
+
+			function progressHandler( event ) {
+				_( "loaded_n_total" ).innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
+				var percent = (event.loaded / event.total ) * 100;
+				_( "progressBar" ).value = Math.round( percent );
+				_( "status" ).innerHTML = Math.round( percent )+"% uploaded... please wait";
+			}
+
+			function completeHandler( event) {
+				_( "status" ).innerHTML = event.target.responseText;
+				_( "progressBar" ).value = 0;
+				setTimeout( function() {
+					// set_status_message( 'success', 'Product image has been uploaded.' );
+					window.location = window.location;
+				}, 1000 );
+			}
+
+			function errorHandler(event){
+				_( "status" ).innerHTML = "Upload Failed";
+				setTimeout( function() {
+					$( '#status' ).fadeOut( 'fast' );
+				}, 5000 );
+			}
+
+			function abortHandler( event ){
+				_( "status" ).innerHTML = "Upload Aborted";
+				setTimeout( function() {
+					$( '#status' ).fadeOut( 'fast' );
+				}, 5000 );
+			}
+		</script>
+	<?php } ?>
+
 
 	<?php if( get( 'c' ) == 'user' ) { ?>
 		<?php
