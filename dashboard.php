@@ -2497,7 +2497,7 @@ $vrns 		= get_all_vrns();
 					<!-- jobs -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h2 class="panel-title">Jobs</h2>
+							<h1 class="panel-title">Jobs</h1>
 							<div class="panel-heading-btn">
 								<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
 							</div>
