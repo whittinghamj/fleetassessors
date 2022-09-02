@@ -2497,7 +2497,7 @@ $vrns 		= get_all_vrns();
 					<!-- jobs -->
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h1 class="panel-title">Jobs</h1>
+							<h2 class="panel-title">Jobs</h2>
 							<div class="panel-heading-btn">
 								<button class="btn btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
 							</div>
@@ -2943,15 +2943,12 @@ $vrns 		= get_all_vrns();
 
 									<!-- photos -->
 									<div class="col-xl-12 col-sm-12">
+										
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Photos</h2>
 												<div class="panel-heading-btn">
-													<div class="btn-group">
-														<div class="btn-group">
-															<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
-														</div>
-													</div>
+														<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
 												</div>
 											</div>
 											<div class="panel-body">
