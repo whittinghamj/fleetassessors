@@ -2780,7 +2780,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-4 col-xs-6">
 									<div class="widget widget-stats bg-orange">
 										<div class="stats-info">
-											<h4>Initial Uplift Element</h4>
+											<h4>Initial Uplift</h4>
 											<p>£<?php echo number_format( $job['uplift_estimate'], 2 ); ?></p>	
 										</div>
 									</div>
@@ -2788,7 +2788,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-4 col-xs-6">
 									<div class="widget widget-stats bg-red">
 										<div class="stats-info">
-											<h4>Approved Uplift Element</h4>
+											<h4>Approved Uplift</h4>
 											<p>£<?php echo number_format( $job['approved_estimate'], 2 ); ?></p>	
 										</div>
 									</div>
