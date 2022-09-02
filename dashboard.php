@@ -2141,10 +2141,6 @@ $vrns 		= get_all_vrns();
 				<?php $stats['total_providers'] 	= total_providers(); ?>
 
 				<div id="content" class="content">
-					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item active"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
-					</ol>
-
 					<h1 class="page-header">Dashboard</h1>
 
 					<div class="row">
