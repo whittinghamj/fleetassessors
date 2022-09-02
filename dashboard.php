@@ -2795,6 +2795,9 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 							</div>
+						</div>
+
+						<div class="row">
 							<?php if( $job['status'] != 'approved' ) { ?>
 								<div class="col-xl-4 col-md-6 col-xs-6">
 							<?php } else { ?>
