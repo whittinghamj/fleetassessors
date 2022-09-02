@@ -2943,12 +2943,11 @@ $vrns 		= get_all_vrns();
 
 									<!-- photos -->
 									<div class="col-xl-12 col-sm-12">
-										
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Photos</h2>
 												<div class="panel-heading-btn">
-														<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+													<a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
 												</div>
 											</div>
 											<div class="panel-body">
