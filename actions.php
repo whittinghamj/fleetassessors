@@ -686,7 +686,7 @@ function job_add_photo() {
 	$fileSize 					= $_FILES["file1"]["size"]; // File size in bytes
 	$fileErrorMsg 				= $_FILES["file1"]["error"]; // 0 for false... and 1 for true
 	if( !$fileTmpLoc ) { // if file not chosen
-		echo "Please select a photo to upload first.";
+		echo "<hr>Please select a photo to upload first.";
 		exit();
 	}
 	
@@ -706,10 +706,10 @@ function job_add_photo() {
 		)" );
 		
 		// report
-		echo "<font color='#18B117'><b>Upload Complete</b></font>";
+		echo "<hr><font color='#18B117'><b>Upload Complete</b></font>";
 		
 	}else{
-		echo "ERROR: Oops, something went very wrong. Please try again or contact support for more help.";
+		echo "<hr>ERROR: Oops, something went very wrong. Please try again or contact support for more help.";
 		exit();
 	}
 }

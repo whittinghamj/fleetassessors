@@ -5888,22 +5888,22 @@ $vrns 		= get_all_vrns();
 				_( "status" ).innerHTML = event.target.responseText;
 				_( "progressBar" ).value = 0;
 				setTimeout( function() {
-					// set_status_message( 'success', 'Product image has been uploaded.' );
-					// window.location = window.location;
+					set_status_message( 'success', 'Photo has been uploaded.' );
+					window.location = window.location;
 				}, 1000 );
 			}
 
 			function errorHandler(event){
 				_( "status" ).innerHTML = "Upload Failed";
 				setTimeout( function() {
-					// $( '#status' ).fadeOut( 'fast' );
+					$( '#status' ).fadeOut( 'fast' );
 				}, 5000 );
 			}
 
 			function abortHandler( event ){
 				_( "status" ).innerHTML = "Upload Aborted";
 				setTimeout( function() {
-					// $( '#status' ).fadeOut( 'fast' );
+					$( '#status' ).fadeOut( 'fast' );
 				}, 5000 );
 			}
 		</script>
