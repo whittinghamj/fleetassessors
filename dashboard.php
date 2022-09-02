@@ -2961,7 +2961,7 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="panel-body">
 												<div id="gallery" class="gallery">
-													<?php if( isset( $job['photos']['id'] ) ) { ?>
+													<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
 														<?php foreach( $job['photos'] as $photo ) { ?>
 															<div class="image gallery-group-1">
 																<div class="image-inner">
