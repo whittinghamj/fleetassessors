@@ -700,7 +700,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
 						<li class="breadcrumb-item active">Dev</li>
 					</ol>
 					
@@ -848,7 +848,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
 						<li class="breadcrumb-item active">Staging</li>
 					</ol>
 					
@@ -1270,7 +1270,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
 						<li class="breadcrumb-item active">Customers</li>
 					</ol>
 					
@@ -1432,8 +1432,8 @@ $vrns 		= get_all_vrns();
 						<?php echo $not_found; ?>
 					<?php } else { ?>
 						<ol class="breadcrumb float-xl-right">
-							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-							<li class="breadcrumb-item"><a href="dashboard.php?c=customers">Customers</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=customers" onclick="processing();">Customers</a></li>
 							<li class="breadcrumb-item active"><?php echo $customer['company_name']; ?></li>
 						</ol>
 
@@ -2142,7 +2142,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a></li>
+						<li class="breadcrumb-item active"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
 					</ol>
 
 					<h1 class="page-header">Dashboard</h1>
@@ -2445,7 +2445,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
 						<li class="breadcrumb-item active">Jobs</li>
 					</ol>
 					
@@ -2700,8 +2700,8 @@ $vrns 		= get_all_vrns();
 						<?php echo $not_found; ?>
 					<?php } else { ?>
 						<ol class="breadcrumb float-xl-right">
-							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs">Jobs</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=jobs" onclick="processing();">Jobs</a></li>
 							<li class="breadcrumb-item active">ID: <?php echo $job['id']; ?> / VRN: <?php echo $job['vrn']; ?></li>
 						</ol>
 
@@ -3326,7 +3326,7 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
 						<li class="breadcrumb-item active">Users</li>
 					</ol>
 
@@ -3499,8 +3499,8 @@ $vrns 		= get_all_vrns();
 						<?php echo $not_found; ?>
 					<?php } else { ?>
 						<ol class="breadcrumb float-xl-right">
-							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-							<li class="breadcrumb-item"><a href="dashboard.php?c=users">Users</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=users" onclick="processing();">Users</a></li>
 							<li class="breadcrumb-item active"><?php echo $user['full_name']; ?></li>
 						</ol>
 
@@ -4024,8 +4024,8 @@ $vrns 		= get_all_vrns();
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-						<li class="breadcrumb-item"><a href="dashboard.php">Tools</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Tools</a></li>
 						<li class="breadcrumb-item active">VRN Lookup</li>
 					</ol>
 					
@@ -4113,9 +4113,9 @@ $vrns 		= get_all_vrns();
 				
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
-						<li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-						<li class="breadcrumb-item"><a href="dashboard.php">Tools</a></li>
-						<li class="breadcrumb-item"><a href="dashboard.php?c=vrn_lookup">VRN Lookup</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Tools</a></li>
+						<li class="breadcrumb-item"><a href="dashboard.php?c=vrn_lookup" onclick="processing();">VRN Lookup</a></li>
 						<li class="breadcrumb-item active">VRN Results</li>
 					</ol>
 					
