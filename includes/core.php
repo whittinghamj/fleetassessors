@@ -79,7 +79,7 @@ try{
 // site static vars
 $globals['url']					= 'https://fleetassessorsltd.com/';
 $globals['domain']              = 'fleetassessorsltd.com';
-$globals['platform_name']		= 'Fleet Assessors';
+$globals['platform_name']		= 'Fleet Assessors LTD';
 $globals['platform_version']	= '1.0.0';
 $globals['copyright']			= 'Written by Jamie Whittingham.';
 
