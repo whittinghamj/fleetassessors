@@ -2963,6 +2963,7 @@ $vrns 		= get_all_vrns();
 												<div id="gallery" class="gallery">
 													<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
 														<?php foreach( $job['photos'] as $photo ) { ?>
+															<?php foreach( $users as $user ) { if( $user['id'] == $photo['added_by'] ) { break; } } ?>
 															<div class="image gallery-group-1">
 																<div class="image-inner">
 																	<a href="job_photos/<?php echo $photo['file_name']; ?>" data-lightbox="gallery-group-1">
@@ -2975,15 +2976,8 @@ $vrns 		= get_all_vrns();
 																<div class="image-info">
 																	<h5 class="title">Lorem ipsum dolor sit amet</h5>
 																	<div class="d-flex align-items-center mb-2">
-																		<div class="rating">
-																			<span class="star active"></span>
-																			<span class="star active"></span>
-																			<span class="star active"></span>
-																			<span class="star"></span>
-																			<span class="star"></span>
-																		</div>
 																		<div class="ms-auto">
-																			<small>by</small> <a href="javascript:;">Sean Ngu</a>
+																			<small>by</small> <a href="javascript:;"><?php echo $user['full_name']; ?></a>
 																		</div>
 																	</div>
 																	<div class="desc">
