@@ -85,6 +85,10 @@ switch( $a ) {
         job_edit();
         break;
 
+    case "job_add_photo":
+        job_add_photo();
+        break;
+
     case "job_delete":
         job_delete();
         break;
@@ -660,6 +664,54 @@ function job_edit() {
 
 	// redirect
 	go( $_SERVER['HTTP_REFERER'] );
+}
+
+function job_add_photo() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
+	// map fields
+	$job_id 					= post('job_id');
+	$path_parts 				= pathinfo($_FILES["file1"]["name"]);
+	$extension 					= $path_parts['extension'];
+
+	$fileName 					= $_FILES["file1"]["name"]; // The file name
+	$random_string 				= random_string();
+	$base64_filename 			= base64_encode( $random_string.'-'.$fileName );
+	
+	$fileTmpLoc 				= $_FILES["file1"]["tmp_name"]; // File in the PHP tmp folder
+	$fileType 					= $_FILES["file1"]["type"]; // The type of file it is
+	$fileSize 					= $_FILES["file1"]["size"]; // File size in bytes
+	$fileErrorMsg 				= $_FILES["file1"]["error"]; // 0 for false... and 1 for true
+	if( !$fileTmpLoc ) { // if file not chosen
+		echo "Please select a photo to upload first.";
+		exit();
+	}
+	
+	// handle the uploaded file
+	if( move_uploaded_file( $fileTmpLoc, "job_photos/".$base64_filename ) ) {
+		
+		// save to the database
+		$insert = $conn->exec( "INSERT INTO `job_photos` 
+		    (`added`,`added_by`,`file_name`,`file_type`,`file_size`,`job_id`)
+		    VALUE
+		    ('".time()."',
+		    '".$account_details['id']."',
+		    '".$base64_filename."',
+		    '".$fileType."',
+		    '".$fileSize."',
+		    '".$job_id."'
+		)" );
+		
+		// report
+		echo "<font color='#18B117'><b>Upload Complete</b></font>";
+		
+	}else{
+		echo "ERROR: Oops, something went very wrong. Please try again or contact support for more help.";
+		exit();
+	}
 }
 
 function job_delete() {
