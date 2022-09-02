@@ -2792,8 +2792,8 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-4">
 									<div class="widget widget-stats bg-blue">
 										<div class="stats-info">
-											<h4>Initial Estimate <small>ex VAT</small></h4>
-											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	
+											<h4>Initial Estimate</h4>
+											<p>£<?php echo number_format( $job['initial_estimate'], 2 ); ?></p>	<small>ex VAT</small>
 										</div>
 										<div class="stats-link">
 											<a href="?c=jobs"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i></a>
