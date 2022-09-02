@@ -2970,19 +2970,21 @@ $vrns 		= get_all_vrns();
 																		<div class="img" style="background-image: url(job_photos/<?php echo $photo['file_name']; ?>)"></div>
 																	</a>
 																	<p class="image-caption">
-																		#1382 - 3D Arch
+																		Fleet Assessors LTD
 																	</p>
 																</div>
 																<div class="image-info">
-																	<h5 class="title">Lorem ipsum dolor sit amet</h5>
+																	<h5 class="title">Added: <?php echo date( "Y-m-d", $photo['added'] ); ?></h5>
 																	<div class="d-flex align-items-center mb-2">
 																		<div class="ms-auto">
 																			<small>by</small> <a href="javascript:;"><?php echo $user['full_name']; ?></a>
 																		</div>
 																	</div>
-																	<div class="desc">
-																		Nunc velit urna, aliquam at interdum sit amet, lacinia sit amet ligula. Quisque et erat eros. Aenean auctor metus in tortor placerat, non luctus justo blandit.
-																	</div>
+																	<!--
+																		<div class="desc">
+																			Nunc velit urna, aliquam at interdum sit amet, lacinia sit amet ligula. Quisque et erat eros. Aenean auctor metus in tortor placerat, non luctus justo blandit.
+																		</div>
+																	-->
 																</div>
 															</div>
 														<?php } ?>
