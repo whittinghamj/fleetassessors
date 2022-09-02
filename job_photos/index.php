@@ -5,8 +5,8 @@ ini_set ( 'display_startup_errors', 1);
 error_reporting (E_ALL);
 
 // include main functions
-include( dirname(__FILE__).'/includes/core.php' );
-include( dirname(__FILE__).'/includes/functions.php' );
+include( dirname(__FILE__).'../includes/core.php' );
+include( dirname(__FILE__).'../includes/functions.php' );
 
 ?>
 <!DOCTYPE html>
