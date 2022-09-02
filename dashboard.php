@@ -2917,7 +2917,7 @@ $vrns 		= get_all_vrns();
 
 								<div class="col-xl-6 col-sm-12">
 									<!-- notes -->
-									<div class="col-xl-6 col-sm-12">
+									<div class="col-xl-6 col-sm-6">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Notes</h2>
@@ -2947,7 +2947,7 @@ $vrns 		= get_all_vrns();
 									</div>
 
 									<!-- photos -->
-									<div class="col-xl-6 col-sm-12">
+									<div class="col-xl-6 col-sm-6">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Photos</h2>
