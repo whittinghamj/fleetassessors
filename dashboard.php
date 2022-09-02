@@ -2480,25 +2480,25 @@ $vrns 		= get_all_vrns();
 
 					<!-- stats -->
 					<div class="row">
-						<div class="col-xl-3 col-md-6">
+						<div class="col-xl-6 col-md-6 col-xs-6">
 							<div class="widget widget-stats bg-blue">
 								<div class="stats-info">
 									<h4>New Jobs</h4>
 									<p><?php echo $stats['total_new_jobs']; ?></p>	
 								</div>
 								<div class="stats-link">
-									<a href="?c=jobs">More ... <i class="fa fa-arrow-alt-circle-right"></i></a>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 							</div>
 						</div>
-						<div class="col-xl-3 col-md-6">
+						<div class="col-xl-6 col-md-6 col-xs-6">
 							<div class="widget widget-stats bg-info">
 								<div class="stats-info">
 									<h4>Total Jobs</h4>
 									<p><?php echo $stats['total_jobs']; ?></p>	
 								</div>
 								<div class="stats-link">
-									<a href="?c=jobs" onclick="processing();">More ...  <i class="fa fa-arrow-alt-circle-right"></i></a>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 							</div>
 						</div>
