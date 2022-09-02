@@ -2942,11 +2942,11 @@ $vrns 		= get_all_vrns();
 									</div>
 								</div>
 
-								<!-- behicle details -->
-								<div class="col-xl-6 col-sm-12">
+								<!-- photos -->
+								<div class="col-xl-3 col-sm-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
-											<h2 class="panel-title">Vehicle Details</h2>
+											<h2 class="panel-title">Photos</h2>
 											<div class="panel-heading-btn">
 												<div class="btn-group">
 													
@@ -2955,38 +2955,16 @@ $vrns 		= get_all_vrns();
 										</div>
 										<div class="panel-body">
 											<div class="row">
-												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Year</strong></small></label>
-														<input type="text" name="vehicle_year" class="form-control" value="<?php echo $job['vrn_details']['year']; ?>" readonly>
+														<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
+														<textarea name="engineer_notes" id="engineer_notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
 													</div>
 												</div>
-
-												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Make</strong></small></label>
-														<input type="text" name="vehicle_make" class="form-control" value="<?php echo $job['vrn_details']['make']; ?>" readonly>
-													</div>
-												</div>
-
-												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Model</strong></small></label>
-														<input type="text" name="vehicle_model" class="form-control" value="<?php echo $job['vrn_details']['model']; ?>" readonly>
-													</div>
-												</div>
-
-												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Color</strong></small></label>
-														<input type="text" name="vehicle_color" class="form-control" value="<?php echo $job['vrn_details']['color']; ?>" readonly>
-													</div>
-												</div>
-
-												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Fuel</strong></small></label>
-														<input type="text" name="vehicle_fuel" class="form-control" value="<?php echo $job['vrn_details']['fuel']; ?>" readonly>
+														<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+														<textarea name="internal_notes" id="internal_notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
 													</div>
 												</div>
 											</div>
