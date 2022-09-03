@@ -2908,9 +2908,9 @@ $vrns 		= get_all_vrns();
 								</div>
 							</div>
 
-							<!-- initial uplift estimate -->
 							<div class="row">
-								<div class="col-xl-6">
+								<!-- initial uplift estimate -->
+								<div class="col-xl-6 col-xs-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Initial Uplift Breakdown</h2>
@@ -2962,11 +2962,9 @@ $vrns 		= get_all_vrns();
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<!-- approved uplift estimate -->
-							<div class="row">
-								<div class="col-xl-12">
+								<!-- approved uplift estimate -->
+								<div class="col-xl-6 col-xs-12">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Approved Uplift Breakdown</h2>
