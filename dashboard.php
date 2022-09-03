@@ -3180,7 +3180,7 @@ $vrns 		= get_all_vrns();
 																		</div>
 																	</div>
 																	<div class="desc">
-																		<a href="#" onclick="job_photo_delete( <?php echo $photo['id']; ?> );" class="btn btn-sm btn-dnager">Delete</a>
+																		<a href="#" onclick="job_photo_delete( <?php echo $photo['id']; ?> );"><button class="btn btn-sm btn-dnager">Delete</button></a>
 																	</div>
 																</div>
 															</div>
