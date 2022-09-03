@@ -2988,6 +2988,12 @@ $vrns 		= get_all_vrns();
 																</div>
 															</div>
 														<?php } ?>
+													<?php } else { ?>
+														<center>
+															<h3>
+																No photos have been uploaded.
+															</h3>
+														</center>
 													<?php } ?>
 												</div>
 											</div>
