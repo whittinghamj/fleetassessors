@@ -390,6 +390,47 @@ function provider_add() {
 	go( 'dashboard.php?c=provider&id='.$provider_id );
 }
 
+function provider_edit() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
+	// map fields
+	$provider_id 					= post( 'provider_id' );
+	$name 							= post( 'name' );
+	$status 						= post( 'status' );
+	$address_1 						= post( 'address_1' );
+	$address_2 						= post( 'address_2' );
+	$address_city 					= post( 'address_city' );
+	$address_state 					= post( 'address_state' );
+	$address_zip 					= post( 'address_zip' );
+	$address_country 				= post( 'address_country' );
+	$notes 							= post( 'notes' );
+	$email 							= post( 'email' );
+	$phone 							= post( 'phone' );
+
+	// save data
+	$update = $conn->exec( "UPDATE `providers` SET `status` = '".$status."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `name` = '".$name."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_1` = '".$address_1."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_2` = '".$address_2."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_city` = '".$address_city."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_state` = '".$address_state."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_zip` = '".$address_zip."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `address_country` = '".$address_country."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `primary_contact_id` = '".$primary_contact_id."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `secondary_contact_id` = '".$secondary_contact_id."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `notes` = '".$notes."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `email` = '".$email."' WHERE `id` = '".$provider_id."' " );
+	$update = $conn->exec( "UPDATE `providers` SET `phone` = '".$phone."' WHERE `id` = '".$provider_id."' " );
+
+	// set status message
+	status_message( "success", "Provider has been updated." );
+
+	// redirect
+	go( $_SERVER['HTTP_REFERER'] );
+}
 
 // vrn lookup
 function vrn_lookup() {
