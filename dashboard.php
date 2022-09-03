@@ -3804,6 +3804,517 @@ $vrns 			= get_all_vrns();
 				</form>
 			<?php } ?>
 
+			<?php function provider() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
+
+				<?php 
+					// get data
+					$provider_id 			= get( 'id' );
+					foreach( $providers as $provider ) {
+						if( $provider['id'] == $provider_id ) {
+							break;
+						}
+					}
+				?>
+
+				<div id="content" class="content">
+					<!-- sanity check -->
+					<?php if( !isset( $provider['id'] ) ) { ?>
+						<?php echo $not_found; ?>
+					<?php } else { ?>
+						<ol class="breadcrumb float-xl-right">
+							<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Dashboard</a></li>
+							<li class="breadcrumb-item"><a href="dashboard.php?c=providers" onclick="processing();">Providers</a></li>
+							<li class="breadcrumb-item active"><?php echo $provider['name']; ?></li>
+						</ol>
+
+						<h1 class="page-header">Provider: <?php echo $provider['name']; ?></h1>
+
+						<div class="row">
+							<div class="col-xl-12">
+								<div id="status_message"></div><div id="kyc_status_message"></div>
+							</div>
+						</div>
+
+						<?php if( $dev_check ) { ?>
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="#" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#dev_modal">Dev</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
+						<form class="form" method="post" action="actions.php?a=provider_edit">
+							<input type="hidden" name="provider_id" value="<?php echo $provider['id']; ?>">
+
+							<div class="row">
+								<!-- admin options -->
+								<?php if( $admin_check || $staff_check ) { ?>
+									<div class="col-xl-12 col-xl-12 col-sm-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Admin Section</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-xs-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Account Status</strong></label>
+															<select name="status" class="form-control">
+																<option value="active" <?php if( $provider['status'] == 'active' ) { echo 'selected'; } ?> >Active</option>
+																<option value="terminated" <?php if( $provider['status'] == 'pending' ) { echo 'selected'; } ?> >Pending</option>
+																<option value="suspended" <?php if( $provider['status'] == 'suspended' ) { echo 'selected'; } ?> >Suspended</option>
+																<option value="terminated" <?php if( $provider['status'] == 'terminated' ) { echo 'selected'; } ?> >Terminated</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
+
+								<div class="col-xl-6 col-sm-12">
+									<!-- contact details -->
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Contact Details</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+													
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>First Name</strong></label>
+														<input type="text" name="name" class="form-control" value="<?php echo $provider['name']; ?>" required>
+														<small>Example: Jo</small>
+													</div>
+												</div>
+												
+												
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Address 1</strong></label>
+														<input type="text" name="address_1" class="form-control" value="<?php echo $provider['address_1']; ?>">
+														<small>Example: 123 Awesome Street</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Address 2</strong></label>
+														<input type="text" name="address_2" class="form-control" value="<?php echo $provider['address_2']; ?>">
+														<small>Example: PO BOX 1</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>City</strong></label>
+														<input type="text" name="address_city" class="form-control" value="<?php echo $provider['address_city']; ?>">
+														<small>Example: Awesomeville</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>State / County</strong></label>
+														<input type="text" name="address_state" class="form-control" value="<?php echo $provider['address_state']; ?>">
+														<small>Example: Florida</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Zip / Post Code</strong></label>
+														<input type="text" name="address_zip" class="form-control" value="<?php echo $provider['address_zip']; ?>">
+														<small>Example: 12345</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Country</strong></label>
+														<select name="address_country" class="form-control select2">
+															<option value="AF" <?php if( $provider['address_country'] == 'AF' ) { echo 'selected'; } ?> >Afghanistan</option>
+															<option value="AX" <?php if( $provider['address_country'] == 'AX' ) { echo 'selected'; } ?> >Åland Islands</option>
+															<option value="AL" <?php if( $provider['address_country'] == 'AL' ) { echo 'selected'; } ?> >Albania</option>
+															<option value="DZ" <?php if( $provider['address_country'] == 'DZ' ) { echo 'selected'; } ?> >Algeria</option>
+															<option value="AS" <?php if( $provider['address_country'] == 'AS' ) { echo 'selected'; } ?> >American Samoa</option>
+															<option value="AD" <?php if( $provider['address_country'] == 'AD' ) { echo 'selected'; } ?> >Andorra</option>
+															<option value="AO" <?php if( $provider['address_country'] == 'AO' ) { echo 'selected'; } ?> >Angola</option>
+															<option value="AI" <?php if( $provider['address_country'] == 'AI' ) { echo 'selected'; } ?> >Anguilla</option>
+															<option value="AQ" <?php if( $provider['address_country'] == 'AQ' ) { echo 'selected'; } ?> >Antarctica</option>
+															<option value="AG" <?php if( $provider['address_country'] == 'AG' ) { echo 'selected'; } ?> >Antigua and Barbuda</option>
+															<option value="AR" <?php if( $provider['address_country'] == 'AR' ) { echo 'selected'; } ?> >Argentina</option>
+															<option value="AM" <?php if( $provider['address_country'] == 'AM' ) { echo 'selected'; } ?> >Armenia</option>
+															<option value="AW" <?php if( $provider['address_country'] == 'AW' ) { echo 'selected'; } ?> >Aruba</option>
+															<option value="AU" <?php if( $provider['address_country'] == 'AU' ) { echo 'selected'; } ?> >Australia</option>
+															<option value="AT" <?php if( $provider['address_country'] == 'AT' ) { echo 'selected'; } ?> >Austria</option>
+															<option value="AZ" <?php if( $provider['address_country'] == 'AZ' ) { echo 'selected'; } ?> >Azerbaijan</option>
+															<option value="BS" <?php if( $provider['address_country'] == 'BS' ) { echo 'selected'; } ?> >Bahamas</option>
+															<option value="BH" <?php if( $provider['address_country'] == 'BH' ) { echo 'selected'; } ?> >Bahrain</option>
+															<option value="BD" <?php if( $provider['address_country'] == 'BD' ) { echo 'selected'; } ?> >Bangladesh</option>
+															<option value="BB" <?php if( $provider['address_country'] == 'BB' ) { echo 'selected'; } ?> >Barbados</option>
+															<option value="BY" <?php if( $provider['address_country'] == 'BY' ) { echo 'selected'; } ?> >Belarus</option>
+															<option value="BE" <?php if( $provider['address_country'] == 'BE' ) { echo 'selected'; } ?> >Belgium</option>
+															<option value="BZ" <?php if( $provider['address_country'] == 'BZ' ) { echo 'selected'; } ?> >Belize</option>
+															<option value="BJ" <?php if( $provider['address_country'] == 'BJ' ) { echo 'selected'; } ?> >Benin</option>
+															<option value="BM" <?php if( $provider['address_country'] == 'BM' ) { echo 'selected'; } ?> >Bermuda</option>
+															<option value="BT" <?php if( $provider['address_country'] == 'BT' ) { echo 'selected'; } ?> >Bhutan</option>
+															<option value="BO" <?php if( $provider['address_country'] == 'BO' ) { echo 'selected'; } ?> >Bolivia, Plurinational State of</option>
+															<option value="BQ" <?php if( $provider['address_country'] == 'BQ' ) { echo 'selected'; } ?> >Bonaire, Sint Eustatius and Saba</option>
+															<option value="BA" <?php if( $provider['address_country'] == 'BA' ) { echo 'selected'; } ?> >Bosnia and Herzegovina</option>
+															<option value="BW" <?php if( $provider['address_country'] == 'BW' ) { echo 'selected'; } ?> >Botswana</option>
+															<option value="BV" <?php if( $provider['address_country'] == 'BV' ) { echo 'selected'; } ?> >Bouvet Island</option>
+															<option value="BR" <?php if( $provider['address_country'] == 'BR' ) { echo 'selected'; } ?> >Brazil</option>
+															<option value="IO" <?php if( $provider['address_country'] == 'IO' ) { echo 'selected'; } ?> >British Indian Ocean Territory</option>
+															<option value="BN" <?php if( $provider['address_country'] == 'BN' ) { echo 'selected'; } ?> >Brunei Darussalam</option>
+															<option value="BG" <?php if( $provider['address_country'] == 'BG' ) { echo 'selected'; } ?> >Bulgaria</option>
+															<option value="BF" <?php if( $provider['address_country'] == 'BF' ) { echo 'selected'; } ?> >Burkina Faso</option>
+															<option value="BI" <?php if( $provider['address_country'] == 'BI' ) { echo 'selected'; } ?> >Burundi</option>
+															<option value="KH" <?php if( $provider['address_country'] == 'KH' ) { echo 'selected'; } ?> >Cambodia</option>
+															<option value="CM" <?php if( $provider['address_country'] == 'CM' ) { echo 'selected'; } ?> >Cameroon</option>
+															<option value="CA" <?php if( $provider['address_country'] == 'CA' ) { echo 'selected'; } ?> >Canada</option>
+															<option value="CV" <?php if( $provider['address_country'] == 'CV' ) { echo 'selected'; } ?> >Cape Verde</option>
+															<option value="KY" <?php if( $provider['address_country'] == 'KY' ) { echo 'selected'; } ?> >Cayman Islands</option>
+															<option value="CF" <?php if( $provider['address_country'] == 'CF' ) { echo 'selected'; } ?> >Central African Republic</option>
+															<option value="TD" <?php if( $provider['address_country'] == 'TD' ) { echo 'selected'; } ?> >Chad</option>
+															<option value="CL" <?php if( $provider['address_country'] == 'CL' ) { echo 'selected'; } ?> >Chile</option>
+															<option value="CN" <?php if( $provider['address_country'] == 'CN' ) { echo 'selected'; } ?> >China</option>
+															<option value="CX" <?php if( $provider['address_country'] == 'CX' ) { echo 'selected'; } ?> >Christmas Island</option>
+															<option value="CC" <?php if( $provider['address_country'] == 'CC' ) { echo 'selected'; } ?> >Cocos (Keeling) Islands</option>
+															<option value="CO" <?php if( $provider['address_country'] == 'CO' ) { echo 'selected'; } ?> >Colombia</option>
+															<option value="KM" <?php if( $provider['address_country'] == 'KM' ) { echo 'selected'; } ?> >Comoros</option>
+															<option value="CG" <?php if( $provider['address_country'] == 'CG' ) { echo 'selected'; } ?> >Congo</option>
+															<option value="CD" <?php if( $provider['address_country'] == 'CD' ) { echo 'selected'; } ?> >Congo, the Democratic Republic of the</option>
+															<option value="CK" <?php if( $provider['address_country'] == 'CK' ) { echo 'selected'; } ?> >Cook Islands</option>
+															<option value="CR" <?php if( $provider['address_country'] == 'CR' ) { echo 'selected'; } ?> >Costa Rica</option>
+															<option value="CI" <?php if( $provider['address_country'] == 'CI' ) { echo 'selected'; } ?> >Côte d'Ivoire</option>
+															<option value="HR" <?php if( $provider['address_country'] == 'HR' ) { echo 'selected'; } ?> >Croatia</option>
+															<option value="CU" <?php if( $provider['address_country'] == 'CU' ) { echo 'selected'; } ?> >Cuba</option>
+															<option value="CW" <?php if( $provider['address_country'] == 'CW' ) { echo 'selected'; } ?> >Curaçao</option>
+															<option value="CY" <?php if( $provider['address_country'] == 'CY' ) { echo 'selected'; } ?> >Cyprus</option>
+															<option value="CZ" <?php if( $provider['address_country'] == 'CZ' ) { echo 'selected'; } ?> >Czech Republic</option>
+															<option value="DK" <?php if( $provider['address_country'] == 'DK' ) { echo 'selected'; } ?> >Denmark</option>
+															<option value="DJ" <?php if( $provider['address_country'] == 'DJ' ) { echo 'selected'; } ?> >Djibouti</option>
+															<option value="DM" <?php if( $provider['address_country'] == 'DM' ) { echo 'selected'; } ?> >Dominica</option>
+															<option value="DO" <?php if( $provider['address_country'] == 'DO' ) { echo 'selected'; } ?> >Dominican Republic</option>
+															<option value="EC" <?php if( $provider['address_country'] == 'EC' ) { echo 'selected'; } ?> >Ecuador</option>
+															<option value="EG" <?php if( $provider['address_country'] == 'EG' ) { echo 'selected'; } ?> >Egypt</option>
+															<option value="SV" <?php if( $provider['address_country'] == 'SV' ) { echo 'selected'; } ?> >El Salvador</option>
+															<option value="GQ" <?php if( $provider['address_country'] == 'GQ' ) { echo 'selected'; } ?> >Equatorial Guinea</option>
+															<option value="ER" <?php if( $provider['address_country'] == 'ER' ) { echo 'selected'; } ?> >Eritrea</option>
+															<option value="EE" <?php if( $provider['address_country'] == 'EE' ) { echo 'selected'; } ?> >Estonia</option>
+															<option value="ET" <?php if( $provider['address_country'] == 'ET' ) { echo 'selected'; } ?> >Ethiopia</option>
+															<option value="FK" <?php if( $provider['address_country'] == 'FK' ) { echo 'selected'; } ?> >Falkland Islands (Malvinas)</option>
+															<option value="FO" <?php if( $provider['address_country'] == 'FO' ) { echo 'selected'; } ?> >Faroe Islands</option>
+															<option value="FJ" <?php if( $provider['address_country'] == 'FJ' ) { echo 'selected'; } ?> >Fiji</option>
+															<option value="FI" <?php if( $provider['address_country'] == 'FI' ) { echo 'selected'; } ?> >Finland</option>
+															<option value="FR" <?php if( $provider['address_country'] == 'FR' ) { echo 'selected'; } ?> >France</option>
+															<option value="GF" <?php if( $provider['address_country'] == 'GF' ) { echo 'selected'; } ?> >French Guiana</option>
+															<option value="PF" <?php if( $provider['address_country'] == 'PF' ) { echo 'selected'; } ?> >French Polynesia</option>
+															<option value="TF" <?php if( $provider['address_country'] == 'TF' ) { echo 'selected'; } ?> >French Southern Territories</option>
+															<option value="GA" <?php if( $provider['address_country'] == 'GA' ) { echo 'selected'; } ?> >Gabon</option>
+															<option value="GM" <?php if( $provider['address_country'] == 'GM' ) { echo 'selected'; } ?> >Gambia</option>
+															<option value="GE" <?php if( $provider['address_country'] == 'GE' ) { echo 'selected'; } ?> >Georgia</option>
+															<option value="DE" <?php if( $provider['address_country'] == 'DE' ) { echo 'selected'; } ?> >Germany</option>
+															<option value="GH" <?php if( $provider['address_country'] == 'GH' ) { echo 'selected'; } ?> >Ghana</option>
+															<option value="GI" <?php if( $provider['address_country'] == 'GI' ) { echo 'selected'; } ?> >Gibraltar</option>
+															<option value="GR" <?php if( $provider['address_country'] == 'GR' ) { echo 'selected'; } ?> >Greece</option>
+															<option value="GL" <?php if( $provider['address_country'] == 'GL' ) { echo 'selected'; } ?> >Greenland</option>
+															<option value="GD" <?php if( $provider['address_country'] == 'GD' ) { echo 'selected'; } ?> >Grenada</option>
+															<option value="GP" <?php if( $provider['address_country'] == 'GP' ) { echo 'selected'; } ?> >Guadeloupe</option>
+															<option value="GU" <?php if( $provider['address_country'] == 'GU' ) { echo 'selected'; } ?> >Guam</option>
+															<option value="GT" <?php if( $provider['address_country'] == 'GT' ) { echo 'selected'; } ?> >Guatemala</option>
+															<option value="GG" <?php if( $provider['address_country'] == 'GG' ) { echo 'selected'; } ?> >Guernsey</option>
+															<option value="GN" <?php if( $provider['address_country'] == 'GN' ) { echo 'selected'; } ?> >Guinea</option>
+															<option value="GW" <?php if( $provider['address_country'] == 'GW' ) { echo 'selected'; } ?> >Guinea-Bissau</option>
+															<option value="GY" <?php if( $provider['address_country'] == 'GY' ) { echo 'selected'; } ?> >Guyana</option>
+															<option value="HT" <?php if( $provider['address_country'] == 'HT' ) { echo 'selected'; } ?> >Haiti</option>
+															<option value="HM" <?php if( $provider['address_country'] == 'HM' ) { echo 'selected'; } ?> >Heard Island and McDonald Islands</option>
+															<option value="VA" <?php if( $provider['address_country'] == 'VA' ) { echo 'selected'; } ?> >Holy See (Vatican City State)</option>
+															<option value="HN" <?php if( $provider['address_country'] == 'HN' ) { echo 'selected'; } ?> >Honduras</option>
+															<option value="HK" <?php if( $provider['address_country'] == 'HK' ) { echo 'selected'; } ?> >Hong Kong</option>
+															<option value="HU" <?php if( $provider['address_country'] == 'HU' ) { echo 'selected'; } ?> >Hungary</option>
+															<option value="IS" <?php if( $provider['address_country'] == 'IS' ) { echo 'selected'; } ?> >Iceland</option>
+															<option value="IN" <?php if( $provider['address_country'] == 'IN' ) { echo 'selected'; } ?> >India</option>
+															<option value="ID" <?php if( $provider['address_country'] == 'ID' ) { echo 'selected'; } ?> >Indonesia</option>
+															<option value="IR" <?php if( $provider['address_country'] == 'IR' ) { echo 'selected'; } ?> >Iran, Islamic Republic of</option>
+															<option value="IQ" <?php if( $provider['address_country'] == 'IQ' ) { echo 'selected'; } ?> >Iraq</option>
+															<option value="IE" <?php if( $provider['address_country'] == 'IE' ) { echo 'selected'; } ?> >Ireland</option>
+															<option value="IM" <?php if( $provider['address_country'] == 'IM' ) { echo 'selected'; } ?> >Isle of Man</option>
+															<option value="IL" <?php if( $provider['address_country'] == 'IL' ) { echo 'selected'; } ?> >Israel</option>
+															<option value="IT" <?php if( $provider['address_country'] == 'IT' ) { echo 'selected'; } ?> >Italy</option>
+															<option value="JM" <?php if( $provider['address_country'] == 'JM' ) { echo 'selected'; } ?> >Jamaica</option>
+															<option value="JP" <?php if( $provider['address_country'] == 'JP' ) { echo 'selected'; } ?> >Japan</option>
+															<option value="JE" <?php if( $provider['address_country'] == 'JE' ) { echo 'selected'; } ?> >Jersey</option>
+															<option value="JO" <?php if( $provider['address_country'] == 'JO' ) { echo 'selected'; } ?> >Jordan</option>
+															<option value="KZ" <?php if( $provider['address_country'] == 'KZ' ) { echo 'selected'; } ?> >Kazakhstan</option>
+															<option value="KE" <?php if( $provider['address_country'] == 'KE' ) { echo 'selected'; } ?> >Kenya</option>
+															<option value="KI" <?php if( $provider['address_country'] == 'KI' ) { echo 'selected'; } ?> >Kiribati</option>
+															<option value="KP" <?php if( $provider['address_country'] == 'KP' ) { echo 'selected'; } ?> >Korea, Democratic People's Republic of</option>
+															<option value="KR" <?php if( $provider['address_country'] == 'KR' ) { echo 'selected'; } ?> >Korea, Republic of</option>
+															<option value="KW" <?php if( $provider['address_country'] == 'KW' ) { echo 'selected'; } ?> >Kuwait</option>
+															<option value="KG" <?php if( $provider['address_country'] == 'KG' ) { echo 'selected'; } ?> >Kyrgyzstan</option>
+															<option value="LA" <?php if( $provider['address_country'] == 'LA' ) { echo 'selected'; } ?> >Lao People's Democratic Republic</option>
+															<option value="LV" <?php if( $provider['address_country'] == 'LV' ) { echo 'selected'; } ?> >Latvia</option>
+															<option value="LB" <?php if( $provider['address_country'] == 'LB' ) { echo 'selected'; } ?> >Lebanon</option>
+															<option value="LS" <?php if( $provider['address_country'] == 'LS' ) { echo 'selected'; } ?> >Lesotho</option>
+															<option value="LR" <?php if( $provider['address_country'] == 'LR' ) { echo 'selected'; } ?> >Liberia</option>
+															<option value="LY" <?php if( $provider['address_country'] == 'LY' ) { echo 'selected'; } ?> >Libya</option>
+															<option value="LI" <?php if( $provider['address_country'] == 'LI' ) { echo 'selected'; } ?> >Liechtenstein</option>
+															<option value="LT" <?php if( $provider['address_country'] == 'LT' ) { echo 'selected'; } ?> >Lithuania</option>
+															<option value="LU" <?php if( $provider['address_country'] == 'LU' ) { echo 'selected'; } ?> >Luxembourg</option>
+															<option value="MO" <?php if( $provider['address_country'] == 'MO' ) { echo 'selected'; } ?> >Macao</option>
+															<option value="MK" <?php if( $provider['address_country'] == 'MK' ) { echo 'selected'; } ?> >Macedonia, the former Yugoslav Republic of</option>
+															<option value="MG" <?php if( $provider['address_country'] == 'MG' ) { echo 'selected'; } ?> >Madagascar</option>
+															<option value="MW" <?php if( $provider['address_country'] == 'MW' ) { echo 'selected'; } ?> >Malawi</option>
+															<option value="MY" <?php if( $provider['address_country'] == 'MY' ) { echo 'selected'; } ?> >Malaysia</option>
+															<option value="MV" <?php if( $provider['address_country'] == 'MV' ) { echo 'selected'; } ?> >Maldives</option>
+															<option value="ML" <?php if( $provider['address_country'] == 'ML' ) { echo 'selected'; } ?> >Mali</option>
+															<option value="MT" <?php if( $provider['address_country'] == 'MT' ) { echo 'selected'; } ?> >Malta</option>
+															<option value="MH" <?php if( $provider['address_country'] == 'MH' ) { echo 'selected'; } ?> >Marshall Islands</option>
+															<option value="MQ" <?php if( $provider['address_country'] == 'MQ' ) { echo 'selected'; } ?> >Martinique</option>
+															<option value="MR" <?php if( $provider['address_country'] == 'MR' ) { echo 'selected'; } ?> >Mauritania</option>
+															<option value="MU" <?php if( $provider['address_country'] == 'MU' ) { echo 'selected'; } ?> >Mauritius</option>
+															<option value="YT" <?php if( $provider['address_country'] == 'YT' ) { echo 'selected'; } ?> >Mayotte</option>
+															<option value="MX" <?php if( $provider['address_country'] == 'MX' ) { echo 'selected'; } ?> >Mexico</option>
+															<option value="FM" <?php if( $provider['address_country'] == 'FM' ) { echo 'selected'; } ?> >Micronesia, Federated States of</option>
+															<option value="MD" <?php if( $provider['address_country'] == 'MD' ) { echo 'selected'; } ?> >Moldova, Republic of</option>
+															<option value="MC" <?php if( $provider['address_country'] == 'MC' ) { echo 'selected'; } ?> >Monaco</option>
+															<option value="MN" <?php if( $provider['address_country'] == 'MN' ) { echo 'selected'; } ?> >Mongolia</option>
+															<option value="ME" <?php if( $provider['address_country'] == 'ME' ) { echo 'selected'; } ?> >Montenegro</option>
+															<option value="MS" <?php if( $provider['address_country'] == 'MS' ) { echo 'selected'; } ?> >Montserrat</option>
+															<option value="MA" <?php if( $provider['address_country'] == 'MA' ) { echo 'selected'; } ?> >Morocco</option>
+															<option value="MZ" <?php if( $provider['address_country'] == 'MZ' ) { echo 'selected'; } ?> >Mozambique</option>
+															<option value="MM" <?php if( $provider['address_country'] == 'MM' ) { echo 'selected'; } ?> >Myanmar</option>
+															<option value="NA" <?php if( $provider['address_country'] == 'NA' ) { echo 'selected'; } ?> >Namibia</option>
+															<option value="NR" <?php if( $provider['address_country'] == 'NR' ) { echo 'selected'; } ?> >Nauru</option>
+															<option value="NP" <?php if( $provider['address_country'] == 'NP' ) { echo 'selected'; } ?> >Nepal</option>
+															<option value="NL" <?php if( $provider['address_country'] == 'NL' ) { echo 'selected'; } ?> >Netherlands</option>
+															<option value="NC" <?php if( $provider['address_country'] == 'NC' ) { echo 'selected'; } ?> >New Caledonia</option>
+															<option value="NZ" <?php if( $provider['address_country'] == 'NZ' ) { echo 'selected'; } ?> >New Zealand</option>
+															<option value="NI" <?php if( $provider['address_country'] == 'NI' ) { echo 'selected'; } ?> >Nicaragua</option>
+															<option value="NE" <?php if( $provider['address_country'] == 'NE' ) { echo 'selected'; } ?> >Niger</option>
+															<option value="NG" <?php if( $provider['address_country'] == 'NG' ) { echo 'selected'; } ?> >Nigeria</option>
+															<option value="NU" <?php if( $provider['address_country'] == 'NU' ) { echo 'selected'; } ?> >Niue</option>
+															<option value="NF" <?php if( $provider['address_country'] == 'NF' ) { echo 'selected'; } ?> >Norfolk Island</option>
+															<option value="MP" <?php if( $provider['address_country'] == 'MP' ) { echo 'selected'; } ?> >Northern Mariana Islands</option>
+															<option value="NO" <?php if( $provider['address_country'] == 'NO' ) { echo 'selected'; } ?> >Norway</option>
+															<option value="OM" <?php if( $provider['address_country'] == 'OM' ) { echo 'selected'; } ?> >Oman</option>
+															<option value="PK" <?php if( $provider['address_country'] == 'PK' ) { echo 'selected'; } ?> >Pakistan</option>
+															<option value="PW" <?php if( $provider['address_country'] == 'PW' ) { echo 'selected'; } ?> >Palau</option>
+															<option value="PS" <?php if( $provider['address_country'] == 'PS' ) { echo 'selected'; } ?> >Palestinian Territory, Occupied</option>
+															<option value="PA" <?php if( $provider['address_country'] == 'PA' ) { echo 'selected'; } ?> >Panama</option>
+															<option value="PG" <?php if( $provider['address_country'] == 'PG' ) { echo 'selected'; } ?> >Papua New Guinea</option>
+															<option value="PY" <?php if( $provider['address_country'] == 'PY' ) { echo 'selected'; } ?> >Paraguay</option>
+															<option value="PE" <?php if( $provider['address_country'] == 'PE' ) { echo 'selected'; } ?> >Peru</option>
+															<option value="PH" <?php if( $provider['address_country'] == 'PH' ) { echo 'selected'; } ?> >Philippines</option>
+															<option value="PN" <?php if( $provider['address_country'] == 'PN' ) { echo 'selected'; } ?> >Pitcairn</option>
+															<option value="PL" <?php if( $provider['address_country'] == 'PL' ) { echo 'selected'; } ?> >Poland</option>
+															<option value="PT" <?php if( $provider['address_country'] == 'PT' ) { echo 'selected'; } ?> >Portugal</option>
+															<option value="PR" <?php if( $provider['address_country'] == 'PR' ) { echo 'selected'; } ?> >Puerto Rico</option>
+															<option value="QA" <?php if( $provider['address_country'] == 'QA' ) { echo 'selected'; } ?> >Qatar</option>
+															<option value="RE" <?php if( $provider['address_country'] == 'RE' ) { echo 'selected'; } ?> >Réunion</option>
+															<option value="RO" <?php if( $provider['address_country'] == 'RO' ) { echo 'selected'; } ?> >Romania</option>
+															<option value="RU" <?php if( $provider['address_country'] == 'RU' ) { echo 'selected'; } ?> >Russian Federation</option>
+															<option value="RW" <?php if( $provider['address_country'] == 'RW' ) { echo 'selected'; } ?> >Rwanda</option>
+															<option value="BL" <?php if( $provider['address_country'] == 'BL' ) { echo 'selected'; } ?> >Saint Barthélemy</option>
+															<option value="SH" <?php if( $provider['address_country'] == 'SH' ) { echo 'selected'; } ?> >Saint Helena, Ascension and Tristan da Cunha</option>
+															<option value="KN" <?php if( $provider['address_country'] == 'KN' ) { echo 'selected'; } ?> >Saint Kitts and Nevis</option>
+															<option value="LC" <?php if( $provider['address_country'] == 'LC' ) { echo 'selected'; } ?> >Saint Lucia</option>
+															<option value="MF" <?php if( $provider['address_country'] == 'MF' ) { echo 'selected'; } ?> >Saint Martin (French part)</option>
+															<option value="PM" <?php if( $provider['address_country'] == 'PM' ) { echo 'selected'; } ?> >Saint Pierre and Miquelon</option>
+															<option value="VC" <?php if( $provider['address_country'] == 'VC' ) { echo 'selected'; } ?> >Saint Vincent and the Grenadines</option>
+															<option value="WS" <?php if( $provider['address_country'] == 'WS' ) { echo 'selected'; } ?> >Samoa</option>
+															<option value="SM" <?php if( $provider['address_country'] == 'SM' ) { echo 'selected'; } ?> >San Marino</option>
+															<option value="ST" <?php if( $provider['address_country'] == 'ST' ) { echo 'selected'; } ?> >Sao Tome and Principe</option>
+															<option value="SA" <?php if( $provider['address_country'] == 'SA' ) { echo 'selected'; } ?> >Saudi Arabia</option>
+															<option value="SN" <?php if( $provider['address_country'] == 'SN' ) { echo 'selected'; } ?> >Senegal</option>
+															<option value="RS" <?php if( $provider['address_country'] == 'RS' ) { echo 'selected'; } ?> >Serbia</option>
+															<option value="SC" <?php if( $provider['address_country'] == 'SC' ) { echo 'selected'; } ?> >Seychelles</option>
+															<option value="SL" <?php if( $provider['address_country'] == 'SL' ) { echo 'selected'; } ?> >Sierra Leone</option>
+															<option value="SG" <?php if( $provider['address_country'] == 'SG' ) { echo 'selected'; } ?> >Singapore</option>
+															<option value="SX" <?php if( $provider['address_country'] == 'SX' ) { echo 'selected'; } ?> >Sint Maarten (Dutch part)</option>
+															<option value="SK" <?php if( $provider['address_country'] == 'SK' ) { echo 'selected'; } ?> >Slovakia</option>
+															<option value="SI" <?php if( $provider['address_country'] == 'SI' ) { echo 'selected'; } ?> >Slovenia</option>
+															<option value="SB" <?php if( $provider['address_country'] == 'SB' ) { echo 'selected'; } ?> >Solomon Islands</option>
+															<option value="SO" <?php if( $provider['address_country'] == 'SO' ) { echo 'selected'; } ?> >Somalia</option>
+															<option value="ZA" <?php if( $provider['address_country'] == 'ZA' ) { echo 'selected'; } ?> >South Africa</option>
+															<option value="GS" <?php if( $provider['address_country'] == 'GS' ) { echo 'selected'; } ?> >South Georgia and the South Sandwich Islands</option>
+															<option value="SS" <?php if( $provider['address_country'] == 'SS' ) { echo 'selected'; } ?> >South Sudan</option>
+															<option value="ES" <?php if( $provider['address_country'] == 'ES' ) { echo 'selected'; } ?> >Spain</option>
+															<option value="LK" <?php if( $provider['address_country'] == 'LK' ) { echo 'selected'; } ?> >Sri Lanka</option>
+															<option value="SD" <?php if( $provider['address_country'] == 'SD' ) { echo 'selected'; } ?> >Sudan</option>
+															<option value="SR" <?php if( $provider['address_country'] == 'SR' ) { echo 'selected'; } ?> >Suriname</option>
+															<option value="SJ" <?php if( $provider['address_country'] == 'SJ' ) { echo 'selected'; } ?> >Svalbard and Jan Mayen</option>
+															<option value="SZ" <?php if( $provider['address_country'] == 'SZ' ) { echo 'selected'; } ?> >Swaziland</option>
+															<option value="SE" <?php if( $provider['address_country'] == 'SE' ) { echo 'selected'; } ?> >Sweden</option>
+															<option value="CH" <?php if( $provider['address_country'] == 'CH' ) { echo 'selected'; } ?> >Switzerland</option>
+															<option value="SY" <?php if( $provider['address_country'] == 'SY' ) { echo 'selected'; } ?> >Syrian Arab Republic</option>
+															<option value="TW" <?php if( $provider['address_country'] == 'TW' ) { echo 'selected'; } ?> >Taiwan, Province of China</option>
+															<option value="TJ" <?php if( $provider['address_country'] == 'TJ' ) { echo 'selected'; } ?> >Tajikistan</option>
+															<option value="TZ" <?php if( $provider['address_country'] == 'TZ' ) { echo 'selected'; } ?> >Tanzania, United Republic of</option>
+															<option value="TH" <?php if( $provider['address_country'] == 'TH' ) { echo 'selected'; } ?> >Thailand</option>
+															<option value="TL" <?php if( $provider['address_country'] == 'TL' ) { echo 'selected'; } ?> >Timor-Leste</option>
+															<option value="TG" <?php if( $provider['address_country'] == 'TG' ) { echo 'selected'; } ?> >Togo</option>
+															<option value="TK" <?php if( $provider['address_country'] == 'TK' ) { echo 'selected'; } ?> >Tokelau</option>
+															<option value="TO" <?php if( $provider['address_country'] == 'TO' ) { echo 'selected'; } ?> >Tonga</option>
+															<option value="TT" <?php if( $provider['address_country'] == 'TT' ) { echo 'selected'; } ?> >Trinidad and Tobago</option>
+															<option value="TN" <?php if( $provider['address_country'] == 'TN' ) { echo 'selected'; } ?> >Tunisia</option>
+															<option value="TR" <?php if( $provider['address_country'] == 'TR' ) { echo 'selected'; } ?> >Turkey</option>
+															<option value="TM" <?php if( $provider['address_country'] == 'TM' ) { echo 'selected'; } ?> >Turkmenistan</option>
+															<option value="TC" <?php if( $provider['address_country'] == 'TC' ) { echo 'selected'; } ?> >Turks and Caicos Islands</option>
+															<option value="TV" <?php if( $provider['address_country'] == 'TV' ) { echo 'selected'; } ?> >Tuvalu</option>
+															<option value="UG" <?php if( $provider['address_country'] == 'UG' ) { echo 'selected'; } ?> >Uganda</option>
+															<option value="UA" <?php if( $provider['address_country'] == 'UA' ) { echo 'selected'; } ?> >Ukraine</option>
+															<option value="AE" <?php if( $provider['address_country'] == 'AE' ) { echo 'selected'; } ?> >United Arab Emirates</option>
+															<option value="GB" <?php if( $provider['address_country'] == 'GB' ) { echo 'selected'; } ?> >United Kingdom</option>
+															<option value="US" <?php if( $provider['address_country'] == 'US' ) { echo 'selected'; } ?> >United States</option>
+															<option value="UM" <?php if( $provider['address_country'] == 'UM' ) { echo 'selected'; } ?> >United States Minor Outlying Islands</option>
+															<option value="UY" <?php if( $provider['address_country'] == 'UY' ) { echo 'selected'; } ?> >Uruguay</option>
+															<option value="UZ" <?php if( $provider['address_country'] == 'UZ' ) { echo 'selected'; } ?> >Uzbekistan</option>
+															<option value="VU" <?php if( $provider['address_country'] == 'VU' ) { echo 'selected'; } ?> >Vanuatu</option>
+															<option value="VE" <?php if( $provider['address_country'] == 'VE' ) { echo 'selected'; } ?> >Venezuela, Bolivarian Republic of</option>
+															<option value="VN" <?php if( $provider['address_country'] == 'VN' ) { echo 'selected'; } ?> >Viet Nam</option>
+															<option value="VG" <?php if( $provider['address_country'] == 'VG' ) { echo 'selected'; } ?> >Virgin Islands, British</option>
+															<option value="VI" <?php if( $provider['address_country'] == 'VI' ) { echo 'selected'; } ?> >Virgin Islands, U.S.</option>
+															<option value="WF" <?php if( $provider['address_country'] == 'WF' ) { echo 'selected'; } ?> >Wallis and Futuna</option>
+															<option value="EH" <?php if( $provider['address_country'] == 'EH' ) { echo 'selected'; } ?> >Western Sahara</option>
+															<option value="YE" <?php if( $provider['address_country'] == 'YE' ) { echo 'selected'; } ?> >Yemen</option>
+															<option value="ZM" <?php if( $provider['address_country'] == 'ZM' ) { echo 'selected'; } ?> >Zambia</option>
+															<option value="ZW" <?php if( $provider['address_country'] == 'ZW' ) { echo 'selected'; } ?> >Zimbabwe</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- login details -->
+									<div class="panel panel-inverse">
+										<div class="panel-heading">
+											<h2 class="panel-title">Login Details</h2>
+											<div class="panel-heading-btn">
+												<div class="btn-group">
+
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Email</strong></label>
+														<input type="text" name="email" class="form-control" value="<?php echo $provider['email']; ?>">
+														<small>Example: joe.bloggs@gmail.com</small>
+													</div>
+												</div>
+												<div class="col-xl-3 col-sm-12">
+													<div class="form-group">
+														<label class="bmd-label-floating"><strong>Phone</strong></label>
+														<input type="text" name="phone" class="form-control" value="<?php echo $provider['phone']; ?>">
+														<small>Example: +44 161 980 1757</small>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-6 col-sm-12">
+									<!-- notes -->
+									<?php if( $admin_check || $staff_check ) { ?>
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Notes</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-12 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Admin use only. Only visible to admin users.)</small></label>
+															<textarea name="notes" class="form-control" rows="7"><?php echo $provider['notes']; ?></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-xl-8 col-xs-12">
+												</div>
+												<div class="col-xl-4 col-xs-12 text-right">
+													<div class="btn-group">
+														<a href="?c=users" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
+														<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					<?php } ?>
+				</div>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+										<?php debug( $provider ); ?>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			<?php } ?>
+
 
 			<!-- user functions -->
 			<?php function users() { ?>
