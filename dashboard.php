@@ -2861,17 +2861,39 @@ $vrns 		= get_all_vrns();
 												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
-														Approved
+														<?php if( $admin_check || $staff_check ) { ?>
+															<select name="status" class="form-control select2">
+																<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
+
+																<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending Submission</option>
+
+																<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
+
+																<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> >Approved</option>
+																<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
+																<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
+															</select>
+														<?php } else { ?>
+															<input type="text" class="form-control" name="status" id="status" value="<?php echo $job['status']; ?>" readonly>
+														<?php } ?>
 													</div>
 												</div>
 												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Provider</strong></label>
-														<select name="provider_id" class="form-control select2">
-															<?php foreach( $providers as $provider ) { ?>
-																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
-															<?php } ?>
-														</select>
+														<?php if( $admin_check || $staff_check ) { ?>
+															<select name="provider_id" class="form-control select2">
+																<?php foreach( $providers as $provider ) { ?>
+																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+																<?php } ?>
+															</select>
+														<?php } else { ?>
+															<select name="provider_id" class="form-control select2" readonly>
+																<?php foreach( $providers as $provider ) { ?>
+																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+																<?php } ?>
+															</select>
+														<?php } ?>
 													</div>
 												</div>
 												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
