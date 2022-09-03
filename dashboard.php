@@ -3159,8 +3159,8 @@ $vrns 		= get_all_vrns();
 												</div>
 											</div>
 											<div class="panel-body">
-												<div id="gallery" class="gallery">
-													<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
+												<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
+													<div id="gallery" class="gallery">
 														<?php foreach( $job['photos'] as $photo ) { ?>
 															<?php foreach( $users as $user ) { if( $user['id'] == $photo['added_by'] ) { break; } } ?>
 															<div class="image gallery-group-1">
@@ -3185,14 +3185,18 @@ $vrns 		= get_all_vrns();
 																</div>
 															</div>
 														<?php } ?>
-													<?php } else { ?>
-														<center>
-															<h3>
-																No photos have been uploaded.
-															</h3>
-														</center>
-													<?php } ?>
-												</div>
+													</div>
+												<?php } else { ?>
+													<div class="row">
+														<div class="col-xl-12">
+															<center>
+																<h3>
+																	No photos have been uploaded.
+																</h3>
+															</center>
+														</div>
+													</div>
+												<?php } ?>
 											</div>
 										</div>
 									</div>
