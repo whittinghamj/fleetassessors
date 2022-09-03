@@ -543,13 +543,13 @@ $vrns 		= get_all_vrns();
 					<?php } ?>
 
 					<ul class="nav"><li class="nav-header">Navigation</li>
-						<li <?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { echo'class="active"'; } ?>>
-							<a href="dashboard.php" onclick="processing();">
-								<i class="fa fa-home"></i>
-								<span>Home</span> 
-							</a>
-						</li>
 						<?php if( $admin_check || $staff_check ) { ?>
+							<li <?php if( get( 'c' ) == '' || get( 'c' ) == 'home' ) { echo'class="active"'; } ?>>
+								<a href="dashboard.php" onclick="processing();">
+									<i class="fa fa-home"></i>
+									<span>Home</span> 
+								</a>
+							</li>
 							<li <?php if( get( 'c' ) == 'customer' || get( 'c' ) == 'customers' ) { echo'class="active"'; } ?>>
 								<a href="dashboard.php?c=customers" onclick="processing();">
 									<i class="fa fa-users"></i>
@@ -2515,7 +2515,9 @@ $vrns 		= get_all_vrns();
 						<div class="panel-heading">
 							<h2 class="panel-title">Jobs</h2>
 							<div class="panel-heading-btn">
-								<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+								<?php if( $admin_check || $staff_check ) { ?>
+									<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#job_add">Add Job</button>
+								<?php } ?>
 							</div>
 						</div>
 						<div class="panel-body">
