@@ -29,13 +29,13 @@ if( isset( $array_of_customers[0] ) ) {
 
 echo "SELECT * 
     FROM `jobs` 
-    WHERE `customer_id` IN ('".$list_of_customers."')\n\n";
+    WHERE `customer_id` IN (".$list_of_customers.")\n\n";
 
 // get data
 $query = $conn->query( "
     SELECT * 
     FROM `jobs` 
-    WHERE `customer_id` IN ('".$list_of_customers."')
+    WHERE `customer_id` IN (".$list_of_customers.")
 " );
 
 $jobs = $query->fetchAll( PDO::FETCH_ASSOC );
