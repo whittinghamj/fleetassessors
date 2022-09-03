@@ -18,7 +18,7 @@ $count = 0;
 $query = $conn->query( "
     SELECT * 
     FROM `jobs` 
-    WHERE `customer_id` = IN ('4')
+    WHERE `customer_id` IN ('4')
 " );
 
 $results = $query->fetchAll( PDO::FETCH_ASSOC );
