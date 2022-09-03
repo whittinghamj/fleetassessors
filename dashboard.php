@@ -3116,7 +3116,7 @@ $vrns 		= get_all_vrns();
 							<div class="row">
 								<div class="col-xl-6 col-sm-12 no-gutters">
 									<!-- notes -->
-									<div class="col-xl-12 col-sm-6">
+									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Notes</h2>
@@ -3128,13 +3128,13 @@ $vrns 		= get_all_vrns();
 											</div>
 											<div class="panel-body">
 												<div class="row">
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
 															<textarea name="engineer_notes" id="engineer_notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
 														</div>
 													</div>
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-xs-6">
 														<div class="form-group">
 															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
 															<textarea name="internal_notes" id="internal_notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
@@ -3148,7 +3148,7 @@ $vrns 		= get_all_vrns();
 
 								<div class="col-xl-6 col-sm-12 no-gutters">
 									<!-- photos -->
-									<div class="col-xl-12 col-sm-6">
+									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Photo</h2>
