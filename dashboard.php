@@ -1440,20 +1440,7 @@ $vrns 		= get_all_vrns();
 
 					}
 
-					// find customer
-					foreach( $customers as $customer ) {
-						if( $customer['id'] == $customer_id ) {
-							break;
-						}
-					}
-
-					// find jobs
-					$customer['jobs'] = array();
-					foreach( $jobs as $job ) {
-						if( $job['customer_id'] == $customer_id ) {
-							$customer['jobs'][] = $job;
-						}
-					}
+					$customer 		= get_customer( $customer_id );
 				?>
 
 				<div id="content" class="content">
