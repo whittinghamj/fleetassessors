@@ -419,8 +419,6 @@ function provider_edit() {
 	$update = $conn->exec( "UPDATE `providers` SET `address_state` = '".$address_state."' WHERE `id` = '".$provider_id."' " );
 	$update = $conn->exec( "UPDATE `providers` SET `address_zip` = '".$address_zip."' WHERE `id` = '".$provider_id."' " );
 	$update = $conn->exec( "UPDATE `providers` SET `address_country` = '".$address_country."' WHERE `id` = '".$provider_id."' " );
-	$update = $conn->exec( "UPDATE `providers` SET `primary_contact_id` = '".$primary_contact_id."' WHERE `id` = '".$provider_id."' " );
-	$update = $conn->exec( "UPDATE `providers` SET `secondary_contact_id` = '".$secondary_contact_id."' WHERE `id` = '".$provider_id."' " );
 	$update = $conn->exec( "UPDATE `providers` SET `notes` = '".$notes."' WHERE `id` = '".$provider_id."' " );
 	$update = $conn->exec( "UPDATE `providers` SET `email` = '".$email."' WHERE `id` = '".$provider_id."' " );
 	$update = $conn->exec( "UPDATE `providers` SET `phone` = '".$phone."' WHERE `id` = '".$provider_id."' " );
