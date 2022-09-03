@@ -3179,11 +3179,9 @@ $vrns 		= get_all_vrns();
 																			<small>by</small> <a href="javascript:;"><?php echo $user['full_name']; ?></a>
 																		</div>
 																	</div>
-																	<!--
-																		<div class="desc">
-																			Nunc velit urna, aliquam at interdum sit amet, lacinia sit amet ligula. Quisque et erat eros. Aenean auctor metus in tortor placerat, non luctus justo blandit.
-																		</div>
-																	-->
+																	<div class="desc">
+																		<a href="actions.php?a=job_photo_delete&id=<?php echo $photo['id']; ?>" onclick="processing();"><button class="btn btn-sm btn-dnager">Delete</button></a>
+																	</div>
 																</div>
 															</div>
 														<?php } ?>
