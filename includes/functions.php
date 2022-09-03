@@ -780,7 +780,7 @@ function get_all_jobs() {
 		$query = $conn->query( "
 			SELECT * 
 			FROM `jobs` 
-			WHERE `customer_id` IN ('".$list_of_customers."')
+			WHERE `customer_id` IN (".$list_of_customers.")
 		" );
 	} else {
 		// get data
