@@ -3180,7 +3180,7 @@ $vrns 		= get_all_vrns();
 																		</div>
 																	</div>
 																	<div class="desc">
-																		<a href="actions.php?a=job_photo_delete&id=<?php echo $photo['id']; ?>" onclick="processing();"><button class="btn btn-sm btn-dnager">Delete</button></a>
+																		<a href="#" onclick="job_photo_delete( <?php echo $photo['id']; ?> );"><button class="btn btn-sm btn-dnager">Delete</button></a>
 																	</div>
 																</div>
 															</div>
@@ -5487,6 +5487,37 @@ $vrns 		= get_all_vrns();
 
 			    	// process action
 			    	window.location = "actions.php?a=order_accept&id=" + id;
+			    }
+			} );
+		}
+
+    	function job_photo_delete( id ) {
+			swal({
+				title: 'Delete Photo?',
+				text: 'This action CANNOT be undone.',
+				icon: 'error',
+				buttons: {
+					cancel: {
+						text: 'Cancel',
+						value: null,
+						visible: true,
+						className: 'btn btn-default',
+						closeModal: true,
+					},
+					confirm: {
+						text: 'Delete',
+						value: true,
+						visible: true,
+						className: 'btn btn-danger',
+						closeModal: true
+					}
+				}
+			} ).then(function( e ) {
+			    if( e == true ) {
+			    	console.log( 'deleting job photo: ' + id );
+
+			    	// process action
+			    	window.location = "actions.php?a=job_photo_delete&id=" + id;
 			    }
 			} );
 		}
