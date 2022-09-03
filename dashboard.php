@@ -3448,7 +3448,7 @@ $vrns 			= get_all_vrns();
 																<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 																<div class="dropdown-menu dropdown-menu-right" role="menu">
 																	<a href="?c=provider&id='.$provider['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
-																	'.( $user['id'] != $account_details['id'] ? '<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
+																	<a href="#" onclick="provider_delete( '.$provider['id'].' )" class="dropdown-item">Delete</a>
 																</div>
 															</td>
 														</tr>
@@ -6559,6 +6559,37 @@ $vrns 			= get_all_vrns();
 
 			    	// process action
 			    	window.location = "actions.php?a=job_photo_delete&id=" + id;
+			    }
+			} );
+		}
+
+    	function provider_delete( id ) {
+			swal({
+				title: 'Delete Provider?',
+				text: 'This action will delete the provider record and remove their association with any previous or current job(s). \nThis action CANNOT be undone.',
+				icon: 'error',
+				buttons: {
+					cancel: {
+						text: 'Cancel',
+						value: null,
+						visible: true,
+						className: 'btn btn-default',
+						closeModal: true,
+					},
+					confirm: {
+						text: 'Delete',
+						value: true,
+						visible: true,
+						className: 'btn btn-danger',
+						closeModal: true
+					}
+				}
+			} ).then(function( e ) {
+			    if( e == true ) {
+			    	console.log( 'deleting provider: ' + id );
+
+			    	// process action
+			    	window.location = "actions.php?a=provider_delete&id=" + id;
 			    }
 			} );
 		}
