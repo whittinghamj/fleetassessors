@@ -2822,186 +2822,6 @@ $vrns 		= get_all_vrns();
 						<form class="form" method="post" action="actions.php?a=job_edit">
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
-							<div class="row">
-								<div class="col-xl-6 col-sm-12 no-gutters">
-									<!-- customer details -->
-									<div class="col-xl-12 col-sm-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Customer Details</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<address>
-															<strong><?php echo $job['customer']['company_name']; ?></strong> <br>
-															<?php echo $job['customer']['full_address']; ?> <br>
-															<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
-														</address>
-													</div>
-													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
-															<address>
-																<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong> <br>
-																<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a> <br>
-																<?php echo $job['customer']['primary_contact']['phone']; ?>
-															</address>
-														<?php } else { ?>
-															<address>
-																No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
-															</address>
-														<?php } ?>
-													</div>
-													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<address>
-															<strong>Service Charge Percentage</strong> <br>
-															<?php echo $job['customer']['service_charge_percentage']; ?>%
-														</address>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- vehicle details -->
-									<div class="col-xl-12 col-sm-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Vehicle Details</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
-														<address>
-															<strong>Year</strong> <br>
-															<?php echo $job['vrn_details']['year']; ?><br>
-														</address>
-													</div>
-													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
-														<address>
-															<strong>Make</strong> <br>
-															<?php echo $job['vrn_details']['make']; ?><br>
-														</address>
-													</div>
-													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
-														<address>
-															<strong>Model</strong> <br>
-															<?php echo $job['vrn_details']['model']; ?><br>
-														</address>
-													</div>
-													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
-														<address>
-															<strong>Color</strong> <br>
-															<?php echo $job['vrn_details']['color']; ?><br>
-														</address>
-													</div>
-													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
-														<address>
-															<strong>Fuel</strong> <br>
-															<?php echo $job['vrn_details']['fuel']; ?><br>
-														</address>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- notes -->
-									<div class="col-xl-12 col-sm-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Notes</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
-															<textarea name="engineer_notes" id="engineer_notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
-														</div>
-													</div>
-													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
-															<textarea name="internal_notes" id="internal_notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-6 col-sm-12 no-gutters">
-									<!-- photos -->
-									<div class="col-xl-12 col-sm-12">
-										<div class="panel panel-inverse">
-											<div class="panel-heading">
-												<h2 class="panel-title">Photo</h2>
-												<div class="panel-heading-btn">
-													<div class="btn-group">
-														<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
-													</div>
-												</div>
-											</div>
-											<div class="panel-body">
-												<div id="gallery" class="gallery">
-													<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
-														<?php foreach( $job['photos'] as $photo ) { ?>
-															<?php foreach( $users as $user ) { if( $user['id'] == $photo['added_by'] ) { break; } } ?>
-															<div class="image gallery-group-1">
-																<div class="image-inner">
-																	<a href="job_photos/<?php echo $photo['file_name']; ?>" data-lightbox="gallery-group-1">
-																		<div class="img" style="background-image: url(job_photos/<?php echo $photo['file_name']; ?>)"></div>
-																	</a>
-																	<p class="image-caption">
-																		Fleet Assessors LTD
-																	</p>
-																</div>
-																<div class="image-info">
-																	<h5 class="title">Added: <?php echo date( "Y-m-d", $photo['added'] ); ?></h5>
-																	<div class="d-flex align-items-center mb-2">
-																		<div class="ms-auto">
-																			<small>by</small> <a href="javascript:;"><?php echo $user['full_name']; ?></a>
-																		</div>
-																	</div>
-																	<!--
-																		<div class="desc">
-																			Nunc velit urna, aliquam at interdum sit amet, lacinia sit amet ligula. Quisque et erat eros. Aenean auctor metus in tortor placerat, non luctus justo blandit.
-																		</div>
-																	-->
-																</div>
-															</div>
-														<?php } ?>
-													<?php } else { ?>
-														<center>
-															<h3>
-																No photos have been uploaded.
-															</h3>
-														</center>
-													<?php } ?>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
 							<!-- job options -->
 							<div class="row">
 								<div class="col-xl-12 col-sm-12">
@@ -3193,6 +3013,186 @@ $vrns 		= get_all_vrns();
 														<label class="bmd-label-floating"><strong>Total </strong></label>
 														<input type="text" name="approved_total" class="form-control" value="£<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
 													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xl-6 col-sm-12 no-gutters">
+									<!-- customer details -->
+									<div class="col-xl-12 col-sm-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Customer Details</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+														<address>
+															<strong><?php echo $job['customer']['company_name']; ?></strong> <br>
+															<?php echo $job['customer']['full_address']; ?> <br>
+															<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
+														</address>
+													</div>
+													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+														<?php if( isset( $job['customer']['primary_contact']['id'] ) ) { ?>
+															<address>
+																<strong><?php echo $job['customer']['primary_contact']['full_name']; ?></strong> <br>
+																<a href="mailto:<?php echo $job['customer']['primary_contact']['email']; ?>"><?php echo $job['customer']['primary_contact']['email']; ?></a> <br>
+																<?php echo $job['customer']['primary_contact']['phone']; ?>
+															</address>
+														<?php } else { ?>
+															<address>
+																No primary contact found for this customer. Please add one <a href="dashboard.php?c=customer&id=<?php echo $job['customer_id']; ?>">here</a>.
+															</address>
+														<?php } ?>
+													</div>
+													<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+														<address>
+															<strong>Service Charge Percentage</strong> <br>
+															<?php echo $job['customer']['service_charge_percentage']; ?>%
+														</address>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- vehicle details -->
+									<div class="col-xl-12 col-sm-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Vehicle Details</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Year</strong> <br>
+															<?php echo $job['vrn_details']['year']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Make</strong> <br>
+															<?php echo $job['vrn_details']['make']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Model</strong> <br>
+															<?php echo $job['vrn_details']['model']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Color</strong> <br>
+															<?php echo $job['vrn_details']['color']; ?><br>
+														</address>
+													</div>
+													<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">
+														<address>
+															<strong>Fuel</strong> <br>
+															<?php echo $job['vrn_details']['fuel']; ?><br>
+														</address>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- notes -->
+									<div class="col-xl-12 col-sm-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Notes</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Engineer Notes</strong></label>
+															<textarea name="engineer_notes" id="engineer_notes" class="form-control" rows="3"><?php echo $job['engineer_notes']; ?></textarea>
+														</div>
+													</div>
+													<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Notes</strong> <small>(Internal use only. Not visible to customers.)</small></label>
+															<textarea name="internal_notes" id="internal_notes" class="form-control" rows="3"><?php echo $job['internal_notes']; ?></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-6 col-sm-12 no-gutters">
+									<!-- photos -->
+									<div class="col-xl-12 col-sm-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Photo</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div id="gallery" class="gallery">
+													<?php if( isset( $job['photos'][0]['id'] ) ) { ?>
+														<?php foreach( $job['photos'] as $photo ) { ?>
+															<?php foreach( $users as $user ) { if( $user['id'] == $photo['added_by'] ) { break; } } ?>
+															<div class="image gallery-group-1">
+																<div class="image-inner">
+																	<a href="job_photos/<?php echo $photo['file_name']; ?>" data-lightbox="gallery-group-1">
+																		<div class="img" style="background-image: url(job_photos/<?php echo $photo['file_name']; ?>)"></div>
+																	</a>
+																	<p class="image-caption">
+																		Fleet Assessors LTD
+																	</p>
+																</div>
+																<div class="image-info">
+																	<h5 class="title">Added: <?php echo date( "Y-m-d", $photo['added'] ); ?></h5>
+																	<div class="d-flex align-items-center mb-2">
+																		<div class="ms-auto">
+																			<small>by</small> <a href="javascript:;"><?php echo $user['full_name']; ?></a>
+																		</div>
+																	</div>
+																	<!--
+																		<div class="desc">
+																			Nunc velit urna, aliquam at interdum sit amet, lacinia sit amet ligula. Quisque et erat eros. Aenean auctor metus in tortor placerat, non luctus justo blandit.
+																		</div>
+																	-->
+																</div>
+															</div>
+														<?php } ?>
+													<?php } else { ?>
+														<center>
+															<h3>
+																No photos have been uploaded.
+															</h3>
+														</center>
+													<?php } ?>
 												</div>
 											</div>
 										</div>
