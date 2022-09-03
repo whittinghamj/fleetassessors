@@ -1449,7 +1449,7 @@ $vrns 		= get_all_vrns();
 
 					// find jobs
 					$customer['jobs'] = array();
-					foreach( $ jobs as $job ) {
+					foreach( $jobs as $job ) {
 						if( $job['customer_id'] == $customer_id ) {
 							$customer['jobs'][] = $job;
 						}
