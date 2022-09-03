@@ -2909,117 +2909,7 @@ $vrns 		= get_all_vrns();
 							</div>
 
 							<div class="row">
-								<!-- initial uplift estimate -->
-								<div class="col-xl-6 col-xs-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Initial Uplift Breakdown</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Labour </strong></label>
-														<input type="text" name="uplift_labour" class="form-control" value="£<?php echo $job['uplift_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Paint </strong></label>
-														<input type="text" name="uplift_paint" class="form-control" value="£<?php echo $job['uplift_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Additional </strong></label>
-														<input type="text" name="uplift_additional" class="form-control" value="£<?php echo $job['uplift_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Parts </strong></label>
-														<input type="text" name="uplift_parts" class="form-control" value="£<?php echo $job['uplift_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Check </strong></label>
-														<input type="text" name="uplift_check" class="form-control" value="£<?php echo $job['uplift_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Total </strong></label>
-														<input type="text" name="uplift_total" class="form-control" value="£<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- approved uplift estimate -->
-								<div class="col-xl-6 col-xs-12">
-									<div class="panel panel-inverse">
-										<div class="panel-heading">
-											<h2 class="panel-title">Approved Uplift Breakdown</h2>
-											<div class="panel-heading-btn">
-												<div class="btn-group">
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Labour </strong></label>
-														<input type="text" name="approved_labour" class="form-control" value="£<?php echo $job['approved_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Paint </strong></label>
-														<input type="text" name="approved_paint" class="form-control" value="£<?php echo $job['approved_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Additional </strong></label>
-														<input type="text" name="approved_additional" class="form-control" value="£<?php echo $job['approved_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Parts </strong></label>
-														<input type="text" name="approved_parts" class="form-control" value="£<?php echo $job['approved_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Check </strong></label>
-														<input type="text" name="approved_check" class="form-control" value="£<?php echo $job['approved_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
-													</div>
-												</div>
-												<div class="col-xl-2 col-sm-12">
-													<div class="form-group">
-														<label class="bmd-label-floating"><strong>Total </strong></label>
-														<input type="text" name="approved_total" class="form-control" value="£<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-xl-6 col-sm-12 no-gutters">
+								<div class="col-xl-6 col-md-12 no-gutters">
 									<!-- customer details -->
 									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
@@ -3111,7 +3001,120 @@ $vrns 		= get_all_vrns();
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="col-xl-6 col-md-12 no-gutters">
+									<!-- initial uplift estimate -->
+									<div class="col-xl-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Initial Uplift Breakdown</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Labour </strong></label>
+															<input type="text" name="uplift_labour" class="form-control" value="£<?php echo $job['uplift_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Paint </strong></label>
+															<input type="text" name="uplift_paint" class="form-control" value="£<?php echo $job['uplift_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Additional </strong></label>
+															<input type="text" name="uplift_additional" class="form-control" value="£<?php echo $job['uplift_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Parts </strong></label>
+															<input type="text" name="uplift_parts" class="form-control" value="£<?php echo $job['uplift_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Check </strong></label>
+															<input type="text" name="uplift_check" class="form-control" value="£<?php echo $job['uplift_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Total </strong></label>
+															<input type="text" name="uplift_total" class="form-control" value="£<?php echo number_format( $job['uplift_estimate'], 2 ); ?>" readonly>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 
+									<!-- approved uplift estimate -->
+									<div class="col-xl-12">
+										<div class="panel panel-inverse">
+											<div class="panel-heading">
+												<h2 class="panel-title">Approved Uplift Breakdown</h2>
+												<div class="panel-heading-btn">
+													<div class="btn-group">
+														
+													</div>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Labour </strong></label>
+															<input type="text" name="approved_labour" class="form-control" value="£<?php echo $job['approved_labour']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Paint </strong></label>
+															<input type="text" name="approved_paint" class="form-control" value="£<?php echo $job['approved_paint']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Additional </strong></label>
+															<input type="text" name="approved_additional" class="form-control" value="£<?php echo $job['approved_additional']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Parts </strong></label>
+															<input type="text" name="approved_parts" class="form-control" value="£<?php echo $job['approved_parts']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Check </strong></label>
+															<input type="text" name="approved_check" class="form-control" value="£<?php echo $job['approved_check']; ?>" placeholder="0.00" <?php if( $job['status']=='approved' ) { echo 'readonly'; } ?>>
+														</div>
+													</div>
+													<div class="col-xl-2 col-sm-12">
+														<div class="form-group">
+															<label class="bmd-label-floating"><strong>Total </strong></label>
+															<input type="text" name="approved_total" class="form-control" value="£<?php echo number_format( $job['approved_estimate'], 2 ); ?>" readonly>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xl-6 col-sm-12 no-gutters">
 									<!-- notes -->
 									<div class="col-xl-12 col-sm-12">
 										<div class="panel panel-inverse">
