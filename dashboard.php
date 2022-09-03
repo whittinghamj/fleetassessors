@@ -2811,7 +2811,7 @@ $vrns 		= get_all_vrns();
 								<div class="col-xl-2 col-md-4 col-xs-6">
 									<div class="widget widget-stats bg-green">
 										<div class="stats-info">
-											<h4>Profit</h4>
+											<h4>Service Charge</h4>
 											<p>£<?php echo number_format( $job['profit'], 2 ); ?></p>	
 										</div>
 									</div>
