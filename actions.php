@@ -430,6 +430,27 @@ function provider_edit() {
 	go( $_SERVER['HTTP_REFERER'] );
 }
 
+function provider_delete() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
+	// map fields
+	$id 							= get( 'id' );
+
+	// delete data
+	$update = $conn->exec( "UPDATE `jobs` SET `provider_id` = '1' WHERE `provider_id` = '".$id."' " );
+
+	$delete = $conn->exec( "DELETE FROM `providers` WHERE `id` = '".$id."' " );
+
+	// set status message
+	status_message( "success", "Provider has been deleted." );
+
+	// redirect
+	go( 'dashboard.php?c=providers' );
+}
+
 // vrn lookup
 function vrn_lookup() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
