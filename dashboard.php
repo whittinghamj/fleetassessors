@@ -675,6 +675,22 @@ $vrns 			= get_all_vrns();
 						job();
 						break;
 
+					case "providers":
+						if( $admin_check || $staff_check ) {
+							providers();
+						} else {
+							access_denied();
+						}
+						break;
+
+					case "provider":
+						if( $admin_check || $staff_check ) {
+							provider();
+						} else {
+							access_denied();
+						}
+						break;
+
 					case "system_settings":
 						if( $admin_check ) {
 							system_settings();
@@ -688,7 +704,7 @@ $vrns 			= get_all_vrns();
 						break;
 
 					case "users":
-						if( $admin_check ) {
+						if( $admin_check || $staff_check ) {
 							users();
 						} else {
 							access_denied();
