@@ -701,7 +701,11 @@ $vrns 		= get_all_vrns();
 						break;
 
 					default:
-						home();
+						if( $customer_check ) {
+							jobs();
+						} else {
+							home();
+						}
 						break;
 				}
 			?>
