@@ -77,14 +77,17 @@ define("STRIPE_PUBLISHABLE_KEY", "pk_test_iUFUXx45G0sVuoHoKC1BeiXi");
 // get all customers
 $customers 		= get_customers();
 
-// get all users
-$users 		= get_users();
-
 // get all jobs
-$jobs 		= get_all_jobs();
+$jobs 			= get_all_jobs();
+
+// get all providers
+$providers 		= get_providers();
+
+// get all users
+$users 			= get_users();
 
 // get all vrns
-$vrns 		= get_all_vrns();
+$vrns 			= get_all_vrns();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -712,7 +715,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- dev section -->
 			<?php function dev() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -860,7 +863,7 @@ $vrns 		= get_all_vrns();
 			<?php } ?>
 
 			<?php function staging() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1256,7 +1259,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- access denied view -->
 			<?php function access_denied() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<div class="panel panel-inverse">
@@ -1282,7 +1285,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- customer views -->
 			<?php function customers() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -1429,7 +1432,7 @@ $vrns 		= get_all_vrns();
 			<?php } ?>
 
 			<?php function customer() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php 
 					// get data
@@ -2149,7 +2152,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- home view -->
 			<?php function home() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php $stats['total_users'] 		= total_users(); ?>
 				<?php $stats['total_customers'] 	= total_customers(); ?>
@@ -2444,7 +2447,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- job views -->
 			<?php function jobs() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php 
 					$stats['total_jobs'] = count( $jobs );
@@ -2674,7 +2677,7 @@ $vrns 		= get_all_vrns();
 			<?php } ?>
 
 			<?php function job() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php 
 					// get data
@@ -3328,10 +3331,153 @@ $vrns 		= get_all_vrns();
 				</div>
 			<?php } ?>
 
+			<!-- provider functions -->
+			<?php function providers() { ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
+
+				<div id="content" class="content">
+					<ol class="breadcrumb float-xl-right">
+						<li class="breadcrumb-item"><a href="dashboard.php" onclick="processing();">Home</a></li>
+						<li class="breadcrumb-item active">Providers</li>
+					</ol>
+
+					<h1 class="page-header">Providers</h1>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div id="status_message"></div><div id="kyc_status_message"></div>
+						</div>
+					</div>
+
+					<?php if( $dev_check ) { ?>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="panel">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xl-8 col-xs-12">
+											</div>
+											<div class="col-xl-4 col-xs-12 text-right">
+												<div class="btn-group">
+													<a class="btn btn-sm btn-purple text-white" data-toggle="modal" data-target="#dev_modal">Dev</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="panel panel-inverse">
+								<div class="panel-heading">
+									<h2 class="panel-title">Providers</h2>
+									<div class="panel-heading-btn">
+										<div class="btn-group">
+											<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#provider_add">Add Provider</button>
+										</div>
+									</div>
+								</div>
+								<div class="panel-body">
+									<table id="table_providers" class="table table-striped table-bordered table-td-valign-middle">
+										<thead>
+											<tr>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>ID</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Name</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Email</strong></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Phone</strong></th>
+												<th class="text-nowrap" data-orderable="false" width=""></th>
+												<th class="text-nowrap" data-orderable="true" width="1px"><strong>Status</strong></th>
+												<th class="text-nowrap" data-orderable="false" width="1px"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+												// build table
+												foreach( $providers as $provider ) {
+													// provider status
+													if( $provider['status'] == 'active' ) {
+														$provider['account_status'] = '<button class="btn btn-sm btn-success btn-block">Active</button>';
+													} elseif( $provider['status'] == 'suspended' ) {
+														$provider['account_status'] = '<button class="btn btn-sm btn-warning btn-block">Suspended</button>';
+													} elseif( $provider['status'] == 'terminated' ) {
+														$provider['account_status'] = '<button class="btn btn-sm btn-danger btn-block">Terminated</button>';
+													} elseif( $provider['status'] == 'pending' ) {
+														$provider['account_status'] = '<button class="btn btn-sm btn-info btn-block">Pending</button>';
+													}
+
+													// output
+													echo '
+														<tr>
+															<td class="text-nowrap">
+																<a href="?c=provider&id='.$provider['id'].'" onclick="processing();">'.$provider['id'].'</a>
+															</td>
+															<td class="text-nowrap">
+																<a href="?c=provider&id='.$provider['id'].'" onclick="processing();">'.$provider['name'].'</a>
+															</td>
+															<td class="text-nowrap">
+																<a href="mailto:'.$provider['email'].'">'.$provider['email'].'</a>
+															</td>
+															<td class="text-nowrap">
+																<a href="tel:'.$provider['phone'].'">'.$provider['phone'].'</a>
+															</td>
+															<td class="text-nowrap">
+															</td>
+															<td class="text-nowrap">
+																'.$provider['account_status'].'
+															</td>
+															<td class="text-nowrap">
+																<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																<div class="dropdown-menu dropdown-menu-right" role="menu">
+																	<a href="?c=provider&id='.$provider['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
+																	'.( $user['id'] != $account_details['id'] ? '<a href="#" onclick="user_delete( '.$user['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
+																</div>
+															</td>
+														</tr>
+													';
+												}
+											?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- dev modal -->
+				<div class="modal fade" id="dev_modal" tabindex="-1" role="dialog" aria-labelledby="dev_modal" aria-hidden="true">
+				   	<div class="modal-dialog modal-xl">
+					  	<div class="modal-content">
+						 	<div class="modal-header">
+								<h5 class="modal-title" id="myModalLabel">Dev</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									x
+								</button>
+						 	</div>
+						 	<div class="modal-body">
+						 		<div class="row">
+						 			<div class="col-xl-12 col-sm-12">
+										<?php debug( $users ); ?>
+									</div>
+								</div>
+						 	</div>
+						 	<div class="modal-footer">
+						 		<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+					  	</div>
+				   	</div>
+				</div>
+			<?php } ?>
+
 
 			<!-- user functions -->
 			<?php function users() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -3490,7 +3636,7 @@ $vrns 		= get_all_vrns();
 			<?php } ?>
 
 			<?php function user() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php 
 					// get data
@@ -4029,7 +4175,7 @@ $vrns 		= get_all_vrns();
 
 			<!-- vrn views -->
 			<?php function vrn_lookup() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<div id="content" class="content">
 					<ol class="breadcrumb float-xl-right">
@@ -4113,7 +4259,7 @@ $vrns 		= get_all_vrns();
 			<?php } ?>
 
 			<?php function vrn_lookup_results() { ?>
-				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns; ?>
+				<?php global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check, $not_found, $customers, $users, $jobs, $vrns, $providers; ?>
 
 				<?php
 					$vrn = get( 'vrn' );
