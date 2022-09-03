@@ -763,11 +763,24 @@ function get_all_jobs() {
 	// create blank array
 	$jobs = array();
 
-	// get data
-	$query = $conn->query( "
-		SELECT * 
-		FROM `jobs` 
-	" );
+	// customer or staff checkpoint
+	if( $account_details['type'] == 'customer' ) {
+		// find jobs for this user / customer
+
+		// get data
+		$query = $conn->query( "
+			SELECT * 
+			FROM `jobs` 
+			WHERE `customer_id` = '".$account_details['id']."'
+		" );
+	} else {
+		// get data
+		$query = $conn->query( "
+			SELECT * 
+			FROM `jobs` 
+		" );
+	}
+
 
 	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
 

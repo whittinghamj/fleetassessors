@@ -18,20 +18,9 @@ $count = 0;
 $query = $conn->query( "
     SELECT * 
     FROM `jobs` 
+    WHERE `customer_id` = IN (4)
 " );
-$data = $query->fetchAll( PDO::FETCH_ASSOC );
 
-// loop over data
-foreach( $data as $bit ) {
-    // debug( $bit );
+$results = $query->fetchAll( PDO::FETCH_ASSOC );
 
-    // convert added to added_date
-    $date = date( "d-m-Y", $bit['added'] );
-
-    console_output( "added = ".$bit['added']." | added_date = ".$date );
-
-    // update record
-    $update = $conn->exec( "UPDATE `jobs` SET `added_date` = '".$date."' WHERE `id` = '".$bit['id']."' " );
-
-}
-
+debug( $results );
