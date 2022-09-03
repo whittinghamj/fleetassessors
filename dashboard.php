@@ -1446,6 +1446,14 @@ $vrns 		= get_all_vrns();
 							break;
 						}
 					}
+
+					// find jobs
+					$customer['jobs'] = array();
+					foreach( $ jobs as $job ) {
+						if( $job['customer_id'] == $customer_id ) {
+							$customer['jobs'][] = $job;
+						}
+					}
 				?>
 
 				<div id="content" class="content">
