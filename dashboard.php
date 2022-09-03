@@ -5249,6 +5249,15 @@ $vrns 		= get_all_vrns();
 	
 	<!-- global javascript functions -->
 	<script>
+		$(document).keypress(
+			function( event ){
+				if( event.which == '13' ) {
+					event.preventDefault();
+					console.log( 'enter key detected.' );
+				}
+			}
+		);
+		
 		// select2
 		$(document).ready(function() {
 			$( '.select2' ).select2();
