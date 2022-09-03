@@ -170,21 +170,19 @@ function only_numbers( $string ) {
 function action_security_check( $security_levels ) {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
-	foreach( $security_levels as $security_level ) {
-		error_log( 'checkpoint ' . $security_level );
+	error_log( "\n");
+	error_log( '[guard] - have your ID ready for inspection' );
+	error_log( "\n");
 
-		// admin check
-		if( $security_level == 'admin' ) {
-			if( $admin_check ) { break; } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
-		}
-
-		// staff check
-		if( $security_level == 'staff' ) {
-			if( $staff_check ) { break; } else { error_log('failed '.$security_level.' checkpoint'); go( 'dashboard.php?c=access_denied' ); }
-		}
+	if( in_array( $account_details['type'], $security_levels ) ) {
+	    error_log( "\n");
+		error_log( '[guard] - ALL CLEAR' );
+		error_log( "\n");
+	} else {
+		error_log( "\n");
+		error_log( '[guard] - GET ON THE GROUND ' );
+		error_log( "\n");
 	}
-
-	error_log( 'checkpoint passed' );
 }
 
 // add vat
