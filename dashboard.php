@@ -1439,7 +1439,13 @@ $vrns 		= get_all_vrns();
 					if( empty( $customer_id ) ) {
 
 					}
-					$customer 		= get_customer( $customer_id );
+
+					// find customer
+					foreach( $customers as $customer ) {
+						if( $customer['id'] == $customer_id ) {
+							break;
+						}
+					}
 				?>
 
 				<div id="content" class="content">
@@ -1500,7 +1506,7 @@ $vrns 		= get_all_vrns();
 									<div class="widget widget-stats bg-white text-inverse">
 										<div class="stats-content">
 											<div class="stats-title text-inverse-lighter">
-												Total Approved Uplift Value
+												Customer Value
 											</div>
 											<div class="stats-number">£<?php echo number_format( $customer['total_approved_uplifts'], 2 ); ?></div>
 										</div>
@@ -5257,7 +5263,7 @@ $vrns 		= get_all_vrns();
 				}
 			}
 		);
-		
+
 		// select2
 		$(document).ready(function() {
 			$( '.select2' ).select2();
