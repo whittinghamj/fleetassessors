@@ -2910,7 +2910,7 @@ $vrns 		= get_all_vrns();
 
 							<!-- initial uplift estimate -->
 							<div class="row">
-								<div class="col-xl-12">
+								<div class="col-xl-6">
 									<div class="panel panel-inverse">
 										<div class="panel-heading">
 											<h2 class="panel-title">Initial Uplift Breakdown</h2>
