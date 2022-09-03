@@ -2819,7 +2819,9 @@ $vrns 		= get_all_vrns();
 							<?php } ?>
 						</div>
 
-						<form class="form" method="post" action="actions.php?a=job_edit">
+						<?php if( $admin_check || $staff_check ) { ?>
+							<form class="form" method="post" action="actions.php?a=job_edit">
+						<?php } ?>
 							<input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
 							<!-- job options -->
@@ -2861,48 +2863,27 @@ $vrns 		= get_all_vrns();
 												<div class="col-xl-1 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Status</strong></label>
-														<?php if( $admin_check || $staff_check ) { ?>
-															<select name="status" class="form-control select2">
-																<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
+														<select name="status" class="form-control select2">
+															<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> >New Job</option>
 
-																<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending Submission</option>
+															<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> >Pending Submission</option>
 
-																<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
+															<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> >Submitted</option>
 
-																<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> >Approved</option>
-																<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
-																<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
-															</select>
-														<?php } else { ?>
-															<select name="status" class="form-control select2">
-																<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> disabled>New Job</option>
-
-																<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> disabled>Pending Submission</option>
-
-																<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> disabled>Submitted</option>
-
-																<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> disabled>Approved</option>
-																<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> disabled>Cancelled</option>
-																<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> disabled>Rejected</option>															
-															</select>														<?php } ?>
+															<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> >Approved</option>
+															<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> >Cancelled</option>
+															<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
+														</select>
 													</div>
 												</div>
 												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label class="bmd-label-floating"><strong>Provider</strong></label>
-														<?php if( $admin_check || $staff_check ) { ?>
-															<select name="provider_id" class="form-control select2">
-																<?php foreach( $providers as $provider ) { ?>
-																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
-																<?php } ?>
-															</select>
-														<?php } else { ?>
-															<select name="provider_id" class="form-control select2">
-																<?php foreach( $providers as $provider ) { ?>
-																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> disabled><?php echo $provider['name']; ?></option>
-																<?php } ?>
-															</select>
-														<?php } ?>
+														<select name="provider_id" class="form-control select2">
+															<?php foreach( $providers as $provider ) { ?>
+																<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+															<?php } ?>
+														</select>
 													</div>
 												</div>
 												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -3235,7 +3216,9 @@ $vrns 		= get_all_vrns();
 												<div class="col-xl-4 col-xs-12 text-right">
 													<div class="btn-group">
 														<a href="javascript:history.back();" type="button" onclick="processing();" class="btn btn-sm btn-white">Back</a>
-														<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
+														<?php if( $admin_check || $staff_check ) { ?>
+															<button type="submit" onclick="saving();" class="btn btn-sm btn-success">Save</button>
+														<?php } ?>
 													</div>
 												</div>
 											</div>
