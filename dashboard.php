@@ -3952,7 +3952,7 @@ $vrns 		= get_all_vrns();
 
 								<div class="col-xl-6 col-sm-12">
 									<!-- notes -->
-									<?php if( $admin_check ) { ?>
+									<?php if( $admin_check || $staff_check ) { ?>
 										<div class="panel panel-inverse">
 											<div class="panel-heading">
 												<h2 class="panel-title">Notes</h2>
