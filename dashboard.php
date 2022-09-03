@@ -2874,8 +2874,17 @@ $vrns 		= get_all_vrns();
 																<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> >Rejected</option>															
 															</select>
 														<?php } else { ?>
-															<input type="text" class="form-control" name="status" id="status" value="<?php echo $job['status']; ?>" readonly>
-														<?php } ?>
+															<select name="status" class="form-control select2">
+																<option value="new" <?php if( $job['status'] == 'new' ) { echo 'selected'; } ?> disabled>New Job</option>
+
+																<option value="pending" <?php if( $job['status'] == 'pending' ) { echo 'selected'; } ?> disabled>Pending Submission</option>
+
+																<option value="submitted" <?php if( $job['status'] == 'submitted' ) { echo 'selected'; } ?> disabled>Submitted</option>
+
+																<option value="approved" <?php if( $job['status'] == 'approved' ) { echo 'selected'; } ?> disabled>Approved</option>
+																<option value="cancelled" <?php if( $job['status'] == 'cancelled' ) { echo 'selected'; } ?> disabled>Cancelled</option>
+																<option value="rejected" <?php if( $job['status'] == 'rejected' ) { echo 'selected'; } ?> disabled>Rejected</option>															
+															</select>														<?php } ?>
 													</div>
 												</div>
 												<div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
