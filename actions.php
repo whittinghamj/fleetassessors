@@ -98,6 +98,20 @@ switch( $a ) {
         break;
 
 
+    // provider functions
+    case "provider_add":
+        provider_add();
+        break;
+
+    case "provider_edit":
+        provider_edit();
+        break;
+
+    case "provider_delete":
+        provider_delete();
+        break;
+
+
     // user functions
     case "user_add":
         user_add();
@@ -311,6 +325,69 @@ function customer_delete() {
 
 	// redirect
 	go( 'dashboard.php?c=customers' );
+}
+
+
+// provider functions
+function provider_add() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// map fields
+	$name 							= post( 'name' );
+	$email 							= post( 'email' );
+	$phone 							= post( 'phone' );
+	$phone 							= only_numbers( $phone );
+	$address_1 						= post( 'address_1' );
+	$address_2 						= post( 'address_2' );
+	$address_city 					= post( 'address_city' );
+	$address_state 					= post( 'address_state' );
+	$address_zip 					= post( 'address_zip' );
+	$address_country 				= post( 'address_country' );
+	
+	$added_date 					= date( "d-m-Y", time() );
+
+	// does vrn already exist
+	$query = $conn->query( "
+	        SELECT `id`, `added`, `last_checked` 
+	        FROM `providers` 
+	        WHERE `name` = '".$name."' 
+	    " );
+	$data = $query->fetch( PDO::FETCH_ASSOC );
+
+	if( isset( $data['id'] ) ) {
+		// provider already exists
+
+		// set status message
+		status_message( "danger", "There is already a provider with the name: ".$name );
+
+		go( $_SERVER['HTTP_REFERER'] );
+	} else {
+		// save data
+		$insert = $conn->exec( "INSERT IGNORE INTO `providers` 
+			(`added`,`added_by`,`status`,`name`,`address_1`,`address_2`,`address_city`,`address_state`,`address_zip`,`address_country`,`email`,`phone`)
+			VALUE
+			('".time()."',
+			'".$account_details['']."',
+			'active',
+			'".$name."',
+			'".$address_1."',
+			'".$address_2."',
+			'".$address_city."',
+			'".$address_state."',
+			'".$address_zip."',
+			'".$address_country."',
+			'".$email."',
+			'".$phone."'
+		)" );
+
+		$provider_id = $conn->lastInsertId();
+	}
+
+	// set status message
+	status_message( "success", "Provider has been added." );
+
+	// redirect
+	go( 'dashboard.php?c=provider&id='.$provider_id );
 }
 
 
@@ -536,7 +613,7 @@ function job_add() {
 		$update = $conn->exec( "UPDATE `vrn_database` SET `last_checked` = '".time()."' WHERE `id` = '".$vrn_id."' " );
 	}
 
-	// save data - job
+	// save data
 	$insert = $conn->exec( "INSERT IGNORE INTO `jobs` 
 		(`added`,`added_date`,`updated`,`customer_id`,`added_by`,`vrn`,`initial_estimate_inc_vat`,`initial_estimate`)
 		VALUE
