@@ -758,20 +758,29 @@ function get_jobs( $customer = '' ) {
 
 // get all jobs
 function get_all_jobs() {
-	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check;
+	global $conn, $account_details, $globals, $admin_check, $dev_check, $customer_check, $staff_check, $customers;
 
 	// create blank array
 	$jobs = array();
 
 	// customer or staff checkpoint
 	if( $account_details['type'] == 'customer' ) {
-		// find jobs for this user / customer
+		// find customers for this user
+		$array_of_customers = array();
+		foreach( $customers as $customer ) {
+			if( $customer['primary_contact_id'] == $account_details['id'] || $customer['secondary_contact_id'] == $account_details['id'] ) {
+				$array_of_customers[] = $customer['id'];
+			}
+		}
+		if( isset( $array_of_customers[0] ) ) {
+			$list_of_customers = "'".implode("', '", $array_of_customers )."'";
+		}
 
 		// get data
 		$query = $conn->query( "
 			SELECT * 
 			FROM `jobs` 
-			WHERE `customer_id` = '".$account_details['id']."'
+			WHERE `customer_id` IN ('".$list_of_customers."')
 		" );
 	} else {
 		// get data

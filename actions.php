@@ -737,7 +737,6 @@ function job_photo_delete() {
 	go( $_SERVER['HTTP_REFERER'] );
 }
 
-
 function job_delete() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
