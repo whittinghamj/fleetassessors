@@ -2629,7 +2629,7 @@ $vrns 		= get_all_vrns();
 																	<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
 																</div>
 																' : '
-																<a href="?c=job&id='.$job['id'].'" onclick="processing();" class="btn btn-sm btn-primary>View</a>
+																
 															' ).'
 														</td>
 													</tr>
