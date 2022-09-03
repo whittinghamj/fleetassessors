@@ -2888,9 +2888,9 @@ $vrns 		= get_all_vrns();
 																<?php } ?>
 															</select>
 														<?php } else { ?>
-															<select name="provider_id" class="form-control select2" readonly>
+															<select name="provider_id" class="form-control select2">
 																<?php foreach( $providers as $provider ) { ?>
-																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> ><?php echo $provider['name']; ?></option>
+																	<option value="<?php echo $provider['id']; ?>" <?php if( $provider['id'] == $job['provider_id'] ) { echo 'selected'; } ?> disabled><?php echo $provider['name']; ?></option>
 																<?php } ?>
 															</select>
 														<?php } ?>
