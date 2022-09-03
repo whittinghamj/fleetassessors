@@ -3156,7 +3156,9 @@ $vrns 		= get_all_vrns();
 												<h2 class="panel-title">Photo</h2>
 												<div class="panel-heading-btn">
 													<div class="btn-group">
-														<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+														<?php if( $admin_check || $staff_check ) { ?>
+															<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add_photo_modal">Add Photo</a>
+														<?php } ?>
 													</div>
 												</div>
 											</div>
