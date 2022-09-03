@@ -2625,7 +2625,7 @@ $vrns 		= get_all_vrns();
 															<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
 															<div class="dropdown-menu dropdown-menu-right" role="menu">
 																<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
-																<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+																'.( $admin_check || $staff_check ? '<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
 															</div>
 														</td>
 													</tr>
