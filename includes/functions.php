@@ -790,7 +790,6 @@ function get_all_jobs() {
 		" );
 	}
 
-
 	$jobs = $query->fetchAll( PDO::FETCH_ASSOC );
 
 	// sanity check

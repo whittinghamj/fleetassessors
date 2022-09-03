@@ -9,6 +9,8 @@ include( dirname(__FILE__).'/includes/core.php' );
 include( dirname(__FILE__).'/includes/functions.php' );
 
 $account_details = account_details( $_SESSION['account']['id'] );
+debug( $account_details );
+
 
 $jobs = get_all_jobs();
 
