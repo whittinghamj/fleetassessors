@@ -348,7 +348,7 @@ function provider_add() {
 
 	// does vrn already exist
 	$query = $conn->query( "
-	        SELECT `id`, `added`, `last_checked` 
+	        SELECT `id` 
 	        FROM `providers` 
 	        WHERE `name` = '".$name."' 
 	    " );
