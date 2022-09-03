@@ -8,19 +8,6 @@ error_reporting (E_ALL);
 include( dirname(__FILE__).'/includes/core.php' );
 include( dirname(__FILE__).'/includes/functions.php' );
 
-// create blank array
-$results = array();
+$jobs = get_all_jobs();
 
-// set $count
-$count = 0;
-
-// get data
-$query = $conn->query( "
-    SELECT * 
-    FROM `jobs` 
-    WHERE `customer_id` IN ('4')
-" );
-
-$results = $query->fetchAll( PDO::FETCH_ASSOC );
-
-debug( $results );
+debug( $jobs );
