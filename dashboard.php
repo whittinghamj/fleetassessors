@@ -2622,11 +2622,15 @@ $vrns 		= get_all_vrns();
 															'.$job['status'].'
 														</td>
 														<td class="text-nowrap">
-															<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
-															<div class="dropdown-menu dropdown-menu-right" role="menu">
-																<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
-																'.( $admin_check || $staff_check ? '<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>' : '' ).'
-															</div>
+															'.( $admin_check || $staff_check ? '
+																<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">Actions<b class="caret"></b></button>
+																<div class="dropdown-menu dropdown-menu-right" role="menu">
+																	<a href="?c=job&id='.$job['id'].'" class="dropdown-item" onclick="processing();">View / Edit</a>
+																	<a href="#" onclick="job_delete( '.$job['id'].' )" class="dropdown-item">Delete</a>
+																</div>
+																' : '
+																<a href="?c=job&id='.$job['id'].'" onclick="processing();" class="btn btn-sm btn-primary>View</a>
+															' ).'
 														</td>
 													</tr>
 												';
