@@ -917,6 +917,24 @@ function get_customers() {
 	// create blank array
 	$customers = array();
 
+	// customer or staff checkpoint
+	if( $account_details['type'] == 'customer' ) {
+		// find linked customer account
+
+		// get data
+		$query = $conn->query( "
+			SELECT * 
+			FROM `customers` 
+			WHERE `primary_contact_id` = '".$account_details['id']."'
+		" );
+	} else {
+		// get data
+		$query = $conn->query( "
+			SELECT * 
+			FROM `customers` 
+		" );
+	}
+
 	// get data
 	$query = $conn->query( "
 		SELECT * 
