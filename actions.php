@@ -85,8 +85,12 @@ switch( $a ) {
         job_edit();
         break;
 
-    case "job_add_photo":
-        job_add_photo();
+    case "job_photo_add":
+        job_photo_add();
+        break;
+
+    case "job_photo_delete":
+        job_photo_delete();
         break;
 
     case "job_delete":
@@ -666,7 +670,7 @@ function job_edit() {
 	go( $_SERVER['HTTP_REFERER'] );
 }
 
-function job_add_photo() {
+function job_photo_add() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
 
 	// security point
@@ -713,6 +717,26 @@ function job_add_photo() {
 		exit();
 	}
 }
+
+function job_photo_delete() {
+	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;
+
+	// security point
+	action_security_check( array( 'admin','staff' ) );
+
+	// map fields
+	$id 							= get( 'id' );
+
+	// delete data
+	$delete = $conn->exec( "DELETE FROM `job_photos` WHERE `id` = '".$id."' " );
+
+	// set status message
+	status_message( "success", "Photo has been deleted." );
+
+	// redirect
+	go( $_SERVER['HTTP_REFERER'] );
+}
+
 
 function job_delete() {
 	global $conn, $globals, $account_details, $admin_check, $dev_check, $staff_check;

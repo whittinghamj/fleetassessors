@@ -5949,7 +5949,7 @@ $vrns 		= get_all_vrns();
 				ajax.addEventListener( "load", completeHandler, false) ;
 				ajax.addEventListener( "error", errorHandler, false) ;
 				ajax.addEventListener( "abort", abortHandler, false );
-				ajax.open( "POST", "actions.php?a=job_add_photo" );
+				ajax.open( "POST", "actions.php?a=job_photo_add" );
 				ajax.send( formdata );
 			}
 
