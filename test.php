@@ -8,6 +8,8 @@ error_reporting (E_ALL);
 include( dirname(__FILE__).'/includes/core.php' );
 include( dirname(__FILE__).'/includes/functions.php' );
 
+$account_details = account_details( $_SESSION['account']['id'] );
+
 $jobs = get_all_jobs();
 
 debug( $jobs );
