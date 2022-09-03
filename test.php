@@ -8,7 +8,9 @@ error_reporting (E_ALL);
 include( dirname(__FILE__).'/includes/core.php' );
 include( dirname(__FILE__).'/includes/functions.php' );
 
-$account_details = account_details( $_SESSION['account']['id'] );
+$account_details['id']      = '3';
+$account_details['type']    = 'customer';
+
 debug( $account_details );
 
 
