@@ -656,6 +656,14 @@ $vrns 		= get_all_vrns();
 						}
 						break;
 
+					case "home":
+						if( $customer_check ) {
+							jobs();
+						} else {
+							home();
+						}
+						break;
+
 					case "jobs":
 						jobs();
 						break;
