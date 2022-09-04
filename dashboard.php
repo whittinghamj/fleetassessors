@@ -607,12 +607,14 @@ $vrns 			= get_all_vrns();
 									<span>Users</span> 
 								</a>
 							</li>
-							<li <?php if( get( 'c' ) == 'system_settings' ) { echo'class="active"'; } ?>>
-								<a href="dashboard.php?c=system_settings">
-									<i class="fa fa-cogs"></i>
-									<span>System Settings</span> 
-								</a>
-							</li>
+							<!--
+								<li <?php if( get( 'c' ) == 'system_settings' ) { echo'class="active"'; } ?>>
+									<a href="dashboard.php?c=system_settings">
+										<i class="fa fa-cogs"></i>
+										<span>System Settings</span> 
+									</a>
+								</li>
+							-->
 						</ul>
 					<?php } ?>
 				</div>
