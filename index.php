@@ -50,7 +50,7 @@ include( dirname(__FILE__).'/includes/functions.php' );
 					<!--
 						<span class="logo"><i class="ion-ios-cloud"></i></span> 
 					-->
-					<?php echo $globals['platform_name']; ?>
+					<?php echo $globals['platform_name']; ?> - Dashboard
 					<small></small>
 				</div>
 				<div class="icon">
