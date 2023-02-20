@@ -64,8 +64,8 @@ $globals['smtp_name']           = 'NetMaker';
 // load database
 $database['hostname']			= '173.248.140.254';
 $database['database'] 			= 'fleetassessors_dashboard';
-$database['username'] 			= 'whittinghamj';
-$database['password'] 			= 'admin1372Dextor!#&@Mimi!#&@';
+$database['username'] 			= '';
+$database['password'] 			= '';
 
 $dsn			                 = "mysql:host=".$database['hostname'].";dbname=".$database['database'];
 

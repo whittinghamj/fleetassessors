@@ -3,7 +3,7 @@
 $host			= '173.248.140.254';
 $db 			= 'themoneytree_dashboard';
 $username 		= 'whittinghamj';
-$password 		= 'admin1372Dextor!#&@Mimi!#&@';
+$password 		= '';
 
 $dsn			= "mysql:host=$host;dbname=$db";
 
